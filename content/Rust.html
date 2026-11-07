@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta property="head" content="H1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Rust</title>
+
+<link rel="stylesheet" href="./../static/chimper/fonts/icomoon/style.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/magnific-popup.css">
+<link rel="stylesheet" href="./../static/chimper/css/jquery-ui.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="./../static/chimper/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="./../static/chimper/css/aos.css">
+<link rel="stylesheet" href="./../static/chimper/css/style.css">
+<link rel="shortcut icon" href="./../static/favicons.png">
+
+<style type="text/css">
+.site-section { background-color: #FFFF; padding: 40px 40px; }
+body > div > div.dropdown.open { display: block; }
+img.add_border { border: 3px solid blue; }
+
+.page-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 20px;
+    margin: 24px 0;
+    padding: 12px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-navigation .previous {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
+.page-navigation .next {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+.page-navigation a {
+    display: inline-block;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.page-navigation a:hover {
+    text-decoration: underline;
+}
+</style>
+
+<script src="./../static/chimper/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/normalize.min.css">
+<script src="./../static/tipuesearch/tipuesearch_set.js"></script>
+<script src="tipuesearch_content.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/tipuesearch.css">
+<script src="./../static/tipuesearch/tipuesearch.js"></script>
+
+<script>
+function doSearch() {
+    if (window.jQuery && jQuery.fn.tipuesearch) {
+        jQuery('#tipue_search_input').tipuesearch({
+            newWindow: true,
+            minimumLength: 2,
+            wholeWords: false
+        });
+    }
+}
+
+if (window.jQuery) {
+    jQuery(document).ready(doSearch);
+}
+</script>
+
+<script type="text/javascript" src="./../static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../static/syntaxhighlighter/css/shCoreDefault.css">
+<style>
+pre, pre code, .syntaxhighlighter .line, .syntaxhighlighter table td.code .line {
+  white-space: pre !important; word-wrap: normal !important; word-break: normal !important;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="site-wrap">
+
+<div class="site-mobile-menu">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+<header class="site-navbar py-4 bg-white" role="banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <h1>Learning (學習)</h1>
+
+      <div class="pl-4">
+        <form action="#" onsubmit="return false;">
+          <input type="text"
+                 placeholder="Search"
+                 name="q"
+                 id="tipue_search_input"
+                 pattern=".{2,}"
+                 title="At least 2 characters">
+        </form>
+      </div>
+
+      <div class="col-12 col-md-10 d-none d-xl-block">
+        <nav class="site-navigation position-relative text-right" role="navigation">
+          <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+<li class="active has-children">
+<a href="index.html">Home</a>
+<ul class="dropdown">
+<li><a href="sitemap.html">SMap</a></li>
+</ul>
+</li>
+<li><a href="About.html">About</a></li>
+<li><a href="Rust.html">Rust</a></li>
+</ul>
+
+        </nav>
+      </div>
+
+      <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+           style="position: relative; top: 3px;">
+        <a href="#" class="site-menu-toggle js-menu-toggle text-black">
+          <span class="icon-menu h3"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="tipue_search_content">
+<h1>Rust</h1>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="About.html">Previous: About</a></div>
+<div class="next"></div>
+</nav>
+
+<p>學習 Rust 程式語言，建議採取「免費 PDF 教材＋實際寫程式＋練習題」的方式。</p>
+<p>Rust 是一門值得學習的現代程式語言，特色包括：</p>
+<ul>
+<li>記憶體安全： 不需要傳統垃圾回收器，也能有效避免許多記憶體錯誤。</li>
+<li>執行效率高： 編譯成原生程式，效能接近 C、C++。</li>
+<li>適合系統開發： 可用於作業系統、網路服務、命令列工具及嵌入式開發。</li>
+<li>跨平台： 支援 Windows、Linux、macOS 等平台。</li>
+</ul>
+<p>建議：不要一開始就讀太多進階技術，先學會 Rust 的基本語法，再深入了解它最重要的特色——Ownership（所有權）、Borrowing（借用）及 Lifetime（生命週期）。</p>
+<h4>一、推薦免費且較新的 Rust PDF 教材</h4>
+<p>以下整理幾份值得下載的教材，優先推薦官方及教育機構提供的免費資源。</p>
+<h4>1. Google Comprehensive Rust（最推薦）</h4>
+<p>免費 PDF・繁體中文Google Android 團隊製作</p>
+<p>從初學者基礎語法，到泛型、錯誤處理及進階主題都有涵蓋。</p>
+<ul>
+<li><a href="https://google.github.io/comprehensive-rust/zh-TW/comprehensive-rust.pdf?utm_source=chatgpt.com">直接下載繁體中文版 PDF</a></li>
+<li><a href="https://google.github.io/comprehensive-rust/zh-TW/?utm_source=chatgpt.com">繁體中文線上教材</a></li>
+<li><a href="https://google.github.io/comprehensive-rust/?utm_source=chatgpt.com">英文最新版教材</a></li>
+</ul>
+<p>這份教材的優點：</p>
+<ul>
+<li>有完整課程安排。</li>
+<li>有程式範例。</li>
+<li>有練習題。</li>
+<li>適合循序漸進學習。</li>
+<li>有繁體中文版本。</li>
+</ul>
+<p>我認為這是你可以優先下載的第一份教材。</p>
+<h4>2. The Rust Programming Language（官方 Rust 聖經）</h4>
+<p>免費線上閱讀Rust 官方核心教材</p>
+<p>Rust 社群公認最重要的入門教材。</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/?utm_source=chatgpt.com">官方最新版英文教材</a></li>
+<li><a href="https://rust-lang.org/zh-TW/learn/?utm_source=chatgpt.com">官方繁體中文學習入口</a></li>
+<li><a href="https://kaisery.github.io/trpl-zh-cn/Rust%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%20%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88.pdf?utm_source=chatgpt.com">簡體中文版 PDF（較舊版）</a></li>
+</ul>
+<p>主要內容：</p>
+<ol>
+<li>安裝 Rust。</li>
+<li>變數與資料型態。</li>
+<li>函式與流程控制。</li>
+<li>Struct 與 Enum。</li>
+<li>Ownership 所有權。</li>
+<li>References 借用。</li>
+<li>Error Handling 錯誤處理。</li>
+<li>Generic 泛型。</li>
+<li>Traits。</li>
+<li>Collections 與專案實作。</li>
+</ol>
+<p>注意：官方最新版主要提供線上 HTML 閱讀，並不是每個語言版本都有官方 PDF。</p>
+<h4>3. 從零開始學 Rust（繁體中文 PDF）</h4>
+<p>適合希望以中文理解程式觀念的初學者。</p>
+<ul>
+<li><a href="https://andyshiue.github.io/learning-rust-from-zero/zh-TW/?utm_source=chatgpt.com">繁體中文線上教材及 PDF 下載</a></li>
+</ul>
+<p>PDF 直接下載：</p>
+<p><a href="https://andyshiue.github.io/learning-rust-from-zero/zh-TW/book.pdf?utm_source=chatgpt.com">從零開始學 Rust－PDF</a></p>
+<p>內容包括：</p>
+<ul>
+<li>Rust 基本語法。</li>
+<li>變數與型態。</li>
+<li>所有權及借用。</li>
+<li>結構體與列舉。</li>
+<li>錯誤處理。</li>
+<li>非同步程式設計。</li>
+</ul>
+<p>這份教材比較適合希望以繁體中文一步步理解 Rust 的讀者。不過作者也提醒 PDF 不一定會與網頁版同步更新，因此以網頁版為準。</p>
+<h4>4. Rust By Example（透過範例學 Rust）</h4>
+<p>透過程式範例學習語法及應用。</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/rust-by-example/?utm_source=chatgpt.com">Rust By Example 官方教材</a></li>
+</ul>
+<p>這本教材比較偏向實作，不需要閱讀大量理論文字。</p>
+<p>適合搭配 Google 的 Comprehensive Rust 一起使用。</p>
+<h4>5. Rustlings（免費練習課程）</h4>
+<p>免費官方推薦的實作練習工具</p>
+<p>透過修改錯誤程式、完成練習來學習 Rust。</p>
+<ul>
+<li><a href="https://github.com/rust-lang/rustlings?utm_source=chatgpt.com">Rustlings 官方 GitHub</a></li>
+</ul>
+<p>它不是 PDF，而是可以在電腦上實際執行的練習課程。</p>
+<p>我的教材搭配建議：</p>
+<p>Google Comprehensive Rust 負責建立觀念，Rust 官方教材負責深入理解，Rustlings 負責練習。</p>
+<h4>二、學 Rust 應該從哪裡開始？</h4>
+<p>我建議分成六個階段。</p>
+<h4>Rust 初學者學習路線</h4>
+<ol>
+<li>第一階段：認識 Rust 預計 3～5 天
+<ul>
+<li>Rust 是什麼？</li>
+<li>安裝 Rust 編譯器。</li>
+<li>安裝 VS Code。</li>
+<li>學會 Cargo 專案管理。</li>
+<li>寫出第一個 Hello World。</li>
+</ul>
+</li>
+<li>第二階段：基本語法 預計 1～2 週
+<ul>
+<li>變數 let、mut。</li>
+<li>數字、字串、布林型態。</li>
+<li>if、loop、while、for。</li>
+<li>函式。</li>
+<li>陣列及 Vector。</li>
+</ul>
+</li>
+<li>第三階段：Rust 核心觀念 最重要預計 2～3 週
+<ul>
+<li>Ownership（所有權）。</li>
+<li>Borrowing（借用）。</li>
+<li>References（參照）。</li>
+<li>Lifetime（生命週期）。</li>
+<li>Stack 與 Heap。</li>
+</ul>
+</li>
+<li>第四階段：資料結構與錯誤處理 預計 1～2 週
+<ul>
+<li>Struct。</li>
+<li>Enum。</li>
+<li>Match。</li>
+<li>Option。</li>
+<li>Result。</li>
+<li>Error Handling。</li>
+</ul>
+</li>
+<li>第五階段：進階程式設計 預計 2～4 週
+<ul>
+<li>Generic。</li>
+<li>Trait。</li>
+<li>Iterator。</li>
+<li>Closure。</li>
+<li>Module。</li>
+<li>Crate。</li>
+</ul>
+</li>
+<li>第六階段：實際專案 持續練習
+<ul>
+<li>命令列工具。</li>
+<li>檔案讀寫。</li>
+<li>JSON 資料處理。</li>
+<li>網路 API。</li>
+<li>資料庫應用。</li>
+<li>Web 後端服務。</li>
+</ul>
+</li>
+</ol>
+<p>如果每天可以花1～2小時，先用2～3個月建立基本能力，是相當合理的學習目標。</p>
+<h4>三、第一步：安裝 Rust 開發環境</h4>
+<p>我建議使用以下免費工具：</p>
+<p>Rust 編譯器及工具鏈</p>
+<p><a href="https://www.rust-lang.org/tools/install?utm_source=chatgpt.com">免費下載 Rust</a></p>
+<p>程式編輯器</p>
+<p><a href="https://code.visualstudio.com/?utm_source=chatgpt.com">免費下載 VS Code</a></p>
+<p>rust-analyzer - Visual Studio Marketplace</p>
+<p>rust-analyzer</p>
+<p>語法提示、程式分析及自動補全</p>
+<p><a href="https://rust-analyzer.github.io/?utm_source=chatgpt.com">官方網站</a></p>
+<p>安裝完成後，打開終端機輸入：</p>
+<p>bash</p>
+<pre><code class="language-bash">rustc --version
+cargo --version
+</code></pre>
+<p>如果有顯示版本號，就表示基本環境已經安裝完成。</p>
+<h4>四、第一個 Rust 程式</h4>
+<p>建立專案：</p>
+<p>bash</p>
+<pre><code class="language-bash">cargo new hello_rust
+cd hello_rust
+</code></pre>
+<p>打開 <code>src/main.rs</code>，輸入：</p>
+<p>rust</p>
+<pre class="brush:rust;auto-links:false;toolbar:false" contenteditable="false">fn main() {
+    println!("Hello, Rust!");
+
+    let name = "Rust 學習者";
+
+    println!("歡迎你，{}！", name);
+}</pre>
+<p>執行：</p>
+<p>bash</p>
+<pre><code class="language-bash">cargo run
+</code></pre>
+<p>輸出：</p>
+<p>text</p>
+<pre><code class="language-text">Hello, Rust!
+歡迎你，Rust 學習者！
+</code></pre>
+<p>這就是你的第一個 Rust 程式。</p>
+<h4>五、免費學習網站整理</h4>
+<p>這幾個網站建議收藏起來：</p>
+<table>
+<thead>
+<tr>
+<th>學習資源</th>
+<th>主要用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://rust-lang.org/learn/?utm_source=chatgpt.com">Rust 官方學習入口</a></td>
+<td>整體學習路線</td>
+</tr>
+<tr>
+<td><a href="https://doc.rust-lang.org/book/?utm_source=chatgpt.com">Rust 官方書籍</a></td>
+<td>系統性學習</td>
+</tr>
+<tr>
+<td><a href="https://google.github.io/comprehensive-rust/?utm_source=chatgpt.com">Google Rust 課程</a></td>
+<td>完整課程</td>
+</tr>
+<tr>
+<td><a href="https://play.rust-lang.org/?utm_source=chatgpt.com">Rust Playground</a></td>
+<td>不安裝軟體也能寫 Rust</td>
+</tr>
+<tr>
+<td><a href="https://exercism.org/tracks/rust?utm_source=chatgpt.com">Exercism Rust</a></td>
+<td>免費程式練習</td>
+</tr>
+</tbody>
+</table>
+<p>官方教材已經更新到 Rust 2024 Edition，建議優先使用新版內容，不要只依賴數年前的舊版 PDF。</p>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="About.html">Previous: About</a></div>
+<div class="next"></div>
+</nav>
+<script>
+(function(){
+  function restorePreNewlines(){
+    var nodes=document.querySelectorAll('pre');
+    for(var i=0;i<nodes.length;i++){
+      var pre=nodes[i], html=pre.innerHTML;
+      if(!html) continue;
+      var fixed=html.replace(/<br\s*\/?\s*(?:\s[^>]*)?>/gi,'\n').replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+      if(fixed!==html) pre.innerHTML=fixed;
+    }
+  }
+  function run(){
+    restorePreNewlines();
+    if(!window.SyntaxHighlighter) return;
+    try{
+      if(SyntaxHighlighter.config){ SyntaxHighlighter.config.bloggerMode=true; SyntaxHighlighter.config.stripBrs=false; }
+      if(typeof SyntaxHighlighter.all==='function') SyntaxHighlighter.all();
+    }catch(e){}
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
+  else run();
+})();
+</script>
+</div><!-- /tipue_search_content -->
+
+<div class="container">
+  <div class="row pt-3 mx-auto">
+    <p>
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+      All rights reserved |
+      <i class="icon-heart" aria-hidden="true"></i>
+      by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    </p>
+  </div>
+</div>
+
+</div><!-- /site-wrap -->
+
+<script src="./../static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="./../static/chimper/js/jquery-ui.js"></script>
+<script src="./../static/chimper/js/popper.min.js"></script>
+<script src="./../static/chimper/js/bootstrap.min.js"></script>
+<script src="./../static/chimper/js/owl.carousel.min.js"></script>
+<script src="./../static/chimper/js/jquery.stellar.min.js"></script>
+<script src="./../static/chimper/js/jquery.countdown.min.js"></script>
+<script src="./../static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="./../static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="./../static/chimper/js/aos.js"></script>
+<script src="./../static/chimper/js/main.js"></script>
+</body>
+</html>
