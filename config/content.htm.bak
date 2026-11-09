@@ -1,6 +1,24 @@
 <h1>About</h1>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p>all: <a href="https://cycu.org/all">https://cycu.org/all</a> (包羅萬象)</p>
 <p>health: <a href="https://cycu.org/health">https://cycu.org/health</a> (健康)</p>
 <p>recipes: <a href="https://cycu.org/recipes">https://cycu.org/recipes</a> (食譜)</p>
@@ -10,8 +28,3172 @@
 <p>learning: <a href="https://cycu.org/learning">https://cycu.org/learning</a> (學習)</p>
 <p>tech: <a href="https://cycu.org/tech">https://cycu.org/tech</a> (科技)</p>
 <p>art: <a href="https://cycu.org/art">https://cycu.org/art</a> (藝術)</p>
+<h1>藍芽喇叭</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4>5W USB 供電式迷你藍牙喇叭 DIY 完整設計與製作</h4>
+<p>這個專案的目標是自行製作一組體積小、可以直接透過 USB 供電、不需要內建電池，並且能透過手機、平板或電腦播放音樂的 5W 迷你藍牙喇叭。</p>
+<p>我建議採用模組化設計：藍牙接收、音訊放大、USB 電源、喇叭單體及外殼分開處理。這樣不但容易組裝，也方便日後更換零件、升級音質或自行修改電路。</p>
+<p><a href="https://images.openai.com/static-rsc-4/u1DXNyW3HP2eLnB7mUKOO5lzor9MoKG48gKB_8wb5dVQPoPSpVVwOBIGQyHuhgV3H-qpuq6ge-cZ9kJvXOgpSPzXm1AuUNjOGzpibXE40_J-xxVYxivzlNViz7TEu2lpHd8ryB4mXkmg52KTvgcsSx4_8-DIb-FXtInURDWV7LU?purpose=inline">Tiny Dub – Portable Bluetooth Speaker – PLYNYL</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/Q_owGXTleCG45r1T66oEXqEzTGneaXFgc2NWmyxfNPGDUGHHKsL-ipRRRTKD2eIlS_bR4QsYehK30LWdluyPf4-tT78pNrA890ms9TFfFcV69mdxyU8UQ4M9MEgoc9dhDeuwUgIqntOgR5UYHOegmcN5cnQmNfmqmDunRRYBWiI?purpose=inline">Simple DIY Bluetooth Speaker Using PAM8403 : 5 Steps - Instructables</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/sVPdHpeScmXKsR7n93GecTxNflCwgRiB5ngn_qyCQOwNZiAYtlQwEzxTU86pYM9KDfxe-wKnpx_a2xQ9phr7ZJvH_ShXXOvXA2Hoc3qeXLMzA1doGCSTriFVoWuhIstl87woF8zAv_mz8bpxHLtCmqzO-va1XeuN2-edWbOdfBI?purpose=inline">Reproductor de música Bluetooth Subwoofer portátil Tarjeta inalámbrica Mini altavoz para exteriores e interiores | Bodega Aurrera en línea</a></p>
+<h4>一、整體設計規格</h4>
+<p>先確定製作目標：</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>設計規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>喇叭類型</td>
+<td>單聲道 Mono</td>
+</tr>
+<tr>
+<td>額定輸出目標</td>
+<td>5W RMS（實際依供電與放大器而定）</td>
+</tr>
+<tr>
+<td>音訊來源</td>
+<td>Bluetooth</td>
+</tr>
+<tr>
+<td>藍牙版本</td>
+<td>Bluetooth 5.x 模組</td>
+</tr>
+<tr>
+<td>電源</td>
+<td>USB 5V</td>
+</tr>
+<tr>
+<td>電源接頭</td>
+<td>USB-C</td>
+</tr>
+<tr>
+<td>電池</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>喇叭阻抗</td>
+<td>4Ω</td>
+</tr>
+<tr>
+<td>喇叭額定功率</td>
+<td>5W～10W</td>
+</tr>
+<tr>
+<td>音量控制</td>
+<td>旋鈕</td>
+</tr>
+<tr>
+<td>外殼</td>
+<td>木板、壓克力或 3D 列印</td>
+</tr>
+<tr>
+<td>使用方式</td>
+<td>USB 插電即可使用</td>
+</tr>
+</tbody>
+</table>
+<h4>特別注意：5W 與 USB 5V 的關係</h4>
+<p>這是整個專案最重要的電路設計問題。</p>
+<p>USB 5V 並不代表一定能直接得到 5W 的音訊輸出。</p>
+<p>例如：</p>
+<ul>
+<li>USB 5V × 1A = 5W 輸入功率。</li>
+<li>USB 5V × 2A = 10W 輸入功率。</li>
+<li>放大器本身有功率損耗。</li>
+<li>喇叭輸出的音訊功率不可能大於輸入功率。</li>
+</ul>
+<p>如果希望取得真正接近 5W RMS 的單聲道輸出，建議使用 USB 5V 2A 電源，再經過升壓電路提供放大器約 9V 電源。</p>
+<p>這樣比較容易達到設計目標。</p>
+<p>我的建議：採用 USB 5V → 9V 升壓 → D 類音訊放大器 → 4Ω 喇叭的架構。</p>
+<h4>二、系統電路架構</h4>
+<p>整體可以分成五個部分：</p>
+<p>USB-C 5V / 3A 電源輸入</p>
+<p>DC-DC 升壓模組</p>
+<p>5V → 9V</p>
+<p>D 類音訊功率放大器</p>
+<p>TPA3110 單聲道 PBTL 模組</p>
+<p>4Ω / 5W 全音域喇叭</p>
+<p>Bluetooth 5.x 接收模組</p>
+<p>手機音訊 → 左右聲道混合 → 功放輸入</p>
+<p>音訊訊號</p>
+<p>Bluetooth 接收模組的音訊輸出接至功率放大器輸入；與上述電源路徑分開。</p>
+<h4>1. USB 電源輸入</h4>
+<p>建議採用 USB-C 母座模組，輸入 5V。</p>
+<p>建議規格：</p>
+<ul>
+<li>輸入電壓：5V。</li>
+<li>電源供應器：5V / 3A。</li>
+<li>USB-C 母座：具有正確 CC 下拉電阻的電源模組。</li>
+<li>電源線：支援 3A 的 USB-C 線。</li>
+</ul>
+<p>為什麼建議 3A？</p>
+<p>雖然平均播放音樂時可能只需要 1～1.5A，但低音瞬間輸出會造成電流增加，供電不足容易發生破音、重啟或藍牙斷線。</p>
+<h4>2. DC-DC 升壓模組</h4>
+<p>將 USB 的 5V 升壓到 9V。</p>
+<p>選購時建議：</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>輸入</td>
+<td>5V</td>
+</tr>
+<tr>
+<td>輸出</td>
+<td>9V</td>
+</tr>
+<tr>
+<td>連續輸出能力</td>
+<td>建議至少 10W，最好有 15～20W 餘裕</td>
+</tr>
+<tr>
+<td>輸出電流</td>
+<td>依模組散熱及實際規格確認</td>
+</tr>
+<tr>
+<td>保護</td>
+<td>過流、過溫較佳</td>
+</tr>
+</tbody>
+</table>
+<p>可以參考：</p>
+<ul>
+<li>MT3608 Voltage Boost Converter – DC-to-DC Step Up Module：MT3608 升壓模組。</li>
+<li>[環島科技]MT3608 DC-DC升壓模塊2A升壓板輸入電壓2-24V升5/9/12/-28V可調：可調式升壓模組。</li>
+</ul>
+<p>重要：MT3608 雖然便宜，但不建議直接當成這個 5W 專案的主要升壓電源。 它的實際連續輸出能力受輸入電壓、電感、二極體及散熱限制。應選用有明確連續功率規格的升壓模組。</p>
+<p>安裝時先不要接功放，使用萬用電表調整輸出至 9.0V，再進行後續組裝。</p>
+<h4>3. 音訊功率放大器</h4>
+<p><a href="https://images.openai.com/static-rsc-4/WJ2PcV8aqkGZNB1wvrCrOMsVG-aR0o5pLQKSEQ2tdtX9TtZ5XKhc672IPRR6Ng_NeYHLE6yCphTURKElO240Gy7hGwP_nkTr933yd5eVBi3XU2a5Mzxr-PtxQrU4BESdLyz8Ro__HZ79TCLv_IFZaCD3uUxkqDvJSnG5t38coLs?purpose=inline">Buy TPA3110 30W digital power amplifier modules pack of 10pcs</a></p>
+<p>建議採用 TPA3110D2 PBTL 單聲道模組。</p>
+<p>它是 D 類放大器，具有較高效率，適合小型 USB 供電喇叭。</p>
+<p>注意：</p>
+<ul>
+<li>電源必須符合所購模組的規格，建議工作電壓 9V。</li>
+<li>確認模組支援 PBTL 單聲道輸出。</li>
+<li>確認 4Ω 喇叭可用。</li>
+<li>不要只看商品標示的 30W，因為該數字通常是在更高電壓下測得。</li>
+</ul>
+<p>TPA3110 的模組資料可參考 <a href="https://behnamrobotic.com/wp-content/uploads/product/datasheet/tpa3110%20amplifier%20module%20datasheet.pdf?utm_source=chatgpt.com">TPA3110 模組規格</a>。</p>
+<h4>4. Bluetooth 接收模組</h4>
+<p>建議選擇具有下列端子的音訊接收板：</p>
+<ul>
+<li>VCC：5V。</li>
+<li>GND：接地。</li>
+<li>L：左聲道音訊輸出。</li>
+<li>R：右聲道音訊輸出。</li>
+<li>ANT：天線（視模組設計）。</li>
+</ul>
+<p>不要購買只有 BLE 資料傳輸功能的普通藍牙模組，必須是支援 A2DP 音訊接收的模組。</p>
+<h4>5. 喇叭單體</h4>
+<p>建議使用：</p>
+<ul>
+<li>直徑：2～3 吋。</li>
+<li>阻抗：4Ω。</li>
+<li>額定功率：5W。</li>
+<li>類型：Full Range 全音域。</li>
+</ul>
+<p>我會優先選擇 2～3 吋的全音域喇叭，而不是單純追求小直徑。喇叭單體的效率、振膜面積及箱體容積，都會影響實際音質。</p>
+<h4>三、完整零件採購表</h4>
+<p>以下是第一版製作所需要的材料。</p>
+<table>
+<thead>
+<tr>
+<th>零件</th>
+<th>數量</th>
+<th>建議規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USB-C 電源輸入模組</td>
+<td>1</td>
+<td>5V、3A</td>
+</tr>
+<tr>
+<td>USB-C 電源供應器</td>
+<td>1</td>
+<td>5V、3A</td>
+</tr>
+<tr>
+<td>DC-DC 升壓模組</td>
+<td>1</td>
+<td>5V → 9V、連續功率足夠</td>
+</tr>
+<tr>
+<td>Bluetooth 音訊接收板</td>
+<td>1</td>
+<td>A2DP、5V</td>
+</tr>
+<tr>
+<td>TPA3110 PBTL 功放板</td>
+<td>1</td>
+<td>9V、4Ω</td>
+</tr>
+<tr>
+<td>全音域喇叭</td>
+<td>1</td>
+<td>4Ω、5W</td>
+</tr>
+<tr>
+<td>電位器</td>
+<td>1</td>
+<td>10kΩ 音量控制</td>
+</tr>
+<tr>
+<td>電源開關</td>
+<td>1</td>
+<td>DC 5V、3A 以上</td>
+</tr>
+<tr>
+<td>電容</td>
+<td>2～3</td>
+<td>依模組規格配置</td>
+</tr>
+<tr>
+<td>電線</td>
+<td>適量</td>
+<td>22～24 AWG</td>
+</tr>
+<tr>
+<td>喇叭保護網</td>
+<td>1</td>
+<td>配合喇叭尺寸</td>
+</tr>
+<tr>
+<td>外殼材料</td>
+<td>1 組</td>
+<td>6～9mm 木板或 3D 列印</td>
+</tr>
+</tbody>
+</table>
+<p>其他材料：</p>
+<ul>
+<li>熱縮套管。</li>
+<li>螺絲及螺帽。</li>
+<li>焊錫。</li>
+<li>電路固定柱。</li>
+<li>EVA 或聚酯纖維吸音材料。</li>
+<li>防滑橡膠墊。</li>
+</ul>
+<h4>四、實際接線方式</h4>
+<p>這裡要特別注意：TPA3110 的 PBTL 輸出是橋接式輸出，喇叭兩端都必須接功放的輸出端，不能把喇叭負極接到 GND。</p>
+<h4>1. 電源接線</h4>
+<pre><code>USB-C 5V
+   │
+   ├── 5V ─────── Bluetooth VCC
+   │
+   ├── GND ────── Bluetooth GND
+   │
+   └── 升壓模組 IN+
+          │
+          └── 升壓模組 IN-
+
+升壓模組 OUT+ (9V)
+   │
+   └──────────── 功放 VCC
+
+升壓模組 OUT-
+   │
+   └──────────── 功放 GND
+</code></pre>
+<p>Bluetooth 與功放的訊號地必須共地。</p>
+<h4>2. Bluetooth 音訊接線</h4>
+<p>因為單聲道喇叭要同時播放左右聲道，不能直接把 L 和 R 短接在一起。</p>
+<p>建議使用兩個 1kΩ 電阻：</p>
+<pre><code>Bluetooth L ─── 1kΩ ──┐
+                       ├── MONO ── 音量控制 ── AMP IN
+Bluetooth R ─── 1kΩ ──┘
+
+Bluetooth GND ─────────────────── AMP GND
+</code></pre>
+<p>兩個電阻的作用是將左右聲道混合，避免左右輸出端直接互相驅動。</p>
+<p>音量控制可以使用 10kΩ 電位器：</p>
+<ul>
+<li>一端接 MONO 訊號。</li>
+<li>另一端接 GND。</li>
+<li>中間端接功放音訊輸入。</li>
+</ul>
+<h4>3. 喇叭接線</h4>
+<pre><code>TPA3110 PBTL
+
+SPK+ ───────── 喇叭 +
+SPK- ───────── 喇叭 -
+</code></pre>
+<p>重要安全事項</p>
+<p>不要把 SPK- 接到電源 GND，也不要將 SPK+ 或 SPK- 接到其他音訊設備的接地端。這是 BTL/PBTL 功放常見的接線錯誤。</p>
+<h4>五、喇叭外殼設計</h4>
+<p>外殼是決定聲音品質的重要因素。即使使用相同的喇叭單體，不同的箱體容積及結構，也會產生很大的音質差異。</p>
+<p>我建議第一版採用密閉式音箱（Sealed Enclosure），不需要設計導音管，容易製作，也比較不容易出現低音共振問題。</p>
+<h4>1. 外殼尺寸建議</h4>
+<p>如果選擇 2～3 吋喇叭，可以先用以下尺寸進行原型設計。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>初始建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>外殼寬度</td>
+<td>130mm</td>
+</tr>
+<tr>
+<td>外殼高度</td>
+<td>110mm</td>
+</tr>
+<tr>
+<td>外殼深度</td>
+<td>120mm</td>
+</tr>
+<tr>
+<td>板材厚度</td>
+<td>6mm</td>
+</tr>
+<tr>
+<td>內部結構</td>
+<td>密閉式</td>
+</tr>
+<tr>
+<td>喇叭位置</td>
+<td>正面中央</td>
+</tr>
+<tr>
+<td>電子電路</td>
+<td>背面或底部</td>
+</tr>
+</tbody>
+</table>
+<p>這組尺寸的內部容積約為 1.1 公升（扣除板材厚度後，尚未扣除喇叭及電路所占空間）。</p>
+<p>注意：這只是方便製作的原型尺寸，不是所有 2～3 吋單體都適用的最佳箱體。正式製作前應依照喇叭的 Thiele-Small 參數（尤其是 Vas、Qts、Fs）確認容積。若使用 2 吋單體，可能需要更小的箱體。</p>
+<h4>2. 外殼製作方式</h4>
+<p>有三種選擇：</p>
+<p>A. 木板製作</p>
+<p>最推薦</p>
+<ul>
+<li>6～9mm 夾板或 MDF。</li>
+<li>木工膠黏合。</li>
+<li>內部接縫使用矽膠密封。</li>
+<li>容易修改及打磨。</li>
+</ul>
+<p>B. 3D 列印</p>
+<ul>
+<li>使用 PETG 或 ABS。</li>
+<li>壁厚建議 3～4mm 起。</li>
+<li>可直接設計螺絲孔、電路固定座。</li>
+<li>適合精確控制外型。</li>
+</ul>
+<p>C. 壓克力製作</p>
+<ul>
+<li>透明外觀。</li>
+<li>容易觀察內部電路。</li>
+<li>接合處必須做好密封。</li>
+<li>板材振動可能影響聲音。</li>
+</ul>
+<h4>3. 外殼內部處理</h4>
+<p>外殼內部建議：</p>
+<ol>
+<li>內壁貼上薄型吸音材料。</li>
+<li>後壁及側壁可使用聚酯纖維吸音棉。</li>
+<li>不要堵住喇叭背面的通氣空間。</li>
+<li>不要讓吸音材料碰觸振膜。</li>
+<li>電路板固定在獨立位置，避免與喇叭振動接觸。</li>
+<li>所有接縫保持密封。</li>
+</ol>
+<p>第一版不需要被動輻射器（Passive Radiator），等測試後覺得低音不足，再考慮第二版修改。</p>
+<h4>六、實際製作步驟</h4>
+<p>我建議將整個工程分成七個階段，不要一開始就把所有零件焊接固定在外殼內。</p>
+<ol>
+<li>
+<p>階段一：零件檢查</p>
+<p>將所有電子零件準備好。</p>
+<p>使用萬用電表確認：</p>
+<ul>
+<li>USB 輸出是否為 5V。</li>
+<li>升壓模組是否可以調整到 9V。</li>
+<li>Bluetooth 模組是否支援 A2DP。</li>
+<li>功放板是否支援 4Ω 負載。</li>
+<li>喇叭阻抗及額定功率是否正確。 先不要接上喇叭。</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>USB 輸入電壓。</li>
+<li>升壓模組輸出電壓。</li>
+<li>輸出電壓是否穩定在 9V。 可以先接一個適當的假負載，確認升壓模組不會因負載而大幅降壓。
+<p>階段二：測試 USB 供電</p>
+<p>將 USB-C 連接 5V / 3A 電源供應器。</p>
+<p>使用電表測量：</p>
+</li>
+</ul>
+</li>
+<li>
+<p>階段三：測試 Bluetooth</p>
+<p>單獨為 Bluetooth 模組供應 5V。</p>
+<p>使用手機搜尋藍牙裝置，完成配對。</p>
+<p>播放音樂，利用示波器或音訊測試設備確認 L、R 音訊輸出。</p>
+<p>如果沒有示波器，也可以先用已確認規格的音訊放大器進行低音量測試。</p>
+</li>
+<li>
+<p>階段四：安裝音訊放大器</p>
+<p>先將左右聲道經過 1kΩ 電阻混音，再接至功放。</p>
+<p>接著：</p>
+<ul>
+<li>接上 9V 電源。</li>
+<li>確認 Bluetooth 與功放共地。</li>
+<li>確認功放沒有異常發熱。</li>
+<li>最後才接上 4Ω 喇叭。 初次測試時，音量旋鈕及手機音量都先調低。</li>
+</ul>
+</li>
+<li>
+<p>階段五：測試聲音</p>
+<p>播放不同類型的音樂：</p>
+<ul>
+<li>人聲。</li>
+<li>古典音樂。</li>
+<li>爵士樂。</li>
+<li>低音測試音。</li>
+<li>左右聲道混合測試。 逐漸提高音量，觀察是否有破音、雜音或供電重啟。</li>
+</ul>
+<p>不要長時間使用滿功率正弦波測試，以免喇叭過熱。</p>
+</li>
+<li>
+<p>階段六：製作外殼</p>
+<p>依照選定尺寸裁切板材。</p>
+<p>建議順序：</p>
+<ol>
+<li>製作前面板並開喇叭孔。</li>
+<li>製作左右側板。</li>
+<li>製作頂板及底板。</li>
+<li>製作背板。</li>
+<li>黏合箱體。</li>
+<li>完成內部密封。</li>
+<li>安裝喇叭及保護網。</li>
+<li>安裝 USB-C 插座、開關及音量旋鈕。</li>
+</ol>
+</li>
+<li>
+<p>階段七：最終組裝</p>
+<p>將電路板固定在箱體內部。</p>
+<p>電源線、音訊線分開整理，喇叭線固定牢靠。</p>
+<p>完成後連接 USB-C 電源，使用手機配對，連續播放音樂至少 1～2 小時，檢查：</p>
+<ul>
+<li>電源穩定度。</li>
+<li>藍牙連線穩定度。</li>
+<li>功放溫度。</li>
+<li>外殼是否有異常共振。</li>
+<li>音量與音質是否符合預期。</li>
+</ul>
+</li>
+</ol>
+<h4>七、電路配置與安全注意事項</h4>
+<h4>1. 電源保護</h4>
+<p>建議 USB 輸入端增加：</p>
+<ul>
+<li>適當額定值的自復式保險絲或保險絲。</li>
+<li>反接保護（如果電源模組有外露接線）。</li>
+<li>輸入濾波電容。</li>
+<li>升壓模組輸出端的適當濾波電容。</li>
+</ul>
+<p>電容值依升壓及功放模組廠商建議配置，不要任意增加到超出模組承受範圍。</p>
+<h4>2. 電源與音訊分流</h4>
+<p>Bluetooth 模組使用 5V，功放使用 9V。</p>
+<pre><code>                  USB-C 5V
+                     │
+             ┌───────┴────────┐
+             │                │
+          Bluetooth       升壓模組
+             │                │
+           5V/GND             9V
+             │                │
+             │             功率放大器
+             │                │
+             └── 音訊訊號 ────┘
+                              │
+                            喇叭
+</code></pre>
+<p>升壓模組與功放會產生開關電流及電磁干擾，因此：</p>
+<ul>
+<li>Bluetooth 天線遠離升壓電感。</li>
+<li>音訊輸入線盡量短。</li>
+<li>電源線與音訊線不要長距離平行。</li>
+<li>必要時在 Bluetooth 模組 5V 端增加適當的濾波。</li>
+</ul>
+<h4>3. 功率與電流估算</h4>
+<p>假設喇叭輸出 5W，功放效率約 90%，升壓效率約 90%。</p>
+<p>\[ P_{USB}=\frac{5}{0.9\times0.9} \approx6.17W \]</p>
+<p>所以：</p>
+<p>\[ I_{USB}=\frac{6.17}{5} \approx1.23A \]</p>
+<p>這是理想的滿功率連續輸出估算，還沒有計入 Bluetooth、其他電路消耗及瞬間電流需求。</p>
+<p>因此，選擇 5V / 3A 電源比較合理。</p>
+<p>補充：5W 是設計目標，不是保證值。 實際可達到的乾淨 RMS 輸出，要看功放供電、負載、失真率及模組實測結果。</p>
+<h4>八、預算估算</h4>
+<p>以下是第一版的概略預算，實際價格依購買通路及模組品質而異。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>預估新台幣</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USB-C 電源模組</td>
+<td>$30～100</td>
+</tr>
+<tr>
+<td>5V / 3A 充電器</td>
+<td>$100～250</td>
+</tr>
+<tr>
+<td>升壓模組</td>
+<td>$50～180</td>
+</tr>
+<tr>
+<td>Bluetooth 接收模組</td>
+<td>$50～150</td>
+</tr>
+<tr>
+<td>TPA3110 功放板</td>
+<td>$80～200</td>
+</tr>
+<tr>
+<td>4Ω / 5W 喇叭</td>
+<td>$100～350</td>
+</tr>
+<tr>
+<td>電位器、開關及電容</td>
+<td>$50～120</td>
+</tr>
+<tr>
+<td>木板及吸音材料</td>
+<td>$100～250</td>
+</tr>
+<tr>
+<td>其他材料</td>
+<td>$50～100</td>
+</tr>
+<tr>
+<td>合計</td>
+<td>$610～1,700</td>
+</tr>
+</tbody>
+</table>
+<p>如果使用品質較好的喇叭單體、升壓模組及電源供應器，預算可以抓在 NT$1,000～1,500。</p>
+<h4>九、還有一個更簡單的設計方案</h4>
+<p>如果不堅持真正的 5W RMS，也可以使用 PAM8403。</p>
+<p><a href="https://images.openai.com/static-rsc-4/lijsRod334eXjEwUQpM6jlBjRl8X-nGI-PSlNGk6XoS-K9gjp-A0oe-mTkadOAlf9CC0m5S1SWYMCzWIXSTu74vYo1Re69qF8JZqCX8Zy7-5KS4rvkbeD2w763hBAoTGrZl3GjojYTbBgF-_9499Cnkp8SePSoHSYTwSlMACJ84?purpose=inline">Puuli PAM8403 Ultra Small 5V Mini Power Amplifiers Audio Amplifier Digital Ampli Board Support USB Power 2 Channel... N2 free image download</a></p>
+<p>PAM8403 直接 USB 5V 供電</p>
+<ul>
+<li>不需要升壓模組。</li>
+<li>不需要 9V 電源。</li>
+<li>電路較簡單。</li>
+<li>可使用左右兩個喇叭形成立體聲。</li>
+<li>實際輸出通常約 2～3W / 聲道，視供電、負載及失真而定。</li>
+</ul>
+<p>參考：PAM8403 5V Two Channel Stereo Audio Amplifier Module。它適合做低成本的第一個實驗版本，但不能把它當成真正的 5W 單聲道設計。</p>
+<p>learndesign.tech+1</p>
+<h4>十、我建議的最終成品</h4>
+<p><a href="https://images.openai.com/static-rsc-4/GrakaBtY76qfH9XXD6Zh4Yq3K49_ptLSPfwOr4TfwJT97s5u2oP8nSo1yT4R6sHII0JIayIXJHBq5Au78ghPRmBPMLnRdq2XAxsPoJuUzhtMJr0CLOj7WTT9e8IpVDQ_a7pWk1kzjnkBh0qz21UYzdUnA3OAYxI0pADi9ZrJscU?purpose=inline">Two by Two Wooden Mini Bluetooth Speaker – Lightsource Promo</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/O8E9OebuOudtkJrbCVHmA8_IIeWQKEh-aZmrLJmt5HbAYtbggPkhlKr5ZzAI6mfjAwJQeQ1Mqx1NZkH8YhRyl3CyHbZdbD6BoYeUsTj3DGSf2W8iolyCMXWVUGYYHMjEhh2cwekWbhugxbEr5Ip8WYUFxLS5C1mEqvgzNhic48k?purpose=inline">Smalody Wood Retro Bluetooth Speaker</a></p>
+<p>如果由我規劃這個專案，我會採用以下配置：</p>
+<h4>USB-C 5W Bluetooth Speaker V1.0</h4>
+<p>建議製作版本</p>
+<p>音訊輸出</p>
+<p>5W RMS 目標</p>
+<p>電源</p>
+<p>USB-C 5V / 3A</p>
+<p>放大器</p>
+<p>TPA3110 PBTL</p>
+<p>藍牙</p>
+<p>Bluetooth 5.x A2DP</p>
+<p>喇叭</p>
+<p>4Ω / 5W 全音域</p>
+<p>箱體</p>
+<p>木製密閉式</p>
+<p>成品預計具備的功能</p>
+<ul>
+<li>USB-C 插電即可使用。</li>
+<li>不需要電池，也不需要充電。</li>
+<li>手機 Bluetooth 配對。</li>
+<li>實體音量旋鈕。</li>
+<li>獨立電源開關。</li>
+<li>正面喇叭保護網。</li>
+<li>背面 USB-C 電源插座。</li>
+</ul>
+<h1>擴音機</h1>
+
+
+
+
+
+
+<h4>現代音響擴大機的選擇與 DIY 設計：從電路原理到完整音響系統</h4>
+<p>現代音響擴大機（Audio Amplifier）與傳統音響最大的差異，在於現在已經可以利用體積很小、效率很高的數位 D 類（Class D）放大器，製作出具有相當高輸出功率、低失真及良好音質的音響系統。</p>
+<p>如果希望自己設計、組裝一套音響，我建議不要只從「幾瓦」開始選擇，而是先了解：</p>
+<ol>
+<li>擴大機有哪些種類，各自的工作原理。</li>
+<li>如何依照喇叭阻抗與功率選擇擴大機。</li>
+<li>電源供應器如何決定擴大機的實際輸出能力。</li>
+<li>前級、DAC、藍牙接收器與功率放大器如何整合。</li>
+<li>如何設計自己的 PCB、機箱、音量控制及保護電路。</li>
+<li>如何測量失真、頻率響應、信噪比及實際輸出功率。</li>
+</ol>
+<p>在此將以 USB 供電 5W 藍牙喇叭作為入門基礎，再延伸到 20W、50W、100W 甚至更高功率的桌上型音響。</p>
+<h4>一、現代音響擴大機的主要種類</h4>
+<p>目前常見的音響擴大機可以分成五種。</p>
+<h4>1. Class A：甲類擴大機</h4>
+<p><a href="https://images.openai.com/static-rsc-4/1-s3Tu5Zoy3uFCC2l3CxkZovUfGQrrRfhS4-OvbSO1-S4L8skjxacBLbSGgpvErFjPePx_XgHG6lBglpOCRTVVlte8ucMU7608VjmVimgtGM6blMDKLcH_F_GDeoded041blEHOVya2PPfbliMmpwf_wqcB_KiMc6HtCzMxJhlA?purpose=inline">BuildAudioAmps</a></p>
+<p>Class A 是較傳統的高線性放大方式。</p>
+<p>其基本特點是：</p>
+<ul>
+<li>輸出晶體管在整個訊號週期持續導通。</li>
+<li>電路設計相對容易理解。</li>
+<li>可以達到很低的交越失真。</li>
+<li>靜態耗電量高。</li>
+<li>發熱量大。</li>
+<li>散熱器通常需要很大的體積。</li>
+</ul>
+<p>典型效率理論上最高約 25%（電阻負載、單端形式），某些變壓器耦合設計可更高。</p>
+<p>適合：</p>
+<ul>
+<li>低功率耳機擴大機。</li>
+<li>特定高音質單端放大器。</li>
+<li>電子電路教學與實驗。</li>
+</ul>
+<p>不適合以 USB 5V 供電的高功率喇叭。</p>
+<h4>2. Class AB：乙類與甲乙類擴大機</h4>
+<p><a href="https://images.openai.com/static-rsc-4/Q0zZ4AP1jR6M7YPGGn8jU4On6wP_iRtee7Vj-Hji49BKsf2ZJ6x9a3lYE7C4jza1Te4DBGTg5LeBAbbrLg2QueuAt2POI2JhDsxgsJSD7xASpuUiuyjOi4KiJ6MxFYIoB-APoYvRXDHmoG4QVcjI1cbr-ur7U5ScbCY-dNyaj5s?purpose=inline">High-Power Dual-Channel Amplifier Board (2SA1943/2SC5200 Original Toshiba Tube)</a></p>
+<p>Class AB 是傳統 Hi-Fi 音響非常常見的設計。</p>
+<p>主要利用互補功率晶體管放大正、負半週訊號。</p>
+<p>優點：</p>
+<ul>
+<li>音質成熟。</li>
+<li>電路設計資料豐富。</li>
+<li>線性度良好。</li>
+<li>適合中高功率輸出。</li>
+<li>不需要像 Class A 一樣持續消耗大量靜態功率。</li>
+</ul>
+<p>缺點：</p>
+<ul>
+<li>效率低於 Class D。</li>
+<li>散熱器體積較大。</li>
+<li>電源供應器通常較重。</li>
+<li>偏壓調整與熱補償需要注意。</li>
+</ul>
+<p>一般可以用在 20W～200W 的 DIY 家用音響。</p>
+<h4>3. Class D：數位式開關功率放大器</h4>
+<p><a href="https://images.openai.com/static-rsc-4/QnLzJNTMNiMC_7kSNiFZ8vk3X5BFSgUZcm1GaiTA21BcutcMDU1Z4QfyiHuTeH9Lrqxi5mToNNkVPBnCimn_VM_UNFUex8YMGk868TovrukM5RQvN0ldW-L9FL9bKuqVBk7PrhdxsfuNt8SASLk-cecB5KOuWCom1pkqszH-3hU?purpose=inline">TPA3255: TPA3255ampBoard-question</a></p>
+<p>最推薦 DIY 入門與現代音響</p>
+<p>Class D 是目前非常值得學習的音響放大技術。</p>
+<p>它不是單純將類比訊號轉換成數位音訊，而是使用高速開關方式控制功率輸出。</p>
+<p>基本原理：</p>
+<ol>
+<li>輸入音訊。</li>
+<li>透過調變電路形成 PWM 或其他開關控制訊號。</li>
+<li>功率 MOSFET 高速切換。</li>
+<li>經過 LC 低通濾波器。</li>
+<li>還原成供應喇叭的音訊。</li>
+</ol>
+<p><a href="https://images.openai.com/static-rsc-4/rVbGueMEMFpTH1j0_ldfpeX6_J2gkZYZ91hhCLGvrv4PvvCgrJzOOBfVl5CwU4oL7eveqeiSlarI6PvQLiHJ9GJNJyoS5QFqiurqvLziiJueRoBXcGJ4yV_ZUZaTWg7Q-IsjrdZ-Cn2UqPmLRsMjOmDkytjjfl9AlT5YsUpNNjA?purpose=inline">Principe classe D</a></p>
+<p>主要優點：</p>
+<ul>
+<li>效率高，常見設計可達 85%～95% 左右。</li>
+<li>體積小。</li>
+<li>發熱量低於同功率 Class AB。</li>
+<li>容易實現 50W、100W 甚至更高功率。</li>
+<li>適合 USB-C PD、DC 電源及開關式電源。</li>
+</ul>
+<p>需要注意：Class D 不代表一定是數位音訊。它也可以直接放大類比音訊輸入。</p>
+<h4>4. Class G / Class H</h4>
+<p>這兩類設計透過切換或追蹤不同電源電壓，減少功率級的耗散。</p>
+<p>特點：</p>
+<ul>
+<li>比傳統 Class AB 更有效率。</li>
+<li>電路設計較複雜。</li>
+<li>電源軌控制及切換設計需要仔細處理。</li>
+</ul>
+<p>適合進階音響設計，但如果目標是小型 DIY 音響，我會優先選擇 Class D。</p>
+<h4>5. 各類型比較</h4>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>Class A</th>
+<th>Class AB</th>
+<th>Class D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效率</td>
+<td>低</td>
+<td>中</td>
+<td>高</td>
+</tr>
+<tr>
+<td>發熱</td>
+<td>高</td>
+<td>中高</td>
+<td>低至中</td>
+</tr>
+<tr>
+<td>體積</td>
+<td>大</td>
+<td>中大</td>
+<td>小</td>
+</tr>
+<tr>
+<td>電路難度</td>
+<td>中</td>
+<td>中高</td>
+<td>中高</td>
+</tr>
+<tr>
+<td>高功率設計</td>
+<td>不經濟</td>
+<td>可行</td>
+<td>很適合</td>
+</tr>
+<tr>
+<td>DIY 推薦程度</td>
+<td>特定用途</td>
+<td>進階</td>
+<td>最推薦</td>
+</tr>
+</tbody>
+</table>
+<h4>二、如何選擇現代音響擴大機 IC？</h4>
+<p>這是 DIY 音響最重要的決策之一。</p>
+<p>我會把常見晶片分成三個等級。</p>
+<h4>A. 低功率：5W～15W</h4>
+<p><a href="https://images.openai.com/static-rsc-4/LiIProW8FK1kuuwkF5mbzhAip3V2QTiREgxbEb2RS73wlLcN1gdxaEz1XhGGrirOhokcBowzij5hw7NxneSK562S6dO3sbyg66iufVYpH8LjVt_5cIYGkdnfy-0FFKr_bD8zc3HJCpJEy7TltFBNn2Il10xe6Giy4_Hjk3I9CtM?purpose=inline">PAM8403 PAM 8403 ICMs Digital Amplifier Board/kit, 3 watt, Audio board with 2 Speaker Stereo Output, 5V dc Input</a></p>
+<p>PAM8403</p>
+<ul>
+<li>5V 供電。</li>
+<li>雙聲道。</li>
+<li>適合 USB 小喇叭。</li>
+<li>實際輸出受負載及失真限制。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/qYywOZF0Y3LnUNnxkWPu-JjY4NPUPxf7zqBr0U5dFoHPpoqWb2naniyUoJc8F3j6mbJErHGPtrFQtkdxXamXGJaIYhiTSKnnvi1Vj_GNgodKBx6SmkCsxZ58W16THHv1RA1W--406EwjFUTrryFOOZH7Fn61Oauua_O1FbE33kY?purpose=inline">Módulo Amplificador de Áudio I2S MAX98357</a></p>
+<p>MAX98357A</p>
+<ul>
+<li>數位 I²S 輸入。</li>
+<li>單聲道。</li>
+<li>適合 Raspberry Pi、ESP32 等數位音訊專案。</li>
+<li>不需要外接獨立 DAC。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/GQpLe89qxf_nGams9XIcHIqmwGf1NSCvwTONH_88MagxAjR_ng8AJFw1meQQI6HiVnzXQj2ZdS5IUOLaMYpo4TbC2pJNJ8LA19YU5THmdIGNfDi2_W2-RQ5Nd0HF80SR4hzF4gC0PmQRuMOiW9JFRtWQQS_5Gp3cLRGHmbPJ8G4?purpose=inline">TPA3116D2 2x50W Dual Channel Digital Amplifier Board</a></p>
+<p>TPA3116D2</p>
+<ul>
+<li>4.5V～26V 工作電壓範圍。</li>
+<li>雙聲道。</li>
+<li>適合桌上型小型音響。</li>
+<li>常見於 12V、19V、24V DIY 功放。</li>
+</ul>
+<h4>B. 中功率：30W～100W</h4>
+<p><a href="https://images.openai.com/static-rsc-4/qT3rPjTqIvrKvshOisidXzhL-Bk0rOloYLrgU5Dit4V0wEV-TY0lJzmi74fDzMLREB2Ke_a0E9MGkdtsGpwVlKiffMDZxW4UZQJyftYeGn34-g7zt4DVGSJY8KSqy1-lKZqgHSgdnTxzCAzs-RuUZDnTqqQbTjauSQG8pRo6wA8?purpose=inline">TPA3116D2 Class-D Stereo Amplifier</a></p>
+<p>TPA3116D2</p>
+<p>適合製作 2.0 聲道桌上型音響，尤其適合 12V～24V 電源。</p>
+<p><a href="https://images.openai.com/static-rsc-4/B9IKXuHnW4HSVpopIUS82xTOpvrmZqWVfWUIjgLTvixKQ4eb3abE0TUNWfAWrYNDdYFhJIlRjyHzzK6UPpwc9jHVzdDmysAnyx9b9GGNXi6wPuS9QS_HBZ1Nf8BhF2aZ-9UPmYh2hWY2rVeWkuzjNluh4VdionNp4EA0Zd5kewU?purpose=inline">Tpa3251 Amplifier Board Advanced Integrated Feedback Design Dualchannel</a></p>
+<p>TPA3251</p>
+<p>適合中功率 Hi-Fi 系統，可用於更高品質的桌上型音響。</p>
+<p><a href="https://images.openai.com/static-rsc-4/DuUHCNKlq22gDxkz7D8H8s5JZypPyjV91nq0DcfQz3lBu_lX3iwT7YdOEGy1ru7-VlBd5Edhl1XpeI-zevvEntRGuCFZb53N0C3WbBwygB8Aio8CSrnkraQ3RRHA8Eox7Wtm7as32G8eCO_r6sL3e8OThZee83QdfNDB1P1cehk?purpose=inline">AMP-100 TPA3255 2x300W 600W Class D High Power HiFi Amplifier Board Amp Module for DIY</a></p>
+<p>TPA3255</p>
+<ul>
+<li>適合 50W～100W 級別的雙聲道設計。</li>
+<li>可用於高品質桌上型及家用音響。</li>
+<li>需要較高電壓的電源及妥善散熱。</li>
+</ul>
+<p>注意：上述瓦數是產品常見的應用級距，不是所有模組都能在任何供電電壓、喇叭阻抗及失真條件下達到的額定輸出。</p>
+<h4>C. 高功率：100W～300W 以上</h4>
+<p>這個等級通常使用：</p>
+<ul>
+<li>TPA3255 多顆整合或橋接設計。</li>
+<li>專用高功率 Class D 模組。</li>
+<li>高電流開關電源。</li>
+<li>更完善的過流、過溫及直流保護。</li>
+</ul>
+<p>DIY 初學階段不建議直接從這個等級開始。</p>
+<h4>三、擴大機晶片的實際選擇與比較</h4>
+<p>以下用實際的 TI（Texas Instruments）晶片規格作為比較基礎。</p>
+<table>
+<thead>
+<tr>
+<th>晶片</th>
+<th>電源範圍</th>
+<th>聲道</th>
+<th>適合用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAM8403</td>
+<td>5V</td>
+<td>2</td>
+<td>USB 小喇叭</td>
+</tr>
+<tr>
+<td>MAX98357A</td>
+<td>2.5～5.5V</td>
+<td>1</td>
+<td>ESP32 數位音訊</td>
+</tr>
+<tr>
+<td>TPA3116D2</td>
+<td>4.5～26V</td>
+<td>2</td>
+<td>桌上型音響</td>
+</tr>
+<tr>
+<td>TPA3251</td>
+<td>12～36V</td>
+<td>2</td>
+<td>高品質中功率音響</td>
+</tr>
+<tr>
+<td>TPA3255</td>
+<td>18～53.5V</td>
+<td>2</td>
+<td>高功率 Hi-Fi 音響</td>
+</tr>
+</tbody>
+</table>
+<p>其中 TPA3116D2 的原廠資料標示 50W 立體聲級別，最低負載 4Ω；TPA3255 則支援 18～53.5V，並提供高功率立體聲、單聲道及其他配置。</p>
+<p>原廠資料：</p>
+<ul>
+<li><a href="https://edgeworker.ti.com/product/TPA3116D2?utm_source=chatgpt.com">TI TPA3116D2 官方規格</a></li>
+<li><a href="https://edgeworker.ti.com/product/TPA3251?utm_source=chatgpt.com">TI TPA3251 官方規格</a></li>
+<li><a href="https://www.ti.com/product/TPA3255?gclsrc=aw.ds&amp;utm_source=chatgpt.com">TI TPA3255 官方規格</a></li>
+</ul>
+<h4>特別注意：為什麼商品標示的瓦數不能直接相信？</h4>
+<p>假設某個網路商品寫著：</p>
+<p><code>TPA3116D2 100W + 100W</code></p>
+<p>並不代表使用 12V 電源就能輸出 200W。</p>
+<p>輸出功率與供電電壓、喇叭阻抗、電路形式及失真率有直接關係。</p>
+<p>最基本的功率公式：</p>
+<p>\[ P=\frac{V_{\mathrm{RMS}}^2}{R} \]</p>
+<p>其中：</p>
+<ul>
+<li>P：輸出功率。</li>
+<li>V：喇叭兩端的 RMS 電壓。</li>
+<li>R：喇叭負載阻抗。</li>
+</ul>
+<p>例如，4Ω 喇叭要輸出 50W：</p>
+<p>\[ V_{\mathrm{RMS}}=\sqrt{50\times4} =14.14V \]</p>
+<p>這表示喇叭兩端必須有約 14.14V RMS 的交流音訊電壓。</p>
+<p>因此，必須考慮擴大機的供電電壓和輸出拓撲，不能只看晶片名稱。</p>
+<h4>四、DIY 音響應該如何選擇功率？</h4>
+<p>我建議把 DIY 音響分成四個實際等級。</p>
+<h4>四種 DIY 音響設計級距</h4>
+<p>Level 1：USB 迷你音響</p>
+<p>入門</p>
+<h4>5W</h4>
+<p>PAM8403 或 MAX98357A、USB 5V、2～3 吋喇叭。</p>
+<p><a href="https://images.openai.com/static-rsc-4/pI7eQuPbkdjpCuek-PlLk7TLobe1vfJU_SkmjFJzEWgB3zpdZ6JXmqZtMej9aI8OydlJkk5wSvSmZ0nRr5SEEBsv59OGcx9nEUQbDKkTYshDEZXxAVWlj3wEEqxisfhgeGrbzXozhLlGDs2ldbrQP4aCuNKB9MnsB0h92WebZ_g?purpose=inline">Bluetooth Speaker DIY Kit Power Amplifier 2 inch Speaker Box Transparent Shell</a></p>
+<p>Level 2：桌上型立體聲音響</p>
+<h4>2 × 20W</h4>
+<p>TPA3116D2、19～24V 電源、左右兩個 4～8Ω 喇叭。</p>
+<p><a href="https://images.openai.com/static-rsc-4/WB8UcLAVlJoiJcKdIZbP16ybHbQJiE55lNWYCC3hV_58BS4RExruAjHkNIlM37Fk8rcFF6TCiGX3xz2iW6IBnlORhVLfxfMrbOAh6N7kts-hrT9k9poob8LWfwHNrQhGYyI8t541_m4ixB4ZzYQtG_Jrnp91FoKbu6Ti9jZ4-G0?purpose=inline">Budget Bookshelf Speakers</a></p>
+<p>Level 3：高品質 Hi-Fi 音響</p>
+<h4>2 × 50W</h4>
+<p>TPA3251 或 TPA3255、適當高電壓電源、兩音路喇叭。</p>
+<p><a href="https://images.openai.com/static-rsc-4/5plMjHPlURjfUm1JAGg4tsigeIXEbFXrhVwLEDTtoHAxc7exGJabSO1pynBcc6K3OJ4UywPd_R54D1nihEoLBU3FPUUvNm3kR54oQRrdq72jouYH0kyhWD47BZ5h_p-OCTO4nTMgVxhteXKYlhXwSmACXwC-xlsMZBw0Gw-vVhU?purpose=inline">Build A Bookshelf Speaker Box at Chelsea Sommerlad blog</a></p>
+<p>Level 4：家庭音響及重低音</p>
+<h4>2 × 100W+</h4>
+<p>TPA3255 或專用多聲道 Class D、DSP 分音及獨立低音聲道。</p>
+<p><a href="https://images.openai.com/static-rsc-4/Y_2CSIcVvVNuuLtca4Z2S7H7WZGM2XTi2oZ_uwfkovuI5LyWAXiJ0EVkIDfMkioWxwPKpMUBn-fplO1m7vrgQYuwj20zrJ03eADVxGuUQKMYz_eAUijrjpBfPKyRMATUihEnjm-RSUde8BKbNU4YyDSc2l9uegk1R4Lqv6bjrAU?purpose=inline">TPS3116D2 Class D 2.1 Amplifier Board 2 x 50W + 100W with Volume Controls</a></p>
+<p>這裡的功率是設計目標，不是單憑晶片就能保證的實測值。</p>
+<h4>五、現代音響的完整系統架構</h4>
+<p>真正的現代音響，不只是功率放大器，通常還包含訊號來源、數位轉換、前級處理及喇叭保護。</p>
+<p>我建議採用以下架構：</p>
+<p><a href="https://images.openai.com/static-rsc-4/3_RUHzM9UOnNSmAaS2a8ytZIPjqJPy0cxKvn1-WZ_oacOI_FthHVkqtVaNcpMer045jU0p_5TmnkrkIz0O4kYK8__muGtWWJWSCV-75tcjG9hy-87S_UOYa8JXvYeKi8hjkBt-1uVw4rFv1_L5kq-L70a6DkTuXU0AbgBtmf6Xw?purpose=inline">LINDEMANN Bundles</a></p>
+<pre><code>             音訊來源
+        ┌──────┼────────┐
+        │      │        │
+      USB    Bluetooth  RCA
+        │      │        │
+        └──────┼────────┘
+               │
+          DAC 數位類比轉換
+               │
+          前級放大器 Preamp
+               │
+          音量控制 Volume
+               │
+          DSP 數位訊號處理
+               │
+          Class D 功率放大器
+               │
+          ┌────┴────┐
+          │         │
+        左喇叭    右喇叭
+</code></pre>
+<p>注意：這是一種完整功能架構，不是每台音響都必須將所有元件分開。很多現代 DAC、藍牙及 DSP 模組可以整合在同一塊電路板上。</p>
+<h4>1. 音訊來源</h4>
+<p>可以提供以下輸入：</p>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>介面</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>手機</td>
+<td>Bluetooth A2DP</td>
+<td>無線音樂</td>
+</tr>
+<tr>
+<td>電腦</td>
+<td>USB Audio</td>
+<td>高品質數位音訊</td>
+</tr>
+<tr>
+<td>CD Player</td>
+<td>Optical / Coaxial</td>
+<td>數位音訊</td>
+</tr>
+<tr>
+<td>唱盤</td>
+<td>RCA / Phono</td>
+<td>黑膠唱片</td>
+</tr>
+<tr>
+<td>電視</td>
+<td>Optical / HDMI ARC</td>
+<td>電視音訊</td>
+</tr>
+</tbody>
+</table>
+<p>如果希望製作一台功能完整的 DIY 音響，我會優先加入：</p>
+<ul>
+<li>Bluetooth 5.x A2DP。</li>
+<li>USB DAC。</li>
+<li>RCA 類比輸入。</li>
+<li>3.5mm 音源輸入。</li>
+</ul>
+<h4>2. DAC 數位類比轉換器</h4>
+<p><a href="https://images.openai.com/static-rsc-4/eICU2zdBh0FbcWWvi-Yu0wvpGSVs_FSypQ5WqGc9kdkqEBAqj6YRBv9I3xtpgb2RvxZ1buw6Z29I44QRT3CR5eH9A0SP-CCIjahtXVeyjBykQVi_sbmcE3nQKtshnpFQ1S3lr5o7lPkiwtUAiGA0y5w2BuYTjImufARzUjTmq0w?purpose=inline">ゆっくりラズパイ活用講座</a></p>
+<p>DAC 是 Digital-to-Analog Converter。</p>
+<p>它的工作是把數位音訊轉換成類比訊號，再交給前級或功率放大器。</p>
+<p>可研究的晶片：</p>
+<ul>
+<li>PCM5102A：常見 I²S DAC。</li>
+<li>PCM5242：較高階 DAC，支援數位音訊處理功能。</li>
+<li>ES9038Q2M：高階 DAC 設計常見選擇。</li>
+</ul>
+<p>DAC 選擇時要確認：</p>
+<ol>
+<li>支援的取樣率。</li>
+<li>位元深度。</li>
+<li>訊號輸出電壓。</li>
+<li>SNR。</li>
+<li>THD+N。</li>
+<li>I²S 介面相容性。</li>
+</ol>
+<p>不要只看 32-bit、384kHz 等數字。實際音質也取決於電源、時鐘、類比輸出電路及後續放大器。</p>
+<h4>3. 前級放大器 Preamp</h4>
+<p>前級主要處理：</p>
+<ul>
+<li>音量控制。</li>
+<li>輸入切換。</li>
+<li>左右聲道平衡。</li>
+<li>音調控制。</li>
+<li>訊號增益。</li>
+</ul>
+<p>常見運算放大器：</p>
+<table>
+<thead>
+<tr>
+<th>晶片</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NE5532</td>
+<td>經典雙運放</td>
+</tr>
+<tr>
+<td>OPA2134</td>
+<td>音訊用途常見</td>
+</tr>
+<tr>
+<td>OPA1656</td>
+<td>低雜訊、高性能 JFET 輸入運放</td>
+</tr>
+<tr>
+<td>OPA1612</td>
+<td>高性能雙極性輸入運放</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://images.openai.com/static-rsc-4/H6-UegGjzl_rFUmT9UGOt6hbMkWvmt7NcEPtp428z9FMpb4hpb5rBNLDymIITQAJPNuoEq1JH3cn4-oUJntqKdrnLPvM7bb7u5G8GAYlGWbznfsYbaNQ07i0c5FRE-WrG5E9ZrUt7-cRJGMGB8OPV7R6X2SwsVOpoeIj05FR0Rk?purpose=inline">XH-A902 NE5532</a></p>
+<p>對 DIY 初學者，建議先使用現成的前級模組，等系統正常運作後，再研究運算放大器的增益、輸入阻抗、負回授及濾波設計。</p>
+<h4>4. DSP 數位訊號處理</h4>
+<p>這是現代音響非常值得投入的部分。</p>
+<p>DSP（Digital Signal Processing）可以進行：</p>
+<ul>
+<li>EQ 等化器。</li>
+<li>低音增強。</li>
+<li>高音調整。</li>
+<li>分音器 Crossover。</li>
+<li>房間頻率響應修正。</li>
+<li>喇叭單體時間校正。</li>
+<li>動態範圍控制。</li>
+<li>低音喇叭整合。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/50SOZBjv6n5mXvzW3MPdUmi6V_D1ahjs_hF-54iP2Jx4KG5_xa6brQjIIml72485Z_68ESoCDp_ZE55o9qrVZAXcDzTcM6R-3_h0hNz_NDjDfhxdZp9XQyI4e4nmfKGi_scK6tmBKQ0iDdofwR6JOY5PV6w2-IJlmFYW41xMJmA?purpose=inline">EVAL-ADAU1701MINIZ Analog Devices Inc.</a></p>
+<p>可以研究：</p>
+<ul>
+<li>ADAU1701。</li>
+<li>ADAU1452。</li>
+<li>ESP32：搭配適當的音訊程式庫及 I²S 周邊。</li>
+</ul>
+<p>對於想自己設計兩音路喇叭的人，DSP 特別有用。</p>
+<p>例如：</p>
+<pre><code>音訊輸入
+    │
+   DSP
+    │
+    ├── High Pass Filter ── 高音功放 ── Tweeter
+    │
+    └── Low Pass Filter ─── 低音功放 ── Woofer
+</code></pre>
+<p>這樣就可以使用兩個獨立功率放大器，分別驅動高音及低音單體，形成主動式分音音響。</p>
+<h4>六、三套可以實際製作的 DIY 擴大機方案</h4>
+<p>接下來是最重要的部分：如何從零件選擇變成真正可以組裝的產品。</p>
+<h4>方案 A：USB 5W 迷你藍牙擴大機</h4>
+<p>適合第一個實驗</p>
+<p><a href="https://images.openai.com/static-rsc-4/zkudS_2sdiaIsvrFDdU7H95ZlfstVZl7Qj7uj1wVVS3rLvymJ4xV86k23AEdY2QCXad2Mf0MKlPwOpjN0ZCU64aTbQbLr3O6eHk996B1cIQvaezm5FWH9Ly-M8WNrLYlNxB-xP1uprpqqUcWhTm2b5DowIWpTqxDgwuQdrKQOgk?purpose=inline">1pc DC5V Mini HD Class D Bluetooth Digital Amplifier Board 5W+5W PAM8403 TYPE-C</a></p>
+<p>設計規格</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>輸入電源</td>
+<td>USB-C 5V</td>
+</tr>
+<tr>
+<td>電源電流</td>
+<td>最高依供電能力設計</td>
+</tr>
+<tr>
+<td>藍牙</td>
+<td>A2DP</td>
+</tr>
+<tr>
+<td>功率放大器</td>
+<td>PAM8403 或其他合適的 Class D</td>
+</tr>
+<tr>
+<td>喇叭</td>
+<td>4Ω、3～5W</td>
+</tr>
+<tr>
+<td>輸出</td>
+<td>立體聲 2 聲道</td>
+</tr>
+<tr>
+<td>外殼</td>
+<td>木製或 3D 列印</td>
+</tr>
+</tbody>
+</table>
+<p>電路架構：</p>
+<pre><code>USB-C 5V
+   │
+   ├──── Bluetooth Receiver
+   │              │
+   │              │ L / R
+   │              ▼
+   │         音量控制
+   │              │
+   │              ▼
+   └──────── PAM8403
+                  │
+             ┌────┴────┐
+             │         │
+          Left SP   Right SP
+</code></pre>
+<p>如果要做真正接近 5W 的單聲道版本，可以考慮使用升壓電源及適合的單聲道放大器，而不是直接把左右聲道輸出短接。</p>
+<p>這個版本的重點是學會：</p>
+<ul>
+<li>USB 電源配置。</li>
+<li>Bluetooth 配對。</li>
+<li>音訊輸入。</li>
+<li>D 類功率放大。</li>
+<li>喇叭箱體設計。</li>
+</ul>
+<h4>方案 B：2 × 20W 桌上型立體聲音響</h4>
+<p>最推薦的完整 DIY 起點</p>
+<p><a href="https://images.openai.com/static-rsc-4/7XdOoQKIcOYtNQUkX4ZyFqeFr9Z_aWUQCQxkiRlgrhHSxcfidRK92DrKQS6ipw23VbA-eVLiQ7UDhwCP9qzE7he4cSOZarr77tGbmqDHhAH3Doa4q4vPZoLaQHo6Zq-dghOrtC4QdObBPyEabUsEAd9kT0913kUkCfsGTPkWLNM?purpose=inline">Bluetooth 2.1 Amplifier 2x50W+100W TPA3116D2 by guppyk2</a></p>
+<p>這個方案已經具有相當實用的桌上型音響功能。</p>
+<p>主要規格</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>放大器</td>
+<td>TPA3116D2</td>
+</tr>
+<tr>
+<td>電源</td>
+<td>19～24V DC</td>
+</tr>
+<tr>
+<td>電源供應器</td>
+<td>建議 24V / 4A</td>
+</tr>
+<tr>
+<td>輸出目標</td>
+<td>2 × 20W</td>
+</tr>
+<tr>
+<td>喇叭</td>
+<td>4Ω 或 8Ω，依模組測試</td>
+</tr>
+<tr>
+<td>音訊</td>
+<td>Bluetooth、RCA、USB DAC</td>
+</tr>
+<tr>
+<td>控制</td>
+<td>電源、音量、輸入切換</td>
+</tr>
+<tr>
+<td>外殼</td>
+<td>鋁合金機箱</td>
+</tr>
+</tbody>
+</table>
+<p>系統架構：</p>
+<p>24V DC 電源供應器</p>
+<p>DC 電源管理與濾波</p>
+<p>音訊輸入選擇</p>
+<p>Bluetooth</p>
+<p>USB DAC</p>
+<p>RCA</p>
+<p>前級音量控制</p>
+<p>TPA3116D2 Stereo Amplifier</p>
+<p>Left Channel</p>
+<p>左喇叭</p>
+<p>Right Channel</p>
+<p>右喇叭</p>
+<h4>電源設計</h4>
+<p>如果輸出 2 × 20W：</p>
+<p>假設功放效率為 90%：</p>
+<p>再考慮前級及其他電路消耗，24V / 2A（48W）就比較接近極限。</p>
+<p>因此我建議使用：</p>
+<p>96W</p>
+<p>這樣可以保留動態音樂的瞬間電流餘裕。</p>
+<p>注意，24V / 4A 並不表示功放一定輸出 96W，而是電源具有這個供電能力。</p>
+<h4>喇叭選擇</h4>
+<p>建議：</p>
+<ul>
+<li>4～5 吋低音單體。</li>
+<li>1 吋高音單體。</li>
+<li>兩音路被動分音器。</li>
+<li>8Ω 喇叭可作為初期較保守的選擇。</li>
+</ul>
+<p>如果使用 4Ω 喇叭，必須確認功放模組支援該負載及散熱條件。</p>
+<h4>方案 C：2 × 50W 高品質 Hi-Fi 擴大機</h4>
+<p>進階推薦</p>
+<p><a href="https://images.openai.com/static-rsc-4/3fluysXIZqD9Q5mn2LIrNTb54u34eNKHVaw4wB2vhzvphzFtWXBZtigXvilmKcI2RSnS4ueO85rokejwYqShOt0XXP6Kt6xTRfKSWUftImwKnXtkIIAZSvhdVWh3gRMt7GCrg7B8bwLfdM1XwLWJpeaz53d-xGEt_W6RmI3hC08?purpose=inline">Amplificateur Stéréo Class D TPA3255 2x225W 4 Ohm</a></p>
+<p>這是很值得長期發展的 DIY 專案。</p>
+<p>設計規格</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功放 IC</td>
+<td>TPA3251 或 TPA3255</td>
+</tr>
+<tr>
+<td>電源</td>
+<td>36～48V DC（依模組）</td>
+</tr>
+<tr>
+<td>電源供應器</td>
+<td>約 36～48V / 4～5A，依輸出目標</td>
+</tr>
+<tr>
+<td>輸出目標</td>
+<td>2 × 50W</td>
+</tr>
+<tr>
+<td>喇叭</td>
+<td>4～8Ω</td>
+</tr>
+<tr>
+<td>DAC</td>
+<td>PCM5102A 或更高規格</td>
+</tr>
+<tr>
+<td>Bluetooth</td>
+<td>A2DP 接收模組</td>
+</tr>
+<tr>
+<td>DSP</td>
+<td>ADAU1701 或其他 DSP</td>
+</tr>
+<tr>
+<td>機箱</td>
+<td>鋁合金</td>
+</tr>
+<tr>
+<td>散熱</td>
+<td>依功放板散熱設計</td>
+</tr>
+</tbody>
+</table>
+<p>TPA3255 原廠規格提供很大的功率設計空間，但其 315W × 2 的宣稱是在特定供電、負載及 10% THD+N 條件下；在 1% THD+N 時，官方數據為 4Ω 負載 260W × 2、8Ω 負載 150W × 2。這些都是晶片級特定測試條件，不應直接當作 DIY 機箱的連續輸出額定值。</p>
+<h4>電源如何設計？</h4>
+<p>例如目標 2 × 50W：</p>
+<p>以 90% 效率估算：</p>
+<p>如果使用 36V 電源：</p>
+<p>所以可以從 36V / 4A 或 36V / 5A 電源開始評估。</p>
+<p>但必須注意：供電電壓、負載阻抗與模組輸出能力必須符合實際功放板設計，不能只用電源瓦數推定音訊輸出瓦數。</p>
+<h4>七、如何自己設計 Class D 擴大機電路？</h4>
+<p>如果不滿足於購買現成模組，而希望自己設計 PCB，就要理解功率放大器內部的幾個重要電路。</p>
+<h4>1. Class D 的基本電路結構</h4>
+<p><a href="https://images.openai.com/static-rsc-4/DrhH5Z_nXdLczJ2mXYzBiEXMUl8xiV8z-1wUurxOW_Ou098QPi95Yz56W8wyiJKtLFCAtQZx96HCdgA6LRTokcjcnNf3_QWZsQRCda33XadgKndv6UivF9z6may4_xDWqvfJhs-HgnCyeZbGSmZ8HZ65fVtgweimfQZbDYrQPh4?purpose=inline">Multilevel Class D Audio Amplifiers for Compact Consumer Applications</a></p>
+<p>主要包含：</p>
+<ol>
+<li>音訊輸入緩衝。</li>
+<li>PWM 調變器或整合式控制器。</li>
+<li>MOSFET Gate Driver。</li>
+<li>半橋或全橋功率輸出。</li>
+<li>LC 濾波器（依架構而定）。</li>
+<li>回授與保護電路。</li>
+</ol>
+<p>對於初次設計，我不建議直接自行設計 MOSFET 開關級，因為高頻開關、死區時間、PCB 寄生電感及 EMI 都會大幅增加難度。</p>
+<p>更好的做法是：</p>
+<ul>
+<li>使用 TI 原廠參考電路。</li>
+<li>使用成熟的功放 IC。</li>
+<li>自行設計周邊電源、前級及音訊介面。</li>
+<li>最後才嘗試重新設計功率級 PCB。</li>
+</ul>
+<h4>2. 電源去耦電容</h4>
+<p>這是 Class D 電路穩定性的關鍵。</p>
+<p>通常需要：</p>
+<ul>
+<li>功率級附近的低 ESR 電解電容。</li>
+<li>陶瓷電容。</li>
+<li>依資料表要求配置的高頻去耦。</li>
+<li>適當的電源走線寬度。</li>
+</ul>
+<p>電容必須盡量靠近晶片的電源端，不能將大電容放在遠離功放 IC 的位置，就認為已經完成去耦設計。</p>
+<h4>3. PCB Layout</h4>
+<p><a href="https://images.openai.com/static-rsc-4/Vlwz5hO50HQmIFopDkBKpp2M_3kUYCcSOB3T4sNF1qUXL7fdH1xyvTb2v0ZRp2QJVjoTjNMloW-Pnx_sjhJYvDnlX72lwnLu7uMB8gVG9HRHN2RCRu7Fqlvt_5FnNOqnGHdPBV097StyGQT_q2duQeq0MYsZYxC7d4nPkqMunjU?purpose=inline">TPA3116D2 Audio Amplifier IC Pinout, Datasheet, Equivalent, Specifications and Dimensions</a></p>
+<p>PCB 設計應特別注意：</p>
+<table>
+<thead>
+<tr>
+<th>區域</th>
+<th>設計重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>音訊輸入</td>
+<td>短線、遠離開關節點</td>
+</tr>
+<tr>
+<td>功率電源</td>
+<td>寬銅箔、低阻抗</td>
+</tr>
+<tr>
+<td>MOSFET</td>
+<td>縮小高電流迴路</td>
+</tr>
+<tr>
+<td>輸出電感</td>
+<td>依原廠建議選擇</td>
+</tr>
+<tr>
+<td>接地</td>
+<td>依參考設計安排回流路徑</td>
+</tr>
+<tr>
+<td>Bluetooth 天線</td>
+<td>遠離電感及功率開關區</td>
+</tr>
+<tr>
+<td>電容</td>
+<td>靠近供電腳位</td>
+</tr>
+</tbody>
+</table>
+<p>不要隨意把所有 GND 都接到 PCB 上某一個看似方便的位置。音訊地、數位地及功率回流需要依晶片的參考設計規劃。</p>
+<h4>4. BTL 輸出注意事項</h4>
+<p>現代 Class D 很多都採用 BTL（Bridge-Tied Load）。</p>
+<p>這表示：</p>
+<pre><code>OUT+ ─────── 喇叭 ─────── OUT-
+</code></pre>
+<p>喇叭兩端都由放大器驅動。</p>
+<p>因此：</p>
+<ul>
+<li>OUT- 不是 GND。</li>
+<li>不能把 OUT- 接到機殼地。</li>
+<li>不能將兩個 BTL 聲道的負端互相連接。</li>
+<li>不能直接使用共地式耳機或測試設備接到喇叭輸出端。</li>
+</ul>
+<p>這是製作雙聲道 Class D 時非常重要的安全規則。</p>
+<h4>八、擴大機的保護電路</h4>
+<p>一套完整的 DIY 音響不應只有放大器，還應考慮保護喇叭及電路本身。</p>
+<p>建議加入以下功能：</p>
+<table>
+<thead>
+<tr>
+<th>保護功能</th>
+<th>作用</th>
+<th>重要程度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Over Current</td>
+<td>過電流保護</td>
+<td>必要</td>
+</tr>
+<tr>
+<td>Over Temperature</td>
+<td>過溫保護</td>
+<td>必要</td>
+</tr>
+<tr>
+<td>Under Voltage</td>
+<td>電源電壓不足保護</td>
+<td>建議</td>
+</tr>
+<tr>
+<td>Over Voltage</td>
+<td>電源過壓保護</td>
+<td>建議</td>
+</tr>
+<tr>
+<td>Short Circuit</td>
+<td>喇叭輸出短路保護</td>
+<td>必要</td>
+</tr>
+<tr>
+<td>DC Protection</td>
+<td>異常直流輸出保護</td>
+<td>建議</td>
+</tr>
+<tr>
+<td>Soft Start</td>
+<td>開機緩啟動</td>
+<td>建議</td>
+</tr>
+<tr>
+<td>Mute Control</td>
+<td>開關機靜音</td>
+<td>建議</td>
+</tr>
+</tbody>
+</table>
+<h4>喇叭直流保護</h4>
+<p>如果功放發生故障，喇叭輸出端可能出現不正常的直流電壓，導致喇叭音圈過熱。</p>
+<p>因此，傳統 Class AB 功放常使用 DC 偵測及喇叭繼電器保護。</p>
+<p>Class D 則必須注意輸出拓撲：BTL 輸出不能使用一般共地式直流偵測電路直接測量其中一端。應使用適合差動輸出的偵測方式，或採用功放 IC 已提供的故障訊號。</p>
+<h4>開機爆音問題</h4>
+<p>常見原因：</p>
+<ul>
+<li>DAC 啟動時輸出不穩定。</li>
+<li>Bluetooth 模組開機產生雜訊。</li>
+<li>前級電源啟動順序不一致。</li>
+<li>功放過早解除 MUTE。</li>
+</ul>
+<p>建議使用以下開機順序：</p>
+<pre><code>USB / DC 電源接通
+        │
+        ▼
+    電源穩定
+        │
+        ▼
+   DAC / Bluetooth 啟動
+        │
+        ▼
+    前級穩定
+        │
+        ▼
+   功放解除 MUTE
+        │
+        ▼
+      正常播放
+</code></pre>
+<h4>九、如何測試 DIY 擴大機的音質？</h4>
+<p>如果希望製作真正的 Hi-Fi 音響，不能只依靠耳朵判斷。</p>
+<p>我建議準備以下工具：</p>
+<p><a href="https://images.openai.com/static-rsc-4/CqesRZbkcW-PENzqFrKHEGSuUQpVaEIqZxJJyqq4ppRYE8kJIrRLvwcWHcOMz_TkkgZQLW3GVNorq0ID3-dq4mQk_rNzjnFA9dD5bE-G5zSuRRVw-UisG4QoKXWsteFx-FVPFPMsgvlEI01g7hPbX-sN5tV0H84b0RqomPr0648?purpose=inline">Infrastructure</a></p>
+<p>數位示波器</p>
+<p>觀察輸入、輸出波形及失真、振盪。</p>
+<p><a href="https://images.openai.com/static-rsc-4/CW-GKlbn3Q8NIDlTRHDSK3lzA1uShAGvFRXl1qnt83URq093Z3QwhSDIefMm0W9FHG8NSnmL_dXdf68xJVachWoA0TBO-5620jBjgAhMHzbk17ziF8CfeLshx9U02hQafkstoavdRP67HFFghK9NVSkEVXQxX42q4iMNi0gKapg?purpose=inline">Essential Electronic Testing Gear for Aussie Tradies &amp; Tech Heads</a></p>
+<p>數位電表</p>
+<p>測量電壓、電流、電阻。</p>
+<p><a href="https://images.openai.com/static-rsc-4/M1_4D4ru9UKR7cSvKI7shjnxkqSyCdWCJxoTnMRCbUdG6cRVvcpijj9b9QYdzSXjsbe0soKEX1OBTjq32aaUVivYgIh0L7u-Yj8mHf_v0Xy7TJc8_8Bw4Urwm4IhMAczPNkumtP0u40AZLOtxLLrE1s8zQsrFOOBXKNdgcf-U6s?purpose=inline">4 ohm 100w dummy load resistor aluminium clad 4R J 4RJ attenuator resistive 4ohm</a></p>
+<p>功率假負載</p>
+<p>使用適當功率的 4Ω、8Ω 非感性電阻測試。</p>
+<p><a href="https://images.openai.com/static-rsc-4/4M-bZ15y6N7dKHqrfGahxmodzJ05OvL3SKjddVQM9BkjIWJDsDgPQ8I9hjLgyItrwEA6_JpeVc-EKOPvwNvIINWTuIrxgYR-0xgt_B5FZHqjgXxB3UThl-kNZLl2VBNBC1C3SkNy7r5dpYJxDtvq6s7BiaNIkQ4EpuqjknOjs7Q?purpose=inline">QuantAsylum QA403 audio analyzer</a></p>
+<p>音訊分析設備</p>
+<p>測量 THD+N、SNR、頻率響應。</p>
+<h4>1. 測試輸出功率</h4>
+<p>假設測試 8Ω 喇叭負載，目標 20W：</p>
+<p>使用 1kHz 正弦波，逐漸增加輸入音量，觀察輸出波形。</p>
+<p>當輸出波形開始削波（Clipping），就表示接近放大器的輸出極限。</p>
+<p>測試時應記錄削波前的 RMS 電壓，並計算實際功率。</p>
+<h4>2. THD+N 總諧波失真加雜訊</h4>
+<p>THD+N 是判斷擴大器音質的重要數據。</p>
+<p>簡單說：</p>
+<ul>
+<li>越低通常越好。</li>
+<li>必須同時記錄輸出功率及測試頻率。</li>
+<li>不能只比較不同廠商各自挑選的最佳數字。</li>
+</ul>
+<p>例如同一台功放：</p>
+<table>
+<thead>
+<tr>
+<th>輸出狀態</th>
+<th>THD+N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1W 輸出</td>
+<td>0.01%</td>
+</tr>
+<tr>
+<td>10W 輸出</td>
+<td>0.03%</td>
+</tr>
+<tr>
+<td>20W 輸出</td>
+<td>0.1%</td>
+</tr>
+</tbody>
+</table>
+<p>這只是說明測試表格的示意數據，不代表某一款實際晶片的測量結果。</p>
+<h4>3. 頻率響應</h4>
+<p>一般人耳可聽範圍約為 20Hz～20kHz。</p>
+<p>測試時可以使用：</p>
+<ul>
+<li>20Hz。</li>
+<li>50Hz。</li>
+<li>100Hz。</li>
+<li>500Hz。</li>
+<li>1kHz。</li>
+<li>5kHz。</li>
+<li>10kHz。</li>
+<li>20kHz。</li>
+</ul>
+<p>觀察輸出是否平坦，以及低頻、高頻是否有異常衰減。</p>
+<h4>4. 示波器測量 BTL 輸出</h4>
+<p>這點特別重要。</p>
+<p>一般接地式示波器探棒的接地夾不能直接夾在 BTL 功放的 OUT-。</p>
+<p>建議使用：</p>
+<ul>
+<li>合適的差動探棒。</li>
+<li>隔離式測量設備。</li>
+<li>專用音訊分析設備。</li>
+</ul>
+<p>不可為了測量方便，把示波器接地夾接到 BTL 的喇叭輸出端，否則可能造成短路及設備損壞。</p>
+<h4>十、DIY 音響的電源供應器選擇</h4>
+<p>這一部分值得獨立討論，因為很多音響設計問題其實來自電源。</p>
+<table>
+<thead>
+<tr>
+<th>音響方案</th>
+<th>建議電源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5W USB</td>
+<td>5V / 2～3A</td>
+</tr>
+<tr>
+<td>2 × 20W</td>
+<td>24V / 4A</td>
+</tr>
+<tr>
+<td>2 × 50W</td>
+<td>36V / 4～5A（依模組）</td>
+</tr>
+<tr>
+<td>2 × 100W</td>
+<td>依功放及負載選擇 36～48V 高電流電源</td>
+</tr>
+</tbody>
+</table>
+<h4>電源有兩種主要選擇</h4>
+<p><a href="https://images.openai.com/static-rsc-4/nFd702fiS9c_JCMKqSFf6PEi9fsQwrdUHImzd658FV5cm_lwDH2-r8sRvgfSva4PzjDJPB5v7yT7zp3qB8n0RrgQ09NTtfkt6ikXBLUFCJWGJ6gQ0FEwVUAi5DBXDDcUyWJAoOzbTIOfGl9-afDJkkzZjj77EmAS17Wl4qcw6ag?purpose=inline">24V DC Power Supply - 5A, 120W (110-220V AC)</a></p>
+<p>A. 開關式電源 SMPS</p>
+<ul>
+<li>體積小。</li>
+<li>效率高。</li>
+<li>重量輕。</li>
+<li>成本合理。</li>
+<li>必須注意開關雜訊及 EMI。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/UdtkXIsqKCNBezNb3tzg8JPRZDxO8x0w6M0flgWnLS-3-tbYXmi_rRd1haWDQ8U0cO261HFKCJmVBRkbcc8AxdnZVD9hsbWqD8Yo7s1QZdnbbQQyGlrG5UqUwtCGlvZ4HQAC2FsBOV-VgMsf9vOMHzMzQgKIJ-zy9CZnZLMavdM?purpose=inline">PPT - Power supply PowerPoint Presentation</a></p>
+<p>B. 線性電源 Linear PSU</p>
+<ul>
+<li>傳統變壓器、整流及濾波設計。</li>
+<li>電路容易理解。</li>
+<li>體積較大。</li>
+<li>效率較低。</li>
+<li>需要處理較大的散熱及變壓器磁場。</li>
+</ul>
+<p>我的建議是：現代 Class D DIY 音響使用品質良好的開關式電源即可，不必認為線性電源一定比較好聽。</p>
+<p>尤其是涉及 110V / 220V 市電時，建議使用具有合格安規、完整絕緣及保護的外接式電源供應器，不要在第一版 DIY 機箱內自行製作裸露市電電源電路。</p>
+<h4>十一、軟體與電腦輔助設計工具</h4>
+<p>如果希望進一步自行設計電路、PCB 及 DSP，我推薦以下免費或可免費使用的工具。</p>
+<table>
+<thead>
+<tr>
+<th>軟體</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KiCad</td>
+<td>電路圖與 PCB 設計</td>
+</tr>
+<tr>
+<td>LTspice</td>
+<td>類比電路模擬</td>
+</tr>
+<tr>
+<td>REW（Room EQ Wizard）</td>
+<td>音響頻率響應及房間測量</td>
+</tr>
+<tr>
+<td>VituixCAD</td>
+<td>喇叭分音器與系統模擬</td>
+</tr>
+<tr>
+<td>SigmaStudio</td>
+<td>ADAU 系列 DSP 設計</td>
+</tr>
+<tr>
+<td>Audacity</td>
+<td>音訊錄製及波形分析</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://images.openai.com/static-rsc-4/IG678i2miBYjjAdRgir7fl4w_vij9nL1P-CT8mD8idAWQlTNR9o6ghtZ0tMJwtPJIJTFHGE5r-kD_hunI6fWkJT4b0kDSun8YsZHYsw0d779Rth_FZxjIMzsYV3zmiFeAZ5OCVQZODU4q_JNLq_lHX4FdBwwITvDsQQql-4WTAk?purpose=inline">KiCad：免费、开源、企业级应用的PCB设计工具</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/o8GB9Lo_yb3pBEVhQUzWDA5TgiAsWWHJaL5-4CA4WWyfjYbhkgrQ34-4dWhSfhK04xG9aoSR7PP0Jug9uhtp9i9zg4SrX_KmerM9uhRewGuZuOJO8bco8RuuaILxmaNHAXptcwJlbxmw9bn_iE3jC_pvfx8UTTGD1HdEOXYwfaM?purpose=inline">LTspice-How to use Waveform Viewer | Spiceman</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/6cI6jDJNbso5UkJXOKOqc93PQ0REblAXXBxZVyMnjF8CzEiz28he3GZJnwGuMu2x9ow9-q-44OVXPjUfxpn7kPPVOtG8qPY8v7rROxO6JVc0pP_G14M6bfJjgwn20NIo81EhvVxGczDtJc0DBhPmR1OyqniSeGMRuQnsp9BMn_0?purpose=inline">REW - Room EQ Wizard Room Acoustics Software</a></p>
+<p>尤其推薦 KiCad + REW + VituixCAD 這個組合：</p>
+<ul>
+<li>KiCad：設計擴大機電路板。</li>
+<li>REW：測量喇叭及房間的實際聲音。</li>
+<li>VituixCAD：設計兩音路及三音路分音器。</li>
+</ul>
+<p>這三個工具可以形成完整的 DIY 音響開發流程。</p>
+<h4>十二、我建議你實際進行的三階段開發計畫</h4>
+<p>考慮到你前面希望自己製作 USB 藍牙喇叭，我不建議直接從高功率 TPA3255 開始，而是依序完成以下三個專案。</p>
+<h4>DIY Audio Development Roadmap</h4>
+<ol>
+<li>
+<p>第一階段：USB Bluetooth 5W Speaker</p>
+<p>先完成</p>
+<ul>
+<li>PAM8403 / 單聲道 Class D。</li>
+<li>Bluetooth A2DP。</li>
+<li>USB-C 供電。</li>
+<li>2～3 吋喇叭。</li>
+<li>自製木製音箱。 學習電源、音訊訊號、功放與喇叭組裝。</li>
+</ul>
+</li>
+<li>
+<p>第二階段：TPA3116D2 2.0 Stereo Amplifier</p>
+<ul>
+<li>24V 電源。</li>
+<li>2 × 20W 目標。</li>
+<li>USB DAC。</li>
+<li>Bluetooth。</li>
+<li>RCA 輸入。</li>
+<li>音量旋鈕。</li>
+<li>左右兩個獨立喇叭。 學習完整立體聲音響、前級、電源與機箱設計。</li>
+</ul>
+</li>
+<li>
+<p>第三階段：TPA3255 DSP Hi-Fi System</p>
+<ul>
+<li>TPA3255。</li>
+<li>高品質 DAC。</li>
+<li>ADAU1701 DSP。</li>
+<li>主動式兩音路分音。</li>
+<li>高音及低音獨立功放。</li>
+<li>喇叭頻率響應校正。</li>
+<li>自製 PCB。 學習進階功率放大、數位訊號處理及音響系統整合。</li>
+</ul>
+</li>
+</ol>
+<h4>十三、最後：先決定要製作哪一種擴大機</h4>
+<p>不同設計會影響電路圖、PCB、電源、機箱及喇叭的選擇。</p>
+<p>我整理了四種可實際執行的方向：</p>
+<h4>DIY 音響設計規格選擇</h4>
+<p>1. 想製作哪一種音響？</p>
+<p>USB 5W 迷你藍牙喇叭</p>
+<p>2 × 20W 桌上型立體聲擴大機</p>
+<p>2 × 50W Hi-Fi 擴大機</p>
+<p>2.1 聲道音響（左右聲道＋重低音）</p>
+<p>2. 希望具有哪些音訊輸入？</p>
+<p>只需要 Bluetooth</p>
+<p>Bluetooth + USB DAC + RCA</p>
+<p>USB DAC + Optical + Bluetooth</p>
+<p>3. 電源偏好</p>
+<p>USB-C 5V</p>
+<p>24V DC 外接電源</p>
+<p>36～48V DC 外接電源</p>
+<p>4. 製作方式</p>
+<p>使用現成模組組裝，自己設計外殼</p>
+<p>自己設計 KiCad 電路圖及 PCB</p>
+<p>先使用模組，之後逐步改成自製 PCB</p>
+<p>依照以上選擇開始設計完整工程</p>
+<p>建議是選擇 2 × 20W TPA3116D2 立體聲方案，使用 24V 電源、Bluetooth + USB DAC + RCA，第一版採用模組，第二版再自己設計 KiCad PCB。</p>
+<p>這樣不但能做出真正可用的桌上型音響，也能逐步學習現代音響的電源、前級、DAC、DSP、功率放大及喇叭設計。</p>
+<h1>D類擴音機</h1>
+
+
+
+
+<h4>高 CP 值 D 類音響擴大機與喇叭推薦、比較及購買指南</h4>
+<p>如果要自己組裝一套音質好、價格合理、可以長期使用的桌上型或家庭音響， D 類（Class D）擴大機是目前 DIY 最值得考慮的選擇之一。</p>
+<p>不過，選擇 D 類擴大機時，有一個很重要的觀念：</p>
+<p>不要只買標示 100W、200W 或 300W 的擴大機，而要同時考慮晶片、供電電壓、喇叭阻抗、實際失真率及喇叭靈敏度。</p>
+<p>以下將推薦分成三個部分：</p>
+<ol>
+<li>高 CP 值 D 類擴大機：從入門到 Hi-Fi。</li>
+<li>適合搭配的喇叭：書架型、全音域、兩音路及重低音。</li>
+<li>實際購買組合：依預算與用途，選出值得購買的搭配。</li>
+</ol>
+<p>以下價格以新台幣估算，作為採購預算參考，不代表即時成交價。</p>
+<h4>一、最值得考慮的 D 類擴大機</h4>
+<p>我建議優先研究以下六種晶片或產品平台：</p>
+<p><a href="https://images.openai.com/static-rsc-4/AdRCEF63aE8OoSyy160cjAOL4HR9izJCVHaw3sMaV-jkAjhbwR7AWzkrBF7myHTTk8SUkHg5QSMLBDvZC6FSaZ1j2Js7DNgplbZZ81gaP1KY8D9c-3Ygx0sq12TpBL8isr49V5bHQ5daX4ZTLCRM-GkMaMpY-ErS6AYjEoQ9LQs?purpose=inline">PAM8403 5V Stereo Mini Class-D 3W+3W Audio Amplifier with Volume Control</a></p>
+<p>1. PAM8403</p>
+<p>超低成本入門</p>
+<h4>NT$30～100</h4>
+<p>5V USB 供電，適合迷你喇叭、電子實驗及小型桌上音響。</p>
+<p><a href="https://images.openai.com/static-rsc-4/cBZp2uUxmaS-N7E0UuTDe6BJOKU70Do1TmKTAQ2imPqnVnNWLmZUFWXFC54SbLsKzs1ZDL7qVLMtKK_DcbOf9RNLKKQeo7u99Emen7EHOW4Jrww9pkMmDTO_B4G2ik5201h1Hku5pBcA5VtWqW6w7zBHWN9Yytw0vOL3G4wfhaM?purpose=inline">TPA3116D2 2x50W Dual Channel Digital Amplifier Board</a></p>
+<p>2. TPA3116D2</p>
+<p>最推薦入門桌上型音響</p>
+<h4>NT$150～450</h4>
+<p>12～24V 供電，雙聲道，模組選擇多，價格與效能平衡很好。</p>
+<p><a href="https://images.openai.com/static-rsc-4/3EuC2rE_bQZhqqsIXJJsUZUsy0cQ9aX7D5XgfB1h6mSI97XVx5Ar_mN2Y_Kv2Xg27R9tMY3ojy6kyfcFIqLJE2-ZRqI53ZR20IdsCnL_m6457Dx1LccOfRNXjTP5Y23xkZCWTZJNElSvByxnplEad0JTTpy-h5-NsLRpHV1v9s8?purpose=inline">Placa amplificadora digital ANGGREK TPA3118 PCB 2x30W DC 8-26V Doble Canal</a></p>
+<p>3. TPA3118D2</p>
+<h4>NT$120～350</h4>
+<p>適合小型、低成本、重視體積的立體聲系統。</p>
+<p><a href="https://images.openai.com/static-rsc-4/Px_YEx3cA8vQVLLKRvhYUpWbxSQ1tTr1q0uf6O_Ky4BWa0t7j2mxnpVWUWJKO9IOw_oahWhGNOOvCJL6Xc_AEmRKSyYSPVzOCrQkVRFZD61TZcexX41rMmfAmHBgg4qe447g7svhMFB7fQu9cb6AdxPTVf1nLgalXNRr4fYs19U?purpose=inline">TPA3251 Stereo Dual-Channel Digital All-Aluminum 175W+175W Power Amplifier</a></p>
+<p>4. TPA3251</p>
+<p>高音質中階</p>
+<h4>NT$500～1,500</h4>
+<p>適合對音質及低失真有較高要求的桌上型 Hi-Fi 音響。</p>
+<p><a href="https://images.openai.com/static-rsc-4/WkdJXyE2Guke8LqDUCdLa2bzmaN3TbvKW973euPrX-xLwqrpT9-zy2nt8LCgGvLBTB_8NcUHOVMnuq_a-xfOPDgXfqjnxl5cjq3nxPgh_-MCKupKeHkCVxaMfWRJcW17Sb4yhMRL4tCvgESJKNonmjZvKnrIU5Q2VIm16GOfEFw?purpose=inline">TI Purepath HD 150 Module Amplificateur Class D TPA3255 2x110W 8 Ohm</a></p>
+<p>5. TPA3255</p>
+<p>進階高 CP 值</p>
+<h4>NT$700～2,000</h4>
+<p>高功率、高效率，適合 2 × 50W 以上的 DIY 音響。</p>
+<p><a href="https://images.openai.com/static-rsc-4/_-oC3w_ArRX9MnVbzO_rxXiFabn4WUNSvYiY3MAaOJ0VX0DNmTKjV6__X4t7MUALYWsv_ZVGy0VfIYTC_O9d8bEoNspHCcueQWGI-BouDfAN9_veN4CvMESG4FM56DU4bRWAnWeAIthyjwiBwoIQDBUbzCZYIsz36lv1tlx5DsY?purpose=inline">Class D Stereo Amplifier Module MA12070 2x80W 4 Ohm</a></p>
+<p>6. MA12070</p>
+<h4>NT$500～1,500</h4>
+<p>高效率音訊放大平台，適合低功耗、高整合度的音響設計。</p>
+<p>以上為不同平台的預算級距，並非每一塊模組都具備相同功能或品質。尤其是 TPA3251、TPA3255，必須特別注意 PCB、輸出電感、電源及散熱設計。</p>
+<h4>二、擴大機詳細比較：哪幾款真正值得買？</h4>
+<p>先區分兩種產品：</p>
+<ul>
+<li>DIY 功放板：買電路板、電源及機箱，自己組裝，成本最低。</li>
+<li>完整成品擴大機：已經有機箱、音量控制、輸入端子及保護電路，安裝容易，通常更適合長期使用。</li>
+</ul>
+<h4>1. TPA3116D2：預算有限時的最佳選擇</h4>
+<p><a href="https://images.openai.com/static-rsc-4/IiWv98P8pdfJ07IejsTDNBpAfkKlt_HreWlh4XWxMZNTLHV_IOFoyNbN1FTnG6ZEXi50P-jQtZIHmqPaS35-mNx_dQOnSm6I7M8TkllzRW6l5k8elbSvXzLUmL9ThiLHNibZenzeIg5OAnPu6gJ_F3D03Y0VL3aFGZvS791R9Rw?purpose=inline">Placa Amplificadora Tpa3116d2 120w + 120w Rms 2 Canais Canais De Áudio Estéreo</a></p>
+<p>適合：</p>
+<ul>
+<li>桌上型電腦音響。</li>
+<li>小型書房。</li>
+<li>4～6 吋書架喇叭。</li>
+<li>2 × 15W～30W 左右的實際輸出目標。</li>
+</ul>
+<p>建議電源：</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>電壓</td>
+<td>19～24V</td>
+</tr>
+<tr>
+<td>電流</td>
+<td>3～5A</td>
+</tr>
+<tr>
+<td>喇叭</td>
+<td>4～8Ω，依模組規格</td>
+</tr>
+<tr>
+<td>輸入</td>
+<td>RCA 或藍牙接收器</td>
+</tr>
+<tr>
+<td>散熱</td>
+<td>依 PCB 設計配置</td>
+</tr>
+</tbody>
+</table>
+<p>可參考目前找到的模組：</p>
+<p><a href="https://images.openai.com/thumbnails/url/7DRrMHicDcndCoIwGADQJ_I_yAkRTVlehIpS4m5Cp-jU5mwfyHyQ3q23qXN7vp8BQKrAsjrB3lpC1xrQCNvsFdTAmcmWl6WGRUou-vN6-l9wSVp0ZQXuI0xm36PlsSNGGG2Z1mMli7ThqbcbaOSVC7ctLOxQzII42ib80bi5064HwlByR1uckTxTy-6sE6Ulxc94Aq8e1O7_AHAANUQ">Tpa3116d2 Digital Audio Power Amplifier Board 120w+120w Amp Module</a></p>
+<p>Tpa3116d2 Digital Audio Power Amplifier Board 120w+120w Amp …</p>
+<h4>NT$196.56</h4>
+<p>商家：eBay</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=Tpa3116d2+Digital+Audio+Power+Amplifier+Board+120w%2B120w+Amp+Module+Dc&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>另一款是：</p>
+<p><a href="https://images.openai.com/thumbnails/url/c6CE1nicDclJDoIwAADAF1VQI1oSY4pSNIoYIXG5mLYoInSThu1Vfsff6Fzn-3kaoyrXsu6CvTtl7ikwVIwGWWWIydmASW5VT6lULrKFnv_PRfsUBixuAn57gUhS7GivzOSaw0YX_eQGyCPVAE0T4tUbyrgfTHcvG3c4icjVp2B1vNhgiYrysHV0PNqKYQkymmzq3oRticdJyM2a4NYXTgp5XsNZox9FfG7w6V2jH5_dPuQ">TPA3116D2 XH-M543 60W Dual Channel Digital Amplifier 120*2W</a></p>
+<p>TPA3116D2 XH-M543 60W Dual Channel Digital Amplifier 120*2W</p>
+<h4>NT$179.36</h4>
+<p>商家：KitsGuru</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=TPA3116D2+XH-M543+60W+Dual+Channel+Digital+Amplifier+120*2W&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>購買建議： 優先找有完整輸入濾波、散熱片、音量控制及清楚標示晶片型號的版本。不要因為商品寫著 120W × 2 就認為它能在 24V 電源下輸出 240W。</p>
+<h4>2. TPA3118D2：小型化與低成本</h4>
+<p><a href="https://images.openai.com/static-rsc-4/bPVMMcfmNYKJ1n4d-K2mz0S-I6AUvnexyGwkfFBpdDh2HcitTWZaVDmeJ4gr0wbIZfJWkxwzEz-F2LJ_T_QtPc45TxAm68LYLlROFdYob6RigKcVpOVak5tOlLaJ1i8132xxa5UoAipcLrk93jRUUpb8pvZNE9dVTZESwtuJJGU?purpose=inline">Zesilovač 2x45W, modul XH-M312 s TPA3118D2</a></p>
+<p>TPA3118 與 TPA3116 同屬 TI 的 Class D 家族，但適合不同的模組配置。</p>
+<p>優點：</p>
+<ul>
+<li>板子可以做得很小。</li>
+<li>電路成本低。</li>
+<li>適合單聲道或小型立體聲。</li>
+<li>適合 12～24V 系統。</li>
+</ul>
+<p>目前找到的產品：</p>
+<p><a href="https://images.openai.com/thumbnails/url/_osUw3icDcnbCoIwAADQL0rt5lSIMAqLsMSyxDc3h7NyF7fp_JH-rb_J83p-X6IUl4FtY4q6kStczRSkC6uWqlQNshBrbUkY5w2tt2IzXRBeKj9C92MBPv5AzRzQFYmNxuvk1laellpDL2W78XQFD4Hy3sVlzRVFryKLHRI1LRc6RixkLnwfsr5jjhmW0uSJeYI9wOLswvQP-f83mw">TPA3118 數位功放板 60W 音訊放大模組 PBTL 單聲道 音頻放大器</a></p>
+<h4>NT$95.00</h4>
+<p>商家：蝦皮購物</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=%E3%80%90%E7%A5%A5%E6%98%8C%E9%9B%BB%E5%AD%90%E3%80%91TPA3118+%E6%95%B8%E4%BD%8D%E5%8A%9F%E6%94%BE%E6%9D%BF+60W+%E9%9F%B3%E8%A8%8A%E6%94%BE%E5%A4%A7%E6%A8%A1%E7%B5%84+PBTL+%E5%96%AE%E8%81%B2%E9%81%93+%E9%9F%B3%E9%A0%BB%E6%94%BE%E5%A4%A7%E5%99%A8&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>另一個 PBTL 單聲道版本：</p>
+<p><a href="https://images.openai.com/thumbnails/url/43jc03icDcnbEkJAAADQL8plRWqmabadRekiYuqpYS1L0sYq-qj-p7-p83q-HyYEb2eyTGvSDFzQdCSSGkh5K2JREIncb3LL7pwXdb54zP83g7t0ahM_wGqFTpWjG2FhYKhRMx5MxcOYBRp6Lo-hEq3ssWoPh9xq9j6aaK7oeJedr2pUAxd4eu9SCLFlvRBzujZT1zt2G5XZ3tOo320jeAVpsrkUpd8EbxP21KjAD3LlPBA">TPA3118 PBTL 8-24V Mono Digital Amplifier Board 60W</a></p>
+<h4>NT$160.79</h4>
+<p>商家：eBay - takelist + others</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=TPA3118+PBTL+8-24V+Mono+Digital+Amplifier+Board+60W&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>這種單聲道版本可以用在：</p>
+<ul>
+<li>重低音喇叭。</li>
+<li>單體全音域喇叭。</li>
+<li>多聲道音響的獨立聲道。</li>
+</ul>
+<p>要注意 PBTL 的輸出端同樣不能把負端接地。</p>
+<h4>3. TPA3255：最值得投資的高性能平台</h4>
+<p><a href="https://images.openai.com/static-rsc-4/hADwu6qLyEjd-mn_sYIubLhEh5dwf2ZYWgMydFBSLxHRJy5cdz4cSOSl_sdhIGwWNNCFwXIIfjvPHuqs_EH-_29sft23AAp4OJsl4TMZ5IsdJ8HWsobEoJASn7s2_1GxFYvnWQ33kry1svJ9ArMZTud-VP5vNHGonHo2S5-L79c?purpose=inline">SAMP-100 High Power 2-channel TPA3255 2x300W 600WHIFI Digital Amplifier Board</a></p>
+<p>最推薦進階 DIY 玩家研究的功放晶片。</p>
+<p>優點：</p>
+<ul>
+<li>高功率輸出能力。</li>
+<li>高效率。</li>
+<li>適合 4Ω、8Ω 喇叭。</li>
+<li>可搭配高品質 DAC 與前級。</li>
+<li>可以製作高品質桌上型 Hi-Fi 音響。</li>
+</ul>
+<p>建議採購：</p>
+<p><a href="https://images.openai.com/thumbnails/url/FO0NYHicDclLDoIwFADAEyHED01JjKmiRVHAH8GVgYIW0VLoU4RTeR1vo7Od74cDSGXpeiZY3UrIUg0SYfSuCmLIWY-VD13xUspcXCfV-H8W8VJM2S6I7ucSGwUK3QTP-zF9x8fKJ69nUptYzFqbezenjjoRcxe04SZk-EmX05Ob0Tdx0CpfZ2BeutRrAzDnyvZHTUOO3oAjemhoWCLtrhX-TC0CG3Vov-9kVJFq-wOf6D58">600wx2 Ultra High Power 2-ch Digital Power Amplifier Board 2xtpa3255</a></p>
+<h4>NT$1,201.65</h4>
+<p>商家：eBay - outstandingdeal_us</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=600wx2+Ultra+High+Power+2-ch+Digital+Power+Amplifier+Board+2xtpa3255&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>另一款：</p>
+<p><a href="https://images.openai.com/thumbnails/url/VZJQfHicDclLDoIwFADAEwmy8EdiDEYEFBuIUIWNgUIKIUBLHy14Eq_mbXS28_1UAEyYul52ZJgZlMUC8s7QqIAMaqKRvtVF1TNWd_TA9_8zLVTsHBJNAwjnNh3PhutM8YUSlikv8KJT4hV0E_qzv8XMBwcP9nt5JKinr-s4RtiWCD3yZhVyiEkRK26ld0uu04bjjARStipxn1j9AFLiOEQ">ZK-6002 600W 2 Channel Stereo Audio Amplifier Board High Power Class H Amp TPA3255 Chips Low Distortion Wide Voltage</a></p>
+<p>ZK-6002 600W 2 Channel Stereo Audio Amplifier Board High Pow…</p>
+<h4>NT$2,037.19</h4>
+<p>商家：Desertcart.ae + others</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=ZK-6002+600W+2+Channel+Stereo+Audio+Amplifier+Board+High+Power+Class+H+Amp+TPA3255+Chips+Low+Distortion+Wide+Voltage&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>這些商品的標價及板卡規格不能直接視為相同品質。購買前務必要求賣家提供：</p>
+<ol>
+<li>晶片正反面清晰照片。</li>
+<li>PCB 正反面照片。</li>
+<li>電源電壓範圍。</li>
+<li>4Ω 與 8Ω 負載的輸出數據。</li>
+<li>1% THD+N 下的輸出功率。</li>
+<li>是否有 PFFB（Post-Filter Feedback）設計。</li>
+<li>輸出電感、電容及散熱配置。</li>
+</ol>
+<p>特別推薦研究 PFFB。它能減少輸出濾波器與喇叭負載互動造成的頻率響應變化。不過，有沒有 PFFB 並不是唯一的音質判斷標準。</p>
+<h4>4. MA12070：值得研究的另一條高音質路線</h4>
+<p><a href="https://images.openai.com/static-rsc-4/S7-SORNU2fT0wXz7DjvJ27XsRsRdsIyslFpu-I7d5xwqrPlRH8gr4J49WiUPTl9GREOpk7fJBMzqy98LV7FxYsBfHe2ccNgyTy6YcRffhREpFSH-oLi7UPDRjxTjUpcO9SGQOuZQiXmAakZ86ybgW3EIWzPUlhlnFViFkpsFO00?purpose=inline">EVALAUDIOMA12070TOBO1 INFINEON, Evaluation Board, MA12070 MERUS Audio Amplifier, 2-Channel</a></p>
+<p>MA12070 是 Infineon Merus 系列的 Class D 放大平台，採用多電平調變技術。</p>
+<p>值得考慮的原因：</p>
+<ul>
+<li>高效率。</li>
+<li>適合小型音響。</li>
+<li>具有不同的電源及輸出配置。</li>
+<li>適合研究低功耗、高整合度的設計。</li>
+</ul>
+<p>可參考：</p>
+<p><a href="https://images.openai.com/thumbnails/url/_wELRHicDcltCoIwAADQE6VhJCpEaDRZ8wNLCP0j2zS1dJu6KXaqrtNt6v19308jpZgcXa8YHVchq3IjCTO0epJYtlSjvNenhgvRsvo4HP7nuFFp-_RKHqDrwlecQ1VEeUKluezOp7UiKFmyCruc4-Fux4HZWj59xqXhW3WTtt7G3hpmBN4MzIQUhCHBPXS79F4W5AgGisOSpN4co3E0VA6gCnE47IdAIRMW9vIDxPA--g">2x80w Hifi Digital Power Amplifier Board For Merus Ma12070 With Toggle</a></p>
+<h4>NT$1,091.07</h4>
+<p>商家：eBay - pincei_de</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=2x80w+Hifi+Digital+Power+Amplifier+Board+For+Merus+Ma12070+With+Toggle&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>這個價格看起來很吸引人，但我不會在沒有確認原廠晶片、電路配置與實測數據前，把它列為比 TPA3255 更好的選擇。</p>
+<h4>三、如果不想自己組裝，推薦三款完整 D 類擴大機</h4>
+<p>有時候買完整成品，比自行購買電路板、電源、機箱及旋鈕更划算。</p>
+<p>我特別推薦比較以下產品。</p>
+<p><a href="https://images.openai.com/static-rsc-4/gSJZd0jBzEUwzxza9JPam1Ei0-rj8YLNKPGLiJnmYy9LmcNqoGcSVBQS9Y7yO4YpzAPZZpUeJnKTa-UdvLzpDYPJ26sQqSqGoZuXwF2bAIyFlDltaC240vorXfPJezSzJh31fNGwdzjx_kYf04BivW7TXrewwXGyLiioMW31a7U?purpose=inline">Fosi Audio BT20A MAX Bluetooth Stereo Power Amp</a></p>
+<p>功能整合型</p>
+<ul>
+<li>Bluetooth 無線輸入。</li>
+<li>TPA3255 平台。</li>
+<li>音量旋鈕及遙控。</li>
+<li>重低音輸出。</li>
+<li>適合不想額外購買 DAC 的使用者。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/QQIiSShxbjXc2UbkS-VP9PPMymrV6Ct-N6Tit9hl5WpTNXJ3asUiyymIonG8xmlVtgvC1qc41vYQNJdh4-qNXQUpUCdPKFXY5K-eR6endCLOYDilx702SlAwIumDI68T3N7ZyS5dMUFn1UD3z9Yo8CktFeeXfZRtvW5JYqDESqk?purpose=inline">Fosi Audio ZA3 Balanced Stereo Amplifier Home Audio 2CH Mono Amp (TPA3255 Chip, 190W, 32V 5A)</a></p>
+<p>Fosi Audio ZA3</p>
+<p>外接 DAC 最佳搭配方向</p>
+<ul>
+<li>TPA3255。</li>
+<li>RCA 與 XLR/TRS 平衡輸入。</li>
+<li>立體聲／單聲道模式。</li>
+<li>重低音輸出。</li>
+<li>適合已有 USB DAC 的系統。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/7aiqEr_Fft29L8XQ52YwXBQuewsHhgrpGZ8R0cNx_FWx0svl9AUsQEWGJkyG4SVZEI8Rdg2bJxiVSvlVQIJe1EK42D8k2Vi3_hH5UG3mMF21NJ4UscHt7CCaI_sPxcA8d_ippX6Z4nA9sCrg6dtzYxGg6G6A16JmDZtHFQ90giA?purpose=inline">AIYIMA A80</a></p>
+<ul>
+<li>TPA3255。</li>
+<li>ES9038Q2M DAC。</li>
+<li>USB、光纖、同軸、RCA。</li>
+<li>Bluetooth。</li>
+<li>適合希望整合多種數位音源的使用者。</li>
+</ul>
+<p>這三款的特色與規格可參考 2026 年的產品比較資料；其中 BT20A Max 主打整合功能，ZA3 主打外接訊源及平衡輸入，A80 主打內建 DAC 與多種數位介面。</p>
+<p>Budget Audiophile+1</p>
+<p>我的選擇：</p>
+<ul>
+<li>不想研究太多電路：BT20A Max。</li>
+<li>已經有高品質 DAC：ZA3。</li>
+<li>希望一台機器整合所有輸入：AIYIMA A80。</li>
+</ul>
+<p>注意，這些是完整成品擴大機，與上面幾百元的 DIY 板不能只用價格直接比較。</p>
+<h4>四、值得搭配的被動式喇叭推薦</h4>
+<p>擴大機決定能提供多少電力，但喇叭才是決定聲音特性最重要的部分之一。</p>
+<p>我建議優先考慮被動式書架喇叭（Passive Bookshelf Speakers），原因是：</p>
+<ul>
+<li>不需要喇叭內建擴大機。</li>
+<li>可以自由更換 D 類擴大機。</li>
+<li>可以自行設計 DSP。</li>
+<li>可以日後升級重低音。</li>
+<li>可以改變喇叭箱體及分音器。</li>
+</ul>
+<p>以下推薦五個值得比較的型號。</p>
+<h4>1. Sony SS-CS5：入門 CP 值選擇</h4>
+<p><a href="https://images.openai.com/static-rsc-4/Ha1LKNurBW7ZpHtZoD4go1wFt8u0F9fqqg3hee6YG5ig9WYwAX_JSpumwI4Qj2JkHwMDMyh7h-_fiCQOaJKes4vXLE_zs0kyIDo1qSjOvDty4-c2Ua5pcPOwkROyJYJI_ZrUOwP9i3oIEYhxce1R70zDxMqVkra4UiXSuk1n418?purpose=inline">Sony SS-CS5 Bookshelf Speakers Review</a></p>
+<p>Sony SS-CS5 是非常適合入門的被動式書架喇叭。</p>
+<p>主要特點：</p>
+<table>
+<thead>
+<tr>
+<th>規格</th>
+<th>資料</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>類型</td>
+<td>三音路、三單體</td>
+</tr>
+<tr>
+<td>低音單體</td>
+<td>130mm</td>
+</tr>
+<tr>
+<td>高音單體</td>
+<td>25mm 軟半球</td>
+</tr>
+<tr>
+<td>超高音</td>
+<td>19mm</td>
+</tr>
+<tr>
+<td>阻抗</td>
+<td>6Ω</td>
+</tr>
+<tr>
+<td>最大輸入功率</td>
+<td>100W</td>
+</tr>
+<tr>
+<td>頻率響應</td>
+<td>53Hz～50kHz</td>
+</tr>
+</tbody>
+</table>
+<p>以上規格參考 Sony 官方資料。</p>
+<p>Sony Taiwan</p>
+<p>目前可找到的台灣商品：</p>
+<p><a href="https://images.openai.com/thumbnails/url/Ei6sK3icDclJDoIwAADAFwkNh7IkxrA0RCTIFku5QVlKBAq0icivfI6_0bnO98OkXISlqu1Mt_ci2-Yk6xkovZCVHKhC-aQKxpdlmPvLev6fZUeN6dMUwPip746h4RI3EozAq0LPpkZ8zWO8HW6XBOvrHhX17cE4b8fpgAbGcdaUgpCAFqbfB0MKIdwQS9zI7QZ3e9Ra5GtIJ6ykOworDwhERq0Iqokz5GR6l5MfmhE99A">11/9前最高回饋1111【SONY 索尼】Hi-Res 立體聲書架式喇叭(SS-CS5)</a></p>
+<h4>NT$10,710.00</h4>
+<p>商家：momo購物網</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=11%2F9%E5%89%8D%E6%9C%80%E9%AB%98%E5%9B%9E%E9%A5%8B1111%E3%80%90SONY+%E7%B4%A2%E5%B0%BC%E3%80%91Hi-Res+%E7%AB%8B%E9%AB%94%E8%81%B2%E6%9B%B8%E6%9E%B6%E5%BC%8F%E5%96%87%E5%8F%AD(SS-CS5)&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>適合搭配：</p>
+<ul>
+<li>TPA3116D2。</li>
+<li>TPA3255。</li>
+<li>Fosi ZA3。</li>
+<li>AIYIMA A80。</li>
+</ul>
+<p>優點是三音路配置、體積合理、音場容易展開。缺點是超低頻能力仍有限，而且購買前要確認商品是否為一對及保固條件。</p>
+<p>我的看法：如果預算有限，又希望買現成品牌喇叭，而不是自行製作單體，Sony SS-CS5 值得列入比較。</p>
+<h4>2. Wharfedale Diamond 12.1：人聲與耐聽度優先</h4>
+<p><a href="https://images.openai.com/static-rsc-4/vaoMr9WF5i9uzLWepOdIrCt9_dtpqBrN6ZJOgz-xpy-tkodXZus23yerTjeqeF_i7sp1KpH4BvqeLKSDyJ_AiLr0OtLeUSPNHMFmqvYEwIUsIUyyAaC_nay0oOM3ILFgAUnJWiB_fpV_7Az-_XspZ9moXm4VhB1_VXwVqlUbWbQ?purpose=inline">Wharfedale Diamond 12.1 Bookshelf Speakers</a></p>
+<p>Wharfedale Diamond 12.1 是我很推薦搭配 TPA3255 的喇叭。</p>
+<p>主要特色：</p>
+<ul>
+<li>5 吋低音單體。</li>
+<li>1 吋軟半球高音。</li>
+<li>兩音路設計。</li>
+<li>低頻、中頻及高頻有不錯的整體平衡。</li>
+<li>適合人聲、爵士、古典及流行音樂。</li>
+</ul>
+<p>主要規格約為：</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>類型</td>
+<td>2 音路低音反射式</td>
+</tr>
+<tr>
+<td>低音單體</td>
+<td>5 吋</td>
+</tr>
+<tr>
+<td>高音單體</td>
+<td>1 吋</td>
+</tr>
+<tr>
+<td>標稱阻抗</td>
+<td>8Ω</td>
+</tr>
+<tr>
+<td>靈敏度</td>
+<td>約 88dB</td>
+</tr>
+<tr>
+<td>建議擴大機功率</td>
+<td>20～100W</td>
+</tr>
+</tbody>
+</table>
+<p>台灣目前找到的價格：</p>
+<p><a href="https://images.openai.com/thumbnails/url/2axBFHicDcndCoIwGADQJ_KnHyqFCCUwKzU1l3ojuambNF3uQ7IH6d16mzq35_uhAEKamlZ1eJgEVESBsluojYQ7MKzinmuS9kKwrtk9t_8zLZ8YDo7cJVFGULJUT3AKNfKtkdEAB-77pJNpyD25RqvieOAo0VlU53s6143Wczb8dkV9HNJLUbOiGVs-W9glsV4izB_eYLP4nMU_nwI19A">Wharfedale 書架式喇叭 Diamond 12.1</a></p>
+<h4>NT$15,800.00</h4>
+<p>商家：PChome 24h購物</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=Wharfedale+%E6%9B%B8%E6%9E%B6%E5%BC%8F%E5%96%87%E5%8F%AD+Diamond+12.1&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>另有：</p>
+<p><a href="https://images.openai.com/thumbnails/url/3ZTb3HicDclJDoIwAADAFyERJSiJMbIERRYtpSoXAqWyKKVAjSmv8jv-Ruc630_FORt1WSYUD4JxUkg8p8qsHHnGazzDXSuPVcdYTcttv_mfvguKtYOjyM7SNzgHwhXCir1jiegEVd_R3EhCqm1yxbPIYzhAPzBzMTGIVzbAhQKO1-GeJO78tfeeyztpjIVVJbWaxX0Mcgs2fqhB6SRCfGmQ294IUlKjQSRVV5pByx-QvT4V">大禾音響 英國 Wharfedale Diamond 12.1 書架喇叭</a></p>
+<h4>NT$14,500.00</h4>
+<p>商家：蝦皮購物</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=%E5%A4%A7%E7%A6%BE%E9%9F%B3%E9%9F%BF+%E8%8B%B1%E5%9C%8B+Wharfedale+Diamond+12.1+%E6%9B%B8%E6%9E%B6%E5%96%87%E5%8F%AD&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>這兩筆價格都是搜尋到的通路報價，不代表已確認庫存或相同保固條件。</p>
+<p>適合搭配：</p>
+<ul>
+<li>TPA3255。</li>
+<li>Fosi ZA3。</li>
+<li>AIYIMA A80。</li>
+<li>TPA3116D2（中小音量使用）。</li>
+</ul>
+<p>如果你的重點是長時間聽音樂、人聲、樂器及自然的中頻，我會優先考慮這款。</p>
+<h4>3. ELAC Debut 2.0 B5.2：偏向 Hi-Fi 的選擇</h4>
+<p><a href="https://images.openai.com/static-rsc-4/sdPoIsSc3XrM1Bdd01dytjB0etPDAScGnOPViagQhyERPjDX4gPqK1wukF9QaZ-LJetnn0VpNq_NRoa4TcLepuL4HBJEG8tIUPcxB93wSvQ21ZSZn8wtbi79L0op_Yl9rBJCcxXTy1dHlJA5v2U6eLGUafPz307GW-aaGt3IILQ?purpose=inline">Best Bookshelf Speakers: Editors' Choice 2023</a></p>
+<p>ELAC Debut 2.0 B5.2 是另一款值得考慮的書架喇叭。</p>
+<p>特色：</p>
+<ul>
+<li>5.25 吋 Aramid Fiber 低音單體。</li>
+<li>1 吋軟半球高音。</li>
+<li>前置低音反射孔。</li>
+<li>適合靠近牆壁的擺放環境，但仍應保留適當空間。</li>
+<li>適合音樂及電影。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>類型</td>
+<td>2 音路</td>
+</tr>
+<tr>
+<td>低音</td>
+<td>5.25 吋</td>
+</tr>
+<tr>
+<td>高音</td>
+<td>1 吋</td>
+</tr>
+<tr>
+<td>標稱阻抗</td>
+<td>6Ω</td>
+</tr>
+<tr>
+<td>靈敏度</td>
+<td>約 86dB</td>
+</tr>
+<tr>
+<td>建議功放</td>
+<td>約 30～120W</td>
+</tr>
+</tbody>
+</table>
+<p>目前找到的商品：</p>
+<p><a href="https://images.openai.com/thumbnails/url/9suknHicDcltDoIgAADQE_mZWbm1RltqqbWsZvlPEZEViIKSF-lu3abe3_f9NFJy4RkGYrCfuESVJktm6ljIQhKow5Yaomk5JwxvuvX_PHCsVgG8PvI7HRg1SeeLEsA-LhzLz05OalOB1MKu6Rjdplds5RAcqne2C0Gkif32yZA_8DQYnXqmYZXgJUkKJYa0UmXo0vPcbS_wB8P7NlU">ELAC DB52 書架喇叭</a></p>
+<h4>NT$15,900.00</h4>
+<p>商家：沐爾 音響家居 板橋門市</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=ELAC+DB52+%E6%9B%B8%E6%9E%B6%E5%96%87%E5%8F%AD&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>這個台灣商品的價格已經進入較高區間，因此應該比較是否有更新的替代型號或促銷。</p>
+<p>適合搭配：</p>
+<ul>
+<li>TPA3255。</li>
+<li>Fosi ZA3。</li>
+<li>AIYIMA A80。</li>
+</ul>
+<p>我認為這款適合希望逐步建立 Hi-Fi 系統，而不是只做普通電腦喇叭的人。</p>
+<h4>4. Micca MB42X G2：小空間與 DIY 桌面系統</h4>
+<p><a href="https://images.openai.com/static-rsc-4/DtkFTjzcrCDuhPvR4tlowRUI2nmk2HTpWYNFVfbpjap3UZqLgySzuwf7Jn716jxLZJChX4E27GPCrMYRBJlXO3VDDQiQ2mS2PVBsngetdcsd9H2cZSO-l2d1inN9n357YXVRUIQGp5x41AmYmwxIhw3Y_kwTlpaaSGJownBJj1g?purpose=inline">Micca MB42X G2 Premium 2-Way Passive Bookshelf Guinea</a></p>
+<p>Micca MB42X G2 是小型書架喇叭的候選。</p>
+<p>特色：</p>
+<ul>
+<li>4 吋低音單體。</li>
+<li>兩音路。</li>
+<li>體積小。</li>
+<li>適合電腦桌或小型書房。</li>
+<li>可以搭配低功率 D 類擴大機。</li>
+</ul>
+<p>商品參考：</p>
+<p><a href="https://images.openai.com/thumbnails/url/vE7iy3icDclXDoIwAADQEwEJSLAkxjAiUBOZhvFDGBXKLLTiOJXX8Tb6ft_30zJGqCoIaKrWF2Go5lg5iXxDWcFwxVfzKNB2JgRPzXE5_E_VLjWwKn_YP8EoW67YpbrpGL6yANy7J6_rQrOHEG1-CuXAzN7biFJdiz056cWhX7eao3NKaJBfb9NgmGWYvUOgJyIxuOXswsKL7HuuJFh62HhXSkUHnSioDeLnyRxrP40MPn0">Micca MB42X G2 Passive Bookshelf Speakers for Home Theater Surround Sound, Stereo, and Passive Near Field Monitor</a></p>
+<h4>NT$5,688.63</h4>
+<p>商家：eBay - iamq97 + others</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=Micca+MB42X+G2+Passive+Bookshelf+Speakers+for+Home+Theater+Surround+Sound,+Stereo,+and+Passive+Near+Field+Monitor&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>這款在國外市場有一定知名度，但台灣進口價格、運費及保固可能使 CP 值下降。</p>
+<p>如果台灣沒有合理的售價，我反而建議優先考慮 Sony 或自行製作喇叭。</p>
+<h4>5. Dayton Audio Classic B65：偏向 DIY 與高性價比</h4>
+<p><a href="https://images.openai.com/static-rsc-4/Lup5NEFEDhQza5t0RukLOa0wuWfN_HTLeZQOOL0M7PuNIQ0Hl7bvN5BNo54vaQtp-Apal2iXopd-eyxYkwixd8PzrVDJAdAYu-Wb0LXgiJd3QBKF-mpTObbLWV6env5ytzk2HPKcZlV0H6lTj9R49kH69UBVO9MmqtMHz1oVv7Y?purpose=inline">Order Dayton Audio Classic-B65-Oak speakers</a></p>
+<p>Dayton Audio Classic B65 值得關注的原因是 Dayton Audio 本身具有 DIY 音響零件產品線。</p>
+<p>適合：</p>
+<ul>
+<li>想研究喇叭箱體的人。</li>
+<li>想製作被動式分音器的人。</li>
+<li>希望未來改裝單體的人。</li>
+<li>想搭配 TPA3116 或 TPA3255 的使用者。</li>
+</ul>
+<p>目前找到的商品：</p>
+<p><a href="https://images.openai.com/thumbnails/url/mtNFIHicDcnbCoIwAADQL1IZdpsQIYLL0rKCvLwMnUuXNqcban5I_9bf1Hk930-llJCWYVBO-rdQtNBUzoFeSpUpRnTSvgxZtUIwXu667f8s-1RARG5VHacDZOKxhtO-ieLVEHkpVBvbn-gxyO7PpsUzPzvm3RkDr0Ni7LAbJ27o1DPBgIXXC0Z-T5faIbEX0gM-mM0ElWaq5fQHzVI1rg">Dayton Audio Classic B65 Bookshelf Speaker Pair Wood</a></p>
+<h4>NT$7,469.40</h4>
+<p>商家：desertcart.com.sa + others</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=Dayton+Audio+Classic+B65+Bookshelf+Speaker+Pair+Wood&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p>這個價格來自進口通路，不一定比台灣本地 DIY 套件便宜。購買時應確認它是否為一對、是否包含分音器及喇叭線端子。</p>
+<h4>五、五款喇叭的綜合比較</h4>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>低音尺寸</th>
+<th>阻抗</th>
+<th>靈敏度</th>
+<th>主要特色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sony SS-CS5</td>
+<td>5.1 吋</td>
+<td>6Ω</td>
+<td>約 87dB</td>
+<td>三音路、入門</td>
+</tr>
+<tr>
+<td>Wharfedale 12.1</td>
+<td>5 吋</td>
+<td>8Ω</td>
+<td>約 88dB</td>
+<td>人聲、耐聽</td>
+</tr>
+<tr>
+<td>ELAC B5.2</td>
+<td>5.25 吋</td>
+<td>6Ω</td>
+<td>約 86dB</td>
+<td>Hi-Fi、細節</td>
+</tr>
+<tr>
+<td>Micca MB42X G2</td>
+<td>4 吋</td>
+<td>依版本確認</td>
+<td>約 86dB</td>
+<td>小空間</td>
+</tr>
+<tr>
+<td>Dayton B65</td>
+<td>6.5 吋</td>
+<td>依版本確認</td>
+<td>依版本確認</td>
+<td>DIY 取向</td>
+</tr>
+</tbody>
+</table>
+<p>上述靈敏度及阻抗為常見規格參考，實際採購前請以該版本的原廠資料為準。</p>
+<h4>哪一款比較值得買？</h4>
+<p>我的排序：</p>
+<ol>
+<li>Wharfedale Diamond 12.1：重視整體聽感與長時間聆聽。</li>
+<li>Sony SS-CS5：希望用較低預算進入被動喇叭系統。</li>
+<li>ELAC B5.2：希望進一步建立 Hi-Fi 系統。</li>
+<li>Micca MB42X G2：桌面空間有限。</li>
+<li>Dayton B65：想把喇叭 DIY 與改裝列入未來計畫。</li>
+</ol>
+<p>喇叭的主觀聽感仍然建議親自試聽，不要只用規格或網路評價決定。</p>
+<h4>六、擴大機與喇叭的最佳搭配</h4>
+<p>這部分是採購時最值得參考的內容。</p>
+<p>我將擴大機與喇叭搭配成五種方案。</p>
+<h4>組合 A：低成本桌上型音響</h4>
+<p>入門 CP 值</p>
+<p><a href="https://images.openai.com/static-rsc-4/_hCh-fmnGgzLaQ-Cvw6gMVsm1WhMu7whI_auX01eKtV0NpymT82l96Q2jFQPGPE0Q80REbMGiTeBLqz_XvSWuWo_JB7zJPBhO1H3mszH5TuhpFHU3rGbrV9BbtwCi_2L6QrMbNm9h3rcXzELqEznf_pYvISgctfI3zU51XQ_x6M?purpose=inline">Fosi Audio BT20A Bluetooth Amplifier for Speakers, Mini Stereo 2 Channel Amp Class D, with TPA3116 Chips 100W x 2 and Bass Treble Controls, for Home Audio Outdoor Passive Desktop Bookshelf Speakers : Amazon.com.au: Electronics</a></p>
+<p><a href="https://www.amazon.com.au/BT20A-Bluetooth-Audio-Amplifier-Integrated/dp/B07BQC7GNL?utm_source=chatgpt.com">amazon.com.au</a></p>
+<p>TPA3116D2 + Sony SS-CS5</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>預算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TPA3116D2 模組</td>
+<td>$200～450</td>
+</tr>
+<tr>
+<td>24V / 3A 電源</td>
+<td>$300～500</td>
+</tr>
+<tr>
+<td>Sony SS-CS5</td>
+<td>約 $9,600～10,700</td>
+</tr>
+<tr>
+<td>線材及配件</td>
+<td>$200～400</td>
+</tr>
+<tr>
+<td>總計</td>
+<td>約 $10,300～12,050</td>
+</tr>
+</tbody>
+</table>
+<p>適合一般桌上型音樂播放、小房間聆聽。</p>
+<p>實際功率依喇叭阻抗、供電與失真限制而定。</p>
+<h4>組合 B：人聲與音樂欣賞</h4>
+<p>我的首選</p>
+<p><a href="https://images.openai.com/static-rsc-4/bjl9MmIipr5v6CSRwjofE8tkNUbJ1r1YxVC8adi3suwdouXSbLF88v4Buzv_v3xnU-tKy5jSbggkl5BpAFU934T48_G25lznDyNmE20n1jhFgWkOstFsheRJne4YXvrwfVb2K-PyG-3EoTtmavOAyOMUvNVhqy9ATI6VOCTSQ_8?purpose=inline">Fosi Audio ZA3 Balanced Dual-Mode Class-D Amplifier</a></p>
+<p><a href="https://fosiaudio.com/pages/balanced-dual-mode-class-d-amplifier-za3?utm_source=chatgpt.com">fosiaudio.com</a></p>
+<p>Fosi ZA3 + Wharfedale Diamond 12.1</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>預算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fosi ZA3</td>
+<td>約 $4,000～7,000</td>
+</tr>
+<tr>
+<td>32V 電源供應器</td>
+<td>視版本而定</td>
+</tr>
+<tr>
+<td>Wharfedale 12.1</td>
+<td>約 $14,500～15,800</td>
+</tr>
+<tr>
+<td>線材</td>
+<td>$300～600</td>
+</tr>
+<tr>
+<td>總計</td>
+<td>約 $18,800～23,400</td>
+</tr>
+</tbody>
+</table>
+<p>適合人聲、爵士、古典及流行音樂。</p>
+<h4>組合 C：高性能 Hi-Fi</h4>
+<p>進階推薦</p>
+<p><a href="https://images.openai.com/static-rsc-4/71Ub1nZ-Hyvw6QyaQvj8uU6gzXClQhL4rspMApLowBx_JwvkxFGZeWc0damCuB5EyF_eM6epy9C4T9wSlLPx0vtZcHj4sEDXFtXmntO8Etg8MGxeYJPYF9vm5Md0n5BLaD-jnVFxDuHdGqDpMEVyzaAnpUmgv1EjCFsZjPw0qBI?purpose=inline">WiiM Amp, Space Grey &amp; ELAC Debut B5.2, Black Hi-Fi Bundle at AV.com</a></p>
+<p><a href="https://www.av.com/Hi-Fi/WiiM-Amp-Space-Grey-and-ELAC-Debut-B52-Black-Hi-Fi-Bundle/67XX?utm_source=chatgpt.com">av.com</a></p>
+<p>TPA3255 + ELAC B5.2</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>預算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TPA3255 高品質功放板</td>
+<td>$900～2,000</td>
+</tr>
+<tr>
+<td>36～48V 電源</td>
+<td>$1,000～2,000</td>
+</tr>
+<tr>
+<td>機箱與控制</td>
+<td>$500～1,000</td>
+</tr>
+<tr>
+<td>ELAC B5.2</td>
+<td>約 $10,000～16,000</td>
+</tr>
+<tr>
+<td>總計</td>
+<td>約 $12,400～21,000</td>
+</tr>
+</tbody>
+</table>
+<p>適合想自行組裝高性能音響的人。</p>
+<h4>組合 D：全功能數位音響</h4>
+<p><a href="https://images.openai.com/static-rsc-4/GLjbLTDIueSdtmatnJiQifodWI-OeCYMfRjjBShj0sjMA0wQJli7rkVQusfkJAhPYAas1YH9zdIfP7xSQUB-TyozvFkL-W2Peujp-VJ26_TuGbjZA0VOcLPDn9VI89LLeQfWEPfcmaLliyE7CcFrvMcRfYxefWWja84_2myPEMA?purpose=inline">AIYIMA A80 Digital DAC &amp; Amplifier Integrated Unit Product Overview</a></p>
+<p><a href="https://manuals.plus/video/de7cca0d832fc16d03d7aa91c5f0b865e6ebc93bf9548539c6ad80d58d54c46a?utm_source=chatgpt.com">manuals.plus</a></p>
+<p>AIYIMA A80 + Wharfedale 12.1</p>
+<ul>
+<li>內建 DAC。</li>
+<li>Bluetooth。</li>
+<li>USB、光纖及同軸輸入。</li>
+<li>外接被動式喇叭。</li>
+<li>適合電腦、手機及電視共用。</li>
+</ul>
+<p>預算建議抓 NT$18,000～25,000，依實際 A80 售價及供電版本調整。</p>
+<h4>組合 E：2.1 聲道音響</h4>
+<p><a href="https://images.openai.com/static-rsc-4/LX3NZIFgCWiwSnVxW2MpYxkGsKiOswqteYgc1R-IGOKflP7uA4VlcKZO46Tg9U5vc3t29uk4Wc_O_3-Uet9-p7UxwZxrXCTQN3HWAd770FkXPuvB50IVueQqM1JIwiv6uB7DvUPz2D2JOVreYxNDBwvsqeDOyAzvFCT-J4L_LYI?purpose=inline">BT30D 2.1CH Power Amplifier Bluetooth 5.0 with Bass/Treble – Fosi Audio</a></p>
+<p><a href="https://fosiaudio.com/products/bt30d-bluetooth-5-0-2-1-channel-power-amplifier-with-bass-and-treble-control?utm_source=chatgpt.com">fosiaudio.com</a></p>
+<p>TPA3255 左右聲道 + 獨立重低音功放</p>
+<ul>
+<li>左右聲道各一個書架喇叭。</li>
+<li>一個 8～10 吋重低音單體。</li>
+<li>獨立低音功放。</li>
+<li>DSP 進行低頻分音。</li>
+<li>可以依房間調整低頻響應。</li>
+</ul>
+<p>預算建議 NT$12,000～25,000，取決於喇叭及低音箱體設計。</p>
+<h4>七、如何判斷擴大機與喇叭是否匹配？</h4>
+<p>這是購買前一定要了解的技術問題。</p>
+<h4>1. 阻抗匹配</h4>
+<p>擴大機通常支援 4Ω、6Ω 或 8Ω 負載。</p>
+<table>
+<thead>
+<tr>
+<th>喇叭阻抗</th>
+<th>購買建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4Ω</td>
+<td>確認擴大機支援 4Ω</td>
+</tr>
+<tr>
+<td>6Ω</td>
+<td>確認擴大機支援 6Ω 或相容負載</td>
+</tr>
+<tr>
+<td>8Ω</td>
+<td>通常較容易搭配</td>
+</tr>
+</tbody>
+</table>
+<p>不要把兩顆 4Ω 喇叭並聯到同一個聲道，因為等效阻抗會變成 2Ω，可能超出功放能力。</p>
+<h4>2. 喇叭靈敏度</h4>
+<p>靈敏度通常用 dB SPL / 1W / 1m 表示。</p>
+<p>假設：</p>
+<ul>
+<li>喇叭 A：86dB。</li>
+<li>喇叭 B：89dB。</li>
+</ul>
+<p>在相同輸入功率及距離下，B 理論上可以高出約 3dB。</p>
+<p>3dB 的差異相當於功率增加一倍。</p>
+<p>因此，對於小型 D 類擴大機，選擇靈敏度較高的喇叭通常有利。</p>
+<h4>3. 如何計算所需功率？</h4>
+<p>可以用下列公式估算：</p>
+<p>\[ SPL=S+10\log_{10}(P) \]</p>
+<p>其中：</p>
+<ul>
+<li>SPL：預估音壓。</li>
+<li>S：喇叭靈敏度。</li>
+<li>P：輸入功率（W）。</li>
+</ul>
+<p>假設使用 88dB 靈敏度的喇叭：</p>
+<table>
+<thead>
+<tr>
+<th>輸入功率</th>
+<th>理想估算音壓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1W</td>
+<td>88dB</td>
+</tr>
+<tr>
+<td>2W</td>
+<td>91dB</td>
+</tr>
+<tr>
+<td>5W</td>
+<td>95dB</td>
+</tr>
+<tr>
+<td>10W</td>
+<td>98dB</td>
+</tr>
+<tr>
+<td>20W</td>
+<td>101dB</td>
+</tr>
+<tr>
+<td>50W</td>
+<td>105dB</td>
+</tr>
+</tbody>
+</table>
+<p>這是假設在 1m、自由場、單支喇叭且不考慮壓縮及失真的估算。實際房間及立體聲聆聽會有所不同。</p>
+<p>所以一般書房音響不一定需要 100W。</p>
+<h4>八、購買 D 類擴大機的八項檢查</h4>
+<p>在蝦皮、露天、淘寶、AliExpress 或其他通路購買時，我建議依照以下標準檢查。</p>
+<table>
+<thead>
+<tr>
+<th>檢查項目</th>
+<th>建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>晶片</td>
+<td>確認真實型號</td>
+</tr>
+<tr>
+<td>PCB</td>
+<td>看正反面及元件配置</td>
+</tr>
+<tr>
+<td>電源</td>
+<td>有明確電壓及電流需求</td>
+</tr>
+<tr>
+<td>輸出功率</td>
+<td>優先看 1% THD+N</td>
+</tr>
+<tr>
+<td>喇叭負載</td>
+<td>確認 4Ω / 8Ω 支援</td>
+</tr>
+<tr>
+<td>散熱</td>
+<td>有合理散熱設計</td>
+</tr>
+<tr>
+<td>保護</td>
+<td>過溫、過流及短路保護</td>
+</tr>
+<tr>
+<td>售後</td>
+<td>有退換貨及保固</td>
+</tr>
+</tbody>
+</table>
+<h4>特別注意以下五種商品陷阱</h4>
+<ol>
+<li>標示 300W × 2，但沒有說明測試電壓。</li>
+<li>使用低品質電源供應器。</li>
+<li>商品標示 TPA3255，但沒有晶片照片。</li>
+<li>電路板沒有完整的輸出濾波配置。</li>
+<li>只有峰值功率，沒有 RMS 或 THD+N 測試資料。</li>
+</ol>
+<p>另外，PFFB、SNR、THD+N 等規格必須在相同測試條件下比較。不要因為某個商品宣稱 0.001% 失真，就直接判定它一定勝過其他產品。</p>
+<h4>九、我會如何採購？</h4>
+<p>如果是自己要製作一套音響，我會採取以下策略：</p>
+<h4>最推薦的採購清單</h4>
+<p>CP 值與升級空間兼顧</p>
+<p><a href="https://images.openai.com/static-rsc-4/Nd_hatAhNLikxWiRLNThrtloi-KR7YVpZqZKCru4Uddry5_my4yXir0tWtZuO4D-WjsHyHvy6NgRF66gDX5_CaUSkSExHtAdmJ25MGyHLdRZOHdDyrHsm2jqZ-jcBdmy2H571-N-Z5ZY1QBaws57nA_iWEeYudmWQxxhLy1h4q8?purpose=inline">Jual Fosi Audio ZA3 HiFi Stereo / Mono Balanced Power Amplifier</a></p>
+<p>擴大機：Fosi ZA3</p>
+<p>TPA3255、RCA、平衡輸入、可擴充。</p>
+<p><a href="https://images.openai.com/static-rsc-4/wYlWrBjQTSkWZChVMGpYj3CMgO-sSlsBJwIgBKZqvuVg-lJ2D2Egd2awFwGLrkuFz_zF_JUO7CxUag1dfSgNfcrckIwjjWF8VrgeExnpBzbZ1aa0trC2SvOsMB_YGedGxT2CO5zA2Xgqj3aetcBPfCQ6a5MEUR9K_tdy0YNZBjY?purpose=inline">Wharfedale Diamond 12.1 Boekenplank Speakers</a></p>
+<p>喇叭：Wharfedale Diamond 12.1</p>
+<p>8Ω、約 88dB、兩音路書架喇叭。</p>
+<p><a href="https://images.openai.com/static-rsc-4/hcN1jXsvJwWk2ralTkfDCnusybQ9PLICqMV1gjvBL1lhHvbe6i5Z4O63MTt_4WXJJrcx3m5TSA_o2lcZ-1zJ0o5i_3wy9wsTJ6PvxL3Zhye-5TKJp5ZBUytsKQMlRm4SSWPSAQnEjSsxiXPFGNczzCJVdSj9tyKh4HPbbIC0Qv4?purpose=inline">TOPPING E30 II Desktop DAC</a></p>
+<p>DAC：Topping E30 II</p>
+<p>提供 USB、光纖及同軸數位轉換，購買時確認版本與輸入需求。</p>
+<p><a href="https://images.openai.com/static-rsc-4/9salQuKOIwNzCylboNaZzA9kLxGTDa8EFNAlqCLwmr1ASFGGKtox9TYb2MlVxyRka4gK8MNOuBRmm2NRW3kt1z5V6xMLimjkENNM6DAVwphxAjBUv3hDHQuaZ9xid4HFt0nUEPEEJ2JwO95IKjztosQUgIdylBw5Qks2HNJyWw4?purpose=inline">汎用スイッチング式ACアダプター 24V 5A 最大出力120W PSE</a></p>
+<p>電源：依 ZA3 版本選擇原廠適配器</p>
+<p>不可將 TPA3116 的 24V 電源直接當作 ZA3 電源。</p>
+<p><a href="https://images.openai.com/static-rsc-4/FBeKZBG0bMSufS3r5svgy2Gq7DUxxjuJHontlLDaG_cn6cq_YgZF2hX8FXzbqQz_ibUIGcfzZDMX7WJOFtzDBi2vyVV3EvfqomdG-rPJk6aj4N1N0Yr1n_Pslo2W4c15btOurYzD2HJHbMoT20goskhIz520pfvGpAecsbyJCD8?purpose=inline">Speaker Cable High Quality Figure 8 OFC 2 x 2m With Gold Banana Plugs</a></p>
+<p>喇叭線：14～16 AWG 銅線</p>
+<p>依距離選擇即可，不必花大錢購買昂貴線材。</p>
+<p>這組系統的優點是：擴大機、DAC、喇叭各自獨立，未來可以單獨升級。要注意 ZA3 的供電版本及輸入增益設定，並讓 DAC 與功放的輸出電平適當匹配。</p>
+<h4>十、最後的選購結論</h4>
+<p>我將推薦整理成一張表：</p>
+<table>
+<thead>
+<tr>
+<th>你的目標</th>
+<th>擴大機</th>
+<th>喇叭</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最便宜入門</td>
+<td>PAM8403</td>
+<td>自製 3W 喇叭</td>
+</tr>
+<tr>
+<td>低成本桌面</td>
+<td>TPA3116D2</td>
+<td>Sony SS-CS5</td>
+</tr>
+<tr>
+<td>小型桌面</td>
+<td>TPA3118</td>
+<td>Micca MB42X G2</td>
+</tr>
+<tr>
+<td>人聲及音樂</td>
+<td>Fosi ZA3</td>
+<td>Wharfedale 12.1</td>
+</tr>
+<tr>
+<td>Hi-Fi 升級</td>
+<td>TPA3255</td>
+<td>ELAC B5.2</td>
+</tr>
+<tr>
+<td>數位整合</td>
+<td>AIYIMA A80</td>
+<td>Wharfedale 12.1</td>
+</tr>
+<tr>
+<td>2.1 聲道</td>
+<td>TPA3255 + 獨立低音功放</td>
+<td>書架喇叭 + 重低音</td>
+</tr>
+</tbody>
+</table>
+<p>我的最終建議：</p>
+<p>如果目標是買一套 CP 值高、音質有水準、可以使用很多年的音響，我會優先選：</p>
+<ul>
+<li>擴大機：TPA3255 平台。</li>
+<li>喇叭：Wharfedale Diamond 12.1。</li>
+<li>DAC：Topping E30 II 或同級產品。</li>
+<li>音源：電腦 USB、手機 Bluetooth。</li>
+<li>日後升級：增加 DSP 及重低音。</li>
+</ul>
+<p>如果希望以 DIY 為主，就買 TPA3255 功放板，自己製作鋁合金機箱、電源控制、輸入選擇及音量控制。</p>
+<p>這樣比購買一台功能固定的成品音響，更有研究及升級價值。</p>
+<h2>O-NOORUS</h2>
+<p>首先要釐清一個容易混淆的地方：O-NOORUS A80 與 AIYIMA A80 是兩台不同的擴大機。兩者都叫 A80，但使用的擴大晶片、輸入介面、輸出功率與產品定位都不同。</p>
+<p>如果你指的是 O-NOORUS A80（Infineon MA12070），它是一台體積很小、具備 USB-C、藍牙、RCA、超低音輸出的 D 類綜合擴大機；如果你指的是 AIYIMA A80（TI TPA3255），則是功率與數位輸入規格更高、功能更完整的另一個級別。以下會以 O-NOORUS A80 為主角，並把兩者分開比較，避免買錯。</p>
+<h4>一、O-NOORUS A80：小體積、功能完整的入門 Hi-Fi 擴大機</h4>
+<p><a href="https://images.openai.com/static-rsc-4/WW1SzJCs4TVDKZ_9ftByu_Eb7ZZI8VTV1wTvpD1EDEg-0CFrtt0pE8TlN_YDGzfgdSS6Sc2Xak38L79cHpg4P89_MB3ZcbJPOUdrgcfy0USEvntDRN5KWLnIvUYLQSNN1l4w0J0abypP6yg3lD-Txn_r3qKPRfH7nGcarWh2-10?purpose=inline">O-NOORUS A80 Class D Amplifier MA12070 Bluetooth 5.0 Subwoofer 2x80W 4 Ohm - Audiophonics</a></p>
+<p>O-NOORUS A80</p>
+<p>適合小型兩聲道音響</p>
+<p>Infineon MA12070 · Class D · 2.1 輸出功能</p>
+<p>2 × 80W（4Ω，廠商標示）</p>
+<p>另有 8Ω 時 2 × 45W 的產品規格資料。</p>
+<h4>1. 主要規格</h4>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>O-NOORUS A80</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>擴大晶片</td>
+<td>Infineon MA12070</td>
+</tr>
+<tr>
+<td>放大類型</td>
+<td>Class D</td>
+</tr>
+<tr>
+<td>4Ω 輸出</td>
+<td>2 × 80W（標示值）</td>
+</tr>
+<tr>
+<td>8Ω 輸出</td>
+<td>2 × 45W（標示值）</td>
+</tr>
+<tr>
+<td>電源</td>
+<td>DC 24V / 6.5A</td>
+</tr>
+<tr>
+<td>藍牙</td>
+<td>Bluetooth 5.0，QCC3034</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>USB-C，Realtek ALC4050</td>
+</tr>
+<tr>
+<td>類比輸入</td>
+<td>RCA、3.5mm AUX</td>
+</tr>
+<tr>
+<td>輸出</td>
+<td>被動喇叭端子、RCA 超低音輸出、RCA 立體聲輸出</td>
+</tr>
+<tr>
+<td>其他功能</td>
+<td>螢幕、遙控器、音量與音調控制</td>
+</tr>
+</tbody>
+</table>
+<p>資料來源：Audiophonics 的產品規格及 O-NOORUS 產品介紹。</p>
+<p><a href="https://www.google.com/s2/favicons?domain=https://www.audiophonics.fr&amp;sz=32">image</a></p>
+<p>Audiophonics+1</p>
+<h4>2. 各項功能的實際用途</h4>
+<p>（1）MA12070 D 類放大晶片</p>
+<p>MA12070 是 Infineon 的高效率 D 類放大平台。它的優勢是體積小、發熱相對低、適合桌面及小型家用音響。</p>
+<p>與常見的 TPA3116D2 相比，A80 的定位更偏向整合式小型 Hi-Fi，而不是單純追求大功率。</p>
+<p>要特別注意：產品標示的 2 × 80W 並不等於可以長時間連續輸出 160W。它使用 24V、6.5A 電源，輸入電力上限約為 156W，還要扣除放大器損耗。因此選購時，應把 80W 視為廠商標示的輸出能力，而不是保證的連續輸出功率。</p>
+<p><a href="https://www.google.com/s2/favicons?domain=https://www.audiophonics.fr&amp;sz=32">image</a></p>
+<p>Audiophonics+1</p>
+<p>（2）USB-C 數位輸入</p>
+<p>這是 O-NOORUS A80 很值得注意的功能。</p>
+<p>可以直接連接：</p>
+<ul>
+<li>Windows 桌上型電腦</li>
+<li>Windows 筆記型電腦</li>
+<li>支援 USB Audio 的平板或手機</li>
+<li>其他相容 USB 音訊輸出的裝置</li>
+</ul>
+<p>相較於只使用藍牙，USB-C 有線連接通常更適合固定桌面音響，避免藍牙編碼及無線傳輸造成的限制。</p>
+<p>（3）Bluetooth 無線輸入</p>
+<p>QCC3034 藍牙接收晶片可支援 aptX、aptX HD 等傳輸格式，適合手機、平板及筆記型電腦無線播放。</p>
+<p>實際能使用哪一種編碼，還取決於手機或電腦端是否支援。</p>
+<p>（4）超低音輸出</p>
+<p>A80 提供 RCA 超低音輸出，可以連接主動式 Subwoofer，組成 2.1 系統：</p>
+<p>電腦／手機／CD 播放器</p>
+<p>O-NOORUS A80</p>
+<p>左、右被動喇叭</p>
+<p>Stereo L/R</p>
+<p>主動式超低音</p>
+<p>RCA Sub Out</p>
+<p>這個功能適合希望增加電影、電子音樂及低頻效果的使用者。不過購買前要確認超低音輸出是否具有固定低通濾波，以及分頻點能否調整；不能直接假設它有完整 DSP 分頻管理。</p>
+<p>（5）RCA 立體聲輸出</p>
+<p>這個輸出可以把 A80 當作前級訊號來源，連接另一台後級擴大機或其他音響設備。實際使用時，應確認輸出音量是否隨主音量控制，以免後級輸入過載。</p>
+<h4>3. O-NOORUS A80 的優點與限制</h4>
+<table>
+<thead>
+<tr>
+<th>優點</th>
+<th>限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>體積小，容易擺在桌面</td>
+<td>不適合大型空間的高音壓需求</td>
+</tr>
+<tr>
+<td>USB-C、藍牙、RCA、AUX 齊全</td>
+<td>輸出功率不能只看 80W 數字</td>
+</tr>
+<tr>
+<td>有超低音輸出</td>
+<td>不等同完整 DSP 2.1 分頻系統</td>
+</tr>
+<tr>
+<td>有螢幕與遙控器</td>
+<td>擴充性不如分離式前後級</td>
+</tr>
+<tr>
+<td>MA12070 效率高</td>
+<td>低阻抗、低靈敏度喇叭仍要注意驅動能力</td>
+</tr>
+</tbody>
+</table>
+<p>**我的看法：**如果主要用途是電腦、書房、小客廳，搭配一對 5 吋或 6.5 吋書架喇叭，O-NOORUS A80 是很有吸引力的入門整合方案。</p>
+<h4>二、與 O-NOORUS A80 同級或更高一級的擴大機比較</h4>
+<p>我會把候選產品分成三類：小型整合擴大機、較高功率的整合擴大機，以及可搭配外接 DAC 的純功率擴大機。</p>
+<p><a href="https://images.openai.com/static-rsc-4/a4lBeZS1xM4lEZ5wdsQ1io2bAkQ7LI-Quh-3RZMUEfjqig13fPWM0QYFlDQ2XSngkrsdfuqvq4-rB0nsktjmgOXmhUkeFmEgZtnBw8Ja0ZlXE3g1OIVWSTPxe1xmw_7H66M071LxqZWy7pT3TnA1-3bBwS9YK4yUUIDtPA5X1HU?purpose=inline">O-NOORUS D3 TPA3255 Stereo Power Amplifier 300Wx2 with Bluetooth USB O – Onoorus Audio</a></p>
+<p>1. O-NOORUS D3</p>
+<p>O-NOORUS 系列優先升級選擇</p>
+<ul>
+<li>TPA3255 放大晶片</li>
+<li>USB-C、光纖、同軸、AUX、藍牙</li>
+<li>ES9023P DAC</li>
+<li>主動式超低音輸出</li>
+<li>官方及經銷規格資料列出 2 × 130W @ 4Ω、1% THD</li>
+</ul>
+<p>比 A80 有更大的輸出餘裕，適合較大的房間或較難推動的喇叭。</p>
+<p><a href="https://www.google.com/s2/favicons?domain=https://www.o-noorus.com&amp;sz=32">image</a></p>
+<p>Onoorus Audio+1</p>
+<p><a href="https://images.openai.com/static-rsc-4/FeN5be0sVrg7dtC8I02NKIayuODN-6GCnw4MIm-5LgonvNKVP0z6w8VWCglJEDBxDsgYQbN-5yPFc_n3zfOkxweg9qCSLC-BkcV73_c3V3MZLcRXQ2Xlv8CMg90yJvViaeFRqVtKmo5_UR3XSa-t6Rd0m6zcYD3-ca3m5gJs1XY?purpose=inline">AIYIMA A80 amplificador estéreo DAC Bluetooth TPA3255, PFFB y medidor digital VU | USB Coax Opt &amp; TRS Balanced Input,Pre-Out,12V Trigger,Tone &amp;Remote,Hi-Res ESS9038Q2M Integrated Amp for 2.0/2.1 Home Theater</a></p>
+<p>2. AIYIMA A80</p>
+<p>數位輸入與功能最完整的候選之一</p>
+<ul>
+<li>TPA3255D2 + PFFB</li>
+<li>ESS ES9038Q2M DAC</li>
+<li>USB、光纖、同軸、RCA、TRS、藍牙</li>
+<li>3.5mm AUX 輸出</li>
+<li>24–48V 電源</li>
+</ul>
+<p>它與 O-NOORUS A80 不是同一台機器。AIYIMA A80 的重點是更完整的 DAC 與數位輸入功能。</p>
+<p><a href="https://www.google.com/s2/favicons?domain=https://www.aiyima.com&amp;sz=32">image</a></p>
+<p>Shenzhen Yima Technology Co., Ltd.+1</p>
+<p><a href="https://images.openai.com/static-rsc-4/YT7WHn_90uBNbxPaQaTJKPRgVXFjQR4NqnXCFU2xlvPVFN9FqwqLmiemsPdjTe-Zb1VFHXSfkIN4gqKYod8aYnOOPI4VZzi5QUO8DVhsq4Kccw_lKNOs-2OlYyNR-3axBvw2YznT8ajn7EoSZh7hFnjPak5HSL4zufvTn9P6_Sw?purpose=inline">Fosi Audio ZA3 (Black) | Stereo Amplifier | Richer Sounds</a></p>
+<p>3. Fosi Audio ZA3</p>
+<p>偏向音響系統擴充</p>
+<ul>
+<li>TPA3255</li>
+<li>RCA、XLR／TRS 類比輸入</li>
+<li>主動式超低音輸出</li>
+<li>可切換 Stereo／Mono</li>
+<li>48V/5A 供電時，官方資料列出 155W × 2 @ 4Ω（立體聲）</li>
+</ul>
+<p>ZA3 本身不是完整數位綜合擴大機，沒有內建 USB DAC 或藍牙；若接電腦，建議搭配外接 DAC。</p>
+<p><a href="https://www.google.com/s2/favicons?domain=https://fosiaudio.com&amp;sz=32">image</a></p>
+<p>Fosi Audio+1</p>
+<p><a href="https://images.openai.com/static-rsc-4/3OtPBOWx-8G-dqTSUpWNMQacN9Ya2lv-bqpzkpPKc_C0BrIS0uHUhW-JXCGVkdw4WyyuP7ZhO6eUrSD84YYFNkAZDlMYDXK1VnvV0AXg8Pi7j-bpVQS7tJVdvBkdPbWveS4rKVtxKSowHXYhTemy09r_O25I3eZJkL1SIEAxrt4?purpose=inline">AL200</a></p>
+<p>4. SMSL AL200</p>
+<p>數位整合型選擇</p>
+<ul>
+<li>MA5332MS D 類放大平台</li>
+<li>數位 DAC 與多種數位輸入</li>
+<li>適合電腦、數位音樂與桌面系統</li>
+<li>與 O-NOORUS A80 相比，定位更接近桌面數位綜合擴大機</li>
+</ul>
+<p>適合不想另外購買 DAC、又希望有完整數位訊源介面的使用者。</p>
+<p><a href="https://images.openai.com/static-rsc-4/macEudJznKt57Qw8SYIgY9IaIIkY1L_GTxwmcMLLzVtNfQ4f-lD0MfCWKxB9BKV1RLUhCMNDkoRsBGNqZOkGhnFmmaYcf0Wj9KnjTvsbaAgI-jMo3sNkU4-iOX7rBZYsTshGd_VgERQy2uVOzHNGB4WF1LUUUlQ_N9muoZOpaoQ?purpose=inline">Fosi Audio BT20A MAX - усилитель мощности с LDAC | HiFi-Port.ru</a></p>
+<p>5. Fosi Audio BT20A Max</p>
+<p>重視藍牙與簡單操作</p>
+<ul>
+<li>TPA3255、PFFB</li>
+<li>Bluetooth 6.0</li>
+<li>RCA 類比輸入</li>
+<li>超低音輸出</li>
+<li>適合不需要多種數位輸入、以手機無線播放為主的系統</li>
+</ul>
+<p>若主要訊源是電腦 USB，AIYIMA A80 或 O-NOORUS D3 會更直接。</p>
+<p><a href="https://www.google.com/s2/favicons?domain=https://budgetaudiophile.com&amp;sz=32">image</a></p>
+<p>Budget Audiophile</p>
+<h4>1. 擴大機規格對照表</h4>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>放大晶片</th>
+<th>主要輸入</th>
+<th>超低音輸出</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O-NOORUS A80</td>
+<td>MA12070</td>
+<td>USB-C、BT、RCA、AUX</td>
+<td>有</td>
+<td>小型整合</td>
+</tr>
+<tr>
+<td>O-NOORUS D3</td>
+<td>TPA3255</td>
+<td>USB-C、BT、光纖、同軸、AUX</td>
+<td>有</td>
+<td>高功率整合</td>
+</tr>
+<tr>
+<td>AIYIMA A80</td>
+<td>TPA3255</td>
+<td>USB、BT、光纖、同軸、RCA、TRS</td>
+<td>AUX 輸出，非必然等同低音專用輸出</td>
+<td>數位整合</td>
+</tr>
+<tr>
+<td>Fosi ZA3</td>
+<td>TPA3255</td>
+<td>RCA、XLR／TRS</td>
+<td>有</td>
+<td>純功率擴大</td>
+</tr>
+<tr>
+<td>SMSL AL200</td>
+<td>MA5332MS</td>
+<td>數位與類比輸入</td>
+<td>依版本確認</td>
+<td>數位整合</td>
+</tr>
+<tr>
+<td>Fosi BT20A Max</td>
+<td>TPA3255</td>
+<td>RCA、BT</td>
+<td>有</td>
+<td>藍牙整合</td>
+</tr>
+</tbody>
+</table>
+<h4>2. 如何選擇？</h4>
+<ul>
+<li>**希望簡單、便宜、小體積：**O-NOORUS A80。</li>
+<li>**希望保留 O-NOORUS 的操作方式，但增加功率：**O-NOORUS D3。</li>
+<li>**希望 USB DAC、光纖、同軸、藍牙整合在一起：**AIYIMA A80。</li>
+<li>**已經有 DAC 或串流前級：**Fosi ZA3。</li>
+<li>**主要用手機藍牙播放：**Fosi BT20A Max。</li>
+<li>**希望以電腦作為主要數位訊源：**AIYIMA A80 或 O-NOORUS D3。</li>
+</ul>
+<p>這裡有個重要觀念：**擴大機晶片較高階，不代表實際聽感一定較好。**電源供應器、輸出濾波器、回授設計、PCB 佈局、保護電路及喇叭搭配，都會影響最終表現。</p>
+<h4>三、適合搭配的書架喇叭系列</h4>
+<p>選喇叭時，我建議先看四項：</p>
+<ol>
+<li>**阻抗：**O-NOORUS A80 的規格以 4–8Ω 喇叭為主，不建議任意搭配低於 4Ω 的負載。</li>
+<li>**靈敏度：**約 86–90dB 的喇叭都值得考慮；靈敏度越高，通常越容易在較小功率下得到足夠音量。</li>
+<li>**低音單體尺寸：**4 吋適合桌面，5 吋適合小房間，6.5 吋較適合中型空間。</li>
+<li>**房間大小：**房間越大、聆聽距離越遠，就越需要較高的功率餘裕及較大的喇叭。</li>
+</ol>
+<p>以下是我會優先考慮的系列。</p>
+<h4>1. Wharfedale Diamond 12 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/3o6CeAEN-aaQEN9XWcuBL6UxiMIzmpl7J2JRzfrfxLccEnV_U2Ruj6K2hNmTKPdKTPCS-05XpmSmvbaUEW8omllh1mjcn_9REm8i7XA--bXezMtCFcldnkuLd_GnYgvMQyKivfr_Y6EhuRlb3Kq5MkvaseTyxL00zsJW6DChDVg?purpose=inline">Wharfedale Diamond 12.0 Bookshelf Speakers - Compact Hi-Fi Speakers – Audio Trends</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/Tyy6vcP_2OzpqSAr6WfxDRtYZllk6ah1hdMW5X3z4cTYorjANaAzowGADxAHHVZRG0mnDhQpdeWame01XSgy0Fwg-NG_Fuz4-VerCpAPunrjTOJsvUW2hgyRhP8c-T4aHKpA_HdBb-WAcgZlKWD_Qq06Ry12Ar4fxjozMG3EK4Q?purpose=inline">Loa Wharfedale Diamond 12.1 chính hãng, giá tốt nhất thị trường |</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/T3vsADAq9yiDm1EXu-yRsolXLhNpKL7ndYCcTSOyxPhx3KWjafoDb9rIibUOc2tyCwZi0pfw89tjP8y5y3tYDohs-lb09lS6949UoccF6-ScWNDreF7UsK2VTNyk8PrzxTBiEixrPb8JNF21bem6hZNiiZcCjHpfkKtPBF06KoM?purpose=inline">Wharfedale Diamond 12.2 Loudspeakers: The Audiophile System Builder - ecoustics.com</a></p>
+<p>8</p>
+<p>Wharfedale Diamond 12 是我認為與 O-NOORUS A80 很值得搭配的系列。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>低音單體</th>
+<th>靈敏度</th>
+<th>阻抗</th>
+<th>建議擴大機功率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12.0</td>
+<td>4 吋</td>
+<td>87dB</td>
+<td>8Ω 相容，最低 4Ω</td>
+<td>20–60W</td>
+</tr>
+<tr>
+<td>12.1</td>
+<td>5 吋</td>
+<td>88dB</td>
+<td>8Ω 相容，最低 4Ω</td>
+<td>20–100W</td>
+</tr>
+<tr>
+<td>12.2</td>
+<td>6.5 吋</td>
+<td>88dB</td>
+<td>8Ω 相容，最低 4Ω</td>
+<td>20–120W</td>
+</tr>
+</tbody>
+</table>
+<p>資料參考：Wharfedale 官方產品規格。</p>
+<p><a href="https://www.google.com/s2/favicons?domain=https://www.wharfedale.co.uk&amp;sz=32">image</a></p>
+<p>Wharfedale+2</p>
+<p>聲音特色與選擇：</p>
+<ul>
+<li>12.0：適合電腦桌面、小型書房。</li>
+<li>12.1：人聲、爵士、古典、流行音樂都適合，整體平衡。</li>
+<li>12.2：低頻延伸更好，適合客廳或較大的書房。</li>
+</ul>
+<p>我會優先推薦 Diamond 12.1。它的靈敏度、阻抗與建議擴大機功率，都很適合 O-NOORUS A80 這種小型 D 類擴大機。</p>
+<h4>2. ELAC Debut 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/rBIWv_4Lw0PxjTUUBQGWdmQFKSwkCH1V9pG1QX1-DMzIjwPV2qyajIb_QQ3DKdIhylEb_KhG_mhgm-N86hpiAbEs6bKkRV2lXsWsAE1P_eKXPw6efw0CglTyQnavJ3VsmZiKKUEFgMHFk0BGdYl3rXBFhT3Xo3QcGGkNM-jXIZI?purpose=inline">Elac Debut 2.0 B5.2 (2 stores) find the best price now »</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/BRTlewO1cKQ6Ciuja7k_ZMKC9aQl2_reHs15Tz4UNxApAzu6gx5Aa8xmLgJForX6_LNj4p0S4uzvhAGVnq4-sV-iX9HXpqdYowj_dmZOKZ3voqJQW-tKpUVQCnVhrOBiEmHhCsVesQ8IBVihvxFlFp-ikTSB_kCJGO3HyATbaCA?purpose=inline">Buy Elac Debut B6.2 Bookshelf Speaker Online in India — ProHiFi India</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/32bma33MUvfPyc1zqohTv6swl9WcvWDbdjRrpZ58LOTkMjWdBdAar3KAqW9GnrjJWb6wErvv5XjReMHOQ-VP5EnTO0XP9WZlesBOHG7YUbgwomKlqR3xa8m_gk7SufuTz-5QTnf_94qQugGKaHvzwIF9cfK_aWG44XbqOlQY2mA?purpose=inline">Elac Debut 3.0 DB53 Bookshelf Speakers Pair (Open Box)</a></p>
+<p>ELAC Debut 是另一個值得考慮的系列。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>低音單體</th>
+<th>特色</th>
+<th>建議用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B5.2</td>
+<td>5.25 吋</td>
+<td>細節、音場與低頻平衡</td>
+<td>書房、小客廳</td>
+</tr>
+<tr>
+<td>B6.2</td>
+<td>6.5 吋</td>
+<td>低頻量感較充足</td>
+<td>中型客廳</td>
+</tr>
+<tr>
+<td>DB53</td>
+<td>5.25 吋</td>
+<td>新一代 Debut 3.0 系列</td>
+<td>桌面與書房</td>
+</tr>
+</tbody>
+</table>
+<p>聲音特色：</p>
+<ul>
+<li>適合重視樂器細節與聲音層次的聆聽者。</li>
+<li>B5.2 可以作為 O-NOORUS A80 的搭配候選。</li>
+<li>B6.2 比較適合搭配 O-NOORUS D3、AIYIMA A80 或 Fosi ZA3 等有較多功率餘裕的擴大機。</li>
+</ul>
+<p>如果你偏好古典音樂、鋼琴、弦樂或現場錄音，我會把 ELAC 列為優先試聽對象。</p>
+<h4>3. Q Acoustics 3000i 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/ZFgZrhV6_BP7gijyjWqpIp8qfqN-Os-q2Oj-xZZIMFnDVApbXCTcjVcMHrXORB1PIZpDZySzFaqEwUqqoe7lFo6-xg6nUQU1IANb42bYyLPz75edPBR9Cblm96vkbjIRJ4AE0kcaiYTx_borcLNjmxiedKYiwRUw3_psFlcPRos?purpose=inline">Q Acoustics Q3010i Bookshelf Speakers – Addicted To Audio</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/0mgRfGif_cQLXoZQbwUJa4BGBVZVwSF69xqrsxi6Zyhttk2HA6OI002o3562-8aEdCJUEZCoDpoZf26km3pIz3bsk5LsPCUR3hz0zzBu6DR1rpV3vzM8Acx25W67fISALtb9sB8CpnA5aARZT893lOXfk2LZd0Ww_m8BLQwZNO4?purpose=inline">3020i Bookshelf Speaker Pair – QAcoustics</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/2S1ZqkSGOoD7OJHiCZEEtd-jGKxfNsudaaxgGPB31pnxgX8O-o19NGH7Wwt5rh5UE0n26HkhNeJIpLEhk1lX5W5zwFICTBPtLOfzVYRPgYhsyuWocBouMf1wDAuTSeiht2Mt3IEn4yLjC3mjTk2n9NTybKDg0yHI0bmauvuLHRM?purpose=inline">Q Acoustics 3030i - Bookshelf Speaker (Pair) – AV Shack</a></p>
+<p>5</p>
+<p>Q Acoustics 3000i 的特色是相對容易融入一般家庭空間。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>單體尺寸</th>
+<th>適合用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3010i</td>
+<td>4 吋</td>
+<td>電腦桌面、小房間</td>
+</tr>
+<tr>
+<td>3020i</td>
+<td>5 吋</td>
+<td>書房、臥室</td>
+</tr>
+<tr>
+<td>3030i</td>
+<td>6.5 吋</td>
+<td>中型客廳</td>
+</tr>
+</tbody>
+</table>
+<p>聲音特色：</p>
+<ul>
+<li>聲音通常給人自然、寬鬆的感覺。</li>
+<li>3020i 是較均衡的選擇。</li>
+<li>3030i 的低頻量感更充足，適合較大的聆聽空間。</li>
+</ul>
+<p>O-NOORUS A80 搭配 3020i 是值得考慮的組合；若選 3030i，我會更傾向搭配 D3 或 AIYIMA A80。</p>
+<h4>4. DALI Spektor／Oberon 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/d0lZPawzqxP9y1O6L-7j7XOEyzeUGN4Cjo9rRa8G99di5QGR0RQ7qwQQA7WxO5tqLak6oZEZqzHYePSDKDB7Il-8ymOwGStKBwmNED2sL5kUrjH-acg4Vhv6DoE_ZCojkMeTQw7wNsDHDhn84Lsi0t6CyOt4ZgneMJC2AwOiutI?purpose=inline">Buy Dali Spektor 2 | Bookshelf Speakers | RockOnAV</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/uKSGjatKXIX7Imgidpnc1gnaaGB7we9VNak5-PBSqxhlCp2O8eGRpJVcxLvxhIoCepzwRG674MH0xRRsgpJOAAwfW2VsHg3z_az3qXUMJ-k7ZlHxEgRHSbmxOzaxmWa68B3w1uVuT-ZtU6DTOCOYM_UjOcTn2or6kvldrIE32Cg?purpose=inline">Shop Dali Oberon 1 | Compact Bookshelf Speakers for Sale</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/7S0UdA0qXVr8bQWLufS8BWCiDMiQKZoL_t6PlCPiUXVab9xzF1FiBYtZRWGVdtQ4aWM8pdrrCq_FmP4fdF9Pmi8D8zKsE9RTFDqzZO-yxu4khmi6IR9PoN4LO7_Y8MH8ScEi4l4tBCYcax2R7oTGpIjKxfJE4jsxu-LS2752n_c?purpose=inline">DALI OBERON 3 - Sound Brothers Onlineshop</a></p>
+<p>DALI 的 Spektor 與 Oberon 系列也值得列入試聽清單。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>喇叭類型</th>
+<th>適合用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spektor 2</td>
+<td>5.25 吋書架喇叭</td>
+<td>入門 Hi-Fi</td>
+</tr>
+<tr>
+<td>Oberon 1</td>
+<td>5.25 吋書架喇叭</td>
+<td>小型空間</td>
+</tr>
+<tr>
+<td>Oberon 3</td>
+<td>7 吋書架喇叭</td>
+<td>中型空間</td>
+</tr>
+</tbody>
+</table>
+<p>聲音特色：</p>
+<ul>
+<li>適合人聲、流行音樂、原聲樂器。</li>
+<li>Oberon 系列較適合想進一步提升音響系統的使用者。</li>
+<li>Oberon 3 的體積與低頻能力更大，應搭配有足夠驅動餘裕的擴大機。</li>
+</ul>
+<h4>5. Polk Audio Signature Elite 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/gtwl00RGvBMeAvDVfXtnHG6G_24Pyx0FRmV8Y9OxrPqQ8-Bnqna68HOVnVgXxDwatiO_dfT6HABeot3SCVfEjnbhYeX9sDTqjGgxFG1_NbxLrws2FLARGvRo8HnVlXGd_8rcRodNLkSpQOOVbuErNo59x9l0vBSAVGHBi-2EGys?purpose=inline">[Official] Polk Audio Signature Elite ES10 2-Way Passive Desktop Bookshelf Speakers, Audio, Soundbars, Speakers &amp; Amplifiers on Carousell</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/kZT8_aMXyT5drUESNg23grkDL-SZJNniKkH87Yq1iAyg-QlnIjm1S1DXidmih83s4dKX2FFGX6qBTPRcpRPOE-CRHbPp5MBxRXfG-DQ8vi0fbk2xplfGIwJ5HKKsW2y0FrD3nrmypVtv-ThDbZU8eKmteYCHxuc_-yNFCrMpGKY?purpose=inline">폴크 오디오(POLK AUDIO) ELITE ES15 스피커(전시품세일)---------판매되었습니다.</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/2b29dXRo4uengxu8Eq8idFNB7W38q2IKThjhP1TOzUzxuVQEAcv1IyeuDVNLAuguDVHbefJyXpX75nqQuVA4hM5hOAqdgkY_Q15xsaqyrANWyw_yNlmVkGSV--JJmlww90ChahYWI-ZD07-lbWEx1YjnODG3QXG4FeUELnYn-ZA?purpose=inline">Buy bookshelf speakers Polk Audio Signature Elite ES20 Black with optimal price, specs, photos, shipping</a></p>
+<p>Polk Audio Signature Elite 也適合考慮。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>喇叭類型</th>
+<th>適合用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ES10</td>
+<td>小型書架喇叭</td>
+<td>桌面、環繞聲道</td>
+</tr>
+<tr>
+<td>ES15</td>
+<td>書架喇叭</td>
+<td>書房、臥室</td>
+</tr>
+<tr>
+<td>ES20</td>
+<td>大型書架喇叭</td>
+<td>中型客廳</td>
+</tr>
+</tbody>
+</table>
+<p>Polk 的 Signature Elite 系列可列入電影、流行音樂與家庭娛樂系統的候選名單。ES15 是比較適合與 O-NOORUS A80 搭配的尺寸。</p>
+<h4>四、實際購買時可參考的型號與價格</h4>
+<p>以下是本次搜尋到的商品頁面及平台報價。價格會隨賣場、電源版本、保固、運費及進口稅費改變；尤其海外報價不等於台灣公司貨價格。</p>
+<h4>擴大機</h4>
+<p><a href="https://images.openai.com/thumbnails/url/Q9KignicDclJDoIwAADAF7FGDJAYI0opIhQxYfFikJZFpQWpRHiU__E3Otf5fmrOu8GUJEKL59RxggV-pYpYDTznTSEWrJWGmnVdQ6t1v_qfuQmw4RTRwk-TFvR--cq8yzZ9-809mQWS2Dia7NmaLB0cHLVWg9DdHbMHHKHXxHKEkDaVWhzITCf8bGQUoj1mFUG1A27gRN0s92JLQ0OyjEpbTUO9d0ekzLiFxgb-AAqAPQw">O-noorus A80 80wx2 Ma12070 Digital Power Amplifier Hifi Bluetooth</a></p>
+<p>O-noorus A80 80wx2 Ma12070 Digital Power Amplifier Hifi Blue…</p>
+<h4>NT$3,212.16</h4>
+<p>賣場：eBay - pincei_us</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=O-noorus+A80+80wx2+Ma12070+Digital+Power+Amplifier+Hifi+Bluetooth&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/hP5QjXicDclJDoIwAADAF8lWYoDEGKEGArIECwRvZbGFskkbjTzK__gbnet8P1SIhVuy3E71-l5E2-xENQGJcIFFV0v1PMqczsvSTeT4OPzPOkWN6dZpHOljDnrMruS-meVlDm144-rgx6JiwZm9AuwQbES6iCGKWM5KnNANZHqD7J42jrdPPdO4tqa6KXnB4TNjvtvbmpuGAUgQQloAtQEpmdrDglCXMmcFPwPyPJQ">AIYIMA A80 小型擴大機 TPA3255</a></p>
+<p>AIYIMA A80 小型擴大機 TPA3255</p>
+<h4>NT$8,019.00</h4>
+<p>賣場：shopee.tw</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=AIYIMA+A80+%E5%B0%8F%E5%9E%8B%E6%93%B4%E5%A4%A7%E6%A9%9F+TPA3255&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/Joi-dXicDcltDoIgAADQE5WYGdXWmloTa7iZWlt_HH4hVCBBS2_VdbpNvb_v--mM6fXashpRPcfeNPXElMKZUm2IYdW0kg9Ld7LvmaBbtfnf2ovrVVhllzeYeUzsY9V2AzhJFfDUJ_MFLA74eADHO2wF4izKySuQcwXwlUaZzVOdhHykNDQjpDVY3IbiLJaJdgRERbLKStdXue0irS9x5BQE4xyXI-HIdyXZOd4PhGQ91Q">FOSI AUDIO ZA3 音響擴大機 | TPA3255晶片 平衡輸入 RCA輸入 主動式低音輸出 MONO模式 附48V5A變壓器</a></p>
+<p>FOSI AUDIO ZA3 音響擴大機 | TPA3255晶片 平衡輸入 RCA輸入 主動式低音輸出 MONO模式 附…</p>
+<h4>NT$5,290.00</h4>
+<p>賣場：蝦皮購物</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=FOSI+AUDIO+ZA3+%E9%9F%B3%E9%9F%BF%E6%93%B4%E5%A4%A7%E6%A9%9F+%7C+TPA3255%E6%99%B6%E7%89%87+%E5%B9%B3%E8%A1%A1%E8%BC%B8%E5%85%A5+RCA%E8%BC%B8%E5%85%A5+%E4%B8%BB%E5%8B%95%E5%BC%8F%E4%BD%8E%E9%9F%B3%E8%BC%B8%E5%87%BA+MONO%E6%A8%A1%E5%BC%8F+%E9%99%8448V5A%E8%AE%8A%E5%A3%93%E5%99%A8&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/9yGq9XicDcnxDoFAHADgJ7qy1ZDN7CTKxLiQ_mnddero6nK_TB7K-3gbvn-_76cEUHpimrxmj14BzxHQ2jIKDRkIZrBGmrpslBJ1MWun_5vgbe6sWOQO6LKTp_iK5WsdozNhXh31dO9WkVPY1cVysI1UTo6NKC8b6dJ2-Q52OiJXinw4iUWQdHMU2-neSsb3rHiLTpbDEHpR4XxwI4iDSPGh5YEX-ounDPUI2h8rlT6R">SMSL AL200,Hi-Fi Amplifier,MA5332MS Stereo D-Class Amplifier Chip,165W Output Power,Integrated Ear Amplifier Output,Third-Generation XMOS 16 core XU</a></p>
+<p>SMSL AL200,Hi-Fi Amplifier,MA5332MS Stereo D-Class Amplifier…</p>
+<h4>NT$6,824.98</h4>
+<p>賣場：SMSL audio + others</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=SMSL+AL200,Hi-Fi+Amplifier,MA5332MS+Stereo+D-Class+Amplifier+Chip,165W+Output+Power,Integrated+Ear+Amplifier+Output,Third-Generation+XMOS+16+core+XU&amp;utm_source=chatgpt.com">查看商品</a></p>
+<h4>喇叭</h4>
+<p><a href="https://images.openai.com/thumbnails/url/mP15xXicDcnbEkJAAADQL1oyZMpM02DRyK1Uyothd12zNtZDPqe_6m_qvJ7vp-acTZooEorGN-MEA15QSagmnvMGCWjoxakeGGtotX_t_qfpAd46KC51r13A0WIXperjHgeqG8AnoLblcHh2vfDxukYIHqJR1kvYbsJZnw1XTmoYBVKu-ut4blhGG4jtBPi3jmSmcT-RIk3NRYEy5MWqa8eKzD8Lczka">11/9前最高回饋1111【Wharfedale】Diamond 12.2 書架喇叭 / 迎家公司貨 - 三年保固</a></p>
+<p>11/9前最高回饋1111【Wharfedale】Diamond 12.2 書架喇叭 / 迎家公司貨 - 三年保固</p>
+<h4>NT$16,192.00</h4>
+<p>賣場：momo購物網</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=11%2F9%E5%89%8D%E6%9C%80%E9%AB%98%E5%9B%9E%E9%A5%8B1111%E3%80%90Wharfedale%E3%80%91Diamond+12.2+%E6%9B%B8%E6%9E%B6%E5%96%87%E5%8F%AD+%2F+%E8%BF%8E%E5%AE%B6%E5%85%AC%E5%8F%B8%E8%B2%A8+-+%E4%B8%89%E5%B9%B4%E4%BF%9D%E5%9B%BA&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/9suknHicDcltDoIgAADQE_mZWbm1RltqqbWsZvlPEZEViIKSF-lu3abe3_f9NFJy4RkGYrCfuESVJktm6ljIQhKow5Yaomk5JwxvuvX_PHCsVgG8PvI7HRg1SeeLEsA-LhzLz05OalOB1MKu6Rjdplds5RAcqne2C0Gkif32yZA_8DQYnXqmYZXgJUkKJYa0UmXo0vPcbS_wB8P7NlU">ELAC DB52 書架喇叭</a></p>
+<p>ELAC DB52 書架喇叭</p>
+<h4>NT$15,900.00</h4>
+<p>賣場：沐爾 音響家居 板橋門市</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=ELAC+DB52+%E6%9B%B8%E6%9E%B6%E5%96%87%E5%8F%AD&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/Q7-O7HicDcnRFoEwGADgJ5o4w5pzHKeilDRdqe7yyxZaUzN5Ke_jbfhuv-9HaK36hWVVErq30tUZ6ZMcj3ivS13DCNrG6kWrVC356rH838JJzjSAVLGcbKqb-zSPyEO1SGKxk8NcMuEzU9tPAneaQjewPk5mgPYDHRuDdxfDKM6oH71IznG5LosCFX6DD27I921ASNFRdIAy5qF3M463pbPMnuJrBKl7nPwAEGA8Qw">Q Acoustics 3030i Compact Speakers Pair Black</a></p>
+<p>Q Acoustics 3030i Compact Speakers Pair Black</p>
+<h4>NT$20,300.45</h4>
+<p>賣場：Desertcart.ae + others</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=Q+Acoustics+3030i+Compact+Speakers+Pair+Black&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/0inhJ3icDcnbEkJAAADQL8IINZlpGhSRS4UxemNXcttddrfUV_U7_U2d1_P93BkjVJekCoHpRVgFBVYiRawpK1gDRIAHid4xIQ2qt-Pmf7oRwrUDEmiUvnF1LkW8PLjvwD-oXlabPJD7znrs4FgqNJJnuohscLYuyxTxlxfJIG2LXRIKfTp0eWpGT8w8Qb1NKyfO-ezvA42rDR6sKzmBhaNiOI7E3ntam3EXoWNv_AB3LT56">【台灣公司 可打統編】DALI/達尼 SPEKTOR2 啟典2發燒HIFI書架式音箱高保真無源音響喇叭</a></p>
+<p>【台灣公司 可打統編】DALI/達尼 SPEKTOR2 啟典2發燒HIFI書架式音箱高保真無源音響喇叭</p>
+<h4>NT$17,870.00</h4>
+<p>賣場：樂天市場購物網</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=%E3%80%90%E5%8F%B0%E7%81%A3%E5%85%AC%E5%8F%B8+%E5%8F%AF%E6%89%93%E7%B5%B1%E7%B7%A8%E3%80%91DALI%2F%E9%81%94%E5%B0%BC+SPEKTOR2+%E5%95%9F%E5%85%B82%E7%99%BC%E7%87%92HIFI%E6%9B%B8%E6%9E%B6%E5%BC%8F%E9%9F%B3%E7%AE%B1%E9%AB%98%E4%BF%9D%E7%9C%9F%E7%84%A1%E6%BA%90%E9%9F%B3%E9%9F%BF%E5%96%87%E5%8F%AD&amp;utm_source=chatgpt.com">查看商品</a></p>
+<h4>五、實際搭配組合：哪一台擴大機配哪一對喇叭？</h4>
+<p>以下是我認為比較合理的組合。這些是依照擴大機功率、喇叭尺寸、阻抗與用途所做的搭配建議，並不是說只有這樣配才會好聽。</p>
+<table>
+<thead>
+<tr>
+<th>組合</th>
+<th>擴大機</th>
+<th>喇叭</th>
+<th>適合環境</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>O-NOORUS A80</td>
+<td>Diamond 12.1</td>
+<td>書房、小客廳</td>
+</tr>
+<tr>
+<td>B</td>
+<td>O-NOORUS A80</td>
+<td>DALI Spektor 2</td>
+<td>小型音樂空間</td>
+</tr>
+<tr>
+<td>C</td>
+<td>O-NOORUS D3</td>
+<td>ELAC B5.2</td>
+<td>中型書房、客廳</td>
+</tr>
+<tr>
+<td>D</td>
+<td>AIYIMA A80</td>
+<td>Diamond 12.2</td>
+<td>中型客廳</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Fosi ZA3</td>
+<td>Q Acoustics 3030i</td>
+<td>重視音質、已有 DAC</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Fosi BT20A Max</td>
+<td>Polk ES15</td>
+<td>家庭娛樂、藍牙播放</td>
+</tr>
+</tbody>
+</table>
+<h4>我最推薦的三種組合</h4>
+<p>首選：整體均衡</p>
+<p><a href="https://images.openai.com/static-rsc-4/5zGKUl4M5p-Miv31_5WL9ZQLjX1jdGLRfoCBLfClL9ujsITUZhMMlMsmpDNUS2yEjR02vJ7ZrxcZ8-_W8V84EoXFDLfMmUitGNhCVwn7z1SflErzQV_iQKMNEm0erDxx2P9YAKbrdZIyy23U5es6g09vwrJO5t_fgY3dVDM6x0Y?purpose=inline">Help with odd problem: SMSL AO200 emits hissing sound only when connected to a tweeter | Page 2 | Audio Science Review (ASR) Forum</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/vaoMr9WF5i9uzLWepOdIrCt9_dtpqBrN6ZJOgz-xpy-tkodXZus23yerTjeqeF_i7sp1KpH4BvqeLKSDyJ_AiLr0OtLeUSPNHMFmqvYEwIUsIUyyAaC_nay0oOM3ILFgAUnJWiB_fpV_7Az-_XspZ9moXm4VhB1_VXwVqlUbWbQ?purpose=inline">Wharfedale Diamond 12.1 Bookshelf Speakers – Audio Advice</a></p>
+<p>O-NOORUS A80 + Wharfedale Diamond 12.1</p>
+<p>適合人聲、爵士、古典、流行音樂及一般電腦音響。12.1 的 88dB 靈敏度及 8Ω 相容設計，與 A80 的輸出能力相當合適。</p>
+<p>這是我最推薦先試聽的入門 Hi-Fi 組合。</p>
+<p>第二選擇：數位功能完整</p>
+<p><a href="https://images.openai.com/static-rsc-4/moWndTKhSCx0i6T4kZ2cPKn0H09CVDjgKheQyHtPhrMt6jdr5bM4X54mkgOUlHyFPx-rgcc3QOcRdiRj8pEWG56pAmB_VpnK6dE6THsBPnLu_9OesGeHHvbTZduHO-_n8NPIB99CAS6aFSQ4l1irhBeNOPMuyKmbepKkURRZu78?purpose=inline">Aiyima A80 Integrated Amplifier | Headphone Reviews and Discussion - Head-Fi.org</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/rBIWv_4Lw0PxjTUUBQGWdmQFKSwkCH1V9pG1QX1-DMzIjwPV2qyajIb_QQ3DKdIhylEb_KhG_mhgm-N86hpiAbEs6bKkRV2lXsWsAE1P_eKXPw6efw0CglTyQnavJ3VsmZiKKUEFgMHFk0BGdYl3rXBFhT3Xo3QcGGkNM-jXIZI?purpose=inline">Elac Debut 2.0 B5.2 (2 stores) find the best price now »</a></p>
+<p>AIYIMA A80 + ELAC Debut B5.2</p>
+<p>適合以電腦 USB、數位音樂檔案為主要訊源的人。AIYIMA A80 內建 DAC，省去另外購買 DAC 的麻煩；ELAC 則是很值得試聽的書架喇叭。</p>
+<p>第三選擇：日後容易升級</p>
+<p><a href="https://images.openai.com/static-rsc-4/2S1ZqkSGOoD7OJHiCZEEtd-jGKxfNsudaaxgGPB31pnxgX8O-o19NGH7Wwt5rh5UE0n26HkhNeJIpLEhk1lX5W5zwFICTBPtLOfzVYRPgYhsyuWocBouMf1wDAuTSeiht2Mt3IEn4yLjC3mjTk2n9NTybKDg0yHI0bmauvuLHRM?purpose=inline">Q Acoustics 3030i - Bookshelf Speaker (Pair) – AV Shack</a></p>
+<p>Fosi ZA3 + Q Acoustics 3030i</p>
+<p>適合已經有 DAC、串流播放器，或未來打算增加更好的前級、訊源及超低音的使用者。</p>
+<h4>六、購買前必須注意的事項</h4>
+<h4>1. 電源供應器不要忽略</h4>
+<p>D 類擴大機的實際輸出功率，很大程度取決於電源供應器。</p>
+<p>例如：</p>
+<ul>
+<li>O-NOORUS A80：使用原廠規格的 24V / 6.5A 電源。</li>
+<li>O-NOORUS D3：常見配置為 36V / 5A。</li>
+<li>AIYIMA A80：依照使用的 24–48V 電源版本而定。</li>
+<li>Fosi ZA3：48V / 5A 版本比 32V / 5A 版本有更大的輸出餘裕。</li>
+</ul>
+<p>不要因為接頭相同，就把不同擴大機的電源互換。必須確認電壓、電流、極性、接頭規格及原廠限制。</p>
+<h4>2. 喇叭阻抗不要只看標示的 8Ω</h4>
+<p>例如 Diamond 12.1 標示 8Ω 相容，但最低阻抗為 4Ω。這表示擴大機實際上仍可能需要承受 4Ω 負載。</p>
+<p>所以不能只看到「8Ω」就認為一定很好推；也要看最低阻抗及阻抗曲線。</p>
+<h4>3. 喇叭線與擺放也會影響結果</h4>
+<ul>
+<li>喇叭線使用一般品質良好的 OFC 銅線即可，不需要一開始就買昂貴線材。</li>
+<li>5 吋喇叭可以先使用 14–16 AWG 喇叭線。</li>
+<li>喇叭高音單體盡量與耳朵同高。</li>
+<li>左右喇叭與聆聽位置形成近似等邊三角形。</li>
+<li>後方反射孔不要緊貼牆壁。</li>
+<li>兩支喇叭要保持相同的正負極接線。</li>
+</ul>
+<h4>七、最後幫你縮小選擇範圍</h4>
+<p>如果要進一步做一套完整的購買清單，我會先確認你的使用環境。這比單純比較晶片型號更重要。</p>
+<p>1. 擴大機與喇叭的總預算（新台幣）</p>
+<p>5,000 元以下</p>
+<p>5,000–10,000 元</p>
+<p>10,000–20,000 元</p>
+<p>20,000–30,000 元</p>
+<p>30,000–50,000 元</p>
+<p>2. 使用空間</p>
+<p>電腦桌面，近場聆聽</p>
+<p>書房，約 10–20 平方公尺</p>
+<p>客廳，約 20–35 平方公尺</p>
+<p>較大空間，35 平方公尺以上</p>
+<p>3. 主要音源</p>
+<p>Windows 電腦 USB 為主，也需要藍牙</p>
+<p>手機藍牙為主</p>
+<p>電視光纖或 HDMI 音訊為主</p>
+<p>CD、DAC、串流播放器等外接設備</p>
+<p>4. 喇叭類型</p>
+<p>現成被動式書架喇叭</p>
+<p>落地式被動喇叭</p>
+<p>DIY 喇叭單體、分音器與箱體</p>
+<p>現成喇叭與 DIY 方案都比較</p>
+<p>5. 最重視的項目</p>
+<p>音質與整體 CP 值</p>
+<p>低音與電影效果</p>
+<p>人聲、古典與樂器細節</p>
+<p>未來擴充與升級能力</p>
+<p>依照我的需求製作完整採購清單</p>
+<p>我的初步建議是：如果你的使用情境是一般書房或電腦音響，先比較 O-NOORUS A80 + Diamond 12.1 與 AIYIMA A80 + ELAC B5.2。兩套的差異不只是功率，而是整合功能、喇叭聲音風格及日後升級方式。</p>
+<p>另外，若你希望我持續留意這幾款擴大機與喇叭在台灣賣場的價格變化，也可以安排定期價格追蹤。</p>
+<p>🔎追蹤擴大機與喇叭價格Tap to set up</p>
 <h1>Rust</h1>
-<p>如果你想從零開始學習 Rust 程式語言，我建議採取「免費 PDF 教材＋實際寫程式＋練習題」的方式。</p>
+
+
+
+<p>學習 Rust 程式語言，建議採取「免費 PDF 教材＋實際寫程式＋練習題」的方式。</p>
 <p>Rust 是一門值得學習的現代程式語言，特色包括：</p>
 <ul>
 <li>記憶體安全： 不需要傳統垃圾回收器，也能有效避免許多記憶體錯誤。</li>
@@ -19,12 +3201,10 @@
 <li>適合系統開發： 可用於作業系統、網路服務、命令列工具及嵌入式開發。</li>
 <li>跨平台： 支援 Windows、Linux、macOS 等平台。</li>
 </ul>
-<p>我的建議是：不要一開始就讀太多進階技術，先學會 Rust 的基本語法，再深入了解它最重要的特色——Ownership（所有權）、Borrowing（借用）及 Lifetime（生命週期）。</p>
+<p>建議：不要一開始就讀太多進階技術，先學會 Rust 的基本語法，再深入了解它最重要的特色——Ownership（所有權）、Borrowing（借用）及 Lifetime（生命週期）。</p>
 <h4>一、推薦免費且較新的 Rust PDF 教材</h4>
 <p>以下整理幾份值得下載的教材，優先推薦官方及教育機構提供的免費資源。</p>
 <h4>1. Google Comprehensive Rust（最推薦）</h4>
-<p>Comprehensive Rust | Google 内部 Rust 教程</p>
-<p>Comprehensive Rust</p>
 <p>免費 PDF・繁體中文Google Android 團隊製作</p>
 <p>從初學者基礎語法，到泛型、錯誤處理及進階主題都有涵蓋。</p>
 <ul>
@@ -42,8 +3222,6 @@
 </ul>
 <p>我認為這是你可以優先下載的第一份教材。</p>
 <h4>2. The Rust Programming Language（官方 Rust 聖經）</h4>
-<p>‎The Rust Programming Language, 3rd Edition by Steve Klabnik, Carol Nichols &amp; Chris Krycho on Apple Books</p>
-<p>The Rust Programming Language</p>
 <p>免費線上閱讀Rust 官方核心教材</p>
 <p>Rust 社群公認最重要的入門教材。</p>
 <ul>
@@ -66,9 +3244,6 @@
 </ol>
 <p>注意：官方最新版主要提供線上 HTML 閱讀，並不是每個語言版本都有官方 PDF。</p>
 <h4>3. 從零開始學 Rust（繁體中文 PDF）</h4>
-<p>久等！Rust官方著作The Rust Programming Language中文版第2版终于来啦！-CSDN博客</p>
-<p>從零開始學 Rust</p>
-<p>免費 PDF繁體中文社群教材</p>
 <p>適合希望以中文理解程式觀念的初學者。</p>
 <ul>
 <li><a href="https://andyshiue.github.io/learning-rust-from-zero/zh-TW/?utm_source=chatgpt.com">繁體中文線上教材及 PDF 下載</a></li>
@@ -86,9 +3261,6 @@
 </ul>
 <p>這份教材比較適合希望以繁體中文一步步理解 Rust 的讀者。不過作者也提醒 PDF 不一定會與網頁版同步更新，因此以網頁版為準。</p>
 <h4>4. Rust By Example（透過範例學 Rust）</h4>
-<p>GitHub - zjp-CN/mdbook-theme: A preprocessor and a backend to config themes for mdbook, especially creating a pagetoc on the right and setting full color themes from the offical ace editor. · GitHub</p>
-<p>Rust By Example</p>
-<p>免費教材適合邊看邊寫程式</p>
 <p>透過程式範例學習語法及應用。</p>
 <ul>
 <li><a href="https://doc.rust-lang.org/rust-by-example/?utm_source=chatgpt.com">Rust By Example 官方教材</a></li>
@@ -96,8 +3268,6 @@
 <p>這本教材比較偏向實作，不需要閱讀大量理論文字。</p>
 <p>適合搭配 Google 的 Comprehensive Rust 一起使用。</p>
 <h4>5. Rustlings（免費練習課程）</h4>
-<p>Rustlings: functions5.rs #Issue11 — Functions in Rust | by John Philip | Rustaceans | Medium</p>
-<p>Rustlings</p>
 <p>免費官方推薦的實作練習工具</p>
 <p>透過修改錯誤程式、完成練習來學習 Rust。</p>
 <ul>
@@ -171,12 +3341,8 @@
 <p>如果每天可以花1～2小時，先用2～3個月建立基本能力，是相當合理的學習目標。</p>
 <h4>三、第一步：安裝 Rust 開發環境</h4>
 <p>我建議使用以下免費工具：</p>
-<p>GitHub - rochacbruno/rust_memes: The best memes and stickers about #rust #rustlang - listed here for easy use on talks and share</p>
-<p>Rust</p>
 <p>Rust 編譯器及工具鏈</p>
 <p><a href="https://www.rust-lang.org/tools/install?utm_source=chatgpt.com">免費下載 Rust</a></p>
-<p>File:Visual Studio Code 1.35 icon.svg - Wikimedia Commons</p>
-<p>Visual Studio Code</p>
 <p>程式編輯器</p>
 <p><a href="https://code.visualstudio.com/?utm_source=chatgpt.com">免費下載 VS Code</a></p>
 <p>rust-analyzer - Visual Studio Marketplace</p>
@@ -197,14 +3363,13 @@ cd hello_rust
 </code></pre>
 <p>打開 <code>src/main.rs</code>，輸入：</p>
 <p>rust</p>
-<pre><code class="language-rust">fn main() {
+<pre class="brush:rust;auto-links:false;toolbar:false" contenteditable="false">fn main() {
     println!("Hello, Rust!");
 
     let name = "Rust 學習者";
 
     println!("歡迎你，{}！", name);
-}
-</code></pre>
+}</pre>
 <p>執行：</p>
 <p>bash</p>
 <pre><code class="language-bash">cargo run

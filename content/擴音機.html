@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta property="head" content="H1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>擴音機</title>
+
+<link rel="stylesheet" href="./../static/chimper/fonts/icomoon/style.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/magnific-popup.css">
+<link rel="stylesheet" href="./../static/chimper/css/jquery-ui.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="./../static/chimper/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="./../static/chimper/css/aos.css">
+<link rel="stylesheet" href="./../static/chimper/css/style.css">
+<link rel="shortcut icon" href="./../static/favicons.png">
+
+<style type="text/css">
+.site-section { background-color: #FFFF; padding: 40px 40px; }
+body > div > div.dropdown.open { display: block; }
+img.add_border { border: 3px solid blue; }
+
+.page-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 20px;
+    margin: 24px 0;
+    padding: 12px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-navigation .previous {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
+.page-navigation .next {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+.page-navigation a {
+    display: inline-block;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.page-navigation a:hover {
+    text-decoration: underline;
+}
+</style>
+
+<script src="./../static/chimper/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/normalize.min.css">
+<script src="./../static/tipuesearch/tipuesearch_set.js"></script>
+<script src="tipuesearch_content.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/tipuesearch.css">
+<script src="./../static/tipuesearch/tipuesearch.js"></script>
+
+<script>
+function doSearch() {
+    if (window.jQuery && jQuery.fn.tipuesearch) {
+        jQuery('#tipue_search_input').tipuesearch({
+            newWindow: true,
+            minimumLength: 2,
+            wholeWords: false
+        });
+    }
+}
+
+if (window.jQuery) {
+    jQuery(document).ready(doSearch);
+}
+</script>
+
+<script type="text/javascript" src="./../static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../static/syntaxhighlighter/css/shCoreDefault.css">
+<style>
+pre, pre code, .syntaxhighlighter .line, .syntaxhighlighter table td.code .line {
+  white-space: pre !important; word-wrap: normal !important; word-break: normal !important;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="site-wrap">
+
+<div class="site-mobile-menu">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+<header class="site-navbar py-4 bg-white" role="banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <h1>Learning (學習)</h1>
+
+      <div class="pl-4">
+        <form action="#" onsubmit="return false;">
+          <input type="text"
+                 placeholder="Search"
+                 name="q"
+                 id="tipue_search_input"
+                 pattern=".{2,}"
+                 title="At least 2 characters">
+        </form>
+      </div>
+
+      <div class="col-12 col-md-10 d-none d-xl-block">
+        <nav class="site-navigation position-relative text-right" role="navigation">
+          <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+<li class="active has-children">
+<a href="index.html">Home</a>
+<ul class="dropdown">
+<li><a href="sitemap.html">SMap</a></li>
+</ul>
+</li>
+<li><a href="About.html">About</a></li>
+<li><a href="藍芽喇叭.html">藍芽喇叭</a></li>
+<li><a href="擴音機.html">擴音機</a></li>
+<li class="has-children"><a href="D類擴音機.html">D類擴音機</a><ul class="dropdown">
+<li><a href="O-NOORUS.html">O-NOORUS</a></li>
+</ul>
+</li>
+<li><a href="Rust.html">Rust</a></li>
+</ul>
+
+        </nav>
+      </div>
+
+      <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+           style="position: relative; top: 3px;">
+        <a href="#" class="site-menu-toggle js-menu-toggle text-black">
+          <span class="icon-menu h3"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="tipue_search_content">
+<h1>擴音機</h1>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="藍芽喇叭.html">Previous: 藍芽喇叭</a></div>
+<div class="next"><a href="D類擴音機.html">Next: D類擴音機</a> &gt;&gt;</div>
+</nav>
+
+
+
+
+
+
+
+
+<h4>現代音響擴大機的選擇與 DIY 設計：從電路原理到完整音響系統</h4>
+<p>現代音響擴大機（Audio Amplifier）與傳統音響最大的差異，在於現在已經可以利用體積很小、效率很高的數位 D 類（Class D）放大器，製作出具有相當高輸出功率、低失真及良好音質的音響系統。</p>
+<p>如果希望自己設計、組裝一套音響，我建議不要只從「幾瓦」開始選擇，而是先了解：</p>
+<ol>
+<li>擴大機有哪些種類，各自的工作原理。</li>
+<li>如何依照喇叭阻抗與功率選擇擴大機。</li>
+<li>電源供應器如何決定擴大機的實際輸出能力。</li>
+<li>前級、DAC、藍牙接收器與功率放大器如何整合。</li>
+<li>如何設計自己的 PCB、機箱、音量控制及保護電路。</li>
+<li>如何測量失真、頻率響應、信噪比及實際輸出功率。</li>
+</ol>
+<p>在此將以 USB 供電 5W 藍牙喇叭作為入門基礎，再延伸到 20W、50W、100W 甚至更高功率的桌上型音響。</p>
+<h4>一、現代音響擴大機的主要種類</h4>
+<p>目前常見的音響擴大機可以分成五種。</p>
+<h4>1. Class A：甲類擴大機</h4>
+<p><a href="https://images.openai.com/static-rsc-4/1-s3Tu5Zoy3uFCC2l3CxkZovUfGQrrRfhS4-OvbSO1-S4L8skjxacBLbSGgpvErFjPePx_XgHG6lBglpOCRTVVlte8ucMU7608VjmVimgtGM6blMDKLcH_F_GDeoded041blEHOVya2PPfbliMmpwf_wqcB_KiMc6HtCzMxJhlA?purpose=inline">BuildAudioAmps</a></p>
+<p>Class A 是較傳統的高線性放大方式。</p>
+<p>其基本特點是：</p>
+<ul>
+<li>輸出晶體管在整個訊號週期持續導通。</li>
+<li>電路設計相對容易理解。</li>
+<li>可以達到很低的交越失真。</li>
+<li>靜態耗電量高。</li>
+<li>發熱量大。</li>
+<li>散熱器通常需要很大的體積。</li>
+</ul>
+<p>典型效率理論上最高約 25%（電阻負載、單端形式），某些變壓器耦合設計可更高。</p>
+<p>適合：</p>
+<ul>
+<li>低功率耳機擴大機。</li>
+<li>特定高音質單端放大器。</li>
+<li>電子電路教學與實驗。</li>
+</ul>
+<p>不適合以 USB 5V 供電的高功率喇叭。</p>
+<h4>2. Class AB：乙類與甲乙類擴大機</h4>
+<p><a href="https://images.openai.com/static-rsc-4/Q0zZ4AP1jR6M7YPGGn8jU4On6wP_iRtee7Vj-Hji49BKsf2ZJ6x9a3lYE7C4jza1Te4DBGTg5LeBAbbrLg2QueuAt2POI2JhDsxgsJSD7xASpuUiuyjOi4KiJ6MxFYIoB-APoYvRXDHmoG4QVcjI1cbr-ur7U5ScbCY-dNyaj5s?purpose=inline">High-Power Dual-Channel Amplifier Board (2SA1943/2SC5200 Original Toshiba Tube)</a></p>
+<p>Class AB 是傳統 Hi-Fi 音響非常常見的設計。</p>
+<p>主要利用互補功率晶體管放大正、負半週訊號。</p>
+<p>優點：</p>
+<ul>
+<li>音質成熟。</li>
+<li>電路設計資料豐富。</li>
+<li>線性度良好。</li>
+<li>適合中高功率輸出。</li>
+<li>不需要像 Class A 一樣持續消耗大量靜態功率。</li>
+</ul>
+<p>缺點：</p>
+<ul>
+<li>效率低於 Class D。</li>
+<li>散熱器體積較大。</li>
+<li>電源供應器通常較重。</li>
+<li>偏壓調整與熱補償需要注意。</li>
+</ul>
+<p>一般可以用在 20W～200W 的 DIY 家用音響。</p>
+<h4>3. Class D：數位式開關功率放大器</h4>
+<p><a href="https://images.openai.com/static-rsc-4/QnLzJNTMNiMC_7kSNiFZ8vk3X5BFSgUZcm1GaiTA21BcutcMDU1Z4QfyiHuTeH9Lrqxi5mToNNkVPBnCimn_VM_UNFUex8YMGk868TovrukM5RQvN0ldW-L9FL9bKuqVBk7PrhdxsfuNt8SASLk-cecB5KOuWCom1pkqszH-3hU?purpose=inline">TPA3255: TPA3255ampBoard-question</a></p>
+<p>最推薦 DIY 入門與現代音響</p>
+<p>Class D 是目前非常值得學習的音響放大技術。</p>
+<p>它不是單純將類比訊號轉換成數位音訊，而是使用高速開關方式控制功率輸出。</p>
+<p>基本原理：</p>
+<ol>
+<li>輸入音訊。</li>
+<li>透過調變電路形成 PWM 或其他開關控制訊號。</li>
+<li>功率 MOSFET 高速切換。</li>
+<li>經過 LC 低通濾波器。</li>
+<li>還原成供應喇叭的音訊。</li>
+</ol>
+<p><a href="https://images.openai.com/static-rsc-4/rVbGueMEMFpTH1j0_ldfpeX6_J2gkZYZ91hhCLGvrv4PvvCgrJzOOBfVl5CwU4oL7eveqeiSlarI6PvQLiHJ9GJNJyoS5QFqiurqvLziiJueRoBXcGJ4yV_ZUZaTWg7Q-IsjrdZ-Cn2UqPmLRsMjOmDkytjjfl9AlT5YsUpNNjA?purpose=inline">Principe classe D</a></p>
+<p>主要優點：</p>
+<ul>
+<li>效率高，常見設計可達 85%～95% 左右。</li>
+<li>體積小。</li>
+<li>發熱量低於同功率 Class AB。</li>
+<li>容易實現 50W、100W 甚至更高功率。</li>
+<li>適合 USB-C PD、DC 電源及開關式電源。</li>
+</ul>
+<p>需要注意：Class D 不代表一定是數位音訊。它也可以直接放大類比音訊輸入。</p>
+<h4>4. Class G / Class H</h4>
+<p>這兩類設計透過切換或追蹤不同電源電壓，減少功率級的耗散。</p>
+<p>特點：</p>
+<ul>
+<li>比傳統 Class AB 更有效率。</li>
+<li>電路設計較複雜。</li>
+<li>電源軌控制及切換設計需要仔細處理。</li>
+</ul>
+<p>適合進階音響設計，但如果目標是小型 DIY 音響，我會優先選擇 Class D。</p>
+<h4>5. 各類型比較</h4>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>Class A</th>
+<th>Class AB</th>
+<th>Class D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效率</td>
+<td>低</td>
+<td>中</td>
+<td>高</td>
+</tr>
+<tr>
+<td>發熱</td>
+<td>高</td>
+<td>中高</td>
+<td>低至中</td>
+</tr>
+<tr>
+<td>體積</td>
+<td>大</td>
+<td>中大</td>
+<td>小</td>
+</tr>
+<tr>
+<td>電路難度</td>
+<td>中</td>
+<td>中高</td>
+<td>中高</td>
+</tr>
+<tr>
+<td>高功率設計</td>
+<td>不經濟</td>
+<td>可行</td>
+<td>很適合</td>
+</tr>
+<tr>
+<td>DIY 推薦程度</td>
+<td>特定用途</td>
+<td>進階</td>
+<td>最推薦</td>
+</tr>
+</tbody>
+</table>
+<h4>二、如何選擇現代音響擴大機 IC？</h4>
+<p>這是 DIY 音響最重要的決策之一。</p>
+<p>我會把常見晶片分成三個等級。</p>
+<h4>A. 低功率：5W～15W</h4>
+<p><a href="https://images.openai.com/static-rsc-4/LiIProW8FK1kuuwkF5mbzhAip3V2QTiREgxbEb2RS73wlLcN1gdxaEz1XhGGrirOhokcBowzij5hw7NxneSK562S6dO3sbyg66iufVYpH8LjVt_5cIYGkdnfy-0FFKr_bD8zc3HJCpJEy7TltFBNn2Il10xe6Giy4_Hjk3I9CtM?purpose=inline">PAM8403 PAM 8403 ICMs Digital Amplifier Board/kit, 3 watt, Audio board with 2 Speaker Stereo Output, 5V dc Input</a></p>
+<p>PAM8403</p>
+<ul>
+<li>5V 供電。</li>
+<li>雙聲道。</li>
+<li>適合 USB 小喇叭。</li>
+<li>實際輸出受負載及失真限制。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/qYywOZF0Y3LnUNnxkWPu-JjY4NPUPxf7zqBr0U5dFoHPpoqWb2naniyUoJc8F3j6mbJErHGPtrFQtkdxXamXGJaIYhiTSKnnvi1Vj_GNgodKBx6SmkCsxZ58W16THHv1RA1W--406EwjFUTrryFOOZH7Fn61Oauua_O1FbE33kY?purpose=inline">Módulo Amplificador de Áudio I2S MAX98357</a></p>
+<p>MAX98357A</p>
+<ul>
+<li>數位 I²S 輸入。</li>
+<li>單聲道。</li>
+<li>適合 Raspberry Pi、ESP32 等數位音訊專案。</li>
+<li>不需要外接獨立 DAC。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/GQpLe89qxf_nGams9XIcHIqmwGf1NSCvwTONH_88MagxAjR_ng8AJFw1meQQI6HiVnzXQj2ZdS5IUOLaMYpo4TbC2pJNJ8LA19YU5THmdIGNfDi2_W2-RQ5Nd0HF80SR4hzF4gC0PmQRuMOiW9JFRtWQQS_5Gp3cLRGHmbPJ8G4?purpose=inline">TPA3116D2 2x50W Dual Channel Digital Amplifier Board</a></p>
+<p>TPA3116D2</p>
+<ul>
+<li>4.5V～26V 工作電壓範圍。</li>
+<li>雙聲道。</li>
+<li>適合桌上型小型音響。</li>
+<li>常見於 12V、19V、24V DIY 功放。</li>
+</ul>
+<h4>B. 中功率：30W～100W</h4>
+<p><a href="https://images.openai.com/static-rsc-4/qT3rPjTqIvrKvshOisidXzhL-Bk0rOloYLrgU5Dit4V0wEV-TY0lJzmi74fDzMLREB2Ke_a0E9MGkdtsGpwVlKiffMDZxW4UZQJyftYeGn34-g7zt4DVGSJY8KSqy1-lKZqgHSgdnTxzCAzs-RuUZDnTqqQbTjauSQG8pRo6wA8?purpose=inline">TPA3116D2 Class-D Stereo Amplifier</a></p>
+<p>TPA3116D2</p>
+<p>適合製作 2.0 聲道桌上型音響，尤其適合 12V～24V 電源。</p>
+<p><a href="https://images.openai.com/static-rsc-4/B9IKXuHnW4HSVpopIUS82xTOpvrmZqWVfWUIjgLTvixKQ4eb3abE0TUNWfAWrYNDdYFhJIlRjyHzzK6UPpwc9jHVzdDmysAnyx9b9GGNXi6wPuS9QS_HBZ1Nf8BhF2aZ-9UPmYh2hWY2rVeWkuzjNluh4VdionNp4EA0Zd5kewU?purpose=inline">Tpa3251 Amplifier Board Advanced Integrated Feedback Design Dualchannel</a></p>
+<p>TPA3251</p>
+<p>適合中功率 Hi-Fi 系統，可用於更高品質的桌上型音響。</p>
+<p><a href="https://images.openai.com/static-rsc-4/DuUHCNKlq22gDxkz7D8H8s5JZypPyjV91nq0DcfQz3lBu_lX3iwT7YdOEGy1ru7-VlBd5Edhl1XpeI-zevvEntRGuCFZb53N0C3WbBwygB8Aio8CSrnkraQ3RRHA8Eox7Wtm7as32G8eCO_r6sL3e8OThZee83QdfNDB1P1cehk?purpose=inline">AMP-100 TPA3255 2x300W 600W Class D High Power HiFi Amplifier Board Amp Module for DIY</a></p>
+<p>TPA3255</p>
+<ul>
+<li>適合 50W～100W 級別的雙聲道設計。</li>
+<li>可用於高品質桌上型及家用音響。</li>
+<li>需要較高電壓的電源及妥善散熱。</li>
+</ul>
+<p>注意：上述瓦數是產品常見的應用級距，不是所有模組都能在任何供電電壓、喇叭阻抗及失真條件下達到的額定輸出。</p>
+<h4>C. 高功率：100W～300W 以上</h4>
+<p>這個等級通常使用：</p>
+<ul>
+<li>TPA3255 多顆整合或橋接設計。</li>
+<li>專用高功率 Class D 模組。</li>
+<li>高電流開關電源。</li>
+<li>更完善的過流、過溫及直流保護。</li>
+</ul>
+<p>DIY 初學階段不建議直接從這個等級開始。</p>
+<h4>三、擴大機晶片的實際選擇與比較</h4>
+<p>以下用實際的 TI（Texas Instruments）晶片規格作為比較基礎。</p>
+<table>
+<thead>
+<tr>
+<th>晶片</th>
+<th>電源範圍</th>
+<th>聲道</th>
+<th>適合用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAM8403</td>
+<td>5V</td>
+<td>2</td>
+<td>USB 小喇叭</td>
+</tr>
+<tr>
+<td>MAX98357A</td>
+<td>2.5～5.5V</td>
+<td>1</td>
+<td>ESP32 數位音訊</td>
+</tr>
+<tr>
+<td>TPA3116D2</td>
+<td>4.5～26V</td>
+<td>2</td>
+<td>桌上型音響</td>
+</tr>
+<tr>
+<td>TPA3251</td>
+<td>12～36V</td>
+<td>2</td>
+<td>高品質中功率音響</td>
+</tr>
+<tr>
+<td>TPA3255</td>
+<td>18～53.5V</td>
+<td>2</td>
+<td>高功率 Hi-Fi 音響</td>
+</tr>
+</tbody>
+</table>
+<p>其中 TPA3116D2 的原廠資料標示 50W 立體聲級別，最低負載 4Ω；TPA3255 則支援 18～53.5V，並提供高功率立體聲、單聲道及其他配置。</p>
+<p>原廠資料：</p>
+<ul>
+<li><a href="https://edgeworker.ti.com/product/TPA3116D2?utm_source=chatgpt.com">TI TPA3116D2 官方規格</a></li>
+<li><a href="https://edgeworker.ti.com/product/TPA3251?utm_source=chatgpt.com">TI TPA3251 官方規格</a></li>
+<li><a href="https://www.ti.com/product/TPA3255?gclsrc=aw.ds&amp;utm_source=chatgpt.com">TI TPA3255 官方規格</a></li>
+</ul>
+<h4>特別注意：為什麼商品標示的瓦數不能直接相信？</h4>
+<p>假設某個網路商品寫著：</p>
+<p><code>TPA3116D2 100W + 100W</code></p>
+<p>並不代表使用 12V 電源就能輸出 200W。</p>
+<p>輸出功率與供電電壓、喇叭阻抗、電路形式及失真率有直接關係。</p>
+<p>最基本的功率公式：</p>
+<p>\[ P=\frac{V_{\mathrm{RMS}}^2}{R} \]</p>
+<p>其中：</p>
+<ul>
+<li>P：輸出功率。</li>
+<li>V：喇叭兩端的 RMS 電壓。</li>
+<li>R：喇叭負載阻抗。</li>
+</ul>
+<p>例如，4Ω 喇叭要輸出 50W：</p>
+<p>\[ V_{\mathrm{RMS}}=\sqrt{50\times4} =14.14V \]</p>
+<p>這表示喇叭兩端必須有約 14.14V RMS 的交流音訊電壓。</p>
+<p>因此，必須考慮擴大機的供電電壓和輸出拓撲，不能只看晶片名稱。</p>
+<h4>四、DIY 音響應該如何選擇功率？</h4>
+<p>我建議把 DIY 音響分成四個實際等級。</p>
+<h4>四種 DIY 音響設計級距</h4>
+<p>Level 1：USB 迷你音響</p>
+<p>入門</p>
+<h4>5W</h4>
+<p>PAM8403 或 MAX98357A、USB 5V、2～3 吋喇叭。</p>
+<p><a href="https://images.openai.com/static-rsc-4/pI7eQuPbkdjpCuek-PlLk7TLobe1vfJU_SkmjFJzEWgB3zpdZ6JXmqZtMej9aI8OydlJkk5wSvSmZ0nRr5SEEBsv59OGcx9nEUQbDKkTYshDEZXxAVWlj3wEEqxisfhgeGrbzXozhLlGDs2ldbrQP4aCuNKB9MnsB0h92WebZ_g?purpose=inline">Bluetooth Speaker DIY Kit Power Amplifier 2 inch Speaker Box Transparent Shell</a></p>
+<p>Level 2：桌上型立體聲音響</p>
+<h4>2 × 20W</h4>
+<p>TPA3116D2、19～24V 電源、左右兩個 4～8Ω 喇叭。</p>
+<p><a href="https://images.openai.com/static-rsc-4/WB8UcLAVlJoiJcKdIZbP16ybHbQJiE55lNWYCC3hV_58BS4RExruAjHkNIlM37Fk8rcFF6TCiGX3xz2iW6IBnlORhVLfxfMrbOAh6N7kts-hrT9k9poob8LWfwHNrQhGYyI8t541_m4ixB4ZzYQtG_Jrnp91FoKbu6Ti9jZ4-G0?purpose=inline">Budget Bookshelf Speakers</a></p>
+<p>Level 3：高品質 Hi-Fi 音響</p>
+<h4>2 × 50W</h4>
+<p>TPA3251 或 TPA3255、適當高電壓電源、兩音路喇叭。</p>
+<p><a href="https://images.openai.com/static-rsc-4/5plMjHPlURjfUm1JAGg4tsigeIXEbFXrhVwLEDTtoHAxc7exGJabSO1pynBcc6K3OJ4UywPd_R54D1nihEoLBU3FPUUvNm3kR54oQRrdq72jouYH0kyhWD47BZ5h_p-OCTO4nTMgVxhteXKYlhXwSmACXwC-xlsMZBw0Gw-vVhU?purpose=inline">Build A Bookshelf Speaker Box at Chelsea Sommerlad blog</a></p>
+<p>Level 4：家庭音響及重低音</p>
+<h4>2 × 100W+</h4>
+<p>TPA3255 或專用多聲道 Class D、DSP 分音及獨立低音聲道。</p>
+<p><a href="https://images.openai.com/static-rsc-4/Y_2CSIcVvVNuuLtca4Z2S7H7WZGM2XTi2oZ_uwfkovuI5LyWAXiJ0EVkIDfMkioWxwPKpMUBn-fplO1m7vrgQYuwj20zrJ03eADVxGuUQKMYz_eAUijrjpBfPKyRMATUihEnjm-RSUde8BKbNU4YyDSc2l9uegk1R4Lqv6bjrAU?purpose=inline">TPS3116D2 Class D 2.1 Amplifier Board 2 x 50W + 100W with Volume Controls</a></p>
+<p>這裡的功率是設計目標，不是單憑晶片就能保證的實測值。</p>
+<h4>五、現代音響的完整系統架構</h4>
+<p>真正的現代音響，不只是功率放大器，通常還包含訊號來源、數位轉換、前級處理及喇叭保護。</p>
+<p>我建議採用以下架構：</p>
+<p><a href="https://images.openai.com/static-rsc-4/3_RUHzM9UOnNSmAaS2a8ytZIPjqJPy0cxKvn1-WZ_oacOI_FthHVkqtVaNcpMer045jU0p_5TmnkrkIz0O4kYK8__muGtWWJWSCV-75tcjG9hy-87S_UOYa8JXvYeKi8hjkBt-1uVw4rFv1_L5kq-L70a6DkTuXU0AbgBtmf6Xw?purpose=inline">LINDEMANN Bundles</a></p>
+<pre><code>             音訊來源
+        ┌──────┼────────┐
+        │      │        │
+      USB    Bluetooth  RCA
+        │      │        │
+        └──────┼────────┘
+               │
+          DAC 數位類比轉換
+               │
+          前級放大器 Preamp
+               │
+          音量控制 Volume
+               │
+          DSP 數位訊號處理
+               │
+          Class D 功率放大器
+               │
+          ┌────┴────┐
+          │         │
+        左喇叭    右喇叭
+</code></pre>
+<p>注意：這是一種完整功能架構，不是每台音響都必須將所有元件分開。很多現代 DAC、藍牙及 DSP 模組可以整合在同一塊電路板上。</p>
+<h4>1. 音訊來源</h4>
+<p>可以提供以下輸入：</p>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>介面</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>手機</td>
+<td>Bluetooth A2DP</td>
+<td>無線音樂</td>
+</tr>
+<tr>
+<td>電腦</td>
+<td>USB Audio</td>
+<td>高品質數位音訊</td>
+</tr>
+<tr>
+<td>CD Player</td>
+<td>Optical / Coaxial</td>
+<td>數位音訊</td>
+</tr>
+<tr>
+<td>唱盤</td>
+<td>RCA / Phono</td>
+<td>黑膠唱片</td>
+</tr>
+<tr>
+<td>電視</td>
+<td>Optical / HDMI ARC</td>
+<td>電視音訊</td>
+</tr>
+</tbody>
+</table>
+<p>如果希望製作一台功能完整的 DIY 音響，我會優先加入：</p>
+<ul>
+<li>Bluetooth 5.x A2DP。</li>
+<li>USB DAC。</li>
+<li>RCA 類比輸入。</li>
+<li>3.5mm 音源輸入。</li>
+</ul>
+<h4>2. DAC 數位類比轉換器</h4>
+<p><a href="https://images.openai.com/static-rsc-4/eICU2zdBh0FbcWWvi-Yu0wvpGSVs_FSypQ5WqGc9kdkqEBAqj6YRBv9I3xtpgb2RvxZ1buw6Z29I44QRT3CR5eH9A0SP-CCIjahtXVeyjBykQVi_sbmcE3nQKtshnpFQ1S3lr5o7lPkiwtUAiGA0y5w2BuYTjImufARzUjTmq0w?purpose=inline">ゆっくりラズパイ活用講座</a></p>
+<p>DAC 是 Digital-to-Analog Converter。</p>
+<p>它的工作是把數位音訊轉換成類比訊號，再交給前級或功率放大器。</p>
+<p>可研究的晶片：</p>
+<ul>
+<li>PCM5102A：常見 I²S DAC。</li>
+<li>PCM5242：較高階 DAC，支援數位音訊處理功能。</li>
+<li>ES9038Q2M：高階 DAC 設計常見選擇。</li>
+</ul>
+<p>DAC 選擇時要確認：</p>
+<ol>
+<li>支援的取樣率。</li>
+<li>位元深度。</li>
+<li>訊號輸出電壓。</li>
+<li>SNR。</li>
+<li>THD+N。</li>
+<li>I²S 介面相容性。</li>
+</ol>
+<p>不要只看 32-bit、384kHz 等數字。實際音質也取決於電源、時鐘、類比輸出電路及後續放大器。</p>
+<h4>3. 前級放大器 Preamp</h4>
+<p>前級主要處理：</p>
+<ul>
+<li>音量控制。</li>
+<li>輸入切換。</li>
+<li>左右聲道平衡。</li>
+<li>音調控制。</li>
+<li>訊號增益。</li>
+</ul>
+<p>常見運算放大器：</p>
+<table>
+<thead>
+<tr>
+<th>晶片</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NE5532</td>
+<td>經典雙運放</td>
+</tr>
+<tr>
+<td>OPA2134</td>
+<td>音訊用途常見</td>
+</tr>
+<tr>
+<td>OPA1656</td>
+<td>低雜訊、高性能 JFET 輸入運放</td>
+</tr>
+<tr>
+<td>OPA1612</td>
+<td>高性能雙極性輸入運放</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://images.openai.com/static-rsc-4/H6-UegGjzl_rFUmT9UGOt6hbMkWvmt7NcEPtp428z9FMpb4hpb5rBNLDymIITQAJPNuoEq1JH3cn4-oUJntqKdrnLPvM7bb7u5G8GAYlGWbznfsYbaNQ07i0c5FRE-WrG5E9ZrUt7-cRJGMGB8OPV7R6X2SwsVOpoeIj05FR0Rk?purpose=inline">XH-A902 NE5532</a></p>
+<p>對 DIY 初學者，建議先使用現成的前級模組，等系統正常運作後，再研究運算放大器的增益、輸入阻抗、負回授及濾波設計。</p>
+<h4>4. DSP 數位訊號處理</h4>
+<p>這是現代音響非常值得投入的部分。</p>
+<p>DSP（Digital Signal Processing）可以進行：</p>
+<ul>
+<li>EQ 等化器。</li>
+<li>低音增強。</li>
+<li>高音調整。</li>
+<li>分音器 Crossover。</li>
+<li>房間頻率響應修正。</li>
+<li>喇叭單體時間校正。</li>
+<li>動態範圍控制。</li>
+<li>低音喇叭整合。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/50SOZBjv6n5mXvzW3MPdUmi6V_D1ahjs_hF-54iP2Jx4KG5_xa6brQjIIml72485Z_68ESoCDp_ZE55o9qrVZAXcDzTcM6R-3_h0hNz_NDjDfhxdZp9XQyI4e4nmfKGi_scK6tmBKQ0iDdofwR6JOY5PV6w2-IJlmFYW41xMJmA?purpose=inline">EVAL-ADAU1701MINIZ Analog Devices Inc.</a></p>
+<p>可以研究：</p>
+<ul>
+<li>ADAU1701。</li>
+<li>ADAU1452。</li>
+<li>ESP32：搭配適當的音訊程式庫及 I²S 周邊。</li>
+</ul>
+<p>對於想自己設計兩音路喇叭的人，DSP 特別有用。</p>
+<p>例如：</p>
+<pre><code>音訊輸入
+    │
+   DSP
+    │
+    ├── High Pass Filter ── 高音功放 ── Tweeter
+    │
+    └── Low Pass Filter ─── 低音功放 ── Woofer
+</code></pre>
+<p>這樣就可以使用兩個獨立功率放大器，分別驅動高音及低音單體，形成主動式分音音響。</p>
+<h4>六、三套可以實際製作的 DIY 擴大機方案</h4>
+<p>接下來是最重要的部分：如何從零件選擇變成真正可以組裝的產品。</p>
+<h4>方案 A：USB 5W 迷你藍牙擴大機</h4>
+<p>適合第一個實驗</p>
+<p><a href="https://images.openai.com/static-rsc-4/zkudS_2sdiaIsvrFDdU7H95ZlfstVZl7Qj7uj1wVVS3rLvymJ4xV86k23AEdY2QCXad2Mf0MKlPwOpjN0ZCU64aTbQbLr3O6eHk996B1cIQvaezm5FWH9Ly-M8WNrLYlNxB-xP1uprpqqUcWhTm2b5DowIWpTqxDgwuQdrKQOgk?purpose=inline">1pc DC5V Mini HD Class D Bluetooth Digital Amplifier Board 5W+5W PAM8403 TYPE-C</a></p>
+<p>設計規格</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>輸入電源</td>
+<td>USB-C 5V</td>
+</tr>
+<tr>
+<td>電源電流</td>
+<td>最高依供電能力設計</td>
+</tr>
+<tr>
+<td>藍牙</td>
+<td>A2DP</td>
+</tr>
+<tr>
+<td>功率放大器</td>
+<td>PAM8403 或其他合適的 Class D</td>
+</tr>
+<tr>
+<td>喇叭</td>
+<td>4Ω、3～5W</td>
+</tr>
+<tr>
+<td>輸出</td>
+<td>立體聲 2 聲道</td>
+</tr>
+<tr>
+<td>外殼</td>
+<td>木製或 3D 列印</td>
+</tr>
+</tbody>
+</table>
+<p>電路架構：</p>
+<pre><code>USB-C 5V
+   │
+   ├──── Bluetooth Receiver
+   │              │
+   │              │ L / R
+   │              ▼
+   │         音量控制
+   │              │
+   │              ▼
+   └──────── PAM8403
+                  │
+             ┌────┴────┐
+             │         │
+          Left SP   Right SP
+</code></pre>
+<p>如果要做真正接近 5W 的單聲道版本，可以考慮使用升壓電源及適合的單聲道放大器，而不是直接把左右聲道輸出短接。</p>
+<p>這個版本的重點是學會：</p>
+<ul>
+<li>USB 電源配置。</li>
+<li>Bluetooth 配對。</li>
+<li>音訊輸入。</li>
+<li>D 類功率放大。</li>
+<li>喇叭箱體設計。</li>
+</ul>
+<h4>方案 B：2 × 20W 桌上型立體聲音響</h4>
+<p>最推薦的完整 DIY 起點</p>
+<p><a href="https://images.openai.com/static-rsc-4/7XdOoQKIcOYtNQUkX4ZyFqeFr9Z_aWUQCQxkiRlgrhHSxcfidRK92DrKQS6ipw23VbA-eVLiQ7UDhwCP9qzE7he4cSOZarr77tGbmqDHhAH3Doa4q4vPZoLaQHo6Zq-dghOrtC4QdObBPyEabUsEAd9kT0913kUkCfsGTPkWLNM?purpose=inline">Bluetooth 2.1 Amplifier 2x50W+100W TPA3116D2 by guppyk2</a></p>
+<p>這個方案已經具有相當實用的桌上型音響功能。</p>
+<p>主要規格</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>放大器</td>
+<td>TPA3116D2</td>
+</tr>
+<tr>
+<td>電源</td>
+<td>19～24V DC</td>
+</tr>
+<tr>
+<td>電源供應器</td>
+<td>建議 24V / 4A</td>
+</tr>
+<tr>
+<td>輸出目標</td>
+<td>2 × 20W</td>
+</tr>
+<tr>
+<td>喇叭</td>
+<td>4Ω 或 8Ω，依模組測試</td>
+</tr>
+<tr>
+<td>音訊</td>
+<td>Bluetooth、RCA、USB DAC</td>
+</tr>
+<tr>
+<td>控制</td>
+<td>電源、音量、輸入切換</td>
+</tr>
+<tr>
+<td>外殼</td>
+<td>鋁合金機箱</td>
+</tr>
+</tbody>
+</table>
+<p>系統架構：</p>
+<p>24V DC 電源供應器</p>
+<p>DC 電源管理與濾波</p>
+<p>音訊輸入選擇</p>
+<p>Bluetooth</p>
+<p>USB DAC</p>
+<p>RCA</p>
+<p>前級音量控制</p>
+<p>TPA3116D2 Stereo Amplifier</p>
+<p>Left Channel</p>
+<p>左喇叭</p>
+<p>Right Channel</p>
+<p>右喇叭</p>
+<h4>電源設計</h4>
+<p>如果輸出 2 × 20W：</p>
+<p>假設功放效率為 90%：</p>
+<p>再考慮前級及其他電路消耗，24V / 2A（48W）就比較接近極限。</p>
+<p>因此我建議使用：</p>
+<p>96W</p>
+<p>這樣可以保留動態音樂的瞬間電流餘裕。</p>
+<p>注意，24V / 4A 並不表示功放一定輸出 96W，而是電源具有這個供電能力。</p>
+<h4>喇叭選擇</h4>
+<p>建議：</p>
+<ul>
+<li>4～5 吋低音單體。</li>
+<li>1 吋高音單體。</li>
+<li>兩音路被動分音器。</li>
+<li>8Ω 喇叭可作為初期較保守的選擇。</li>
+</ul>
+<p>如果使用 4Ω 喇叭，必須確認功放模組支援該負載及散熱條件。</p>
+<h4>方案 C：2 × 50W 高品質 Hi-Fi 擴大機</h4>
+<p>進階推薦</p>
+<p><a href="https://images.openai.com/static-rsc-4/3fluysXIZqD9Q5mn2LIrNTb54u34eNKHVaw4wB2vhzvphzFtWXBZtigXvilmKcI2RSnS4ueO85rokejwYqShOt0XXP6Kt6xTRfKSWUftImwKnXtkIIAZSvhdVWh3gRMt7GCrg7B8bwLfdM1XwLWJpeaz53d-xGEt_W6RmI3hC08?purpose=inline">Amplificateur Stéréo Class D TPA3255 2x225W 4 Ohm</a></p>
+<p>這是很值得長期發展的 DIY 專案。</p>
+<p>設計規格</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功放 IC</td>
+<td>TPA3251 或 TPA3255</td>
+</tr>
+<tr>
+<td>電源</td>
+<td>36～48V DC（依模組）</td>
+</tr>
+<tr>
+<td>電源供應器</td>
+<td>約 36～48V / 4～5A，依輸出目標</td>
+</tr>
+<tr>
+<td>輸出目標</td>
+<td>2 × 50W</td>
+</tr>
+<tr>
+<td>喇叭</td>
+<td>4～8Ω</td>
+</tr>
+<tr>
+<td>DAC</td>
+<td>PCM5102A 或更高規格</td>
+</tr>
+<tr>
+<td>Bluetooth</td>
+<td>A2DP 接收模組</td>
+</tr>
+<tr>
+<td>DSP</td>
+<td>ADAU1701 或其他 DSP</td>
+</tr>
+<tr>
+<td>機箱</td>
+<td>鋁合金</td>
+</tr>
+<tr>
+<td>散熱</td>
+<td>依功放板散熱設計</td>
+</tr>
+</tbody>
+</table>
+<p>TPA3255 原廠規格提供很大的功率設計空間，但其 315W × 2 的宣稱是在特定供電、負載及 10% THD+N 條件下；在 1% THD+N 時，官方數據為 4Ω 負載 260W × 2、8Ω 負載 150W × 2。這些都是晶片級特定測試條件，不應直接當作 DIY 機箱的連續輸出額定值。</p>
+<h4>電源如何設計？</h4>
+<p>例如目標 2 × 50W：</p>
+<p>以 90% 效率估算：</p>
+<p>如果使用 36V 電源：</p>
+<p>所以可以從 36V / 4A 或 36V / 5A 電源開始評估。</p>
+<p>但必須注意：供電電壓、負載阻抗與模組輸出能力必須符合實際功放板設計，不能只用電源瓦數推定音訊輸出瓦數。</p>
+<h4>七、如何自己設計 Class D 擴大機電路？</h4>
+<p>如果不滿足於購買現成模組，而希望自己設計 PCB，就要理解功率放大器內部的幾個重要電路。</p>
+<h4>1. Class D 的基本電路結構</h4>
+<p><a href="https://images.openai.com/static-rsc-4/DrhH5Z_nXdLczJ2mXYzBiEXMUl8xiV8z-1wUurxOW_Ou098QPi95Yz56W8wyiJKtLFCAtQZx96HCdgA6LRTokcjcnNf3_QWZsQRCda33XadgKndv6UivF9z6may4_xDWqvfJhs-HgnCyeZbGSmZ8HZ65fVtgweimfQZbDYrQPh4?purpose=inline">Multilevel Class D Audio Amplifiers for Compact Consumer Applications</a></p>
+<p>主要包含：</p>
+<ol>
+<li>音訊輸入緩衝。</li>
+<li>PWM 調變器或整合式控制器。</li>
+<li>MOSFET Gate Driver。</li>
+<li>半橋或全橋功率輸出。</li>
+<li>LC 濾波器（依架構而定）。</li>
+<li>回授與保護電路。</li>
+</ol>
+<p>對於初次設計，我不建議直接自行設計 MOSFET 開關級，因為高頻開關、死區時間、PCB 寄生電感及 EMI 都會大幅增加難度。</p>
+<p>更好的做法是：</p>
+<ul>
+<li>使用 TI 原廠參考電路。</li>
+<li>使用成熟的功放 IC。</li>
+<li>自行設計周邊電源、前級及音訊介面。</li>
+<li>最後才嘗試重新設計功率級 PCB。</li>
+</ul>
+<h4>2. 電源去耦電容</h4>
+<p>這是 Class D 電路穩定性的關鍵。</p>
+<p>通常需要：</p>
+<ul>
+<li>功率級附近的低 ESR 電解電容。</li>
+<li>陶瓷電容。</li>
+<li>依資料表要求配置的高頻去耦。</li>
+<li>適當的電源走線寬度。</li>
+</ul>
+<p>電容必須盡量靠近晶片的電源端，不能將大電容放在遠離功放 IC 的位置，就認為已經完成去耦設計。</p>
+<h4>3. PCB Layout</h4>
+<p><a href="https://images.openai.com/static-rsc-4/Vlwz5hO50HQmIFopDkBKpp2M_3kUYCcSOB3T4sNF1qUXL7fdH1xyvTb2v0ZRp2QJVjoTjNMloW-Pnx_sjhJYvDnlX72lwnLu7uMB8gVG9HRHN2RCRu7Fqlvt_5FnNOqnGHdPBV097StyGQT_q2duQeq0MYsZYxC7d4nPkqMunjU?purpose=inline">TPA3116D2 Audio Amplifier IC Pinout, Datasheet, Equivalent, Specifications and Dimensions</a></p>
+<p>PCB 設計應特別注意：</p>
+<table>
+<thead>
+<tr>
+<th>區域</th>
+<th>設計重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>音訊輸入</td>
+<td>短線、遠離開關節點</td>
+</tr>
+<tr>
+<td>功率電源</td>
+<td>寬銅箔、低阻抗</td>
+</tr>
+<tr>
+<td>MOSFET</td>
+<td>縮小高電流迴路</td>
+</tr>
+<tr>
+<td>輸出電感</td>
+<td>依原廠建議選擇</td>
+</tr>
+<tr>
+<td>接地</td>
+<td>依參考設計安排回流路徑</td>
+</tr>
+<tr>
+<td>Bluetooth 天線</td>
+<td>遠離電感及功率開關區</td>
+</tr>
+<tr>
+<td>電容</td>
+<td>靠近供電腳位</td>
+</tr>
+</tbody>
+</table>
+<p>不要隨意把所有 GND 都接到 PCB 上某一個看似方便的位置。音訊地、數位地及功率回流需要依晶片的參考設計規劃。</p>
+<h4>4. BTL 輸出注意事項</h4>
+<p>現代 Class D 很多都採用 BTL（Bridge-Tied Load）。</p>
+<p>這表示：</p>
+<pre><code>OUT+ ─────── 喇叭 ─────── OUT-
+</code></pre>
+<p>喇叭兩端都由放大器驅動。</p>
+<p>因此：</p>
+<ul>
+<li>OUT- 不是 GND。</li>
+<li>不能把 OUT- 接到機殼地。</li>
+<li>不能將兩個 BTL 聲道的負端互相連接。</li>
+<li>不能直接使用共地式耳機或測試設備接到喇叭輸出端。</li>
+</ul>
+<p>這是製作雙聲道 Class D 時非常重要的安全規則。</p>
+<h4>八、擴大機的保護電路</h4>
+<p>一套完整的 DIY 音響不應只有放大器，還應考慮保護喇叭及電路本身。</p>
+<p>建議加入以下功能：</p>
+<table>
+<thead>
+<tr>
+<th>保護功能</th>
+<th>作用</th>
+<th>重要程度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Over Current</td>
+<td>過電流保護</td>
+<td>必要</td>
+</tr>
+<tr>
+<td>Over Temperature</td>
+<td>過溫保護</td>
+<td>必要</td>
+</tr>
+<tr>
+<td>Under Voltage</td>
+<td>電源電壓不足保護</td>
+<td>建議</td>
+</tr>
+<tr>
+<td>Over Voltage</td>
+<td>電源過壓保護</td>
+<td>建議</td>
+</tr>
+<tr>
+<td>Short Circuit</td>
+<td>喇叭輸出短路保護</td>
+<td>必要</td>
+</tr>
+<tr>
+<td>DC Protection</td>
+<td>異常直流輸出保護</td>
+<td>建議</td>
+</tr>
+<tr>
+<td>Soft Start</td>
+<td>開機緩啟動</td>
+<td>建議</td>
+</tr>
+<tr>
+<td>Mute Control</td>
+<td>開關機靜音</td>
+<td>建議</td>
+</tr>
+</tbody>
+</table>
+<h4>喇叭直流保護</h4>
+<p>如果功放發生故障，喇叭輸出端可能出現不正常的直流電壓，導致喇叭音圈過熱。</p>
+<p>因此，傳統 Class AB 功放常使用 DC 偵測及喇叭繼電器保護。</p>
+<p>Class D 則必須注意輸出拓撲：BTL 輸出不能使用一般共地式直流偵測電路直接測量其中一端。應使用適合差動輸出的偵測方式，或採用功放 IC 已提供的故障訊號。</p>
+<h4>開機爆音問題</h4>
+<p>常見原因：</p>
+<ul>
+<li>DAC 啟動時輸出不穩定。</li>
+<li>Bluetooth 模組開機產生雜訊。</li>
+<li>前級電源啟動順序不一致。</li>
+<li>功放過早解除 MUTE。</li>
+</ul>
+<p>建議使用以下開機順序：</p>
+<pre><code>USB / DC 電源接通
+        │
+        ▼
+    電源穩定
+        │
+        ▼
+   DAC / Bluetooth 啟動
+        │
+        ▼
+    前級穩定
+        │
+        ▼
+   功放解除 MUTE
+        │
+        ▼
+      正常播放
+</code></pre>
+<h4>九、如何測試 DIY 擴大機的音質？</h4>
+<p>如果希望製作真正的 Hi-Fi 音響，不能只依靠耳朵判斷。</p>
+<p>我建議準備以下工具：</p>
+<p><a href="https://images.openai.com/static-rsc-4/CqesRZbkcW-PENzqFrKHEGSuUQpVaEIqZxJJyqq4ppRYE8kJIrRLvwcWHcOMz_TkkgZQLW3GVNorq0ID3-dq4mQk_rNzjnFA9dD5bE-G5zSuRRVw-UisG4QoKXWsteFx-FVPFPMsgvlEI01g7hPbX-sN5tV0H84b0RqomPr0648?purpose=inline">Infrastructure</a></p>
+<p>數位示波器</p>
+<p>觀察輸入、輸出波形及失真、振盪。</p>
+<p><a href="https://images.openai.com/static-rsc-4/CW-GKlbn3Q8NIDlTRHDSK3lzA1uShAGvFRXl1qnt83URq093Z3QwhSDIefMm0W9FHG8NSnmL_dXdf68xJVachWoA0TBO-5620jBjgAhMHzbk17ziF8CfeLshx9U02hQafkstoavdRP67HFFghK9NVSkEVXQxX42q4iMNi0gKapg?purpose=inline">Essential Electronic Testing Gear for Aussie Tradies &amp; Tech Heads</a></p>
+<p>數位電表</p>
+<p>測量電壓、電流、電阻。</p>
+<p><a href="https://images.openai.com/static-rsc-4/M1_4D4ru9UKR7cSvKI7shjnxkqSyCdWCJxoTnMRCbUdG6cRVvcpijj9b9QYdzSXjsbe0soKEX1OBTjq32aaUVivYgIh0L7u-Yj8mHf_v0Xy7TJc8_8Bw4Urwm4IhMAczPNkumtP0u40AZLOtxLLrE1s8zQsrFOOBXKNdgcf-U6s?purpose=inline">4 ohm 100w dummy load resistor aluminium clad 4R J 4RJ attenuator resistive 4ohm</a></p>
+<p>功率假負載</p>
+<p>使用適當功率的 4Ω、8Ω 非感性電阻測試。</p>
+<p><a href="https://images.openai.com/static-rsc-4/4M-bZ15y6N7dKHqrfGahxmodzJ05OvL3SKjddVQM9BkjIWJDsDgPQ8I9hjLgyItrwEA6_JpeVc-EKOPvwNvIINWTuIrxgYR-0xgt_B5FZHqjgXxB3UThl-kNZLl2VBNBC1C3SkNy7r5dpYJxDtvq6s7BiaNIkQ4EpuqjknOjs7Q?purpose=inline">QuantAsylum QA403 audio analyzer</a></p>
+<p>音訊分析設備</p>
+<p>測量 THD+N、SNR、頻率響應。</p>
+<h4>1. 測試輸出功率</h4>
+<p>假設測試 8Ω 喇叭負載，目標 20W：</p>
+<p>使用 1kHz 正弦波，逐漸增加輸入音量，觀察輸出波形。</p>
+<p>當輸出波形開始削波（Clipping），就表示接近放大器的輸出極限。</p>
+<p>測試時應記錄削波前的 RMS 電壓，並計算實際功率。</p>
+<h4>2. THD+N 總諧波失真加雜訊</h4>
+<p>THD+N 是判斷擴大器音質的重要數據。</p>
+<p>簡單說：</p>
+<ul>
+<li>越低通常越好。</li>
+<li>必須同時記錄輸出功率及測試頻率。</li>
+<li>不能只比較不同廠商各自挑選的最佳數字。</li>
+</ul>
+<p>例如同一台功放：</p>
+<table>
+<thead>
+<tr>
+<th>輸出狀態</th>
+<th>THD+N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1W 輸出</td>
+<td>0.01%</td>
+</tr>
+<tr>
+<td>10W 輸出</td>
+<td>0.03%</td>
+</tr>
+<tr>
+<td>20W 輸出</td>
+<td>0.1%</td>
+</tr>
+</tbody>
+</table>
+<p>這只是說明測試表格的示意數據，不代表某一款實際晶片的測量結果。</p>
+<h4>3. 頻率響應</h4>
+<p>一般人耳可聽範圍約為 20Hz～20kHz。</p>
+<p>測試時可以使用：</p>
+<ul>
+<li>20Hz。</li>
+<li>50Hz。</li>
+<li>100Hz。</li>
+<li>500Hz。</li>
+<li>1kHz。</li>
+<li>5kHz。</li>
+<li>10kHz。</li>
+<li>20kHz。</li>
+</ul>
+<p>觀察輸出是否平坦，以及低頻、高頻是否有異常衰減。</p>
+<h4>4. 示波器測量 BTL 輸出</h4>
+<p>這點特別重要。</p>
+<p>一般接地式示波器探棒的接地夾不能直接夾在 BTL 功放的 OUT-。</p>
+<p>建議使用：</p>
+<ul>
+<li>合適的差動探棒。</li>
+<li>隔離式測量設備。</li>
+<li>專用音訊分析設備。</li>
+</ul>
+<p>不可為了測量方便，把示波器接地夾接到 BTL 的喇叭輸出端，否則可能造成短路及設備損壞。</p>
+<h4>十、DIY 音響的電源供應器選擇</h4>
+<p>這一部分值得獨立討論，因為很多音響設計問題其實來自電源。</p>
+<table>
+<thead>
+<tr>
+<th>音響方案</th>
+<th>建議電源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5W USB</td>
+<td>5V / 2～3A</td>
+</tr>
+<tr>
+<td>2 × 20W</td>
+<td>24V / 4A</td>
+</tr>
+<tr>
+<td>2 × 50W</td>
+<td>36V / 4～5A（依模組）</td>
+</tr>
+<tr>
+<td>2 × 100W</td>
+<td>依功放及負載選擇 36～48V 高電流電源</td>
+</tr>
+</tbody>
+</table>
+<h4>電源有兩種主要選擇</h4>
+<p><a href="https://images.openai.com/static-rsc-4/nFd702fiS9c_JCMKqSFf6PEi9fsQwrdUHImzd658FV5cm_lwDH2-r8sRvgfSva4PzjDJPB5v7yT7zp3qB8n0RrgQ09NTtfkt6ikXBLUFCJWGJ6gQ0FEwVUAi5DBXDDcUyWJAoOzbTIOfGl9-afDJkkzZjj77EmAS17Wl4qcw6ag?purpose=inline">24V DC Power Supply - 5A, 120W (110-220V AC)</a></p>
+<p>A. 開關式電源 SMPS</p>
+<ul>
+<li>體積小。</li>
+<li>效率高。</li>
+<li>重量輕。</li>
+<li>成本合理。</li>
+<li>必須注意開關雜訊及 EMI。</li>
+</ul>
+<p><a href="https://images.openai.com/static-rsc-4/UdtkXIsqKCNBezNb3tzg8JPRZDxO8x0w6M0flgWnLS-3-tbYXmi_rRd1haWDQ8U0cO261HFKCJmVBRkbcc8AxdnZVD9hsbWqD8Yo7s1QZdnbbQQyGlrG5UqUwtCGlvZ4HQAC2FsBOV-VgMsf9vOMHzMzQgKIJ-zy9CZnZLMavdM?purpose=inline">PPT - Power supply PowerPoint Presentation</a></p>
+<p>B. 線性電源 Linear PSU</p>
+<ul>
+<li>傳統變壓器、整流及濾波設計。</li>
+<li>電路容易理解。</li>
+<li>體積較大。</li>
+<li>效率較低。</li>
+<li>需要處理較大的散熱及變壓器磁場。</li>
+</ul>
+<p>我的建議是：現代 Class D DIY 音響使用品質良好的開關式電源即可，不必認為線性電源一定比較好聽。</p>
+<p>尤其是涉及 110V / 220V 市電時，建議使用具有合格安規、完整絕緣及保護的外接式電源供應器，不要在第一版 DIY 機箱內自行製作裸露市電電源電路。</p>
+<h4>十一、軟體與電腦輔助設計工具</h4>
+<p>如果希望進一步自行設計電路、PCB 及 DSP，我推薦以下免費或可免費使用的工具。</p>
+<table>
+<thead>
+<tr>
+<th>軟體</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KiCad</td>
+<td>電路圖與 PCB 設計</td>
+</tr>
+<tr>
+<td>LTspice</td>
+<td>類比電路模擬</td>
+</tr>
+<tr>
+<td>REW（Room EQ Wizard）</td>
+<td>音響頻率響應及房間測量</td>
+</tr>
+<tr>
+<td>VituixCAD</td>
+<td>喇叭分音器與系統模擬</td>
+</tr>
+<tr>
+<td>SigmaStudio</td>
+<td>ADAU 系列 DSP 設計</td>
+</tr>
+<tr>
+<td>Audacity</td>
+<td>音訊錄製及波形分析</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://images.openai.com/static-rsc-4/IG678i2miBYjjAdRgir7fl4w_vij9nL1P-CT8mD8idAWQlTNR9o6ghtZ0tMJwtPJIJTFHGE5r-kD_hunI6fWkJT4b0kDSun8YsZHYsw0d779Rth_FZxjIMzsYV3zmiFeAZ5OCVQZODU4q_JNLq_lHX4FdBwwITvDsQQql-4WTAk?purpose=inline">KiCad：免费、开源、企业级应用的PCB设计工具</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/o8GB9Lo_yb3pBEVhQUzWDA5TgiAsWWHJaL5-4CA4WWyfjYbhkgrQ34-4dWhSfhK04xG9aoSR7PP0Jug9uhtp9i9zg4SrX_KmerM9uhRewGuZuOJO8bco8RuuaILxmaNHAXptcwJlbxmw9bn_iE3jC_pvfx8UTTGD1HdEOXYwfaM?purpose=inline">LTspice-How to use Waveform Viewer | Spiceman</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/6cI6jDJNbso5UkJXOKOqc93PQ0REblAXXBxZVyMnjF8CzEiz28he3GZJnwGuMu2x9ow9-q-44OVXPjUfxpn7kPPVOtG8qPY8v7rROxO6JVc0pP_G14M6bfJjgwn20NIo81EhvVxGczDtJc0DBhPmR1OyqniSeGMRuQnsp9BMn_0?purpose=inline">REW - Room EQ Wizard Room Acoustics Software</a></p>
+<p>尤其推薦 KiCad + REW + VituixCAD 這個組合：</p>
+<ul>
+<li>KiCad：設計擴大機電路板。</li>
+<li>REW：測量喇叭及房間的實際聲音。</li>
+<li>VituixCAD：設計兩音路及三音路分音器。</li>
+</ul>
+<p>這三個工具可以形成完整的 DIY 音響開發流程。</p>
+<h4>十二、我建議你實際進行的三階段開發計畫</h4>
+<p>考慮到你前面希望自己製作 USB 藍牙喇叭，我不建議直接從高功率 TPA3255 開始，而是依序完成以下三個專案。</p>
+<h4>DIY Audio Development Roadmap</h4>
+<ol>
+<li>
+<p>第一階段：USB Bluetooth 5W Speaker</p>
+<p>先完成</p>
+<ul>
+<li>PAM8403 / 單聲道 Class D。</li>
+<li>Bluetooth A2DP。</li>
+<li>USB-C 供電。</li>
+<li>2～3 吋喇叭。</li>
+<li>自製木製音箱。 學習電源、音訊訊號、功放與喇叭組裝。</li>
+</ul>
+</li>
+<li>
+<p>第二階段：TPA3116D2 2.0 Stereo Amplifier</p>
+<ul>
+<li>24V 電源。</li>
+<li>2 × 20W 目標。</li>
+<li>USB DAC。</li>
+<li>Bluetooth。</li>
+<li>RCA 輸入。</li>
+<li>音量旋鈕。</li>
+<li>左右兩個獨立喇叭。 學習完整立體聲音響、前級、電源與機箱設計。</li>
+</ul>
+</li>
+<li>
+<p>第三階段：TPA3255 DSP Hi-Fi System</p>
+<ul>
+<li>TPA3255。</li>
+<li>高品質 DAC。</li>
+<li>ADAU1701 DSP。</li>
+<li>主動式兩音路分音。</li>
+<li>高音及低音獨立功放。</li>
+<li>喇叭頻率響應校正。</li>
+<li>自製 PCB。 學習進階功率放大、數位訊號處理及音響系統整合。</li>
+</ul>
+</li>
+</ol>
+<h4>十三、最後：先決定要製作哪一種擴大機</h4>
+<p>不同設計會影響電路圖、PCB、電源、機箱及喇叭的選擇。</p>
+<p>我整理了四種可實際執行的方向：</p>
+<h4>DIY 音響設計規格選擇</h4>
+<p>1. 想製作哪一種音響？</p>
+<p>USB 5W 迷你藍牙喇叭</p>
+<p>2 × 20W 桌上型立體聲擴大機</p>
+<p>2 × 50W Hi-Fi 擴大機</p>
+<p>2.1 聲道音響（左右聲道＋重低音）</p>
+<p>2. 希望具有哪些音訊輸入？</p>
+<p>只需要 Bluetooth</p>
+<p>Bluetooth + USB DAC + RCA</p>
+<p>USB DAC + Optical + Bluetooth</p>
+<p>3. 電源偏好</p>
+<p>USB-C 5V</p>
+<p>24V DC 外接電源</p>
+<p>36～48V DC 外接電源</p>
+<p>4. 製作方式</p>
+<p>使用現成模組組裝，自己設計外殼</p>
+<p>自己設計 KiCad 電路圖及 PCB</p>
+<p>先使用模組，之後逐步改成自製 PCB</p>
+<p>依照以上選擇開始設計完整工程</p>
+<p>建議是選擇 2 × 20W TPA3116D2 立體聲方案，使用 24V 電源、Bluetooth + USB DAC + RCA，第一版採用模組，第二版再自己設計 KiCad PCB。</p>
+<p>這樣不但能做出真正可用的桌上型音響，也能逐步學習現代音響的電源、前級、DAC、DSP、功率放大及喇叭設計。</p>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="藍芽喇叭.html">Previous: 藍芽喇叭</a></div>
+<div class="next"><a href="D類擴音機.html">Next: D類擴音機</a> &gt;&gt;</div>
+</nav>
+<script>
+(function(){
+  function restorePreNewlines(){
+    var nodes=document.querySelectorAll('pre');
+    for(var i=0;i<nodes.length;i++){
+      var pre=nodes[i], html=pre.innerHTML;
+      if(!html) continue;
+      var fixed=html.replace(/<br\s*\/?\s*(?:\s[^>]*)?>/gi,'\n').replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+      if(fixed!==html) pre.innerHTML=fixed;
+    }
+  }
+  function run(){
+    restorePreNewlines();
+    if(!window.SyntaxHighlighter) return;
+    try{
+      if(SyntaxHighlighter.config){ SyntaxHighlighter.config.bloggerMode=true; SyntaxHighlighter.config.stripBrs=false; }
+      if(typeof SyntaxHighlighter.all==='function') SyntaxHighlighter.all();
+    }catch(e){}
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
+  else run();
+})();
+</script>
+</div><!-- /tipue_search_content -->
+
+<div class="container">
+  <div class="row pt-3 mx-auto">
+    <p>
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+      All rights reserved |
+      <i class="icon-heart" aria-hidden="true"></i>
+      by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    </p>
+  </div>
+</div>
+
+</div><!-- /site-wrap -->
+
+<script src="./../static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="./../static/chimper/js/jquery-ui.js"></script>
+<script src="./../static/chimper/js/popper.min.js"></script>
+<script src="./../static/chimper/js/bootstrap.min.js"></script>
+<script src="./../static/chimper/js/owl.carousel.min.js"></script>
+<script src="./../static/chimper/js/jquery.stellar.min.js"></script>
+<script src="./../static/chimper/js/jquery.countdown.min.js"></script>
+<script src="./../static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="./../static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="./../static/chimper/js/aos.js"></script>
+<script src="./../static/chimper/js/main.js"></script>
+</body>
+</html>

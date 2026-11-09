@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta property="head" content="H1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>藍芽喇叭</title>
+
+<link rel="stylesheet" href="./../static/chimper/fonts/icomoon/style.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/magnific-popup.css">
+<link rel="stylesheet" href="./../static/chimper/css/jquery-ui.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="./../static/chimper/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="./../static/chimper/css/aos.css">
+<link rel="stylesheet" href="./../static/chimper/css/style.css">
+<link rel="shortcut icon" href="./../static/favicons.png">
+
+<style type="text/css">
+.site-section { background-color: #FFFF; padding: 40px 40px; }
+body > div > div.dropdown.open { display: block; }
+img.add_border { border: 3px solid blue; }
+
+.page-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 20px;
+    margin: 24px 0;
+    padding: 12px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-navigation .previous {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
+.page-navigation .next {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+.page-navigation a {
+    display: inline-block;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.page-navigation a:hover {
+    text-decoration: underline;
+}
+</style>
+
+<script src="./../static/chimper/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/normalize.min.css">
+<script src="./../static/tipuesearch/tipuesearch_set.js"></script>
+<script src="tipuesearch_content.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/tipuesearch.css">
+<script src="./../static/tipuesearch/tipuesearch.js"></script>
+
+<script>
+function doSearch() {
+    if (window.jQuery && jQuery.fn.tipuesearch) {
+        jQuery('#tipue_search_input').tipuesearch({
+            newWindow: true,
+            minimumLength: 2,
+            wholeWords: false
+        });
+    }
+}
+
+if (window.jQuery) {
+    jQuery(document).ready(doSearch);
+}
+</script>
+
+<script type="text/javascript" src="./../static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../static/syntaxhighlighter/css/shCoreDefault.css">
+<style>
+pre, pre code, .syntaxhighlighter .line, .syntaxhighlighter table td.code .line {
+  white-space: pre !important; word-wrap: normal !important; word-break: normal !important;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="site-wrap">
+
+<div class="site-mobile-menu">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+<header class="site-navbar py-4 bg-white" role="banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <h1>Learning (學習)</h1>
+
+      <div class="pl-4">
+        <form action="#" onsubmit="return false;">
+          <input type="text"
+                 placeholder="Search"
+                 name="q"
+                 id="tipue_search_input"
+                 pattern=".{2,}"
+                 title="At least 2 characters">
+        </form>
+      </div>
+
+      <div class="col-12 col-md-10 d-none d-xl-block">
+        <nav class="site-navigation position-relative text-right" role="navigation">
+          <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+<li class="active has-children">
+<a href="index.html">Home</a>
+<ul class="dropdown">
+<li><a href="sitemap.html">SMap</a></li>
+</ul>
+</li>
+<li><a href="About.html">About</a></li>
+<li><a href="藍芽喇叭.html">藍芽喇叭</a></li>
+<li><a href="擴音機.html">擴音機</a></li>
+<li class="has-children"><a href="D類擴音機.html">D類擴音機</a><ul class="dropdown">
+<li><a href="O-NOORUS.html">O-NOORUS</a></li>
+</ul>
+</li>
+<li><a href="Rust.html">Rust</a></li>
+</ul>
+
+        </nav>
+      </div>
+
+      <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+           style="position: relative; top: 3px;">
+        <a href="#" class="site-menu-toggle js-menu-toggle text-black">
+          <span class="icon-menu h3"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="tipue_search_content">
+<h1>藍芽喇叭</h1>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="About.html">Previous: About</a></div>
+<div class="next"><a href="擴音機.html">Next: 擴音機</a> &gt;&gt;</div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4>5W USB 供電式迷你藍牙喇叭 DIY 完整設計與製作</h4>
+<p>這個專案的目標是自行製作一組體積小、可以直接透過 USB 供電、不需要內建電池，並且能透過手機、平板或電腦播放音樂的 5W 迷你藍牙喇叭。</p>
+<p>我建議採用模組化設計：藍牙接收、音訊放大、USB 電源、喇叭單體及外殼分開處理。這樣不但容易組裝，也方便日後更換零件、升級音質或自行修改電路。</p>
+<p><a href="https://images.openai.com/static-rsc-4/u1DXNyW3HP2eLnB7mUKOO5lzor9MoKG48gKB_8wb5dVQPoPSpVVwOBIGQyHuhgV3H-qpuq6ge-cZ9kJvXOgpSPzXm1AuUNjOGzpibXE40_J-xxVYxivzlNViz7TEu2lpHd8ryB4mXkmg52KTvgcsSx4_8-DIb-FXtInURDWV7LU?purpose=inline">Tiny Dub – Portable Bluetooth Speaker – PLYNYL</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/Q_owGXTleCG45r1T66oEXqEzTGneaXFgc2NWmyxfNPGDUGHHKsL-ipRRRTKD2eIlS_bR4QsYehK30LWdluyPf4-tT78pNrA890ms9TFfFcV69mdxyU8UQ4M9MEgoc9dhDeuwUgIqntOgR5UYHOegmcN5cnQmNfmqmDunRRYBWiI?purpose=inline">Simple DIY Bluetooth Speaker Using PAM8403 : 5 Steps - Instructables</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/sVPdHpeScmXKsR7n93GecTxNflCwgRiB5ngn_qyCQOwNZiAYtlQwEzxTU86pYM9KDfxe-wKnpx_a2xQ9phr7ZJvH_ShXXOvXA2Hoc3qeXLMzA1doGCSTriFVoWuhIstl87woF8zAv_mz8bpxHLtCmqzO-va1XeuN2-edWbOdfBI?purpose=inline">Reproductor de música Bluetooth Subwoofer portátil Tarjeta inalámbrica Mini altavoz para exteriores e interiores | Bodega Aurrera en línea</a></p>
+<h4>一、整體設計規格</h4>
+<p>先確定製作目標：</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>設計規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>喇叭類型</td>
+<td>單聲道 Mono</td>
+</tr>
+<tr>
+<td>額定輸出目標</td>
+<td>5W RMS（實際依供電與放大器而定）</td>
+</tr>
+<tr>
+<td>音訊來源</td>
+<td>Bluetooth</td>
+</tr>
+<tr>
+<td>藍牙版本</td>
+<td>Bluetooth 5.x 模組</td>
+</tr>
+<tr>
+<td>電源</td>
+<td>USB 5V</td>
+</tr>
+<tr>
+<td>電源接頭</td>
+<td>USB-C</td>
+</tr>
+<tr>
+<td>電池</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>喇叭阻抗</td>
+<td>4Ω</td>
+</tr>
+<tr>
+<td>喇叭額定功率</td>
+<td>5W～10W</td>
+</tr>
+<tr>
+<td>音量控制</td>
+<td>旋鈕</td>
+</tr>
+<tr>
+<td>外殼</td>
+<td>木板、壓克力或 3D 列印</td>
+</tr>
+<tr>
+<td>使用方式</td>
+<td>USB 插電即可使用</td>
+</tr>
+</tbody>
+</table>
+<h4>特別注意：5W 與 USB 5V 的關係</h4>
+<p>這是整個專案最重要的電路設計問題。</p>
+<p>USB 5V 並不代表一定能直接得到 5W 的音訊輸出。</p>
+<p>例如：</p>
+<ul>
+<li>USB 5V × 1A = 5W 輸入功率。</li>
+<li>USB 5V × 2A = 10W 輸入功率。</li>
+<li>放大器本身有功率損耗。</li>
+<li>喇叭輸出的音訊功率不可能大於輸入功率。</li>
+</ul>
+<p>如果希望取得真正接近 5W RMS 的單聲道輸出，建議使用 USB 5V 2A 電源，再經過升壓電路提供放大器約 9V 電源。</p>
+<p>這樣比較容易達到設計目標。</p>
+<p>我的建議：採用 USB 5V → 9V 升壓 → D 類音訊放大器 → 4Ω 喇叭的架構。</p>
+<h4>二、系統電路架構</h4>
+<p>整體可以分成五個部分：</p>
+<p>USB-C 5V / 3A 電源輸入</p>
+<p>DC-DC 升壓模組</p>
+<p>5V → 9V</p>
+<p>D 類音訊功率放大器</p>
+<p>TPA3110 單聲道 PBTL 模組</p>
+<p>4Ω / 5W 全音域喇叭</p>
+<p>Bluetooth 5.x 接收模組</p>
+<p>手機音訊 → 左右聲道混合 → 功放輸入</p>
+<p>音訊訊號</p>
+<p>Bluetooth 接收模組的音訊輸出接至功率放大器輸入；與上述電源路徑分開。</p>
+<h4>1. USB 電源輸入</h4>
+<p>建議採用 USB-C 母座模組，輸入 5V。</p>
+<p>建議規格：</p>
+<ul>
+<li>輸入電壓：5V。</li>
+<li>電源供應器：5V / 3A。</li>
+<li>USB-C 母座：具有正確 CC 下拉電阻的電源模組。</li>
+<li>電源線：支援 3A 的 USB-C 線。</li>
+</ul>
+<p>為什麼建議 3A？</p>
+<p>雖然平均播放音樂時可能只需要 1～1.5A，但低音瞬間輸出會造成電流增加，供電不足容易發生破音、重啟或藍牙斷線。</p>
+<h4>2. DC-DC 升壓模組</h4>
+<p>將 USB 的 5V 升壓到 9V。</p>
+<p>選購時建議：</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>輸入</td>
+<td>5V</td>
+</tr>
+<tr>
+<td>輸出</td>
+<td>9V</td>
+</tr>
+<tr>
+<td>連續輸出能力</td>
+<td>建議至少 10W，最好有 15～20W 餘裕</td>
+</tr>
+<tr>
+<td>輸出電流</td>
+<td>依模組散熱及實際規格確認</td>
+</tr>
+<tr>
+<td>保護</td>
+<td>過流、過溫較佳</td>
+</tr>
+</tbody>
+</table>
+<p>可以參考：</p>
+<ul>
+<li>MT3608 Voltage Boost Converter – DC-to-DC Step Up Module：MT3608 升壓模組。</li>
+<li>[環島科技]MT3608 DC-DC升壓模塊2A升壓板輸入電壓2-24V升5/9/12/-28V可調：可調式升壓模組。</li>
+</ul>
+<p>重要：MT3608 雖然便宜，但不建議直接當成這個 5W 專案的主要升壓電源。 它的實際連續輸出能力受輸入電壓、電感、二極體及散熱限制。應選用有明確連續功率規格的升壓模組。</p>
+<p>安裝時先不要接功放，使用萬用電表調整輸出至 9.0V，再進行後續組裝。</p>
+<h4>3. 音訊功率放大器</h4>
+<p><a href="https://images.openai.com/static-rsc-4/WJ2PcV8aqkGZNB1wvrCrOMsVG-aR0o5pLQKSEQ2tdtX9TtZ5XKhc672IPRR6Ng_NeYHLE6yCphTURKElO240Gy7hGwP_nkTr933yd5eVBi3XU2a5Mzxr-PtxQrU4BESdLyz8Ro__HZ79TCLv_IFZaCD3uUxkqDvJSnG5t38coLs?purpose=inline">Buy TPA3110 30W digital power amplifier modules pack of 10pcs</a></p>
+<p>建議採用 TPA3110D2 PBTL 單聲道模組。</p>
+<p>它是 D 類放大器，具有較高效率，適合小型 USB 供電喇叭。</p>
+<p>注意：</p>
+<ul>
+<li>電源必須符合所購模組的規格，建議工作電壓 9V。</li>
+<li>確認模組支援 PBTL 單聲道輸出。</li>
+<li>確認 4Ω 喇叭可用。</li>
+<li>不要只看商品標示的 30W，因為該數字通常是在更高電壓下測得。</li>
+</ul>
+<p>TPA3110 的模組資料可參考 <a href="https://behnamrobotic.com/wp-content/uploads/product/datasheet/tpa3110%20amplifier%20module%20datasheet.pdf?utm_source=chatgpt.com">TPA3110 模組規格</a>。</p>
+<h4>4. Bluetooth 接收模組</h4>
+<p>建議選擇具有下列端子的音訊接收板：</p>
+<ul>
+<li>VCC：5V。</li>
+<li>GND：接地。</li>
+<li>L：左聲道音訊輸出。</li>
+<li>R：右聲道音訊輸出。</li>
+<li>ANT：天線（視模組設計）。</li>
+</ul>
+<p>不要購買只有 BLE 資料傳輸功能的普通藍牙模組，必須是支援 A2DP 音訊接收的模組。</p>
+<h4>5. 喇叭單體</h4>
+<p>建議使用：</p>
+<ul>
+<li>直徑：2～3 吋。</li>
+<li>阻抗：4Ω。</li>
+<li>額定功率：5W。</li>
+<li>類型：Full Range 全音域。</li>
+</ul>
+<p>我會優先選擇 2～3 吋的全音域喇叭，而不是單純追求小直徑。喇叭單體的效率、振膜面積及箱體容積，都會影響實際音質。</p>
+<h4>三、完整零件採購表</h4>
+<p>以下是第一版製作所需要的材料。</p>
+<table>
+<thead>
+<tr>
+<th>零件</th>
+<th>數量</th>
+<th>建議規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USB-C 電源輸入模組</td>
+<td>1</td>
+<td>5V、3A</td>
+</tr>
+<tr>
+<td>USB-C 電源供應器</td>
+<td>1</td>
+<td>5V、3A</td>
+</tr>
+<tr>
+<td>DC-DC 升壓模組</td>
+<td>1</td>
+<td>5V → 9V、連續功率足夠</td>
+</tr>
+<tr>
+<td>Bluetooth 音訊接收板</td>
+<td>1</td>
+<td>A2DP、5V</td>
+</tr>
+<tr>
+<td>TPA3110 PBTL 功放板</td>
+<td>1</td>
+<td>9V、4Ω</td>
+</tr>
+<tr>
+<td>全音域喇叭</td>
+<td>1</td>
+<td>4Ω、5W</td>
+</tr>
+<tr>
+<td>電位器</td>
+<td>1</td>
+<td>10kΩ 音量控制</td>
+</tr>
+<tr>
+<td>電源開關</td>
+<td>1</td>
+<td>DC 5V、3A 以上</td>
+</tr>
+<tr>
+<td>電容</td>
+<td>2～3</td>
+<td>依模組規格配置</td>
+</tr>
+<tr>
+<td>電線</td>
+<td>適量</td>
+<td>22～24 AWG</td>
+</tr>
+<tr>
+<td>喇叭保護網</td>
+<td>1</td>
+<td>配合喇叭尺寸</td>
+</tr>
+<tr>
+<td>外殼材料</td>
+<td>1 組</td>
+<td>6～9mm 木板或 3D 列印</td>
+</tr>
+</tbody>
+</table>
+<p>其他材料：</p>
+<ul>
+<li>熱縮套管。</li>
+<li>螺絲及螺帽。</li>
+<li>焊錫。</li>
+<li>電路固定柱。</li>
+<li>EVA 或聚酯纖維吸音材料。</li>
+<li>防滑橡膠墊。</li>
+</ul>
+<h4>四、實際接線方式</h4>
+<p>這裡要特別注意：TPA3110 的 PBTL 輸出是橋接式輸出，喇叭兩端都必須接功放的輸出端，不能把喇叭負極接到 GND。</p>
+<h4>1. 電源接線</h4>
+<pre><code>USB-C 5V
+   │
+   ├── 5V ─────── Bluetooth VCC
+   │
+   ├── GND ────── Bluetooth GND
+   │
+   └── 升壓模組 IN+
+          │
+          └── 升壓模組 IN-
+
+升壓模組 OUT+ (9V)
+   │
+   └──────────── 功放 VCC
+
+升壓模組 OUT-
+   │
+   └──────────── 功放 GND
+</code></pre>
+<p>Bluetooth 與功放的訊號地必須共地。</p>
+<h4>2. Bluetooth 音訊接線</h4>
+<p>因為單聲道喇叭要同時播放左右聲道，不能直接把 L 和 R 短接在一起。</p>
+<p>建議使用兩個 1kΩ 電阻：</p>
+<pre><code>Bluetooth L ─── 1kΩ ──┐
+                       ├── MONO ── 音量控制 ── AMP IN
+Bluetooth R ─── 1kΩ ──┘
+
+Bluetooth GND ─────────────────── AMP GND
+</code></pre>
+<p>兩個電阻的作用是將左右聲道混合，避免左右輸出端直接互相驅動。</p>
+<p>音量控制可以使用 10kΩ 電位器：</p>
+<ul>
+<li>一端接 MONO 訊號。</li>
+<li>另一端接 GND。</li>
+<li>中間端接功放音訊輸入。</li>
+</ul>
+<h4>3. 喇叭接線</h4>
+<pre><code>TPA3110 PBTL
+
+SPK+ ───────── 喇叭 +
+SPK- ───────── 喇叭 -
+</code></pre>
+<p>重要安全事項</p>
+<p>不要把 SPK- 接到電源 GND，也不要將 SPK+ 或 SPK- 接到其他音訊設備的接地端。這是 BTL/PBTL 功放常見的接線錯誤。</p>
+<h4>五、喇叭外殼設計</h4>
+<p>外殼是決定聲音品質的重要因素。即使使用相同的喇叭單體，不同的箱體容積及結構，也會產生很大的音質差異。</p>
+<p>我建議第一版採用密閉式音箱（Sealed Enclosure），不需要設計導音管，容易製作，也比較不容易出現低音共振問題。</p>
+<h4>1. 外殼尺寸建議</h4>
+<p>如果選擇 2～3 吋喇叭，可以先用以下尺寸進行原型設計。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>初始建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>外殼寬度</td>
+<td>130mm</td>
+</tr>
+<tr>
+<td>外殼高度</td>
+<td>110mm</td>
+</tr>
+<tr>
+<td>外殼深度</td>
+<td>120mm</td>
+</tr>
+<tr>
+<td>板材厚度</td>
+<td>6mm</td>
+</tr>
+<tr>
+<td>內部結構</td>
+<td>密閉式</td>
+</tr>
+<tr>
+<td>喇叭位置</td>
+<td>正面中央</td>
+</tr>
+<tr>
+<td>電子電路</td>
+<td>背面或底部</td>
+</tr>
+</tbody>
+</table>
+<p>這組尺寸的內部容積約為 1.1 公升（扣除板材厚度後，尚未扣除喇叭及電路所占空間）。</p>
+<p>注意：這只是方便製作的原型尺寸，不是所有 2～3 吋單體都適用的最佳箱體。正式製作前應依照喇叭的 Thiele-Small 參數（尤其是 Vas、Qts、Fs）確認容積。若使用 2 吋單體，可能需要更小的箱體。</p>
+<h4>2. 外殼製作方式</h4>
+<p>有三種選擇：</p>
+<p>A. 木板製作</p>
+<p>最推薦</p>
+<ul>
+<li>6～9mm 夾板或 MDF。</li>
+<li>木工膠黏合。</li>
+<li>內部接縫使用矽膠密封。</li>
+<li>容易修改及打磨。</li>
+</ul>
+<p>B. 3D 列印</p>
+<ul>
+<li>使用 PETG 或 ABS。</li>
+<li>壁厚建議 3～4mm 起。</li>
+<li>可直接設計螺絲孔、電路固定座。</li>
+<li>適合精確控制外型。</li>
+</ul>
+<p>C. 壓克力製作</p>
+<ul>
+<li>透明外觀。</li>
+<li>容易觀察內部電路。</li>
+<li>接合處必須做好密封。</li>
+<li>板材振動可能影響聲音。</li>
+</ul>
+<h4>3. 外殼內部處理</h4>
+<p>外殼內部建議：</p>
+<ol>
+<li>內壁貼上薄型吸音材料。</li>
+<li>後壁及側壁可使用聚酯纖維吸音棉。</li>
+<li>不要堵住喇叭背面的通氣空間。</li>
+<li>不要讓吸音材料碰觸振膜。</li>
+<li>電路板固定在獨立位置，避免與喇叭振動接觸。</li>
+<li>所有接縫保持密封。</li>
+</ol>
+<p>第一版不需要被動輻射器（Passive Radiator），等測試後覺得低音不足，再考慮第二版修改。</p>
+<h4>六、實際製作步驟</h4>
+<p>我建議將整個工程分成七個階段，不要一開始就把所有零件焊接固定在外殼內。</p>
+<ol>
+<li>
+<p>階段一：零件檢查</p>
+<p>將所有電子零件準備好。</p>
+<p>使用萬用電表確認：</p>
+<ul>
+<li>USB 輸出是否為 5V。</li>
+<li>升壓模組是否可以調整到 9V。</li>
+<li>Bluetooth 模組是否支援 A2DP。</li>
+<li>功放板是否支援 4Ω 負載。</li>
+<li>喇叭阻抗及額定功率是否正確。 先不要接上喇叭。</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>USB 輸入電壓。</li>
+<li>升壓模組輸出電壓。</li>
+<li>輸出電壓是否穩定在 9V。 可以先接一個適當的假負載，確認升壓模組不會因負載而大幅降壓。
+<p>階段二：測試 USB 供電</p>
+<p>將 USB-C 連接 5V / 3A 電源供應器。</p>
+<p>使用電表測量：</p>
+</li>
+</ul>
+</li>
+<li>
+<p>階段三：測試 Bluetooth</p>
+<p>單獨為 Bluetooth 模組供應 5V。</p>
+<p>使用手機搜尋藍牙裝置，完成配對。</p>
+<p>播放音樂，利用示波器或音訊測試設備確認 L、R 音訊輸出。</p>
+<p>如果沒有示波器，也可以先用已確認規格的音訊放大器進行低音量測試。</p>
+</li>
+<li>
+<p>階段四：安裝音訊放大器</p>
+<p>先將左右聲道經過 1kΩ 電阻混音，再接至功放。</p>
+<p>接著：</p>
+<ul>
+<li>接上 9V 電源。</li>
+<li>確認 Bluetooth 與功放共地。</li>
+<li>確認功放沒有異常發熱。</li>
+<li>最後才接上 4Ω 喇叭。 初次測試時，音量旋鈕及手機音量都先調低。</li>
+</ul>
+</li>
+<li>
+<p>階段五：測試聲音</p>
+<p>播放不同類型的音樂：</p>
+<ul>
+<li>人聲。</li>
+<li>古典音樂。</li>
+<li>爵士樂。</li>
+<li>低音測試音。</li>
+<li>左右聲道混合測試。 逐漸提高音量，觀察是否有破音、雜音或供電重啟。</li>
+</ul>
+<p>不要長時間使用滿功率正弦波測試，以免喇叭過熱。</p>
+</li>
+<li>
+<p>階段六：製作外殼</p>
+<p>依照選定尺寸裁切板材。</p>
+<p>建議順序：</p>
+<ol>
+<li>製作前面板並開喇叭孔。</li>
+<li>製作左右側板。</li>
+<li>製作頂板及底板。</li>
+<li>製作背板。</li>
+<li>黏合箱體。</li>
+<li>完成內部密封。</li>
+<li>安裝喇叭及保護網。</li>
+<li>安裝 USB-C 插座、開關及音量旋鈕。</li>
+</ol>
+</li>
+<li>
+<p>階段七：最終組裝</p>
+<p>將電路板固定在箱體內部。</p>
+<p>電源線、音訊線分開整理，喇叭線固定牢靠。</p>
+<p>完成後連接 USB-C 電源，使用手機配對，連續播放音樂至少 1～2 小時，檢查：</p>
+<ul>
+<li>電源穩定度。</li>
+<li>藍牙連線穩定度。</li>
+<li>功放溫度。</li>
+<li>外殼是否有異常共振。</li>
+<li>音量與音質是否符合預期。</li>
+</ul>
+</li>
+</ol>
+<h4>七、電路配置與安全注意事項</h4>
+<h4>1. 電源保護</h4>
+<p>建議 USB 輸入端增加：</p>
+<ul>
+<li>適當額定值的自復式保險絲或保險絲。</li>
+<li>反接保護（如果電源模組有外露接線）。</li>
+<li>輸入濾波電容。</li>
+<li>升壓模組輸出端的適當濾波電容。</li>
+</ul>
+<p>電容值依升壓及功放模組廠商建議配置，不要任意增加到超出模組承受範圍。</p>
+<h4>2. 電源與音訊分流</h4>
+<p>Bluetooth 模組使用 5V，功放使用 9V。</p>
+<pre><code>                  USB-C 5V
+                     │
+             ┌───────┴────────┐
+             │                │
+          Bluetooth       升壓模組
+             │                │
+           5V/GND             9V
+             │                │
+             │             功率放大器
+             │                │
+             └── 音訊訊號 ────┘
+                              │
+                            喇叭
+</code></pre>
+<p>升壓模組與功放會產生開關電流及電磁干擾，因此：</p>
+<ul>
+<li>Bluetooth 天線遠離升壓電感。</li>
+<li>音訊輸入線盡量短。</li>
+<li>電源線與音訊線不要長距離平行。</li>
+<li>必要時在 Bluetooth 模組 5V 端增加適當的濾波。</li>
+</ul>
+<h4>3. 功率與電流估算</h4>
+<p>假設喇叭輸出 5W，功放效率約 90%，升壓效率約 90%。</p>
+<p>\[ P_{USB}=\frac{5}{0.9\times0.9} \approx6.17W \]</p>
+<p>所以：</p>
+<p>\[ I_{USB}=\frac{6.17}{5} \approx1.23A \]</p>
+<p>這是理想的滿功率連續輸出估算，還沒有計入 Bluetooth、其他電路消耗及瞬間電流需求。</p>
+<p>因此，選擇 5V / 3A 電源比較合理。</p>
+<p>補充：5W 是設計目標，不是保證值。 實際可達到的乾淨 RMS 輸出，要看功放供電、負載、失真率及模組實測結果。</p>
+<h4>八、預算估算</h4>
+<p>以下是第一版的概略預算，實際價格依購買通路及模組品質而異。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>預估新台幣</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USB-C 電源模組</td>
+<td>$30～100</td>
+</tr>
+<tr>
+<td>5V / 3A 充電器</td>
+<td>$100～250</td>
+</tr>
+<tr>
+<td>升壓模組</td>
+<td>$50～180</td>
+</tr>
+<tr>
+<td>Bluetooth 接收模組</td>
+<td>$50～150</td>
+</tr>
+<tr>
+<td>TPA3110 功放板</td>
+<td>$80～200</td>
+</tr>
+<tr>
+<td>4Ω / 5W 喇叭</td>
+<td>$100～350</td>
+</tr>
+<tr>
+<td>電位器、開關及電容</td>
+<td>$50～120</td>
+</tr>
+<tr>
+<td>木板及吸音材料</td>
+<td>$100～250</td>
+</tr>
+<tr>
+<td>其他材料</td>
+<td>$50～100</td>
+</tr>
+<tr>
+<td>合計</td>
+<td>$610～1,700</td>
+</tr>
+</tbody>
+</table>
+<p>如果使用品質較好的喇叭單體、升壓模組及電源供應器，預算可以抓在 NT$1,000～1,500。</p>
+<h4>九、還有一個更簡單的設計方案</h4>
+<p>如果不堅持真正的 5W RMS，也可以使用 PAM8403。</p>
+<p><a href="https://images.openai.com/static-rsc-4/lijsRod334eXjEwUQpM6jlBjRl8X-nGI-PSlNGk6XoS-K9gjp-A0oe-mTkadOAlf9CC0m5S1SWYMCzWIXSTu74vYo1Re69qF8JZqCX8Zy7-5KS4rvkbeD2w763hBAoTGrZl3GjojYTbBgF-_9499Cnkp8SePSoHSYTwSlMACJ84?purpose=inline">Puuli PAM8403 Ultra Small 5V Mini Power Amplifiers Audio Amplifier Digital Ampli Board Support USB Power 2 Channel... N2 free image download</a></p>
+<p>PAM8403 直接 USB 5V 供電</p>
+<ul>
+<li>不需要升壓模組。</li>
+<li>不需要 9V 電源。</li>
+<li>電路較簡單。</li>
+<li>可使用左右兩個喇叭形成立體聲。</li>
+<li>實際輸出通常約 2～3W / 聲道，視供電、負載及失真而定。</li>
+</ul>
+<p>參考：PAM8403 5V Two Channel Stereo Audio Amplifier Module。它適合做低成本的第一個實驗版本，但不能把它當成真正的 5W 單聲道設計。</p>
+<p>learndesign.tech+1</p>
+<h4>十、我建議的最終成品</h4>
+<p><a href="https://images.openai.com/static-rsc-4/GrakaBtY76qfH9XXD6Zh4Yq3K49_ptLSPfwOr4TfwJT97s5u2oP8nSo1yT4R6sHII0JIayIXJHBq5Au78ghPRmBPMLnRdq2XAxsPoJuUzhtMJr0CLOj7WTT9e8IpVDQ_a7pWk1kzjnkBh0qz21UYzdUnA3OAYxI0pADi9ZrJscU?purpose=inline">Two by Two Wooden Mini Bluetooth Speaker – Lightsource Promo</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/O8E9OebuOudtkJrbCVHmA8_IIeWQKEh-aZmrLJmt5HbAYtbggPkhlKr5ZzAI6mfjAwJQeQ1Mqx1NZkH8YhRyl3CyHbZdbD6BoYeUsTj3DGSf2W8iolyCMXWVUGYYHMjEhh2cwekWbhugxbEr5Ip8WYUFxLS5C1mEqvgzNhic48k?purpose=inline">Smalody Wood Retro Bluetooth Speaker</a></p>
+<p>如果由我規劃這個專案，我會採用以下配置：</p>
+<h4>USB-C 5W Bluetooth Speaker V1.0</h4>
+<p>建議製作版本</p>
+<p>音訊輸出</p>
+<p>5W RMS 目標</p>
+<p>電源</p>
+<p>USB-C 5V / 3A</p>
+<p>放大器</p>
+<p>TPA3110 PBTL</p>
+<p>藍牙</p>
+<p>Bluetooth 5.x A2DP</p>
+<p>喇叭</p>
+<p>4Ω / 5W 全音域</p>
+<p>箱體</p>
+<p>木製密閉式</p>
+<p>成品預計具備的功能</p>
+<ul>
+<li>USB-C 插電即可使用。</li>
+<li>不需要電池，也不需要充電。</li>
+<li>手機 Bluetooth 配對。</li>
+<li>實體音量旋鈕。</li>
+<li>獨立電源開關。</li>
+<li>正面喇叭保護網。</li>
+<li>背面 USB-C 電源插座。</li>
+</ul>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="About.html">Previous: About</a></div>
+<div class="next"><a href="擴音機.html">Next: 擴音機</a> &gt;&gt;</div>
+</nav>
+<script>
+(function(){
+  function restorePreNewlines(){
+    var nodes=document.querySelectorAll('pre');
+    for(var i=0;i<nodes.length;i++){
+      var pre=nodes[i], html=pre.innerHTML;
+      if(!html) continue;
+      var fixed=html.replace(/<br\s*\/?\s*(?:\s[^>]*)?>/gi,'\n').replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+      if(fixed!==html) pre.innerHTML=fixed;
+    }
+  }
+  function run(){
+    restorePreNewlines();
+    if(!window.SyntaxHighlighter) return;
+    try{
+      if(SyntaxHighlighter.config){ SyntaxHighlighter.config.bloggerMode=true; SyntaxHighlighter.config.stripBrs=false; }
+      if(typeof SyntaxHighlighter.all==='function') SyntaxHighlighter.all();
+    }catch(e){}
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
+  else run();
+})();
+</script>
+</div><!-- /tipue_search_content -->
+
+<div class="container">
+  <div class="row pt-3 mx-auto">
+    <p>
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+      All rights reserved |
+      <i class="icon-heart" aria-hidden="true"></i>
+      by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    </p>
+  </div>
+</div>
+
+</div><!-- /site-wrap -->
+
+<script src="./../static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="./../static/chimper/js/jquery-ui.js"></script>
+<script src="./../static/chimper/js/popper.min.js"></script>
+<script src="./../static/chimper/js/bootstrap.min.js"></script>
+<script src="./../static/chimper/js/owl.carousel.min.js"></script>
+<script src="./../static/chimper/js/jquery.stellar.min.js"></script>
+<script src="./../static/chimper/js/jquery.countdown.min.js"></script>
+<script src="./../static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="./../static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="./../static/chimper/js/aos.js"></script>
+<script src="./../static/chimper/js/main.js"></script>
+</body>
+</html>

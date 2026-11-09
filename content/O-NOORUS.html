@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta property="head" content="H1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>O-NOORUS</title>
+
+<link rel="stylesheet" href="./../static/chimper/fonts/icomoon/style.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/magnific-popup.css">
+<link rel="stylesheet" href="./../static/chimper/css/jquery-ui.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="./../static/chimper/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="./../static/chimper/css/aos.css">
+<link rel="stylesheet" href="./../static/chimper/css/style.css">
+<link rel="shortcut icon" href="./../static/favicons.png">
+
+<style type="text/css">
+.site-section { background-color: #FFFF; padding: 40px 40px; }
+body > div > div.dropdown.open { display: block; }
+img.add_border { border: 3px solid blue; }
+
+.page-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 20px;
+    margin: 24px 0;
+    padding: 12px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-navigation .previous {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
+.page-navigation .next {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+.page-navigation a {
+    display: inline-block;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.page-navigation a:hover {
+    text-decoration: underline;
+}
+</style>
+
+<script src="./../static/chimper/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/normalize.min.css">
+<script src="./../static/tipuesearch/tipuesearch_set.js"></script>
+<script src="tipuesearch_content.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/tipuesearch.css">
+<script src="./../static/tipuesearch/tipuesearch.js"></script>
+
+<script>
+function doSearch() {
+    if (window.jQuery && jQuery.fn.tipuesearch) {
+        jQuery('#tipue_search_input').tipuesearch({
+            newWindow: true,
+            minimumLength: 2,
+            wholeWords: false
+        });
+    }
+}
+
+if (window.jQuery) {
+    jQuery(document).ready(doSearch);
+}
+</script>
+
+<script type="text/javascript" src="./../static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../static/syntaxhighlighter/css/shCoreDefault.css">
+<style>
+pre, pre code, .syntaxhighlighter .line, .syntaxhighlighter table td.code .line {
+  white-space: pre !important; word-wrap: normal !important; word-break: normal !important;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="site-wrap">
+
+<div class="site-mobile-menu">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+<header class="site-navbar py-4 bg-white" role="banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <h1>Learning (學習)</h1>
+
+      <div class="pl-4">
+        <form action="#" onsubmit="return false;">
+          <input type="text"
+                 placeholder="Search"
+                 name="q"
+                 id="tipue_search_input"
+                 pattern=".{2,}"
+                 title="At least 2 characters">
+        </form>
+      </div>
+
+      <div class="col-12 col-md-10 d-none d-xl-block">
+        <nav class="site-navigation position-relative text-right" role="navigation">
+          <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+<li class="active has-children">
+<a href="index.html">Home</a>
+<ul class="dropdown">
+<li><a href="sitemap.html">SMap</a></li>
+</ul>
+</li>
+<li><a href="About.html">About</a></li>
+<li><a href="藍芽喇叭.html">藍芽喇叭</a></li>
+<li><a href="擴音機.html">擴音機</a></li>
+<li class="has-children"><a href="D類擴音機.html">D類擴音機</a><ul class="dropdown">
+<li><a href="O-NOORUS.html">O-NOORUS</a></li>
+</ul>
+</li>
+<li><a href="Rust.html">Rust</a></li>
+</ul>
+
+        </nav>
+      </div>
+
+      <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+           style="position: relative; top: 3px;">
+        <a href="#" class="site-menu-toggle js-menu-toggle text-black">
+          <span class="icon-menu h3"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="tipue_search_content">
+<h1>O-NOORUS</h1>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="D類擴音機.html">Previous: D類擴音機</a></div>
+<div class="next"><a href="Rust.html">Next: Rust</a> &gt;&gt;</div>
+</nav>
+
+<p>首先要釐清一個容易混淆的地方：O-NOORUS A80 與 AIYIMA A80 是兩台不同的擴大機。兩者都叫 A80，但使用的擴大晶片、輸入介面、輸出功率與產品定位都不同。</p>
+<p>如果你指的是 O-NOORUS A80（Infineon MA12070），它是一台體積很小、具備 USB-C、藍牙、RCA、超低音輸出的 D 類綜合擴大機；如果你指的是 AIYIMA A80（TI TPA3255），則是功率與數位輸入規格更高、功能更完整的另一個級別。以下會以 O-NOORUS A80 為主角，並把兩者分開比較，避免買錯。</p>
+<h4>一、O-NOORUS A80：小體積、功能完整的入門 Hi-Fi 擴大機</h4>
+<p><a href="https://images.openai.com/static-rsc-4/WW1SzJCs4TVDKZ_9ftByu_Eb7ZZI8VTV1wTvpD1EDEg-0CFrtt0pE8TlN_YDGzfgdSS6Sc2Xak38L79cHpg4P89_MB3ZcbJPOUdrgcfy0USEvntDRN5KWLnIvUYLQSNN1l4w0J0abypP6yg3lD-Txn_r3qKPRfH7nGcarWh2-10?purpose=inline">O-NOORUS A80 Class D Amplifier MA12070 Bluetooth 5.0 Subwoofer 2x80W 4 Ohm</a></p>
+<p>O-NOORUS A80</p>
+<p>適合小型兩聲道音響</p>
+<p>Infineon MA12070 · Class D · 2.1 輸出功能</p>
+<p>2 × 80W（4Ω，廠商標示）</p>
+<p>另有 8Ω 時 2 × 45W 的產品規格資料。</p>
+<h4>1. 主要規格</h4>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>O-NOORUS A80</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>擴大晶片</td>
+<td>Infineon MA12070</td>
+</tr>
+<tr>
+<td>放大類型</td>
+<td>Class D</td>
+</tr>
+<tr>
+<td>4Ω 輸出</td>
+<td>2 × 80W（標示值）</td>
+</tr>
+<tr>
+<td>8Ω 輸出</td>
+<td>2 × 45W（標示值）</td>
+</tr>
+<tr>
+<td>電源</td>
+<td>DC 24V / 6.5A</td>
+</tr>
+<tr>
+<td>藍牙</td>
+<td>Bluetooth 5.0，QCC3034</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>USB-C，Realtek ALC4050</td>
+</tr>
+<tr>
+<td>類比輸入</td>
+<td>RCA、3.5mm AUX</td>
+</tr>
+<tr>
+<td>輸出</td>
+<td>被動喇叭端子、RCA 超低音輸出、RCA 立體聲輸出</td>
+</tr>
+<tr>
+<td>其他功能</td>
+<td>螢幕、遙控器、音量與音調控制</td>
+</tr>
+</tbody>
+</table>
+<p>資料來源：Audiophonics 的產品規格及 O-NOORUS 產品介紹。</p>
+<h4>2. 各項功能的實際用途</h4>
+<p>（1）MA12070 D 類放大晶片</p>
+<p>MA12070 是 Infineon 的高效率 D 類放大平台。它的優勢是體積小、發熱相對低、適合桌面及小型家用音響。</p>
+<p>與常見的 TPA3116D2 相比，A80 的定位更偏向整合式小型 Hi-Fi，而不是單純追求大功率。</p>
+<p>要特別注意：產品標示的 2 × 80W 並不等於可以長時間連續輸出 160W。它使用 24V、6.5A 電源，輸入電力上限約為 156W，還要扣除放大器損耗。因此選購時，應把 80W 視為廠商標示的輸出能力，而不是保證的連續輸出功率。</p>
+<p>（2）USB-C 數位輸入</p>
+<p>這是 O-NOORUS A80 很值得注意的功能。</p>
+<p>可以直接連接：</p>
+<ul>
+<li>Windows 桌上型電腦</li>
+<li>Windows 筆記型電腦</li>
+<li>支援 USB Audio 的平板或手機</li>
+<li>其他相容 USB 音訊輸出的裝置</li>
+</ul>
+<p>相較於只使用藍牙，USB-C 有線連接通常更適合固定桌面音響，避免藍牙編碼及無線傳輸造成的限制。</p>
+<p>（3）Bluetooth 無線輸入</p>
+<p>QCC3034 藍牙接收晶片可支援 aptX、aptX HD 等傳輸格式，適合手機、平板及筆記型電腦無線播放。</p>
+<p>實際能使用哪一種編碼，還取決於手機或電腦端是否支援。</p>
+<p>（4）超低音輸出</p>
+<p>A80 提供 RCA 超低音輸出，可以連接主動式 Subwoofer，組成 2.1 系統：</p>
+<p>電腦／手機／CD 播放器</p>
+<p>O-NOORUS A80</p>
+<p>左、右被動喇叭</p>
+<p>Stereo L/R</p>
+<p>主動式超低音</p>
+<p>RCA Sub Out</p>
+<p>這個功能適合希望增加電影、電子音樂及低頻效果的使用者。不過購買前要確認超低音輸出是否具有固定低通濾波，以及分頻點能否調整；不能直接假設它有完整 DSP 分頻管理。</p>
+<p>（5）RCA 立體聲輸出</p>
+<p>這個輸出可以把 A80 當作前級訊號來源，連接另一台後級擴大機或其他音響設備。實際使用時，應確認輸出音量是否隨主音量控制，以免後級輸入過載。</p>
+<h4>3. O-NOORUS A80 的優點與限制</h4>
+<table>
+<thead>
+<tr>
+<th>優點</th>
+<th>限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>體積小，容易擺在桌面</td>
+<td>不適合大型空間的高音壓需求</td>
+</tr>
+<tr>
+<td>USB-C、藍牙、RCA、AUX 齊全</td>
+<td>輸出功率不能只看 80W 數字</td>
+</tr>
+<tr>
+<td>有超低音輸出</td>
+<td>不等同完整 DSP 2.1 分頻系統</td>
+</tr>
+<tr>
+<td>有螢幕與遙控器</td>
+<td>擴充性不如分離式前後級</td>
+</tr>
+<tr>
+<td>MA12070 效率高</td>
+<td>低阻抗、低靈敏度喇叭仍要注意驅動能力</td>
+</tr>
+</tbody>
+</table>
+<p>**我的看法：**如果主要用途是電腦、書房、小客廳，搭配一對 5 吋或 6.5 吋書架喇叭，O-NOORUS A80 是很有吸引力的入門整合方案。</p>
+<h4>二、與 O-NOORUS A80 同級或更高一級的擴大機比較</h4>
+<p>我會把候選產品分成三類：小型整合擴大機、較高功率的整合擴大機，以及可搭配外接 DAC 的純功率擴大機。</p>
+<p><a href="https://images.openai.com/static-rsc-4/a4lBeZS1xM4lEZ5wdsQ1io2bAkQ7LI-Quh-3RZMUEfjqig13fPWM0QYFlDQ2XSngkrsdfuqvq4-rB0nsktjmgOXmhUkeFmEgZtnBw8Ja0ZlXE3g1OIVWSTPxe1xmw_7H66M071LxqZWy7pT3TnA1-3bBwS9YK4yUUIDtPA5X1HU?purpose=inline">O-NOORUS D3 TPA3255 Stereo Power Amplifier 300Wx2 with Bluetooth USB O – Onoorus Audio</a></p>
+<p>1. O-NOORUS D3</p>
+<p>O-NOORUS 系列優先升級選擇</p>
+<ul>
+<li>TPA3255 放大晶片</li>
+<li>USB-C、光纖、同軸、AUX、藍牙</li>
+<li>ES9023P DAC</li>
+<li>主動式超低音輸出</li>
+<li>官方及經銷規格資料列出 2 × 130W @ 4Ω、1% THD</li>
+</ul>
+<p>比 A80 有更大的輸出餘裕，適合較大的房間或較難推動的喇叭。</p>
+<p><a href="https://images.openai.com/static-rsc-4/FeN5be0sVrg7dtC8I02NKIayuODN-6GCnw4MIm-5LgonvNKVP0z6w8VWCglJEDBxDsgYQbN-5yPFc_n3zfOkxweg9qCSLC-BkcV73_c3V3MZLcRXQ2Xlv8CMg90yJvViaeFRqVtKmo5_UR3XSa-t6Rd0m6zcYD3-ca3m5gJs1XY?purpose=inline">AIYIMA A80 amplificador</a></p>
+<p>2. AIYIMA A80</p>
+<p>數位輸入與功能最完整的候選之一</p>
+<ul>
+<li>TPA3255D2 + PFFB</li>
+<li>ESS ES9038Q2M DAC</li>
+<li>USB、光纖、同軸、RCA、TRS、藍牙</li>
+<li>3.5mm AUX 輸出</li>
+<li>24–48V 電源</li>
+</ul>
+<p>它與 O-NOORUS A80 不是同一台機器。AIYIMA A80 的重點是更完整的 DAC 與數位輸入功能。</p>
+<p><a href="https://images.openai.com/static-rsc-4/YT7WHn_90uBNbxPaQaTJKPRgVXFjQR4NqnXCFU2xlvPVFN9FqwqLmiemsPdjTe-Zb1VFHXSfkIN4gqKYod8aYnOOPI4VZzi5QUO8DVhsq4Kccw_lKNOs-2OlYyNR-3axBvw2YznT8ajn7EoSZh7hFnjPak5HSL4zufvTn9P6_Sw?purpose=inline">Fosi Audio ZA3</a></p>
+<p>3. Fosi Audio ZA3</p>
+<p>偏向音響系統擴充</p>
+<ul>
+<li>TPA3255</li>
+<li>RCA、XLR／TRS 類比輸入</li>
+<li>主動式超低音輸出</li>
+<li>可切換 Stereo／Mono</li>
+<li>48V/5A 供電時，官方資料列出 155W × 2 @ 4Ω（立體聲）</li>
+</ul>
+<p>ZA3 本身不是完整數位綜合擴大機，沒有內建 USB DAC 或藍牙；若接電腦，建議搭配外接 DAC。</p>
+<p><a href="https://images.openai.com/static-rsc-4/3OtPBOWx-8G-dqTSUpWNMQacN9Ya2lv-bqpzkpPKc_C0BrIS0uHUhW-JXCGVkdw4WyyuP7ZhO6eUrSD84YYFNkAZDlMYDXK1VnvV0AXg8Pi7j-bpVQS7tJVdvBkdPbWveS4rKVtxKSowHXYhTemy09r_O25I3eZJkL1SIEAxrt4?purpose=inline">AL200</a></p>
+<p>4. SMSL AL200</p>
+<p>數位整合型選擇</p>
+<ul>
+<li>MA5332MS D 類放大平台</li>
+<li>數位 DAC 與多種數位輸入</li>
+<li>適合電腦、數位音樂與桌面系統</li>
+<li>與 O-NOORUS A80 相比，定位更接近桌面數位綜合擴大機</li>
+</ul>
+<p>適合不想另外購買 DAC、又希望有完整數位訊源介面的使用者。</p>
+<p><a href="https://images.openai.com/static-rsc-4/macEudJznKt57Qw8SYIgY9IaIIkY1L_GTxwmcMLLzVtNfQ4f-lD0MfCWKxB9BKV1RLUhCMNDkoRsBGNqZOkGhnFmmaYcf0Wj9KnjTvsbaAgI-jMo3sNkU4-iOX7rBZYsTshGd_VgERQy2uVOzHNGB4WF1LUUUlQ_N9muoZOpaoQ?purpose=inline">Fosi Audio BT20A MAX</a></p>
+<p>5. Fosi Audio BT20A Max</p>
+<p>重視藍牙與簡單操作</p>
+<ul>
+<li>TPA3255、PFFB</li>
+<li>Bluetooth 6.0</li>
+<li>RCA 類比輸入</li>
+<li>超低音輸出</li>
+<li>適合不需要多種數位輸入、以手機無線播放為主的系統</li>
+</ul>
+<p>若主要訊源是電腦 USB，AIYIMA A80 或 O-NOORUS D3 會更直接。</p>
+<h4>1. 擴大機規格對照表</h4>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>放大晶片</th>
+<th>主要輸入</th>
+<th>超低音輸出</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O-NOORUS A80</td>
+<td>MA12070</td>
+<td>USB-C、BT、RCA、AUX</td>
+<td>有</td>
+<td>小型整合</td>
+</tr>
+<tr>
+<td>O-NOORUS D3</td>
+<td>TPA3255</td>
+<td>USB-C、BT、光纖、同軸、AUX</td>
+<td>有</td>
+<td>高功率整合</td>
+</tr>
+<tr>
+<td>AIYIMA A80</td>
+<td>TPA3255</td>
+<td>USB、BT、光纖、同軸、RCA、TRS</td>
+<td>AUX 輸出，非必然等同低音專用輸出</td>
+<td>數位整合</td>
+</tr>
+<tr>
+<td>Fosi ZA3</td>
+<td>TPA3255</td>
+<td>RCA、XLR／TRS</td>
+<td>有</td>
+<td>純功率擴大</td>
+</tr>
+<tr>
+<td>SMSL AL200</td>
+<td>MA5332MS</td>
+<td>數位與類比輸入</td>
+<td>依版本確認</td>
+<td>數位整合</td>
+</tr>
+<tr>
+<td>Fosi BT20A Max</td>
+<td>TPA3255</td>
+<td>RCA、BT</td>
+<td>有</td>
+<td>藍牙整合</td>
+</tr>
+</tbody>
+</table>
+<h4>2. 如何選擇？</h4>
+<ul>
+<li>希望簡單、便宜、小體積：O-NOORUS A80。</li>
+<li>希望保留 O-NOORUS 的操作方式，但增加功率：O-NOORUS D3。</li>
+<li>希望 USB DAC、光纖、同軸、藍牙整合在一起：AIYIMA A80。</li>
+<li>已經有 DAC 或串流前級：Fosi ZA3。</li>
+<li>主要用手機藍牙播放：Fosi BT20A Max。</li>
+<li>希望以電腦作為主要數位訊源：AIYIMA A80 或 O-NOORUS D3。</li>
+</ul>
+<p>這裡有個重要觀念：擴大機晶片較高階，不代表實際聽感一定較好。電源供應器、輸出濾波器、回授設計、PCB 佈局、保護電路及喇叭搭配，都會影響最終表現。</p>
+<h4>三、適合搭配的書架喇叭系列</h4>
+<p>選喇叭時，我建議先看四項：</p>
+<ol>
+<li>阻抗：O-NOORUS A80 的規格以 4–8Ω 喇叭為主，不建議任意搭配低於 4Ω 的負載。</li>
+<li>靈敏度：約 86–90dB 的喇叭都值得考慮；靈敏度越高，通常越容易在較小功率下得到足夠音量。</li>
+<li>低音單體尺寸：4 吋適合桌面，5 吋適合小房間，6.5 吋較適合中型空間。</li>
+<li>房間大小：房間越大、聆聽距離越遠，就越需要較高的功率餘裕及較大的喇叭。</li>
+</ol>
+<p>以下是優先考慮的系列。</p>
+<h4>1. Wharfedale Diamond 12 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/3o6CeAEN-aaQEN9XWcuBL6UxiMIzmpl7J2JRzfrfxLccEnV_U2Ruj6K2hNmTKPdKTPCS-05XpmSmvbaUEW8omllh1mjcn_9REm8i7XA--bXezMtCFcldnkuLd_GnYgvMQyKivfr_Y6EhuRlb3Kq5MkvaseTyxL00zsJW6DChDVg?purpose=inline">Wharfedale Diamond 12.0 Bookshelf Speakers</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/Tyy6vcP_2OzpqSAr6WfxDRtYZllk6ah1hdMW5X3z4cTYorjANaAzowGADxAHHVZRG0mnDhQpdeWame01XSgy0Fwg-NG_Fuz4-VerCpAPunrjTOJsvUW2hgyRhP8c-T4aHKpA_HdBb-WAcgZlKWD_Qq06Ry12Ar4fxjozMG3EK4Q?purpose=inline">Loa Wharfedale Diamond 12.1</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/T3vsADAq9yiDm1EXu-yRsolXLhNpKL7ndYCcTSOyxPhx3KWjafoDb9rIibUOc2tyCwZi0pfw89tjP8y5y3tYDohs-lb09lS6949UoccF6-ScWNDreF7UsK2VTNyk8PrzxTBiEixrPb8JNF21bem6hZNiiZcCjHpfkKtPBF06KoM?purpose=inline">Wharfedale Diamond 12.2 Loudspeakers</a></p>
+<p>Wharfedale Diamond 12 是我認為與 O-NOORUS A80 很值得搭配的系列。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>低音單體</th>
+<th>靈敏度</th>
+<th>阻抗</th>
+<th>建議擴大機功率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12.0</td>
+<td>4 吋</td>
+<td>87dB</td>
+<td>8Ω 相容，最低 4Ω</td>
+<td>20–60W</td>
+</tr>
+<tr>
+<td>12.1</td>
+<td>5 吋</td>
+<td>88dB</td>
+<td>8Ω 相容，最低 4Ω</td>
+<td>20–100W</td>
+</tr>
+<tr>
+<td>12.2</td>
+<td>6.5 吋</td>
+<td>88dB</td>
+<td>8Ω 相容，最低 4Ω</td>
+<td>20–120W</td>
+</tr>
+</tbody>
+</table>
+<p>資料參考：Wharfedale 官方產品規格。</p>
+<p>聲音特色與選擇：</p>
+<ul>
+<li>12.0：適合電腦桌面、小型書房。</li>
+<li>12.1：人聲、爵士、古典、流行音樂都適合，整體平衡。</li>
+<li>12.2：低頻延伸更好，適合客廳或較大的書房。</li>
+</ul>
+<p>我會優先推薦 Diamond 12.1。它的靈敏度、阻抗與建議擴大機功率，都很適合 O-NOORUS A80 這種小型 D 類擴大機。</p>
+<h4>2. ELAC Debut 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/rBIWv_4Lw0PxjTUUBQGWdmQFKSwkCH1V9pG1QX1-DMzIjwPV2qyajIb_QQ3DKdIhylEb_KhG_mhgm-N86hpiAbEs6bKkRV2lXsWsAE1P_eKXPw6efw0CglTyQnavJ3VsmZiKKUEFgMHFk0BGdYl3rXBFhT3Xo3QcGGkNM-jXIZI?purpose=inline">Elac Debut 2.0 B5.2</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/BRTlewO1cKQ6Ciuja7k_ZMKC9aQl2_reHs15Tz4UNxApAzu6gx5Aa8xmLgJForX6_LNj4p0S4uzvhAGVnq4-sV-iX9HXpqdYowj_dmZOKZ3voqJQW-tKpUVQCnVhrOBiEmHhCsVesQ8IBVihvxFlFp-ikTSB_kCJGO3HyATbaCA?purpose=inline">Elac Debut B6.2 Bookshelf Speaker</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/32bma33MUvfPyc1zqohTv6swl9WcvWDbdjRrpZ58LOTkMjWdBdAar3KAqW9GnrjJWb6wErvv5XjReMHOQ-VP5EnTO0XP9WZlesBOHG7YUbgwomKlqR3xa8m_gk7SufuTz-5QTnf_94qQugGKaHvzwIF9cfK_aWG44XbqOlQY2mA?purpose=inline">Elac Debut 3.0 DB53 Bookshelf Speakers</a></p>
+<p>ELAC Debut 是另一個值得考慮的系列。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>低音單體</th>
+<th>特色</th>
+<th>建議用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B5.2</td>
+<td>5.25 吋</td>
+<td>細節、音場與低頻平衡</td>
+<td>書房、小客廳</td>
+</tr>
+<tr>
+<td>B6.2</td>
+<td>6.5 吋</td>
+<td>低頻量感較充足</td>
+<td>中型客廳</td>
+</tr>
+<tr>
+<td>DB53</td>
+<td>5.25 吋</td>
+<td>新一代 Debut 3.0 系列</td>
+<td>桌面與書房</td>
+</tr>
+</tbody>
+</table>
+<p>聲音特色：</p>
+<ul>
+<li>適合重視樂器細節與聲音層次的聆聽者。</li>
+<li>B5.2 可以作為 O-NOORUS A80 的搭配候選。</li>
+<li>B6.2 比較適合搭配 O-NOORUS D3、AIYIMA A80 或 Fosi ZA3 等有較多功率餘裕的擴大機。</li>
+</ul>
+<p>如果你偏好古典音樂、鋼琴、弦樂或現場錄音，我會把 ELAC 列為優先試聽對象。</p>
+<h4>3. Q Acoustics 3000i 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/ZFgZrhV6_BP7gijyjWqpIp8qfqN-Os-q2Oj-xZZIMFnDVApbXCTcjVcMHrXORB1PIZpDZySzFaqEwUqqoe7lFo6-xg6nUQU1IANb42bYyLPz75edPBR9Cblm96vkbjIRJ4AE0kcaiYTx_borcLNjmxiedKYiwRUw3_psFlcPRos?purpose=inline">Q Acoustics Q3010i Bookshelf Speakers</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/0mgRfGif_cQLXoZQbwUJa4BGBVZVwSF69xqrsxi6Zyhttk2HA6OI002o3562-8aEdCJUEZCoDpoZf26km3pIz3bsk5LsPCUR3hz0zzBu6DR1rpV3vzM8Acx25W67fISALtb9sB8CpnA5aARZT893lOXfk2LZd0Ww_m8BLQwZNO4?purpose=inline">3020i Bookshelf Speaker Pair</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/2S1ZqkSGOoD7OJHiCZEEtd-jGKxfNsudaaxgGPB31pnxgX8O-o19NGH7Wwt5rh5UE0n26HkhNeJIpLEhk1lX5W5zwFICTBPtLOfzVYRPgYhsyuWocBouMf1wDAuTSeiht2Mt3IEn4yLjC3mjTk2n9NTybKDg0yHI0bmauvuLHRM?purpose=inline">Q Acoustics 3030i - Bookshelf Speaker</a></p>
+<p>Q Acoustics 3000i 的特色是相對容易融入一般家庭空間。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>單體尺寸</th>
+<th>適合用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3010i</td>
+<td>4 吋</td>
+<td>電腦桌面、小房間</td>
+</tr>
+<tr>
+<td>3020i</td>
+<td>5 吋</td>
+<td>書房、臥室</td>
+</tr>
+<tr>
+<td>3030i</td>
+<td>6.5 吋</td>
+<td>中型客廳</td>
+</tr>
+</tbody>
+</table>
+<p>聲音特色：</p>
+<ul>
+<li>聲音通常給人自然、寬鬆的感覺。</li>
+<li>3020i 是較均衡的選擇。</li>
+<li>3030i 的低頻量感更充足，適合較大的聆聽空間。</li>
+</ul>
+<p>O-NOORUS A80 搭配 3020i 是值得考慮的組合；若選 3030i，我會更傾向搭配 D3 或 AIYIMA A80。</p>
+<h4>4. DALI Spektor／Oberon 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/d0lZPawzqxP9y1O6L-7j7XOEyzeUGN4Cjo9rRa8G99di5QGR0RQ7qwQQA7WxO5tqLak6oZEZqzHYePSDKDB7Il-8ymOwGStKBwmNED2sL5kUrjH-acg4Vhv6DoE_ZCojkMeTQw7wNsDHDhn84Lsi0t6CyOt4ZgneMJC2AwOiutI?purpose=inline">Dali Spektor 2</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/uKSGjatKXIX7Imgidpnc1gnaaGB7we9VNak5-PBSqxhlCp2O8eGRpJVcxLvxhIoCepzwRG674MH0xRRsgpJOAAwfW2VsHg3z_az3qXUMJ-k7ZlHxEgRHSbmxOzaxmWa68B3w1uVuT-ZtU6DTOCOYM_UjOcTn2or6kvldrIE32Cg?purpose=inline">Dali Oberon 1</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/7S0UdA0qXVr8bQWLufS8BWCiDMiQKZoL_t6PlCPiUXVab9xzF1FiBYtZRWGVdtQ4aWM8pdrrCq_FmP4fdF9Pmi8D8zKsE9RTFDqzZO-yxu4khmi6IR9PoN4LO7_Y8MH8ScEi4l4tBCYcax2R7oTGpIjKxfJE4jsxu-LS2752n_c?purpose=inline">DALI OBERON 3</a></p>
+<p>DALI 的 Spektor 與 Oberon 系列也值得列入試聽清單。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>喇叭類型</th>
+<th>適合用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spektor 2</td>
+<td>5.25 吋書架喇叭</td>
+<td>入門 Hi-Fi</td>
+</tr>
+<tr>
+<td>Oberon 1</td>
+<td>5.25 吋書架喇叭</td>
+<td>小型空間</td>
+</tr>
+<tr>
+<td>Oberon 3</td>
+<td>7 吋書架喇叭</td>
+<td>中型空間</td>
+</tr>
+</tbody>
+</table>
+<p>聲音特色：</p>
+<ul>
+<li>適合人聲、流行音樂、原聲樂器。</li>
+<li>Oberon 系列較適合想進一步提升音響系統的使用者。</li>
+<li>Oberon 3 的體積與低頻能力更大，應搭配有足夠驅動餘裕的擴大機。</li>
+</ul>
+<h4>5. Polk Audio Signature Elite 系列</h4>
+<p><a href="https://images.openai.com/static-rsc-4/gtwl00RGvBMeAvDVfXtnHG6G_24Pyx0FRmV8Y9OxrPqQ8-Bnqna68HOVnVgXxDwatiO_dfT6HABeot3SCVfEjnbhYeX9sDTqjGgxFG1_NbxLrws2FLARGvRo8HnVlXGd_8rcRodNLkSpQOOVbuErNo59x9l0vBSAVGHBi-2EGys?purpose=inline">[Official] Polk Audio Signature Elite ES10 2-Way Passive Desktop Bookshelf Speakers</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/kZT8_aMXyT5drUESNg23grkDL-SZJNniKkH87Yq1iAyg-QlnIjm1S1DXidmih83s4dKX2FFGX6qBTPRcpRPOE-CRHbPp5MBxRXfG-DQ8vi0fbk2xplfGIwJ5HKKsW2y0FrD3nrmypVtv-ThDbZU8eKmteYCHxuc_-yNFCrMpGKY?purpose=inline">ELITE ES15</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/2b29dXRo4uengxu8Eq8idFNB7W38q2IKThjhP1TOzUzxuVQEAcv1IyeuDVNLAuguDVHbefJyXpX75nqQuVA4hM5hOAqdgkY_Q15xsaqyrANWyw_yNlmVkGSV--JJmlww90ChahYWI-ZD07-lbWEx1YjnODG3QXG4FeUELnYn-ZA?purpose=inline">Polk Audio Signature Elite ES20</a></p>
+<p>Polk Audio Signature Elite 也適合考慮。</p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>喇叭類型</th>
+<th>適合用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ES10</td>
+<td>小型書架喇叭</td>
+<td>桌面、環繞聲道</td>
+</tr>
+<tr>
+<td>ES15</td>
+<td>書架喇叭</td>
+<td>書房、臥室</td>
+</tr>
+<tr>
+<td>ES20</td>
+<td>大型書架喇叭</td>
+<td>中型客廳</td>
+</tr>
+</tbody>
+</table>
+<p>Polk 的 Signature Elite 系列可列入電影、流行音樂與家庭娛樂系統的候選名單。ES15 是比較適合與 O-NOORUS A80 搭配的尺寸。</p>
+<h4>四、實際購買時可參考的型號與價格</h4>
+<p>以下是本次搜尋到的商品頁面及平台報價。價格會隨賣場、電源版本、保固、運費及進口稅費改變；尤其海外報價不等於台灣公司貨價格。</p>
+<h4>擴大機</h4>
+<p><a href="https://images.openai.com/thumbnails/url/Q9KignicDclJDoIwAADAF7FGDJAYI0opIhQxYfFikJZFpQWpRHiU__E3Otf5fmrOu8GUJEKL59RxggV-pYpYDTznTSEWrJWGmnVdQ6t1v_qfuQmw4RTRwk-TFvR--cq8yzZ9-809mQWS2Dia7NmaLB0cHLVWg9DdHbMHHKHXxHKEkDaVWhzITCf8bGQUoj1mFUG1A27gRN0s92JLQ0OyjEpbTUO9d0ekzLiFxgb-AAqAPQw">O-noorus A80 80wx2 Ma12070 Digital Power Amplifier Hifi Bluetooth</a></p>
+<h4>NT$3,212.16</h4>
+<p>賣場：eBay</p>
+<p><a href="https://images.openai.com/thumbnails/url/hP5QjXicDclJDoIwAADAF8lWYoDEGKEGArIECwRvZbGFskkbjTzK__gbnet8P1SIhVuy3E71-l5E2-xENQGJcIFFV0v1PMqczsvSTeT4OPzPOkWN6dZpHOljDnrMruS-meVlDm144-rgx6JiwZm9AuwQbES6iCGKWM5KnNANZHqD7J42jrdPPdO4tqa6KXnB4TNjvtvbmpuGAUgQQloAtQEpmdrDglCXMmcFPwPyPJQ">AIYIMA A80 小型擴大機 TPA3255</a></p>
+<p>AIYIMA A80 小型擴大機 TPA3255</p>
+<h4>NT$8,019.00</h4>
+<p>賣場：shopee.tw</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=AIYIMA+A80+%E5%B0%8F%E5%9E%8B%E6%93%B4%E5%A4%A7%E6%A9%9F+TPA3255&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/Joi-dXicDcltDoIgAADQE5WYGdXWmloTa7iZWlt_HH4hVCBBS2_VdbpNvb_v--mM6fXashpRPcfeNPXElMKZUm2IYdW0kg9Ld7LvmaBbtfnf2ovrVVhllzeYeUzsY9V2AzhJFfDUJ_MFLA74eADHO2wF4izKySuQcwXwlUaZzVOdhHykNDQjpDVY3IbiLJaJdgRERbLKStdXue0irS9x5BQE4xyXI-HIdyXZOd4PhGQ91Q">FOSI AUDIO ZA3 音響擴大機</a></p>
+<p>FOSI AUDIO ZA3 音響擴大機 | TPA3255晶片 平衡輸入 RCA輸入 主動式低音輸出 MONO模式 附…</p>
+<h4>NT$5,290.00</h4>
+<p>賣場：蝦皮購物</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=FOSI+AUDIO+ZA3+%E9%9F%B3%E9%9F%BF%E6%93%B4%E5%A4%A7%E6%A9%9F+%7C+TPA3255%E6%99%B6%E7%89%87+%E5%B9%B3%E8%A1%A1%E8%BC%B8%E5%85%A5+RCA%E8%BC%B8%E5%85%A5+%E4%B8%BB%E5%8B%95%E5%BC%8F%E4%BD%8E%E9%9F%B3%E8%BC%B8%E5%87%BA+MONO%E6%A8%A1%E5%BC%8F+%E9%99%8448V5A%E8%AE%8A%E5%A3%93%E5%99%A8&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/9yGq9XicDcnxDoFAHADgJ7qy1ZDN7CTKxLiQ_mnddero6nK_TB7K-3gbvn-_76cEUHpimrxmj14BzxHQ2jIKDRkIZrBGmrpslBJ1MWun_5vgbe6sWOQO6LKTp_iK5WsdozNhXh31dO9WkVPY1cVysI1UTo6NKC8b6dJ2-Q52OiJXinw4iUWQdHMU2-neSsb3rHiLTpbDEHpR4XxwI4iDSPGh5YEX-ounDPUI2h8rlT6R">SMSL AL200,Hi-Fi Amplifier</a></p>
+<p>SMSL AL200,Hi-Fi Amplifier,MA5332MS Stereo D-Class Amplifier…</p>
+<h4>NT$6,824.98</h4>
+<p>賣場：SMSL audio + others</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=SMSL+AL200,Hi-Fi+Amplifier,MA5332MS+Stereo+D-Class+Amplifier+Chip,165W+Output+Power,Integrated+Ear+Amplifier+Output,Third-Generation+XMOS+16+core+XU&amp;utm_source=chatgpt.com">查看商品</a></p>
+<h4>喇叭</h4>
+<p><a href="https://images.openai.com/thumbnails/url/mP15xXicDcnbEkJAAADQL1oyZMpM02DRyK1Uyothd12zNtZDPqe_6m_qvJ7vp-acTZooEorGN-MEA15QSagmnvMGCWjoxakeGGtotX_t_qfpAd46KC51r13A0WIXperjHgeqG8AnoLblcHh2vfDxukYIHqJR1kvYbsJZnw1XTmoYBVKu-ut4blhGG4jtBPi3jmSmcT-RIk3NRYEy5MWqa8eKzD8Lczka">Wharfedale Diamond 12.2 書架喇叭</a></p>
+<h4>NT$16,192.00</h4>
+<p>賣場：momo購物網</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=11%2F9%E5%89%8D%E6%9C%80%E9%AB%98%E5%9B%9E%E9%A5%8B1111%E3%80%90Wharfedale%E3%80%91Diamond+12.2+%E6%9B%B8%E6%9E%B6%E5%96%87%E5%8F%AD+%2F+%E8%BF%8E%E5%AE%B6%E5%85%AC%E5%8F%B8%E8%B2%A8+-+%E4%B8%89%E5%B9%B4%E4%BF%9D%E5%9B%BA&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/9suknHicDcltDoIgAADQE_mZWbm1RltqqbWsZvlPEZEViIKSF-lu3abe3_f9NFJy4RkGYrCfuESVJktm6ljIQhKow5Yaomk5JwxvuvX_PHCsVgG8PvI7HRg1SeeLEsA-LhzLz05OalOB1MKu6Rjdplds5RAcqne2C0Gkif32yZA_8DQYnXqmYZXgJUkKJYa0UmXo0vPcbS_wB8P7NlU">ELAC DB52 書架喇叭</a></p>
+<p>ELAC DB52 書架喇叭</p>
+<h4>NT$15,900.00</h4>
+<p>賣場：沐爾 音響家居 板橋門市</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=ELAC+DB52+%E6%9B%B8%E6%9E%B6%E5%96%87%E5%8F%AD&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/Q7-O7HicDcnRFoEwGADgJ5o4w5pzHKeilDRdqe7yyxZaUzN5Ke_jbfhuv-9HaK36hWVVErq30tUZ6ZMcj3ivS13DCNrG6kWrVC356rH838JJzjSAVLGcbKqb-zSPyEO1SGKxk8NcMuEzU9tPAneaQjewPk5mgPYDHRuDdxfDKM6oH71IznG5LosCFX6DD27I921ASNFRdIAy5qF3M463pbPMnuJrBKl7nPwAEGA8Qw">Q Acoustics 3030i Compact Speakers Pair Black</a></p>
+<h4>NT$20,300.45</h4>
+<p>賣場：Desertcart.ae + others</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=Q+Acoustics+3030i+Compact+Speakers+Pair+Black&amp;utm_source=chatgpt.com">查看商品</a></p>
+<p><a href="https://images.openai.com/thumbnails/url/0inhJ3icDcnbEkJAAADQL8IINZlpGhSRS4UxemNXcttddrfUV_U7_U2d1_P93BkjVJekCoHpRVgFBVYiRawpK1gDRIAHid4xIQ2qt-Pmf7oRwrUDEmiUvnF1LkW8PLjvwD-oXlabPJD7znrs4FgqNJJnuohscLYuyxTxlxfJIG2LXRIKfTp0eWpGT8w8Qb1NKyfO-ezvA42rDR6sKzmBhaNiOI7E3ntam3EXoWNv_AB3LT56">DALI/達尼 SPEKTOR2</a></p>
+<h4>NT$17,870.00</h4>
+<p>賣場：樂天市場購物網</p>
+<p><a href="https://chatgpt.com/?hints=search&amp;q=%E3%80%90%E5%8F%B0%E7%81%A3%E5%85%AC%E5%8F%B8+%E5%8F%AF%E6%89%93%E7%B5%B1%E7%B7%A8%E3%80%91DALI%2F%E9%81%94%E5%B0%BC+SPEKTOR2+%E5%95%9F%E5%85%B82%E7%99%BC%E7%87%92HIFI%E6%9B%B8%E6%9E%B6%E5%BC%8F%E9%9F%B3%E7%AE%B1%E9%AB%98%E4%BF%9D%E7%9C%9F%E7%84%A1%E6%BA%90%E9%9F%B3%E9%9F%BF%E5%96%87%E5%8F%AD&amp;utm_source=chatgpt.com">查看商品</a></p>
+<h4>五、實際搭配組合：哪一台擴大機配哪一對喇叭？</h4>
+<p>以下是比較合理的組合。這些是依照擴大機功率、喇叭尺寸、阻抗與用途所做的搭配建議，並不是說只有這樣配才會好聽。</p>
+<table>
+<thead>
+<tr>
+<th>組合</th>
+<th>擴大機</th>
+<th>喇叭</th>
+<th>適合環境</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>O-NOORUS A80</td>
+<td>Diamond 12.1</td>
+<td>書房、小客廳</td>
+</tr>
+<tr>
+<td>B</td>
+<td>O-NOORUS A80</td>
+<td>DALI Spektor 2</td>
+<td>小型音樂空間</td>
+</tr>
+<tr>
+<td>C</td>
+<td>O-NOORUS D3</td>
+<td>ELAC B5.2</td>
+<td>中型書房、客廳</td>
+</tr>
+<tr>
+<td>D</td>
+<td>AIYIMA A80</td>
+<td>Diamond 12.2</td>
+<td>中型客廳</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Fosi ZA3</td>
+<td>Q Acoustics 3030i</td>
+<td>重視音質、已有 DAC</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Fosi BT20A Max</td>
+<td>Polk ES15</td>
+<td>家庭娛樂、藍牙播放</td>
+</tr>
+</tbody>
+</table>
+<h4>我最推薦的三種組合</h4>
+<p>首選：整體均衡</p>
+<p><a href="https://images.openai.com/static-rsc-4/5zGKUl4M5p-Miv31_5WL9ZQLjX1jdGLRfoCBLfClL9ujsITUZhMMlMsmpDNUS2yEjR02vJ7ZrxcZ8-_W8V84EoXFDLfMmUitGNhCVwn7z1SflErzQV_iQKMNEm0erDxx2P9YAKbrdZIyy23U5es6g09vwrJO5t_fgY3dVDM6x0Y?purpose=inline">SMSL AO200 emits hissing sound only when connected to a tweeter</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/vaoMr9WF5i9uzLWepOdIrCt9_dtpqBrN6ZJOgz-xpy-tkodXZus23yerTjeqeF_i7sp1KpH4BvqeLKSDyJ_AiLr0OtLeUSPNHMFmqvYEwIUsIUyyAaC_nay0oOM3ILFgAUnJWiB_fpV_7Az-_XspZ9moXm4VhB1_VXwVqlUbWbQ?purpose=inline">Wharfedale Diamond 12.1 Bookshelf Speakers</a></p>
+<p>O-NOORUS A80 + Wharfedale Diamond 12.1</p>
+<p>適合人聲、爵士、古典、流行音樂及一般電腦音響。12.1 的 88dB 靈敏度及 8Ω 相容設計，與 A80 的輸出能力相當合適。</p>
+<p>這是我最推薦先試聽的入門 Hi-Fi 組合。</p>
+<p>第二選擇：數位功能完整</p>
+<p><a href="https://images.openai.com/static-rsc-4/moWndTKhSCx0i6T4kZ2cPKn0H09CVDjgKheQyHtPhrMt6jdr5bM4X54mkgOUlHyFPx-rgcc3QOcRdiRj8pEWG56pAmB_VpnK6dE6THsBPnLu_9OesGeHHvbTZduHO-_n8NPIB99CAS6aFSQ4l1irhBeNOPMuyKmbepKkURRZu78?purpose=inline">Aiyima A80 Integrated Amplifier</a></p>
+<p><a href="https://images.openai.com/static-rsc-4/rBIWv_4Lw0PxjTUUBQGWdmQFKSwkCH1V9pG1QX1-DMzIjwPV2qyajIb_QQ3DKdIhylEb_KhG_mhgm-N86hpiAbEs6bKkRV2lXsWsAE1P_eKXPw6efw0CglTyQnavJ3VsmZiKKUEFgMHFk0BGdYl3rXBFhT3Xo3QcGGkNM-jXIZI?purpose=inline">Elac Debut 2.0 B5.2</a></p>
+<p>AIYIMA A80 + ELAC Debut B5.2</p>
+<p>適合以電腦 USB、數位音樂檔案為主要訊源的人。AIYIMA A80 內建 DAC，省去另外購買 DAC 的麻煩；ELAC 則是很值得試聽的書架喇叭。</p>
+<p>第三選擇：日後容易升級</p>
+<p><a href="https://images.openai.com/static-rsc-4/2S1ZqkSGOoD7OJHiCZEEtd-jGKxfNsudaaxgGPB31pnxgX8O-o19NGH7Wwt5rh5UE0n26HkhNeJIpLEhk1lX5W5zwFICTBPtLOfzVYRPgYhsyuWocBouMf1wDAuTSeiht2Mt3IEn4yLjC3mjTk2n9NTybKDg0yHI0bmauvuLHRM?purpose=inline">Q Acoustics 3030i</a></p>
+<p>Fosi ZA3 + Q Acoustics 3030i</p>
+<p>適合已經有 DAC、串流播放器，或未來打算增加更好的前級、訊源及超低音的使用者。</p>
+<h4>六、購買前必須注意的事項</h4>
+<h4>1. 電源供應器不要忽略</h4>
+<p>D 類擴大機的實際輸出功率，很大程度取決於電源供應器。</p>
+<p>例如：</p>
+<ul>
+<li>O-NOORUS A80：使用原廠規格的 24V / 6.5A 電源。</li>
+<li>O-NOORUS D3：常見配置為 36V / 5A。</li>
+<li>AIYIMA A80：依照使用的 24–48V 電源版本而定。</li>
+<li>Fosi ZA3：48V / 5A 版本比 32V / 5A 版本有更大的輸出餘裕。</li>
+</ul>
+<p>不要因為接頭相同，就把不同擴大機的電源互換。必須確認電壓、電流、極性、接頭規格及原廠限制。</p>
+<h4>2. 喇叭阻抗不要只看標示的 8Ω</h4>
+<p>例如 Diamond 12.1 標示 8Ω 相容，但最低阻抗為 4Ω。這表示擴大機實際上仍可能需要承受 4Ω 負載。</p>
+<p>所以不能只看到「8Ω」就認為一定很好推；也要看最低阻抗及阻抗曲線。</p>
+<h4>3. 喇叭線與擺放也會影響結果</h4>
+<ul>
+<li>喇叭線使用一般品質良好的 OFC 銅線即可，不需要一開始就買昂貴線材。</li>
+<li>5 吋喇叭可以先使用 14–16 AWG 喇叭線。</li>
+<li>喇叭高音單體盡量與耳朵同高。</li>
+<li>左右喇叭與聆聽位置形成近似等邊三角形。</li>
+<li>後方反射孔不要緊貼牆壁。</li>
+<li>兩支喇叭要保持相同的正負極接線。</li>
+</ul>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="D類擴音機.html">Previous: D類擴音機</a></div>
+<div class="next"><a href="Rust.html">Next: Rust</a> &gt;&gt;</div>
+</nav>
+<script>
+(function(){
+  function restorePreNewlines(){
+    var nodes=document.querySelectorAll('pre');
+    for(var i=0;i<nodes.length;i++){
+      var pre=nodes[i], html=pre.innerHTML;
+      if(!html) continue;
+      var fixed=html.replace(/<br\s*\/?\s*(?:\s[^>]*)?>/gi,'\n').replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+      if(fixed!==html) pre.innerHTML=fixed;
+    }
+  }
+  function run(){
+    restorePreNewlines();
+    if(!window.SyntaxHighlighter) return;
+    try{
+      if(SyntaxHighlighter.config){ SyntaxHighlighter.config.bloggerMode=true; SyntaxHighlighter.config.stripBrs=false; }
+      if(typeof SyntaxHighlighter.all==='function') SyntaxHighlighter.all();
+    }catch(e){}
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
+  else run();
+})();
+</script>
+</div><!-- /tipue_search_content -->
+
+<div class="container">
+  <div class="row pt-3 mx-auto">
+    <p>
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+      All rights reserved |
+      <i class="icon-heart" aria-hidden="true"></i>
+      by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    </p>
+  </div>
+</div>
+
+</div><!-- /site-wrap -->
+
+<script src="./../static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="./../static/chimper/js/jquery-ui.js"></script>
+<script src="./../static/chimper/js/popper.min.js"></script>
+<script src="./../static/chimper/js/bootstrap.min.js"></script>
+<script src="./../static/chimper/js/owl.carousel.min.js"></script>
+<script src="./../static/chimper/js/jquery.stellar.min.js"></script>
+<script src="./../static/chimper/js/jquery.countdown.min.js"></script>
+<script src="./../static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="./../static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="./../static/chimper/js/aos.js"></script>
+<script src="./../static/chimper/js/main.js"></script>
+</body>
+</html>
