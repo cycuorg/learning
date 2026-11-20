@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta property="head" content="H1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>S3000MKII</title>
+
+<link rel="stylesheet" href="./../static/chimper/fonts/icomoon/style.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/magnific-popup.css">
+<link rel="stylesheet" href="./../static/chimper/css/jquery-ui.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="./../static/chimper/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="./../static/chimper/css/aos.css">
+<link rel="stylesheet" href="./../static/chimper/css/style.css">
+<link rel="shortcut icon" href="./../static/favicons.png">
+
+<style type="text/css">
+.site-section { background-color: #FFFF; padding: 40px 40px; }
+body > div > div.dropdown.open { display: block; }
+img.add_border { border: 3px solid blue; }
+
+.page-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 20px;
+    margin: 24px 0;
+    padding: 12px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-navigation .previous {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
+.page-navigation .next {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+.page-navigation a {
+    display: inline-block;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.page-navigation a:hover {
+    text-decoration: underline;
+}
+</style>
+
+<script src="./../static/chimper/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/normalize.min.css">
+<script src="./../static/tipuesearch/tipuesearch_set.js"></script>
+<script src="tipuesearch_content.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/tipuesearch.css">
+<script src="./../static/tipuesearch/tipuesearch.js"></script>
+
+<script>
+function doSearch() {
+    if (window.jQuery && jQuery.fn.tipuesearch) {
+        jQuery('#tipue_search_input').tipuesearch({
+            newWindow: true,
+            minimumLength: 2,
+            wholeWords: false
+        });
+    }
+}
+
+if (window.jQuery) {
+    jQuery(document).ready(doSearch);
+}
+</script>
+
+<script type="text/javascript" src="./../static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../static/syntaxhighlighter/css/shCoreDefault.css">
+<style>
+pre, pre code, .syntaxhighlighter .line, .syntaxhighlighter table td.code .line {
+  white-space: pre !important; word-wrap: normal !important; word-break: normal !important;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="site-wrap">
+
+<div class="site-mobile-menu">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+<header class="site-navbar py-4 bg-white" role="banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <h1>Learning (學習)</h1>
+
+      <div class="pl-4">
+        <form action="#" onsubmit="return false;">
+          <input type="text"
+                 placeholder="Search"
+                 name="q"
+                 id="tipue_search_input"
+                 pattern=".{2,}"
+                 title="At least 2 characters">
+        </form>
+      </div>
+
+      <div class="col-12 col-md-10 d-none d-xl-block">
+        <nav class="site-navigation position-relative text-right" role="navigation">
+          <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+<li class="active has-children">
+<a href="index.html">Home</a>
+<ul class="dropdown">
+<li><a href="sitemap.html">SMap</a></li>
+</ul>
+</li>
+<li><a href="About.html">About</a></li>
+<li class="has-children"><a href="藍芽喇叭.html">藍芽喇叭</a><ul class="dropdown">
+<li class="has-children"><a href="主動喇叭.html">主動喇叭</a><ul class="dropdown">
+<li><a href="S3000MKII.html">S3000MKII</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="擴音機.html">擴音機</a></li>
+<li class="has-children"><a href="D類擴音機.html">D類擴音機</a><ul class="dropdown">
+<li><a href="O-NOORUS.html">O-NOORUS</a></li>
+</ul>
+</li>
+<li><a href="喇叭.html">喇叭</a></li>
+<li class="has-children"><a href="Rust.html">Rust</a><ul class="dropdown">
+<li><a href="mp3 播放器.html">mp3 播放器</a></li>
+</ul>
+</li>
+</ul>
+
+        </nav>
+      </div>
+
+      <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+           style="position: relative; top: 3px;">
+        <a href="#" class="site-menu-toggle js-menu-toggle text-black">
+          <span class="icon-menu h3"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="tipue_search_content">
+<h1>S3000MKII</h1>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="主動喇叭.html">Previous: 主動喇叭</a></div>
+<div class="next"><a href="擴音機.html">Next: 擴音機</a> &gt;&gt;</div>
+</nav>
+
+<p>EDIFIER S3000MKII 深度解析：設計架構、單體技術、音質特性與實際評價</p>
+<p>值得深入考慮的 Hi-Fi 主動式喇叭 2.0 聲道 256W RMS</p>
+<p>EDIFIER S3000MKII 是一款值得認真研究的產品，原因不只是它標示了 256W 功率，而是它把幾種原本常見於不同價位音響系統的設計整合在一起：</p>
+<ul>
+<li>平面振膜高音單體。</li>
+<li>6.5 吋長衝程鋁膜中低音單體。</li>
+<li>高音與中低音分別驅動的數位功率放大器。</li>
+<li>XMOS 高解析數位音訊處理。</li>
+<li>雙 DSP 數位訊號處理。</li>
+<li>主、副喇叭 5.8GHz 無線傳輸。</li>
+<li>USB、光纖、同軸、XLR、RCA 及藍牙輸入。 它的定位不是一般電腦多媒體喇叭，而是希望讓使用者不必另外購買 DAC、前級擴大機及後級擴大機，就能建立完整的立體聲 Hi-Fi 系統。</li>
+</ul>
+<p>以下從聲學、電子電路、單體、箱體、音場及外部評價逐項分析。</p>
+<p>一、整體設計架構</p>
+<p>首先了解它的基本架構。 S3000MKII 系統訊號流程 音源輸入</p>
+<p>USB / 光纖 / 同軸 / XLR / RCA / Bluetooth</p>
+<p>數位訊號處理</p>
+<p>XMOS XU216 + DSP</p>
+<p>數位解碼、分頻、音效調整</p>
+<p>高音通道 8W 平面振膜高音</p>
+<p>中低音通道 120W 6.5 吋鋁膜單體</p>
+<p>每一聲道獨立發聲</p>
+<p>左右喇叭透過 5.8GHz 無線連接</p>
+<p>每一只喇叭本身都是主動式設計，<strong>左右兩邊都需要接電源</strong>，但不需要另外接一條傳統喇叭線連接左右聲道。</p>
+<p>這種架構有幾項重要優勢：</p>
+<ol>
+<li>不必購買外接擴大機。</li>
+<li>不必另外配置外接 DAC 才能使用數位音源。</li>
+<li>高音和中低音可以分別由功率放大器驅動。</li>
+<li>可以透過 DSP 進行分頻及聲音調校。</li>
+<li>左右喇叭擺位更有彈性。 官方產品資料：EDIFIER S3000MKII 國際官方規格。</li>
+</ol>
+<p>二、最重要的聲學設計：平面振膜高音</p>
+<p>這是 S3000MKII 最值得注意的設計之一。</p>
+<p>一般書架喇叭使用的高音單體，大致可以分成：</p>
+<ul>
+<li>軟半球高音（Soft Dome）。</li>
+<li>金屬半球高音（Metal Dome）。</li>
+<li>絲帶高音（Ribbon）。</li>
+<li>平面振膜高音（Planar Magnetic）。 S3000MKII 使用的是 107 × 107mm 平面振膜高音，而且採用號角負載設計。</li>
+</ul>
+<ol>
+<li>平面振膜的工作原理 一般動圈式高音單體：</li>
+</ol>
+<ul>
+<li>利用音圈通過電流。</li>
+<li>音圈帶動振膜。</li>
+<li>振膜推動空氣。</li>
+<li>形成聲波。 平面磁性振膜則利用磁場與導電振膜上的電流互相作用，使大面積振膜產生運動。</li>
+</ul>
+<p>它的主要特點是：</p>
+<p>振膜可以在較大面積上同步運動。</p>
+<p>理論上有利於：</p>
+<ul>
+<li>降低振膜不同區域的運動差異。</li>
+<li>改善瞬態反應。</li>
+<li>提高高頻細節再現能力。</li>
+<li>控制某些形式的振膜失真。 不過，平面振膜並不代表一定比所有動圈高音好，實際結果仍取決於磁路、振膜材料、分音、阻尼及整體設計。</li>
+</ul>
+<ol start="2">
+<li>為什麼還要使用號角？</li>
+</ol>
+<p>S3000MKII 並不是單純把平面振膜直接暴露在外面，而是搭配號角負載。</p>
+<p>號角的主要功能是：</p>
+<ol>
+<li>改善振膜與空氣之間的聲學耦合。</li>
+<li>提高特定頻段的聲音輻射效率。</li>
+<li>調整聲音擴散角度。</li>
+<li>改變高頻能量在空間中的分布。 這對大型桌面或客廳聆聽很重要。</li>
+</ol>
+<p>如果高音擴散太窄，聆聽位置稍微偏移就可能感覺高音變化明顯；如果擴散特性控制得好，則較容易得到穩定的音場。 3. 實際聽感推論 這個高音設計適合期待以下表現的人： 音樂內容 值得期待的表現 小提琴 弓弦細節、泛音 鋼琴 高音延伸、敲擊瞬態 銅管樂 明亮度與細節 女聲 齒音及氣音細節 鈸及打擊樂 瞬態與高頻延伸</p>
+<p>但要注意，40kHz 的頻率響應上限並不等於人耳可以直接聽到 40kHz，也不能單靠這個數字判定高音音質。 三、6.5 吋長衝程鋁膜中低音單體</p>
+<p>這是整套喇叭能夠呈現較大音量與低頻規模的關鍵。</p>
+<ol>
+<li>為什麼採用 6.5 吋？ 低音單體的尺寸會影響空氣推動能力。</li>
+</ol>
+<p>在其他條件相同的情況下，較大的振膜面積可以在相對較小的振幅下推動較多空氣。</p>
+<p>6.5 吋單體相較於：</p>
+<ul>
+<li>3 吋：低頻規模通常更有優勢。</li>
+<li>4 吋：能提供更大的低頻動態空間。</li>
+<li>5 吋：通常具有較好的低頻量感潛力。 因此，S3000MKII 的 6.5 吋設計適合一般家庭音樂欣賞。</li>
+</ul>
+<ol start="2">
+<li>為什麼使用鋁膜？ 鋁是一種剛性較高、重量相對輕的金屬材料。</li>
+</ol>
+<p>優點包括：</p>
+<ul>
+<li>有利於維持振膜形狀。</li>
+<li>有助於控制低音單體在工作頻段內的振膜運動。</li>
+<li>可以兼顧較高的瞬態反應。 但鋁膜也有需要處理的問題。</li>
+</ul>
+<p>金屬振膜在某些頻率可能產生較明顯的分割振動（Cone Breakup），如果分音設計處理不佳，可能形成特定頻段的峰值或失真。</p>
+<p>所以不能只看鋁膜就認定一定比紙盆或複合材料好。 3. 長衝程設計的重要性 長衝程（Long Throw）意味著振膜可以有較大的前後位移。</p>
+<p>低頻聲音需要推動大量空氣，單體必須有足夠的振膜面積與位移能力。</p>
+<p>其優點是：</p>
+<ul>
+<li>有利於低頻輸出。</li>
+<li>能改善較大音量下的低頻動態。</li>
+<li>有助於降低單體在合理工作範圍內的負擔。 但低頻表現還受到箱體容積、反射孔、DSP、單體參數及房間聲學影響。</li>
+</ul>
+<ol start="4">
+<li>38Hz 低頻代表什麼？ 官方標示頻率響應為： 38Hz – 40kHz 這個數字代表廠商公布的頻率範圍，但台灣官方頁面沒有同時明確標示此數據的容許誤差條件，因此不應直接拿它與其他品牌的 ±3dB 數據比較。</li>
+</ol>
+<p>38Hz 已經進入相當低的低音區域。</p>
+<p>對一般音樂而言：</p>
+<ul>
+<li>爵士低音提琴：有不錯的低頻再現潛力。</li>
+<li>電子低音：可以呈現相當完整的低頻。</li>
+<li>大鼓：有機會呈現較好的衝擊感。</li>
+<li>交響樂低音：可以再現不少低音樂器的基礎頻率。 但是，如果要重現電影院那種 20～30Hz 的超低頻震撼，還是建議另外搭配重低音。 四、內部擴大機與 DSP：它為什麼不需要外接擴大機？ 這是 S3000MKII 與傳統被動式書架喇叭最大的差異之一。</li>
+</ul>
+<ol>
+<li>三個數字要分清楚：8W、120W、256W 官方公布的 RMS 功率配置如下： 單體 左聲道 右聲道 合計 高音 8W 8W 16W 中低音 120W 120W 240W 總計 128W 128W 256W</li>
+</ol>
+<p>這表示它是高音及中低音分開放大的主動式喇叭。</p>
+<p>這種設計稱為 Bi-amping（雙功放）。</p>
+<p>傳統被動式喇叭通常使用一台擴大機，先將全頻訊號送進喇叭，再由被動分音器將不同頻率分配給高音和低音單體。</p>
+<p>S3000MKII 則是：</p>
+<ul>
+<li>先進行電子分頻。</li>
+<li>高音訊號交給高音功率放大器。</li>
+<li>中低音訊號交給中低音功率放大器。</li>
+<li>各自直接驅動對應的單體。 這樣可以讓 DSP 更直接地控制兩個頻段的輸出。</li>
+</ul>
+<p>重要：256W 是整套左右喇叭的官方 RMS 額定輸出，不是每一只喇叭 256W。</p>
+<p>2. Class-D 數位功率放大器 S3000MKII 使用 Texas Instruments（德州儀器）的 PurePath Ultra-HD Class-D 放大技術。</p>
+<p>這種設計有幾個優點：</p>
+<ul>
+<li>效率高。</li>
+<li>體積相對小。</li>
+<li>發熱量較容易控制。</li>
+<li>適合整合進主動式喇叭。</li>
+<li>可以提供足夠的功率供大型單體使用。 不過 Class-D 並不代表音質一定比 Class-AB 好，也不代表一定比較差。</li>
+</ul>
+<p>最終音質還是要看電源供應、電路設計、失真控制、輸出濾波及喇叭單體的匹配。</p>
+<p>3. XMOS XU216：數位音訊處理核心</p>
+<p>XMOS XU216 是這套系統的重要數位音訊處理元件。</p>
+<p>它負責處理數位音訊資料及相關介面工作。</p>
+<p>官方列出的數位音訊能力包括： 介面 支援規格 USB 最高 24bit / 192kHz 光纖 最高 24bit / 192kHz 同軸 最高 24bit / 192kHz Bluetooth aptX HD 最高 24bit / 48kHz 左右喇叭無線傳輸 最高 24bit / 96kHz</p>
+<p>這裡有一個很重要的觀念：</p>
+<p>高解析音訊的規格，不等於實際聽感一定比較好。</p>
+<p>例如：</p>
+<ul>
+<li>16bit / 44.1kHz 的優質錄音可以非常好聽。</li>
+<li>24bit / 192kHz 的錄音也可能因為混音、母帶或錄音品質不佳而不好聽。 因此 XMOS 的價值主要在於它提供足夠的數位處理能力，以及完整的高解析輸入支援。</li>
+</ul>
+<ol start="4">
+<li>雙 DSP 的真正價值 DSP（Digital Signal Processing）是數位訊號處理。</li>
+</ol>
+<p>它在主動式喇叭中非常重要。</p>
+<p>可能涉及的工作包括：</p>
+<ol>
+<li>電子分頻。</li>
+<li>頻率響應調整。</li>
+<li>相位與時間特性調整。</li>
+<li>動態範圍管理。</li>
+<li>喇叭單體保護。</li>
+<li>不同音效模式的 EQ 調整。 特別是 6.5 吋鋁膜中低音單體與平面振膜高音的銜接，需要相當仔細的分頻設計。</li>
+</ol>
+<p>這也是為什麼主動式喇叭不能只看單體材料，還必須看內部的電子設計。</p>
+<p>五、箱體設計：21mm MDF 與低頻反射式結構</p>
+<p>喇叭箱體不是單純用來安裝單體的外殼。</p>
+<p>它本身也是整個聲學系統的一部分。</p>
+<ol>
+<li>MDF 箱體 官方資料提到箱體使用約 21mm MDF 板材，並採用弧形側板設計。</li>
+</ol>
+<p>MDF（Medium Density Fiberboard，中密度纖維板）具有以下特點：</p>
+<ul>
+<li>材質均勻。</li>
+<li>加工容易。</li>
+<li>有利於控制箱體共振。</li>
+<li>適合製作音響箱體。 較厚的箱板有助於提高結構剛性，但也不能單憑厚度就認定箱體完全不會共振。</li>
+</ul>
+<p>箱體內部支撐、接合方式、阻尼材料及單體固定結構都很重要。 2. 後置低音反射孔 S3000MKII 採用低音反射式（Bass Reflex）箱體設計。</p>
+<p>低音反射孔的工作原理是利用箱體內部空氣與孔道中的空氣形成共振系統。</p>
+<p>在適當調校下，可以讓反射孔在特定低頻範圍協助輸出聲音。</p>
+<p>優點：</p>
+<ul>
+<li>增加低頻輸出效率。</li>
+<li>改善特定頻率附近的低音延伸。</li>
+<li>讓低音單體不必單獨承擔全部低頻輸出。 缺點：</li>
+<li>擺放太靠近牆壁可能產生低頻堆積。</li>
+<li>房間駐波會影響低頻均勻度。</li>
+<li>反射孔本身也可能在高音量時產生氣流噪音。 因此，S3000MKII 不宜直接緊貼牆壁。</li>
+</ul>
+<ol start="3">
+<li>箱體重量與尺寸 項目 規格 寬度 222mm 高度 360mm 深度 268mm 官方國際版整套重量 約 20kg 台灣代理頁面標示 21.5kg</li>
+</ol>
+<p>重量資料有不同版本的標示，購買時應以實際包裝及代理商資料為準。</p>
+<p>這是一套真正有相當體積的書架型喇叭，不是一般小型電腦喇叭。</p>
+<p>六、輸入介面：它其實是一套完整的音響系統</p>
+<p>這方面是 S3000MKII 相當突出的優點。 輸入 使用方式 建議用途 USB Type-B 電腦數位音訊 最推薦電腦使用 Optical 光纖數位音訊 電視、串流設備 Coaxial 同軸數位音訊 CD 播放器、數位轉盤 XLR 平衡類比音訊 錄音介面、專業 DAC RCA 非平衡類比音訊 傳統音響、DAC Bluetooth 無線音訊 手機、平板</p>
+<ol>
+<li>USB：電腦使用的首選 如果主要從 Windows 電腦播放音樂，我會建議直接使用 USB。</li>
+</ol>
+<p>連接方式： Windows 電腦</p>
+<p>USB-A → USB-B</p>
+<p>S3000MKII 主喇叭</p>
+<p>5.8GHz 無線傳輸</p>
+<p>S3000MKII 副喇叭</p>
+<p>Windows 安裝好 USB 音訊驅動後，可以在音效設定中選擇 XMOS USB Audio 裝置。</p>
+<p>播放軟體可以考慮：</p>
+<ul>
+<li>Foobar2000：免費、功能完整。</li>
+<li>MusicBee：適合管理大量音樂。</li>
+<li>JRiver Media Center：音訊及影音管理功能豐富。</li>
+<li>Roon：適合建立完整的數位音樂資料庫，但需要付費。</li>
+</ul>
+<ol start="2">
+<li>XLR：為什麼它值得重視？ XLR 是平衡式類比音訊介面。</li>
+</ol>
+<p>它主要的好處是：</p>
+<ul>
+<li>對長距離傳輸比較有利。</li>
+<li>有助於降低共模電磁干擾。</li>
+<li>適合專業音訊設備連接。 如果未來購買高品質 DAC、錄音介面或前級設備，可以利用 XLR 輸入。</li>
+</ul>
+<p>但必須強調：</p>
+<p>XLR 不代表一定比 RCA 音質好。如果兩者的設備設計、輸出電平及接地狀況不同，結果可能不一樣。</p>
+<p>3. Bluetooth aptX HD 它支援：</p>
+<ul>
+<li>Bluetooth 5.0。</li>
+<li>Qualcomm aptX HD。</li>
+<li>aptX。</li>
+<li>SBC。 如果手機支援 aptX HD，就可以使用相對高品質的藍牙傳輸。</li>
+</ul>
+<p>但 iPhone 一般使用 AAC 藍牙音訊，而不是 aptX HD，因此不能因為喇叭支援 aptX HD，就假設所有手機都能使用它。</p>
+<p>七、五種音效模式：不只是 EQ 預設</p>
+<p>S3000MKII 提供五種音效模式： 模式 設計取向 適合用途 CLASSIC 傳統 Hi-Fi 音效 一般音樂欣賞 MONITOR 平坦監聽取向 音樂分析 DYNAMIC 增加動態感 電影、流行音樂 VOCAL 強調人聲 演唱、Podcast CUSTOM 自訂 EQ 個人化調音</p>
+<p>如何使用？</p>
+<p>CLASSIC</p>
+<p>適合平常欣賞音樂，作為初始聆聽模式。</p>
+<p>MONITOR</p>
+<p>如果要評估音樂本身的錄音品質，我會先使用這個模式。</p>
+<p>但要注意，MONITOR 只是原廠提供的平坦音效取向，並不代表經過專業房間校正後的真正平直頻率響應。</p>
+<p>DYNAMIC</p>
+<p>電影、搖滾、電子音樂可以嘗試。</p>
+<p>VOCAL</p>
+<p>聽人聲、演唱會及 Podcast 可以比較這個模式。</p>
+<p>CUSTOM</p>
+<p>我認為這是最值得慢慢研究的功能。</p>
+<p>透過 EDIFIER ConneX App 可以進行自訂音效調整。建議先保留原廠設定，再小幅調整低音及高音，避免一開始就過度提升 EQ。</p>
+<p>官方操作細節可參考：S3000MKII 原廠使用說明書。</p>
+<p>八、各方評比：專業評測、實際使用者及技術規格怎麼看？ 這部分需要特別區分三種證據：</p>
+<ol>
+<li>原廠公布的技術資料。</li>
+<li>第三方媒體實際聆聽心得。</li>
+<li>儀器量測結果。 目前能找到 S3000MKII 的第三方聆聽評論，但沒有找到足以建立完整頻率響應、失真、指向性及最大聲壓比較的公開標準化量測資料。因此，不能把主觀聽感當成實驗室測試結果。</li>
+<li>香港 feverSound 評測</li>
+</ol>
+<p>2024 年 3 月 13 日｜影音產品評測 觀看 S3000MKII 完整評測</p>
+<p>這個評測比較值得參考的地方，是它不只介紹規格，也實際測試：</p>
+<ul>
+<li>功能及數位解碼。</li>
+<li>左右喇叭無線連接穩定度。</li>
+<li>聲音表現。</li>
+<li>實際音樂播放。 評測涵蓋流行音樂、爵士樂、古典配樂及人聲等不同內容。</li>
+</ul>
+<p>這比單純看產品開箱更有參考價值。</p>
+<p>2. Adam Lobo 的實際使用評測</p>
+<p>S3000MKII 使用及聆聽評測 閱讀完整評測</p>
+<p>這篇評測對聲音的描述有幾個重點：</p>
+<ul>
+<li>聲音清晰。</li>
+<li>中低頻具有厚度。</li>
+<li>低音有衝擊力。</li>
+<li>整體播放有充足的動態。</li>
+<li>藍牙連接的實際表現令人滿意。 其中一個值得注意的描述是，它的中頻帶有溫暖感，低頻有力量，但整體並沒有明顯的混濁感。</li>
+</ul>
+<p>這與它的設計定位判斷相當一致：它並不是單純追求平坦監聽，而是兼顧音樂欣賞及動態表現。</p>
+<p>不過這仍然是個人聆聽心得，不是客觀量測。</p>
+<p>3. 原廠官方技術資料</p>
+<p>EDIFIER 官方規格</p>
+<p>技術規格及產品架構 國際官方產品資料另有台灣代理商規格 台灣官方產品資料</p>
+<p>官方資料能確認：</p>
+<ul>
+<li>107 × 107mm 平面振膜高音。</li>
+<li>6.5 吋長衝程鋁膜中低音。</li>
+<li>256W RMS。</li>
+<li>XMOS XU216。</li>
+<li>5.8GHz 無線連接。</li>
+<li>24bit / 192kHz 數位音訊支援。</li>
+<li>aptX HD。 但官方的「低失真」、「高解析」等描述屬於產品宣傳及設計主張，不能直接視為獨立第三方驗證。</li>
+</ul>
+<ol start="4">
+<li>我對各方評價的綜合整理 評比項目 我的判斷 理由 高音細節 很有潛力 大面積平面振膜設計 中音厚度 值得期待 6.5 吋單體及 DSP 低音規模 優秀 長衝程、低音反射箱體 音場定位 有優勢 左右分離式喇叭架構 動態能力 優秀 獨立功放及充足額定功率 數位功能 非常完整 XMOS、USB、光纖、同軸 操作便利性 優秀 遙控、OLED、App 專業監聽準確性 尚待量測 沒有完整獨立量測可確認</li>
+</ol>
+<p>結論是：它的優勢不在某一個單體特別突出，而在於整套聲學及電子系統的整合。</p>
+<p>九、S3000MKII 與其他同級喇叭比較 我認為這是決定是否購買前最值得做的功課。</p>
+<p>EDIFIER S3000MKII</p>
+<p>6.5 吋鋁膜＋平面振膜高音。</p>
+<p>特色：數位輸入、無線左右聲道、Hi-Fi 家用功能整合。</p>
+<p>KALI LP-6 V2</p>
+<p>6.5 吋低音＋1 吋軟半球高音。</p>
+<p>特色：專業監聽、擺位 EQ、平衡輸入。</p>
+<p>TANNOY GOLD 5</p>
+<p>5 吋同軸單體。</p>
+<p>特色：同軸聲源、定位及近場監聽。</p>
+<p>EDIFIER S2000MKIII</p>
+<p>5.5 吋鋁膜＋平面振膜高音。</p>
+<p>特色：家用 Hi-Fi、價格較低、功能便利。</p>
+<p>這裡最重要的差異是：</p>
+<p>KALI 和 TANNOY 比較接近專業監聽器材，而 S3000MKII 是整合型 Hi-Fi 系統。</p>
+<p>如果把 DAC、前級、遙控器、無線連接及擴大機全部納入成本，S3000MKII 的價格競爭力會更明顯。</p>
+<p>十、實際使用時，應該如何擺放？ 這是 S3000MKII 能否發揮實力的關鍵。</p>
+<ol>
+<li>桌面使用 如果放在電腦桌上：</li>
+</ol>
+<ul>
+<li>左右喇叭距離約 1.2～1.8 公尺。</li>
+<li>聆聽距離約 1.2～2 公尺。</li>
+<li>高音盡量與耳朵同高。</li>
+<li>喇叭底部使用避震墊。</li>
+<li>不要直接貼近後牆。 但要注意，S3000MKII 每只喇叭尺寸為 222 × 360 × 268mm，重量也不輕。一般電腦桌未必適合直接放置。</li>
+</ul>
+<ol start="2">
+<li>客廳使用 如果空間允許，我更推薦使用專用喇叭架。</li>
+</ol>
+<p>建議： 項目 建議 左右喇叭間距 1.8～2.5 公尺 聆聽距離 2～3 公尺 高音高度 接近耳朵高度 離後牆距離 先從 30～60cm 試起 左右角度 稍微朝向聆聽位置</p>
+<p>這些是初始擺位建議，不是固定標準。最後仍需根據房間及低頻表現調整。</p>
+<p>十一、S3000MKII 的缺點與購買前必須注意的事</p>
+<p>不要因為它的規格漂亮，就認為它沒有缺點。</p>
+<p>缺點 實際影響 體積較大 不適合狹小桌面 重量較重 搬運及擺位不方便 後置反射孔 靠牆時需要注意低頻堆積 沒有 HDMI ARC 連接電視需要光纖或其他音源方式 沒有 Wi-Fi 串流 不具備內建網路音樂播放功能 Bluetooth 5.0 不是最新藍牙世代 沒有內建房間校正麥克風 不能自動測量房間並完成聲學補償 不能更換外接後級 擴大機系統已整合在喇叭內</p>
+<p>另外還有兩個容易忽略的問題：</p>
+<p>第一：左右兩顆喇叭都需要電源。</p>
+<p>5.8GHz 無線連接只是取代左右喇叭之間的音訊訊號線，不代表副喇叭不需要電源。</p>
+<p>第二：無線傳輸不等於整套音響完全無線。</p>
+<p>音源仍然需要連接主喇叭，左右兩側仍需供電。</p>
+<p>十二、目前值得購買的價格</p>
+<p>EDIFIER S3000MKII NT$15,570 近期比價資料所列最低價格，實際成交及庫存以賣場為準。</p>
+<p>台灣代理建議售價 NT$18,900。 查看台灣各通路即時比價</p>
+<p>我會把價格分成以下幾個區間： 成交價格 我的建議 15,000～16,000 非常值得買 16,000～17,000 值得買 17,000～18,000 合理價格 18,000～18,900 可比較其他競品 超過 18,900 不建議急著購買</p>
+<p>購買時要確認台灣公司貨、保固期限、退換貨條件及左右喇叭無線連接是否正常。</p>
+<p>十三、最後總結：這套喇叭真正的價值在哪裡？ 我把 S3000MKII 的價值歸納成五個部分：</p>
+<ol>
+<li>高音技術</li>
+</ol>
+<p>平面振膜高音加上號角負載，提供不同於一般絲膜或金屬半球高音的設計特色。 2. 低頻能力</p>
+<p>6.5 吋長衝程鋁膜中低音，具有較好的低頻規模及動態潛力。 3. 數位音訊架構</p>
+<p>XMOS、DSP、獨立功放，讓整套喇叭不需要外接擴大機及 DAC。 4. 無線左右聲道</p>
+<p>5.8GHz 連接可以減少喇叭之間的訊號線，改善居家配置彈性。 5. 完整功能</p>
+<p>USB、XLR、光纖、同軸、RCA、藍牙、遙控器及 App，涵蓋相當多的使用情境。 我的最終評價 如果以台幣 16,000～18,000 元的成交價格來看，我認為 EDIFIER S3000MKII 是相當有競爭力的主動式 Hi-Fi 喇叭。</p>
+<p>但我不會把它稱為兩萬元以下音質絕對最好的喇叭。缺少完整獨立量測、不同房間的聲學差異，以及個人聽感偏好，都會影響最終判斷。</p>
+<p>如果我自己要購買一套不必再另外添購擴大機、DAC，能長期欣賞音樂的主動式喇叭，S3000MKII 會列入優先試聽名單。</p>
+<p>十四、我還建議進一步研究一件事：如何讓 S3000MKII 發揮最佳音質？ 如果購買這套喇叭，我認為不應該只把它接上電腦就結束。</p>
+<p>還有幾個值得研究的方向：</p>
+<ol>
+<li>使用 USB 直連與外接高階 DAC＋XLR，兩種方式究竟有沒有聽感差異？</li>
+<li>Foobar2000、MusicBee、JRiver 如何設定才能發揮 24bit/192kHz 的能力？</li>
+<li>如何針對古典音樂、交響樂、爵士樂調整 EQ？</li>
+<li>如何利用 REW（Room EQ Wizard）測量房間頻率響應，改善低頻駐波？</li>
+<li>是否值得另外購買主動式重低音，建立 2.1 聲道系統？ 其中我最推薦研究第 1 項：S3000MKII 內建 DAC 與外接高階 DAC 的比較。</li>
+</ol>
+<p>因為這會直接影響你是否需要再花費數千至上萬元購買 DAC，也能避免重複投資。</p>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="主動喇叭.html">Previous: 主動喇叭</a></div>
+<div class="next"><a href="擴音機.html">Next: 擴音機</a> &gt;&gt;</div>
+</nav>
+<script>
+(function(){
+  function restorePreNewlines(){
+    var nodes=document.querySelectorAll('pre');
+    for(var i=0;i<nodes.length;i++){
+      var pre=nodes[i], html=pre.innerHTML;
+      if(!html) continue;
+      var fixed=html.replace(/<br\s*\/?\s*(?:\s[^>]*)?>/gi,'\n').replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+      if(fixed!==html) pre.innerHTML=fixed;
+    }
+  }
+  function run(){
+    restorePreNewlines();
+    if(!window.SyntaxHighlighter) return;
+    try{
+      if(SyntaxHighlighter.config){ SyntaxHighlighter.config.bloggerMode=true; SyntaxHighlighter.config.stripBrs=false; }
+      if(typeof SyntaxHighlighter.all==='function') SyntaxHighlighter.all();
+    }catch(e){}
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
+  else run();
+})();
+</script>
+</div><!-- /tipue_search_content -->
+
+<div class="container">
+  <div class="row pt-3 mx-auto">
+    <p>
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+      All rights reserved |
+      <i class="icon-heart" aria-hidden="true"></i>
+      by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    </p>
+  </div>
+</div>
+
+</div><!-- /site-wrap -->
+
+<script src="./../static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="./../static/chimper/js/jquery-ui.js"></script>
+<script src="./../static/chimper/js/popper.min.js"></script>
+<script src="./../static/chimper/js/bootstrap.min.js"></script>
+<script src="./../static/chimper/js/owl.carousel.min.js"></script>
+<script src="./../static/chimper/js/jquery.stellar.min.js"></script>
+<script src="./../static/chimper/js/jquery.countdown.min.js"></script>
+<script src="./../static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="./../static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="./../static/chimper/js/aos.js"></script>
+<script src="./../static/chimper/js/main.js"></script>
+</body>
+</html>

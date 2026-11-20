@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta property="head" content="H1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>主動喇叭</title>
+
+<link rel="stylesheet" href="./../static/chimper/fonts/icomoon/style.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/magnific-popup.css">
+<link rel="stylesheet" href="./../static/chimper/css/jquery-ui.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./../static/chimper/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="./../static/chimper/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="./../static/chimper/css/aos.css">
+<link rel="stylesheet" href="./../static/chimper/css/style.css">
+<link rel="shortcut icon" href="./../static/favicons.png">
+
+<style type="text/css">
+.site-section { background-color: #FFFF; padding: 40px 40px; }
+body > div > div.dropdown.open { display: block; }
+img.add_border { border: 3px solid blue; }
+
+.page-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 20px;
+    margin: 24px 0;
+    padding: 12px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-navigation .previous {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
+.page-navigation .next {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+.page-navigation a {
+    display: inline-block;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.page-navigation a:hover {
+    text-decoration: underline;
+}
+</style>
+
+<script src="./../static/chimper/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/normalize.min.css">
+<script src="./../static/tipuesearch/tipuesearch_set.js"></script>
+<script src="tipuesearch_content.js"></script>
+<link rel="stylesheet" href="./../static/tipuesearch/css/tipuesearch.css">
+<script src="./../static/tipuesearch/tipuesearch.js"></script>
+
+<script>
+function doSearch() {
+    if (window.jQuery && jQuery.fn.tipuesearch) {
+        jQuery('#tipue_search_input').tipuesearch({
+            newWindow: true,
+            minimumLength: 2,
+            wholeWords: false
+        });
+    }
+}
+
+if (window.jQuery) {
+    jQuery(document).ready(doSearch);
+}
+</script>
+
+<script type="text/javascript" src="./../static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../static/syntaxhighlighter/css/shCoreDefault.css">
+<style>
+pre, pre code, .syntaxhighlighter .line, .syntaxhighlighter table td.code .line {
+  white-space: pre !important; word-wrap: normal !important; word-break: normal !important;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="site-wrap">
+
+<div class="site-mobile-menu">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+<header class="site-navbar py-4 bg-white" role="banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <h1>Learning (學習)</h1>
+
+      <div class="pl-4">
+        <form action="#" onsubmit="return false;">
+          <input type="text"
+                 placeholder="Search"
+                 name="q"
+                 id="tipue_search_input"
+                 pattern=".{2,}"
+                 title="At least 2 characters">
+        </form>
+      </div>
+
+      <div class="col-12 col-md-10 d-none d-xl-block">
+        <nav class="site-navigation position-relative text-right" role="navigation">
+          <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+<li class="active has-children">
+<a href="index.html">Home</a>
+<ul class="dropdown">
+<li><a href="sitemap.html">SMap</a></li>
+</ul>
+</li>
+<li><a href="About.html">About</a></li>
+<li class="has-children"><a href="藍芽喇叭.html">藍芽喇叭</a><ul class="dropdown">
+<li class="has-children"><a href="主動喇叭.html">主動喇叭</a><ul class="dropdown">
+<li><a href="S3000MKII.html">S3000MKII</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="擴音機.html">擴音機</a></li>
+<li class="has-children"><a href="D類擴音機.html">D類擴音機</a><ul class="dropdown">
+<li><a href="O-NOORUS.html">O-NOORUS</a></li>
+</ul>
+</li>
+<li><a href="喇叭.html">喇叭</a></li>
+<li class="has-children"><a href="Rust.html">Rust</a><ul class="dropdown">
+<li><a href="mp3 播放器.html">mp3 播放器</a></li>
+</ul>
+</li>
+</ul>
+
+        </nav>
+      </div>
+
+      <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+           style="position: relative; top: 3px;">
+        <a href="#" class="site-menu-toggle js-menu-toggle text-black">
+          <span class="icon-menu h3"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="tipue_search_content">
+<h1>主動喇叭</h1>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="藍芽喇叭.html">Previous: 藍芽喇叭</a></div>
+<div class="next"><a href="S3000MKII.html">Next: S3000MKII</a> &gt;&gt;</div>
+</nav>
+
+
+<p>列出目前 cp 值最高的主動式喇叭五套，單價在台幣兩萬以內，並詳細分析各套特點以及入選原因。</p>
+<h4><strong>2026 年 CP 值最高的五套主動式喇叭推薦</strong></h4>
+<p>如果預算設定在 <strong>新台幣 20,000 元以內（一套左右聲道、一對喇叭）</strong>，目前值得優先考慮的產品，不應只看輸出瓦數或品牌知名度，而應該綜合以下條件：</p>
+<ol>
+<li>音質：高、中、低頻的平衡、解析力及音場。</li>
+<li>單體：高音與低音單體的材料、尺寸及設計。</li>
+<li>擴大機：內建功率、分音及 DSP 數位處理能力。</li>
+<li>輸入介面：USB、光纖、RCA、XLR、藍牙等。</li>
+<li>使用環境：電腦桌面、客廳、音樂欣賞、影片及音樂製作。</li>
+<li>價格：以台灣市場能找到的公司貨或正常零售價格為準。</li>
+</ol>
+<p>我特別把產品分成兩個方向：</p>
+<ul>
+<li><strong>Hi-Fi 欣賞型</strong>：重視音樂感染力、低頻厚度、音場及日常使用便利性。</li>
+<li><strong>錄音室監聽型</strong>：重視聲音還原、細節、定位及頻率準確性。</li>
+</ul>
+<p>這兩種類型沒有絕對的優劣，主要取決於聆聽習慣。</p>
+<h4><strong>一、五套推薦總表</strong></h4>
+<p>價格為 2026 年 11 月查詢到的台灣市場參考價，實際成交價、庫存及保固依店家為準。</p>
+<table>
+<thead>
+<tr>
+<th>推薦</th>
+<th>型號</th>
+<th>參考價格</th>
+<th>最主要特色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>EDIFIER S3000MKII</td>
+<td>$17,300～18,900</td>
+<td>綜合音質與功能</td>
+</tr>
+<tr>
+<td>2</td>
+<td>KALI LP-6 V2</td>
+<td>$17,500</td>
+<td>監聽、低頻與解析力</td>
+</tr>
+<tr>
+<td>3</td>
+<td>TANNOY GOLD 5</td>
+<td>$17,500～19,800</td>
+<td>同軸單體、音像定位</td>
+</tr>
+<tr>
+<td>4</td>
+<td>EDIFIER S2000MKIII</td>
+<td>$14,900</td>
+<td>Hi-Fi 音樂欣賞</td>
+</tr>
+<tr>
+<td>5</td>
+<td>IK Multimedia iLoud Micro Monitor</td>
+<td>約 $10,980</td>
+<td>小空間、桌面近場</td>
+</tr>
+</tbody>
+</table>
+<p>以上五款都是主動式喇叭，不需要另外購買傳統立體聲擴大機。價格比較時以一對為單位，尤其錄音室監聽喇叭必須注意有些商家標示的是單顆價格。</p>
+<h4><strong>二、五款喇叭詳細分析</strong></h4>
+<h4><strong>1. EDIFIER S3000MKII — 綜合表現最值得優先考慮</strong></h4>
+<p>綜合首選</p>
+<h4><strong>NT$17,300～18,900</strong></h4>
+<p>2.0 聲道／一對</p>
+<p><strong>產品定位：</strong> 中高階 Hi-Fi 家用主動式喇叭。</p>
+<p><strong>推薦理由：</strong> 在這個預算內，提供相當完整的單體、數位處理、輸入介面及無線功能。</p>
+<p><strong>主要規格</strong></p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高音</td>
+<td>平面振膜高音</td>
+</tr>
+<tr>
+<td>中低音</td>
+<td>6.5 吋鋁膜單體</td>
+</tr>
+<tr>
+<td>輸出功率</td>
+<td>256W</td>
+</tr>
+<tr>
+<td>頻率響應</td>
+<td>38Hz～40kHz</td>
+</tr>
+<tr>
+<td>藍牙</td>
+<td>aptX HD</td>
+</tr>
+<tr>
+<td>數位輸入</td>
+<td>USB、光纖、同軸</td>
+</tr>
+<tr>
+<td>類比輸入</td>
+<td>RCA、平衡 XLR</td>
+</tr>
+<tr>
+<td>主副喇叭</td>
+<td>5.8GHz 無線連接</td>
+</tr>
+</tbody>
+</table>
+<p>資料來源：EDIFIER 台灣官方產品規格及售價。</p>
+<p><strong>聲音特性分析</strong></p>
+<ul>
+<li>高音：平面振膜單體有利於快速瞬態反應，細節及高頻延伸是主要賣點。</li>
+<li>中音：6.5 吋單體具有一定的動態及人聲厚度。</li>
+<li>低音：38Hz 的標示下限，在這五款當中具備相當好的全頻播放潛力。</li>
+<li>音場：適合聆聽交響樂、爵士樂、流行音樂及電影配樂。</li>
+</ul>
+<p><strong>特別值得注意的設計</strong></p>
+<p>它使用三顆全數位功放晶片及雙 DSP，並非單純把一般擴大機塞進喇叭箱體。主、副喇叭之間使用 5.8GHz 無線連接，能減少兩箱之間的訊號線配置。</p>
+<p><strong>缺點</strong></p>
+<ul>
+<li>體積和重量較大，不適合狹小桌面。</li>
+<li>如果追求錄音室級別的中性監聽，它不一定是最理想選擇。</li>
+<li>256W 是廠商標示功率，不能直接拿來與其他品牌不同測試條件的瓦數比較。</li>
+</ul>
+<p><strong>我的評價：</strong> 如果希望一套喇叭同時負責電腦、音樂、電影及客廳日常聆聽，這款是五款中最全面的選擇。</p>
+<h4><strong>2. KALI Audio LP-6 V2 — 監聽音質與低頻表現的高 CP 值選擇</strong></h4>
+<p>監聽首選</p>
+<h4><strong>NT$17,500</strong></h4>
+<p>一對價格</p>
+<p><strong>產品定位：</strong> 專業錄音室近場監聽。</p>
+<p><strong>推薦理由：</strong> 6.5 吋低音單體，搭配適合錄音、混音及音樂欣賞的聲音還原取向。</p>
+<p><strong>主要規格</strong></p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高音</td>
+<td>1 吋軟半球高音</td>
+</tr>
+<tr>
+<td>低音</td>
+<td>6.5 吋低音單體</td>
+</tr>
+<tr>
+<td>擴大機</td>
+<td>內建雙功放</td>
+</tr>
+<tr>
+<td>頻率響應</td>
+<td>約 39Hz～25kHz</td>
+</tr>
+<tr>
+<td>輸入</td>
+<td>XLR、TRS、RCA</td>
+</tr>
+<tr>
+<td>類型</td>
+<td>主動式二音路監聽</td>
+</tr>
+</tbody>
+</table>
+<p>台灣通路可查到一對 NT$17,500 的價格。</p>
+<p><strong>聲音特性分析</strong></p>
+<ul>
+<li>低頻：6.5 吋單體提供比一般 4 吋或 5 吋桌面喇叭更好的低頻延伸。</li>
+<li>中頻：人聲、鋼琴及弦樂細節容易辨識。</li>
+<li>高頻：偏向監聽用途，適合判斷錄音中的細節。</li>
+<li>聲場：適合建立左右定位清楚的近場聆聽環境。</li>
+</ul>
+<p><strong>特別值得注意的設計</strong></p>
+<p>LP-6 V2 的背板提供 Boundary EQ 擺位補償，可以根據喇叭靠牆、靠近桌面或放在角落等情況調整聲音。</p>
+<p>這項功能非常實用，因為實際聆聽環境往往會造成低頻堆積。</p>
+<p><strong>缺點</strong></p>
+<ul>
+<li>沒有內建藍牙。</li>
+<li>沒有一般 Hi-Fi 喇叭常見的遙控音量功能。</li>
+<li>需要自行準備適當的音源線及音量控制方式。</li>
+<li>體積不算小，桌面空間不足時較難發揮。</li>
+</ul>
+<p><strong>我的評價：</strong> 如果你重視音樂本身的細節、樂器定位，以及希望聽到錄音原本的聲音，而不是刻意增加低音或高音，這款非常值得考慮。</p>
+<h4><strong>3. TANNOY GOLD 5 — 同軸技術帶來的精準定位</strong></h4>
+<p>定位特色首選</p>
+<h4><strong>NT$17,500～19,800</strong></h4>
+<p>一對價格</p>
+<p><strong>產品定位：</strong> 專業同軸近場監聽。</p>
+<p><strong>推薦理由：</strong> 採用 TANNOY 著名的 Dual Concentric 同軸單體技術。</p>
+<p><strong>主要規格</strong></p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>單體</td>
+<td>5 吋 Dual Concentric</td>
+</tr>
+<tr>
+<td>高音</td>
+<td>0.75 吋鈦金屬高音</td>
+</tr>
+<tr>
+<td>擴大機</td>
+<td>Class AB 雙功放</td>
+</tr>
+<tr>
+<td>總功率</td>
+<td>200W</td>
+</tr>
+<tr>
+<td>輸入</td>
+<td>XLR、TRS</td>
+</tr>
+<tr>
+<td>頻率響應</td>
+<td>約 70Hz～20kHz（±3dB）</td>
+</tr>
+</tbody>
+</table>
+<p>參考價格來自台灣授權經銷及音響通路。</p>
+<p><strong>什麼是同軸單體？</strong></p>
+<p>傳統二音路喇叭通常將高音及低音單體分開排列。</p>
+<p>TANNOY 則將高音單體配置在低音單體的中心軸位置，讓兩者更接近同一個聲學發聲位置。</p>
+<p>這樣的設計有幾個優點：</p>
+<ol>
+<li>有助於改善高低音的時間與空間整合。</li>
+<li>聲音定位更集中。</li>
+<li>對近場聆聽的聲像穩定性有幫助。</li>
+<li>在適當擺位下，聆聽位置的變化較容易保持一致的聲音印象。</li>
+</ol>
+<p><strong>聲音特性分析</strong></p>
+<ul>
+<li>人聲：有助於呈現歌手在中央的位置。</li>
+<li>弦樂：適合欣賞樂器的定位及細節。</li>
+<li>爵士樂：能清楚呈現樂器之間的空間關係。</li>
+<li>古典音樂：適合聆聽小編制及室內樂。</li>
+</ul>
+<p><strong>缺點</strong></p>
+<ul>
+<li>5 吋單體的低頻規模不及 6.5 吋產品。</li>
+<li>沒有 USB、藍牙等方便的一般家用輸入。</li>
+<li>對音源品質、擺位及房間聲學條件仍有要求。</li>
+</ul>
+<p><strong>我的評價：</strong> 如果特別重視人聲、樂器定位及音場的凝聚感，TANNOY GOLD 5 是相當有特色的選擇。它的價值不只是瓦數，而是同軸聲學設計。</p>
+<h4><strong>4. EDIFIER S2000MKIII — 最值得考慮的中價位 Hi-Fi 喇叭</strong></h4>
+<p>中價位首選</p>
+<h4><strong>NT$14,900</strong></h4>
+<p>一對／官方建議售價</p>
+<p><strong>產品定位：</strong> 家用 Hi-Fi 音樂欣賞。</p>
+<p><strong>推薦理由：</strong> 保留高階振膜及 DSP 技術，價格比 S3000MKII 低一截。</p>
+<p><strong>主要規格</strong></p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高音</td>
+<td>平板絲帶振膜高音</td>
+</tr>
+<tr>
+<td>中低音</td>
+<td>5.5 吋鋁盆單體</td>
+</tr>
+<tr>
+<td>輸出功率</td>
+<td>130W</td>
+</tr>
+<tr>
+<td>頻率響應</td>
+<td>45Hz～40kHz</td>
+</tr>
+<tr>
+<td>藍牙</td>
+<td>aptX HD</td>
+</tr>
+<tr>
+<td>輸入</td>
+<td>光纖、同軸、AUX、藍牙</td>
+</tr>
+<tr>
+<td>音場模式</td>
+<td>四種專業調校</td>
+</tr>
+</tbody>
+</table>
+<p>資料來源：EDIFIER 台灣官方網站。</p>
+<p><strong>聲音特性分析</strong></p>
+<p>S2000MKIII 與 S3000MKII 有一些共同技術，例如平面振膜高音、數位 DSP 及 aptX HD。</p>
+<p>但兩者的低音單體尺寸與整體定位不同。</p>
+<ul>
+<li>高音：有不錯的延伸及細節。</li>
+<li>中音：適合流行音樂、人聲及一般樂器欣賞。</li>
+<li>低音：5.5 吋單體能提供不錯的低頻，但不宜期待像大型 6.5 吋喇叭那樣的低頻規模。</li>
+<li>聆聽：比較偏向一般家用音樂欣賞，而非純粹錄音室監聽。</li>
+</ul>
+<p><strong>優點</strong></p>
+<ul>
+<li>價格合理。</li>
+<li>支援 aptX HD。</li>
+<li>有光纖與同軸數位輸入。</li>
+<li>具備遙控器。</li>
+<li>不必額外購買擴大機。</li>
+</ul>
+<p><strong>缺點</strong></p>
+<ul>
+<li>沒有 USB 音訊輸入。</li>
+<li>沒有平衡 XLR 輸入。</li>
+<li>低頻延伸不及 S3000MKII。</li>
+</ul>
+<p><strong>我的評價：</strong> 如果不需要 S3000MKII 的大型箱體、較大的低音單體及更多輸入介面，S2000MKIII 是很有吸引力的選擇。</p>
+<h4><strong>5. IK Multimedia iLoud Micro Monitor — 小空間桌面音響的高 CP 值選擇</strong></h4>
+<p>小桌面首選</p>
+<h4><strong>約 NT$10,980</strong></h4>
+<p>一對參考價</p>
+<p><strong>產品定位：</strong> 超近場監聽及桌面音響。</p>
+<p><strong>推薦理由：</strong> 小體積卻能提供相當完整的音樂監聽功能。</p>
+<p><strong>主要特色</strong></p>
+<ul>
+<li>3 吋低音單體。</li>
+<li>內建雙功放。</li>
+<li>支援藍牙及有線輸入。</li>
+<li>具備桌面及空間位置補償功能。</li>
+<li>專為近距離聆聽設計。</li>
+</ul>
+<p>台灣通路參考價格約 NT$10,980。</p>
+<p><strong>聲音特性分析</strong></p>
+<p>這款最令人意外的是體積與聲音表現的比例。</p>
+<p>一般 3 吋喇叭很難提供令人滿意的低頻，但 iLoud Micro Monitor 透過 DSP、單體及箱體設計，在近場聆聽時可以提供相當完整的聲音。</p>
+<p>優點：</p>
+<ol>
+<li>適合電腦桌面。</li>
+<li>人聲及細節表現清晰。</li>
+<li>不需要很大的聆聽距離。</li>
+<li>可以用於影片剪輯、音樂製作及日常欣賞。</li>
+</ol>
+<p>缺點：</p>
+<ul>
+<li>低頻物理規模仍受到 3 吋單體限制。</li>
+<li>不適合大型客廳或遠距離聆聽。</li>
+<li>如果非常喜歡強烈的低音，仍需要另外搭配重低音。</li>
+</ul>
+<p><strong>我的評價：</strong> 如果桌面空間有限，這款比購買體積過大的喇叭更合理。</p>
+<h4><strong>三、五款喇叭的實際比較</strong></h4>
+<table>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>S3000MKII</th>
+<th>LP-6 V2</th>
+<th>GOLD 5</th>
+<th>S2000MKIII</th>
+<th>iLoud Micro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主要用途</td>
+<td>家用 Hi-Fi</td>
+<td>專業監聽</td>
+<td>專業監聽</td>
+<td>家用 Hi-Fi</td>
+<td>桌面監聽</td>
+</tr>
+<tr>
+<td>低音規模</td>
+<td>很好</td>
+<td>很好</td>
+<td>中等</td>
+<td>良好</td>
+<td>有限</td>
+</tr>
+<tr>
+<td>高音細節</td>
+<td>很好</td>
+<td>很好</td>
+<td>很好</td>
+<td>很好</td>
+<td>很好</td>
+</tr>
+<tr>
+<td>音像定位</td>
+<td>良好</td>
+<td>很好</td>
+<td>很好</td>
+<td>良好</td>
+<td>很好</td>
+</tr>
+<tr>
+<td>藍牙</td>
+<td>有</td>
+<td>無</td>
+<td>無</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>有</td>
+<td>無</td>
+<td>無</td>
+<td>無</td>
+<td>無</td>
+</tr>
+<tr>
+<td>光纖</td>
+<td>有</td>
+<td>無</td>
+<td>無</td>
+<td>有</td>
+<td>無</td>
+</tr>
+<tr>
+<td>XLR</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+<td>無</td>
+<td>無</td>
+</tr>
+<tr>
+<td>遙控</td>
+<td>有</td>
+<td>無</td>
+<td>無</td>
+<td>有</td>
+<td>無</td>
+</tr>
+</tbody>
+</table>
+<p>以上聲音評價是依單體設計、產品定位及規格作出的選購判斷，並非同一測試環境下的實測排名。</p>
+<h4><strong>四、如果是我，會如何選擇？</strong></h4>
+<p>我會依照使用目的做以下排序：</p>
+<p><strong>第一名：EDIFIER S3000MKII</strong></p>
+<p>整體最推薦</p>
+<p>適合希望一套喇叭同時享受音樂、電影、電腦及客廳娛樂的人。</p>
+<p><strong>第二名：KALI LP-6 V2</strong></p>
+<p>如果重視音樂原音、解析力、低頻及錄音室監聽，我會優先選它。</p>
+<p><strong>第三名：TANNOY GOLD 5</strong></p>
+<p>如果重視人聲、樂器定位及同軸技術，這款有獨特價值。</p>
+<h4><strong>五、購買之前，還有三個重要問題</strong></h4>
+<h4><strong>1. 要不要另外購買 DAC？</strong></h4>
+<p>如果使用電腦播放音樂：</p>
+<ul>
+<li>S3000MKII：可直接使用 USB，通常不必另外購買 DAC。</li>
+<li>S2000MKIII：可以使用光纖或同軸 DAC。</li>
+<li>KALI、TANNOY：建議使用具備左右聲道輸出的 DAC 或錄音介面。</li>
+</ul>
+<h4><strong>2. 是否需要重低音？</strong></h4>
+<p>如果聆聽古典交響樂、電子音樂、電影配樂，低頻延伸會影響整體感受。</p>
+<p>S3000MKII 和 LP-6 V2 的低頻規模較值得優先考慮，但如果希望真正重現 30Hz 以下的低頻，仍然可能需要獨立重低音。</p>
+<h4><strong>3. 擺位比想像中重要</strong></h4>
+<p>主動式喇叭不應直接緊貼牆壁或隨意放在桌面。</p>
+<p>建議：</p>
+<ul>
+<li>左右喇叭與聆聽位置形成近似等邊三角形。</li>
+<li>高音單體盡量與耳朵同高。</li>
+<li>左右喇叭保持對稱。</li>
+<li>避免直接放在容易產生共振的桌面。</li>
+<li>使用避震墊或專用喇叭架。</li>
+</ul>
+<h4><strong>六、我的最後建議</strong></h4>
+<p>如果預算就是兩萬元，我會把選擇集中在兩款：</p>
+<p><strong>EDIFIER S3000MKII 與 KALI LP-6 V2。</strong></p>
+<p>兩者代表兩種不同的聲音哲學：</p>
+<ul>
+<li>S3000MKII：讓音樂聽起來豐富、完整、具有娛樂性。</li>
+<li>LP-6 V2：讓你更清楚聽見錄音裡原本存在的細節。</li>
+</ul>
+<p>如果是以長時間欣賞音樂為主，我會偏向 S3000MKII；如果希望兼顧音樂分析、電腦工作及未來音樂製作，我會偏向 KALI。</p>
+<nav class="page-navigation" aria-label="Page navigation">
+<div class="previous">&lt;&lt; <a href="藍芽喇叭.html">Previous: 藍芽喇叭</a></div>
+<div class="next"><a href="S3000MKII.html">Next: S3000MKII</a> &gt;&gt;</div>
+</nav>
+<script>
+(function(){
+  function restorePreNewlines(){
+    var nodes=document.querySelectorAll('pre');
+    for(var i=0;i<nodes.length;i++){
+      var pre=nodes[i], html=pre.innerHTML;
+      if(!html) continue;
+      var fixed=html.replace(/<br\s*\/?\s*(?:\s[^>]*)?>/gi,'\n').replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+      if(fixed!==html) pre.innerHTML=fixed;
+    }
+  }
+  function run(){
+    restorePreNewlines();
+    if(!window.SyntaxHighlighter) return;
+    try{
+      if(SyntaxHighlighter.config){ SyntaxHighlighter.config.bloggerMode=true; SyntaxHighlighter.config.stripBrs=false; }
+      if(typeof SyntaxHighlighter.all==='function') SyntaxHighlighter.all();
+    }catch(e){}
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
+  else run();
+})();
+</script>
+</div><!-- /tipue_search_content -->
+
+<div class="container">
+  <div class="row pt-3 mx-auto">
+    <p>
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+      All rights reserved |
+      <i class="icon-heart" aria-hidden="true"></i>
+      by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    </p>
+  </div>
+</div>
+
+</div><!-- /site-wrap -->
+
+<script src="./../static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="./../static/chimper/js/jquery-ui.js"></script>
+<script src="./../static/chimper/js/popper.min.js"></script>
+<script src="./../static/chimper/js/bootstrap.min.js"></script>
+<script src="./../static/chimper/js/owl.carousel.min.js"></script>
+<script src="./../static/chimper/js/jquery.stellar.min.js"></script>
+<script src="./../static/chimper/js/jquery.countdown.min.js"></script>
+<script src="./../static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="./../static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="./../static/chimper/js/aos.js"></script>
+<script src="./../static/chimper/js/main.js"></script>
+</body>
+</html>
