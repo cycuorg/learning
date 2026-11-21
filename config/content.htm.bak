@@ -30,6 +30,7 @@
 
 
 
+
 <p>all: <a href="https://cycu.org/all">https://cycu.org/all</a> (包羅萬象)</p>
 <p>health: <a href="https://cycu.org/health">https://cycu.org/health</a> (健康)</p>
 <p>recipes: <a href="https://cycu.org/recipes">https://cycu.org/recipes</a> (食譜)</p>
@@ -40,8 +41,8 @@
 <p>tech: <a href="https://cycu.org/tech">https://cycu.org/tech</a> (科技)</p>
 <p>art: <a href="https://cycu.org/art">https://cycu.org/art</a> (藝術)</p>
 <h1>啟動</h1>
-<p><a href="https://drive.google.com/file/d/1J2QBDPMdO_c6zm5Jc3dzzVZnPx3mU7P1/view?usp=sharing">portable_rust</a> (Online TW) 啟動 startup.bat:</p>
-<p><a href="https://drive.google.com/file/d/1fccmZ0qQrYl3wRdoJqb4F6ODgYUNwXtq/view?usp=sharing">portable rust</a> (E Water)</p>
+<p><a href="https://drive.google.com/file/d/1WZp3pJY7NpLk16F-EdHH9Vx2eqfiUcES/view?usp=sharing">portable_rust</a> (Online TW) 啟動 startup.bat:</p>
+<p><a href="https://drive.google.com/file/d/1a-D5q706FasoWD4jxYQTBgwSwqyQtQFs/view?usp=sharing">portable rust</a> (E Water)</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">@echo off
 chcp 65001 &gt;nul
 setlocal ENABLEEXTENSIONS
@@ -366,6 +367,7 @@ EXIT
 </pre>
 <p><br></p>
 <h1>藍芽喇叭</h1>
+
 <h4>5W USB 供電式迷你藍牙喇叭 DIY 完整設計與製作</h4>
 <p>這個專案的目標是自行製作一組體積小、可以直接透過 USB 供電、不需要內建電池，並且能透過手機、平板或電腦播放音樂的 5W 迷你藍牙喇叭。</p>
 <p>我建議採用模組化設計：藍牙接收、音訊放大、USB 電源、喇叭單體及外殼分開處理。這樣不但容易組裝，也方便日後更換零件、升級音質或自行修改電路。</p>
@@ -970,6 +972,7 @@ SPK- ───────── 喇叭 -
 <h2>主動喇叭</h2>
 
 
+
 <p>列出目前 cp 值最高的主動式喇叭五套，單價在台幣兩萬以內，並詳細分析各套特點以及入選原因。</p>
 <h4><strong>2026 年 CP 值最高的五套主動式喇叭推薦</strong></h4>
 <p>如果預算設定在 <strong>新台幣 20,000 元以內（一套左右聲道、一對喇叭）</strong>，目前值得優先考慮的產品，不應只看輸出瓦數或品牌知名度，而應該綜合以下條件：</p>
@@ -1456,6 +1459,7 @@ SPK- ───────── 喇叭 -
 <p>如果是以長時間欣賞音樂為主，我會偏向 S3000MKII；如果希望兼顧音樂分析、電腦工作及未來音樂製作，我會偏向 KALI。</p>
 <h3>S3000MKII</h3>
 
+
 <p>EDIFIER S3000MKII 深度解析：設計架構、單體技術、音質特性與實際評價</p>
 <p>值得深入考慮的 Hi-Fi 主動式喇叭 2.0 聲道 256W RMS</p>
 <p>EDIFIER S3000MKII 是一款值得認真研究的產品，原因不只是它標示了 256W 功率，而是它把幾種原本常見於不同價位音響系統的設計整合在一起：</p>
@@ -1812,6 +1816,7 @@ SPK- ───────── 喇叭 -
 </ol>
 <p>因為這會直接影響你是否需要再花費數千至上萬元購買 DAC，也能避免重複投資。</p>
 <h1>擴音機</h1>
+
 
 
 
@@ -2883,6 +2888,7 @@ SPK- ───────── 喇叭 -
 
 
 
+
 <h4>高 CP 值 D 類音響擴大機與喇叭推薦、比較及購買指南</h4>
 <p>如果要自己組裝一套音質好、價格合理、可以長期使用的桌上型或家庭音響， D 類（Class D）擴大機是目前 DIY 最值得考慮的選擇之一。</p>
 <p>不過，選擇 D 類擴大機時，有一個很重要的觀念：</p>
@@ -3747,6 +3753,7 @@ SPK- ───────── 喇叭 -
 
 
 
+
 <p>首先要釐清一個容易混淆的地方：O-NOORUS A80 與 AIYIMA A80 是兩台不同的擴大機。兩者都叫 A80，但使用的擴大晶片、輸入介面、輸出功率與產品定位都不同。</p>
 <p>如果你指的是 O-NOORUS A80（Infineon MA12070），它是一台體積很小、具備 USB-C、藍牙、RCA、超低音輸出的 D 類綜合擴大機；如果你指的是 AIYIMA A80（TI TPA3255），則是功率與數位輸入規格更高、功能更完整的另一個級別。以下會以 O-NOORUS A80 為主角，並把兩者分開比較，避免買錯。</p>
 <h4>一、O-NOORUS A80：小體積、功能完整的入門 Hi-Fi 擴大機</h4>
@@ -4333,8 +4340,10 @@ SPK- ───────── 喇叭 -
 
 
 
+
 <p><a href="https://www.amazon.com/dp/B0F8PNFBTL">Sony SS-CS5M2 on Amazon</a></p>
 <h1>Rust</h1>
+
 
 
 
@@ -4563,6 +4572,7 @@ cd hello_rust
 </table>
 <p>官方教材已經更新到 Rust 2024 Edition，建議優先使用新版內容，不要只依賴數年前的舊版 PDF。</p>
 <h2>mp3 播放器</h2>
+
 
 
 
